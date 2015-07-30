@@ -1,15 +1,19 @@
 package controller.userLogin;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class UserLogin
  */
+
+//@WebServlet("/Elearning/login")
 public class UserLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,6 +40,27 @@ public class UserLogin extends HttpServlet {
 	}
 
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		if(username.equals("vichet")&&password.equals("123")){
+			HttpSession session = request.getSession();
+			session.setAttribute("user", username);
+			try {
+				response.sendRedirect("/index.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			try {
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
