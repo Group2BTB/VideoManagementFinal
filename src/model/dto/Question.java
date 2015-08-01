@@ -12,7 +12,9 @@ public class Question {
 	private int status;
 	private int approved;
 	
-	
+	public Question(){
+		
+	}
 	public Question(long id, String description, long videoID, long answer_id,
 			Date create_date, int status, int approved) {
 		super();

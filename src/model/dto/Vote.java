@@ -6,7 +6,9 @@ public class Vote {
 	private long videoID;
 	private int level;
 	
-	
+	public Vote(){
+		
+	}
 	public Vote(long userID, long videoID, int level) {
 		super();
 		this.userID = userID;

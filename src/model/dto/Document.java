@@ -8,7 +8,9 @@ public class Document {
 	private String name;
 	private Date create_date;
 	
-	
+	public Document(){
+		
+	}
 	public Document(long id, String name, Date create_date, long userID,
 			int status, int approved) {
 		super();

@@ -11,7 +11,10 @@ public class Answer {
 	private long uerID;
 	private int status;
 	private int approved;
+	
+	public Answer(){
 		
+	}
 	public Answer(long id, String description, long question_id,
 			Date create_date, long uerID, int status, int approved) {
 		super();

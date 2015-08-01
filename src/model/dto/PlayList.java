@@ -14,7 +14,9 @@ public class PlayList {
 	private int status;
 	private int approved;
 	
-	
+	public PlayList(){
+		
+	}
 	public PlayList(long id, String name, String description, long userID,
 			int category_id, Date create_date, Date modifier_date, int status,
 			int approved) {

@@ -9,7 +9,9 @@ public class Department {
 	private int status;
 	private int approved;
 	
-	
+	public Department(){
+		
+	}
 	public Department(long id, String name, String description, long userID,
 			int status, int approved) {
 		super();

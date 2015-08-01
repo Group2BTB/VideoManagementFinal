@@ -14,7 +14,9 @@ public class Category {
 	private Date create_date;
 	private Date modifier_date;
 	
-	
+	public Category(){
+		
+	}
 	public Category(int id, String name, String description, String logo,
 			int parent_id, int status, long userID, Date create_date,
 			Date modifier_date) {

@@ -16,7 +16,9 @@ public class Video {
 	private int status;
 	private int approved;
 	
-	
+	public Video(){
+		
+	}
 	public Video(long id, String name, String description, String url,
 			long docId, String docUrl, Date create_date, Date modifier_date,
 			long uerID, int status, int approved, long view) {

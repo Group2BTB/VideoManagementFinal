@@ -9,7 +9,9 @@ public class History {
 	private long videoID;
 	private Date create_date;
 	
-	
+	public History(){
+		
+	}
 	public History(long id, long userID, long videoID, Date create_date) {
 		super();
 		this.id = id;

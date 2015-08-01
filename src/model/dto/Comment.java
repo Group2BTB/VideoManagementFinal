@@ -14,7 +14,9 @@ public class Comment {
 	private long videoID;
 	private int approved;
 	
-	
+	public Comment(){
+		
+	}
 	public Comment(long id, String description, Date create_date, long like,
 			long unlike, long parent_id, long userID, long videoID, int approved) {
 		super();
