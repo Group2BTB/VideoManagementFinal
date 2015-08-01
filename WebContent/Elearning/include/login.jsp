@@ -59,13 +59,13 @@
 
                     <!-- Start modal body -->
                     <div class="modal-body">
-                        <form action="#" method="post" class="form-horizontal" role="form">
+                        <form action="login" method="post" class="form-horizontal" role="form">
 
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">
+                                        <input id="username" type="text" class="form-control" name="username" value="" placeholder="Username or Email">
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                     <div class="form-group">
                                         <!-- Button -->
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controls">
-                                            <button type="button" href="#" class="btn btn-primary center-block"><i class="glyphicon glyphicon-log-in"></i> Log in </button>
+                                            <button type="submit"class="btn btn-primary center-block"><i class="glyphicon glyphicon-log-in"></i> Log in </button>
                                         </div>
                                     </div>
                                 </div>
