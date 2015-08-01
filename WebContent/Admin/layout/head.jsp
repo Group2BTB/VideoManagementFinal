@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="css/blue.css">
 		<script src="js/jquery-1.11.0.min.js"></script>
 		<script src="js/image.js"></script>
 	</head>
