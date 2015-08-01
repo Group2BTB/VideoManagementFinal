@@ -31,13 +31,13 @@ public class UserDAO {
 	 * @param email is email of user
 	 * @return true if user exists or false if user doesn't exist
 	 */
-	public boolean checkUser(String uname,String email){
+	public boolean checkUser(String e_and_u,String email){
 		
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("select * from tb_users where username=? or email=?");){
 			
 			/*To set data to user object field from result*/
-			stm.setString(1, uname);
+			stm.setString(1, e_and_u);
 			stm.setString(2, email);
 			
 			return stm.executeQuery().next(); 
@@ -183,7 +183,8 @@ public class UserDAO {
 		
 		
 		User uu = new UserDAO().getUser("heng66", "11");
-		uu.setFullName("leang heng11");
+		uu.setFullName("leang heng");
+		uu.setProfile("LyLy11");
 		new UserDAO().updateUser(uu);
 		System.out.println(uu.getParentID());
 		System.exit(0);
