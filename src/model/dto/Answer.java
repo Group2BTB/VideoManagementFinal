@@ -2,8 +2,6 @@ package model.dto;
 
 import java.util.Date;
 
-
-
 public class Answer {
 	
 	private long id;
@@ -11,6 +9,8 @@ public class Answer {
 	private long question_id;	
 	private Date create_date;	
 	private long uerID;
+	private int status;
+	private int approved;
 	
 	public long getId() {
 		return id;
@@ -54,6 +54,4 @@ public class Answer {
 	public void setApproved(int approved) {
 		this.approved = approved;
 	}
-	private int status;
-	private int approved;
 }
