@@ -42,11 +42,11 @@ public class UserLogin extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		if(username.equals("vichet")&&password.equals("123")){
+		if(username.equals("admin")&&password.equals("admin")){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", username);
 			try {
-				response.sendRedirect("/index.jsp");
+				response.sendRedirect("/VideoManagementFinal/index.jsp");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
