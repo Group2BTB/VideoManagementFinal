@@ -23,7 +23,9 @@ public class User {
 	private Date DOB;
 	private int university;
 	
-	
+	public User(){
+		
+	}
 	public User(long id, String name, String passwd, String email,
 			String fullName, String gender, long parentID, String role,
 			int status, int approved, Date create_date, Date modifier_date,
