@@ -21,7 +21,15 @@ public class User {
 	private String phone;
 	private String profile;
 	private Date DOB;
+	private int university;
 	
+	
+	public int getUniversity() {
+		return university;
+	}
+	public void setUniversity(int university) {
+		this.university = university;
+	}
 	public String getGender() {
 		return gender;
 	}
