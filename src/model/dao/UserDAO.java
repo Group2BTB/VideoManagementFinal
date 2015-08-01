@@ -3,6 +3,7 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -221,10 +222,10 @@ public class UserDAO {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
-		if(new  UserDAO().deleteUser(20))
-			System.out.print("win!");
+		
+		System.out.println(new UserDAO().df.format(new UserDAO().df.parse("13-15-2014"))); // to convert and format from string to date
 		
 		System.exit(0);
 		User uu = new UserDAO().getUser("heng22", "11");
