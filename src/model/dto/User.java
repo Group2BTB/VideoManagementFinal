@@ -9,7 +9,8 @@ public class User {
 	private String passwd;
 	private String email;
 	private String fullName;
-	private char gender;
+	private String gender;
+	
 	private long parentID;
 	private String role;
 	private int status;
@@ -20,6 +21,13 @@ public class User {
 	private String phone;
 	private String profile;
 	private Date DOB;
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	
 	public long getId() {
 		return id;
@@ -51,12 +59,7 @@ public class User {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public char getGender() {
-		return gender;
-	}
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
+	
 	public long getParentID() {
 		return parentID;
 	}
