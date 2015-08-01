@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import utilities.DBConnection;
@@ -16,20 +17,62 @@ public class UserDAO {
 	
 	SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 	
-	public boolean insertUser(User usr){
+	/**
+	 * Method checks if user exists or not
+	 * @param uname is name of user
+	 * @param email is email of user
+	 * @return true if user exists or false if user doesn't exist
+	 */
+	public boolean checkUser(String uname,String email){
 		
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement pstm = con.prepareStatement("select * from tb_users where username=? or email=?");
-						PreparedStatement stmInsert = con.prepareStatement("f")){
+				PreparedStatement stm = con.prepareStatement("select * from tb_users where username=? or email=?");){
 			
-			pstm.setString(1, usr.getName());
-			pstm.setString(2, usr.getEmail());
+			stm.setString(1, uname);
+			stm.setString(2, email);
+			
+			return stm.executeQuery().next();
 						
-			ResultSet rs = pstm.executeQuery();
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return true;
+		}
+	}
+	
+	/**
+	 * Method is to insert user's data to table department and parent_id can't be null  
+	 * @param usr is user object
+	 * @return true if user is inserted successfully or false if user can't be inserted
+	 */
+	public boolean insertUser(User usr){
+		
+				
+		try(Connection con = new DBConnection().getConnection();
+				//field DOB need double quotes on the go
+						PreparedStatement stmInsert = con.prepareStatement("insert into tb_users(username"
+								+ ",passwd,email,fullname,gender,parent_id,role,status,approved,department_id,phone,profile,\"" +  "DOB1\") "
+								+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?);")){
+					
+			stmInsert.setString(1, usr.getName());
+			stmInsert.setString(2, usr.getPasswd());
+			stmInsert.setString(3, usr.getEmail());
+			stmInsert.setString(4, usr.getFullName());
+			stmInsert.setString(5, usr.getGender());			
+			stmInsert.setLong(6, usr.getParentID());
+			stmInsert.setString(7, usr.getRole());
+			stmInsert.setInt(8, usr.getStatus());
+			stmInsert.setInt(9, usr.getApproved());
+			stmInsert.setInt(10, usr.getDepartID());
+			stmInsert.setString(11, usr.getPhone());
+			stmInsert.setString(12, usr.getProfile());
+			java.sql.Date sdate = new java.sql.Date(usr.getDOB().getTime());
+			stmInsert.setDate(13, sdate);
 			
-			if(rs.next())
+			if(stmInsert.executeUpdate()==0)
 				return false;
-			return false;
+			
+			return true;
+			
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -68,7 +111,7 @@ public class UserDAO {
 				user.setPasswd(rs.getString("passwd"));
 				user.setEmail(rs.getString("email"));
 				user.setFullName(rs.getString("fullname"));
-				user.setGender(rs.getString("gender").charAt(0));
+				user.setGender(rs.getString("gender"));
 				user.setParentID(rs.getLong("parent_id"));
 				user.setRole(rs.getString("role"));
 				user.setStatus(rs.getInt("status"));
@@ -93,10 +136,28 @@ public class UserDAO {
 	
 	public static void main(String[] args) {
 		
-		User usr = new UserDAO().getUser("ee", "11");
-		if(usr != null)
-			System.out.print(usr.getCreate_date());
-		else
-			System.out.println(usr);
+		
+		User user = new User();
+		user.setName("heng22");
+		user.setPasswd("11");
+		user.setEmail("ww");
+		user.setGender("1");
+		user.setStatus(0);
+		user.setApproved(1);
+		user.setParentID(17);
+		user.setDepartID(7);
+		
+		if(new UserDAO().checkUser(user.getName(), user.getEmail()))
+		{
+			System.out.println("user already exists");
+			return;
+		}
+			
+		
+		Calendar date = Calendar.getInstance();
+		date.set(1990, 10, 20);
+		user.setDOB(date.getTime());
+		
+		System.out.println(new UserDAO().insertUser(user));
 	}
 }
