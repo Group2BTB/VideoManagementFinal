@@ -3,5 +3,5 @@
 <jsp:include page="layout/head.jsp" />
 <jsp:include page="layout/slidebar.jsp" />
 <jsp:include page="layout/top.jsp" />
-<jsp:include page="includes/addUniversity.jsp" />
+<jsp:include page="includes/addUser.jsp" />
 <jsp:include page="layout/footer.jsp" />
