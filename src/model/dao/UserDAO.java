@@ -19,6 +19,12 @@ public class UserDAO {
 	
 	SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 	
+	/**
+	 * Method is to convert form util.Date to sql.Date
+	 * @param date is util.Date to convert
+	 * @return sql.Date
+	 */
+	
 	public java.sql.Date getSqlDate(Date date){
 		
 		return new java.sql.Date(date.getTime()); //convert from util.date to sql.date and return the object sql.Date	
@@ -33,6 +39,7 @@ public class UserDAO {
 	 */
 	public boolean checkUser(String uname,String email){
 		
+		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("select * from tb_users where username=? or email=?");){
 			
@@ -40,7 +47,7 @@ public class UserDAO {
 			stm.setString(1, uname);
 			stm.setString(2, email);
 			
-			return stm.executeQuery().next(); 
+			return stm.executeQuery().next(); //execute the statement
 						
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -54,14 +61,15 @@ public class UserDAO {
 	 * @return true if user is inserted successfully or false if user can't be inserted
 	 */
 	public boolean insertUser(User usr){		
-				
+		
+		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				//field DOB need double quotes on processing(manipulation)
 						PreparedStatement stmInsert = con.prepareStatement("insert into tb_users(username"
 								+ ",passwd,email,fullname,gender,parent_id,role,status,approved,department_id,phone,profile,\"DOB\",university_id) "
 								+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);")){
 			
-			/*To set data to user object field from result*/
+			/*To set data to preparedStatement from user's data*/
 			stmInsert.setString(1, usr.getName());
 			stmInsert.setString(2, usr.getPasswd());
 			stmInsert.setString(3, usr.getEmail());
@@ -78,7 +86,7 @@ public class UserDAO {
 			java.sql.Date sdate = getSqlDate(usr.getDOB()); //convert from util.date to sql.date
 			stmInsert.setDate(13, sdate);
 			
-			if(stmInsert.executeUpdate()==0)
+			if(stmInsert.executeUpdate()==0) //execute the statement
 				return false;
 			
 			return true;
@@ -93,8 +101,8 @@ public class UserDAO {
 
 	/**
 	 * Method is to get data from user 
-	 * @param e_and_u
-	 * @param passwd
+	 * @param e_and_u is email or username of user
+	 * @param passwd is password of user
 	 * @return as user object
 	 */
 	
@@ -106,6 +114,7 @@ public class UserDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement pstm = con.prepareStatement("select * from tb_users where (username=? or email=?) and passwd=?");){
 						
+			/*To set data to preparedStatement from user's data*/
 			pstm.setString(1, e_and_u); //set first value to statement
 			pstm.setString(2,e_and_u); //set second value to statement
 			pstm.setString(3, passwd); //set third value to statement
@@ -145,12 +154,19 @@ public class UserDAO {
 		}		
 	}
 	
+	/**
+	 * Method is to update user's data
+	 * @param usr user object contains data to update to
+	 * @return false if fail to update user's data or true if user is updated successfully
+	 */
 	public boolean updateUser(User usr){
 		
-		try(Connection con = new DBConnection().getConnection();
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_users set username=?, passwd=?, email=?, fullname=?, gender=?"
 						+ ", role=?, status=?, approved=?, modifier_date=?, department_id=?, phone=?, profile=?, \"DOB\"=?, university_id=? where user_id=?")){
 			
+			/*To set data to preparedStatement from user's data*/
 			stm.setString(1, usr.getName());
 			stm.setString(2, usr.getPasswd());
 			stm.setString(3, usr.getEmail());
@@ -167,7 +183,7 @@ public class UserDAO {
 			stm.setInt(14, usr.getUniversity());
 			stm.setLong(15, usr.getId());
 			
-			if(stm.executeUpdate()==0)
+			if(stm.executeUpdate()==0) //execute the statement
 				return false;
 						
 			return true;
@@ -179,14 +195,43 @@ public class UserDAO {
 		}
 	}
 	
+	/**
+	 * Method is to delete user from database by id
+	 * @param id user's id to delete
+	 * @return true if user is deleted successfully or false if fail to delete user
+	 */
+	public boolean deleteUser(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("delete from tb_users where user_id=?");){
+			
+			/*To set data to preparedStatement from user's data*/
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement
+				return false;
+			
+			return true;
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
+		if(new  UserDAO().deleteUser(20))
+			System.out.print("win!");
 		
-		User uu = new UserDAO().getUser("heng66", "11");
-		uu.setFullName("leang heng");
-		uu.setProfile("LyLy11");
-		new UserDAO().updateUser(uu);
-		System.out.println(uu.getParentID());
+		System.exit(0);
+		User uu = new UserDAO().getUser("heng22", "11");
+		uu.setFullName("Leang Heng");
+		uu.setProfile("LyLy");
+		if(!new UserDAO().updateUser(uu));
+			System.out.println(uu);
 		System.exit(0);
 		
 		User user = new User();
