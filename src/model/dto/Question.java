@@ -12,6 +12,18 @@ public class Question {
 	private int status;
 	private int approved;
 	
+	
+	public Question(long id, String description, long videoID, long answer_id,
+			Date create_date, int status, int approved) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.videoID = videoID;
+		this.answer_id = answer_id;
+		this.create_date = create_date;
+		this.status = status;
+		this.approved = approved;
+	}
 	public long getId() {
 		return id;
 	}

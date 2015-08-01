@@ -6,6 +6,13 @@ public class Vote {
 	private long videoID;
 	private int level;
 	
+	
+	public Vote(long userID, long videoID, int level) {
+		super();
+		this.userID = userID;
+		this.videoID = videoID;
+		this.level = level;
+	}
 	public long getUserID() {
 		return userID;
 	}

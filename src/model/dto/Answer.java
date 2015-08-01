@@ -11,7 +11,18 @@ public class Answer {
 	private long uerID;
 	private int status;
 	private int approved;
-	
+		
+	public Answer(long id, String description, long question_id,
+			Date create_date, long uerID, int status, int approved) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.question_id = question_id;
+		this.create_date = create_date;
+		this.uerID = uerID;
+		this.status = status;
+		this.approved = approved;
+	}
 	public long getId() {
 		return id;
 	}

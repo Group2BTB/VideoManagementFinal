@@ -9,6 +9,17 @@ public class Department {
 	private int status;
 	private int approved;
 	
+	
+	public Department(long id, String name, String description, long userID,
+			int status, int approved) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.userID = userID;
+		this.status = status;
+		this.approved = approved;
+	}
 	public long getId() {
 		return id;
 	}

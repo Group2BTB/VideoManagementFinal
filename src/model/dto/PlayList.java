@@ -14,6 +14,21 @@ public class PlayList {
 	private int status;
 	private int approved;
 	
+	
+	public PlayList(long id, String name, String description, long userID,
+			int category_id, Date create_date, Date modifier_date, int status,
+			int approved) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.userID = userID;
+		this.category_id = category_id;
+		this.create_date = create_date;
+		this.modifier_date = modifier_date;
+		this.status = status;
+		this.approved = approved;
+	}
 	public long getId() {
 		return id;
 	}

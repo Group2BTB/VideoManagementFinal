@@ -14,6 +14,21 @@ public class Category {
 	private Date create_date;
 	private Date modifier_date;
 	
+	
+	public Category(int id, String name, String description, String logo,
+			int parent_id, int status, long userID, Date create_date,
+			Date modifier_date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.logo = logo;
+		this.parent_id = parent_id;
+		this.status = status;
+		this.userID = userID;
+		this.create_date = create_date;
+		this.modifier_date = modifier_date;
+	}
 	public int getId() {
 		return id;
 	}

@@ -14,6 +14,20 @@ public class Comment {
 	private long videoID;
 	private int approved;
 	
+	
+	public Comment(long id, String description, Date create_date, long like,
+			long unlike, long parent_id, long userID, long videoID, int approved) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.create_date = create_date;
+		this.like = like;
+		this.unlike = unlike;
+		this.parent_id = parent_id;
+		this.userID = userID;
+		this.videoID = videoID;
+		this.approved = approved;
+	}
 	public long getId() {
 		return id;
 	}

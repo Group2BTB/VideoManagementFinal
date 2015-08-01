@@ -14,6 +14,21 @@ public class University {
 	private Date create_date;
 	private Date modifier_date;
 	
+	
+	public University(int id, String name, String short_name, String address,
+			long userID, int status, int approved, Date create_date,
+			Date modifier_date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.short_name = short_name;
+		this.address = address;
+		this.userID = userID;
+		this.status = status;
+		this.approved = approved;
+		this.create_date = create_date;
+		this.modifier_date = modifier_date;
+	}
 	public int getId() {
 		return id;
 	}

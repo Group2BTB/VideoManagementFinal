@@ -16,6 +16,24 @@ public class Video {
 	private int status;
 	private int approved;
 	
+	
+	public Video(long id, String name, String description, String url,
+			long docId, String docUrl, Date create_date, Date modifier_date,
+			long uerID, int status, int approved, long view) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.url = url;
+		this.docId = docId;
+		this.docUrl = docUrl;
+		this.create_date = create_date;
+		this.modifier_date = modifier_date;
+		this.uerID = uerID;
+		this.status = status;
+		this.approved = approved;
+		this.view = view;
+	}
 	public long getId() {
 		return id;
 	}

@@ -6,6 +6,13 @@ public class Like {
 	private long videoID;
 	private int status;
 	
+	
+	public Like(long id, long videoID, int status) {
+		super();
+		this.id = id;
+		this.videoID = videoID;
+		this.status = status;
+	}
 	public long getId() {
 		return id;
 	}
