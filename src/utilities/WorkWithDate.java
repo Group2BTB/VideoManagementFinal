@@ -4,8 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import model.dao.UserDAO;
-
 public class WorkWithDate {
 
 	SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
