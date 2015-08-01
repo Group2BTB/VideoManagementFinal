@@ -17,6 +17,6 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>permission</filter-name>
-		<url-pattern>/admin/*</url-pattern>
+		<url-pattern>/Admin/*</url-pattern>
 	</filter-mapping>
 </web-app>
