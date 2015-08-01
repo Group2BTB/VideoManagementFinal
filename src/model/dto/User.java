@@ -24,6 +24,30 @@ public class User {
 	private int university;
 	
 	
+	public User(long id, String name, String passwd, String email,
+			String fullName, String gender, long parentID, String role,
+			int status, int approved, Date create_date, Date modifier_date,
+			int departID, String phone, String profile, Date dOB, int university) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.passwd = passwd;
+		this.email = email;
+		this.fullName = fullName;
+		this.gender = gender;
+		this.parentID = parentID;
+		this.role = role;
+		this.status = status;
+		this.approved = approved;
+		this.create_date = create_date;
+		this.modifier_date = modifier_date;
+		this.departID = departID;
+		this.phone = phone;
+		this.profile = profile;
+		DOB = dOB;
+		this.university = university;
+	}
+	
 	public int getUniversity() {
 		return university;
 	}
