@@ -26,13 +26,13 @@
 					</div>
 				</header>
 				<ul id="main-menu" class="main-menu">
-					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Dashboard</span></a>
+					<li><a href="#"><i class="glyphicon glyphicon-home"></i><span class="title">Dashboard</span></a>
 						<ul>						
 							<li><a href="#"><span class="title">Home</span></a></li>
 							<li><a href="#"><span class="title">Help</span></a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Video</span></a>
+					<li><a href="#"><i class="glyphicon glyphicon-facetime-video"></i><span class="title">Video</span></a>
 						<ul>						
 							<li><a href="#"><span class="title">New Video</span></a></li>
 							<li><a href="#"><span class="title">List Videos</span></a></li>
@@ -43,7 +43,7 @@
 							<li><a href="#"><span class="title">Answer</span></a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="entypo-gauge"></i><span class="title">User</span></a>
+					<li><a href="#"><i class="glyphicon glyphicon-user"></i><span class="title">User</span></a>
 						<ul>						
 							<li><a href="#"><span class="title">New User</span></a></li>
 							<li><a href="#"><span class="title">List Users</span></a></li>
@@ -51,7 +51,7 @@
 							<li><a href="#"><span class="title">University</span></a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Report</span></a>
+					<li><a href="#"><i class="glyphicon glyphicon-duplicate"></i><span class="title">Report</span></a>
 						
 					</li>
 				</ul>
