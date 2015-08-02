@@ -26,20 +26,33 @@
 					</div>
 				</header>
 				<ul id="main-menu" class="main-menu">
-					<li><a href="dashboard/main/index.html"><i class="entypo-gauge"></i><span class="title">Dashboard</span></a>
-						<ul>
-							<li><a href="dashboard/main/index.html"><span
-									class="title">Dashboard 1</span></a></li>							
-							<li><a href="skins/black/index.html"><span class="title">Skins</span></a>
-								<ul>
-									<li><a href="skins/black/index.html"><span
-											class="title">Black Skin</span></a></li>
-									<li><a href="skins/white/index.html"><span
-											class="title">White Skin</span></a></li>									
-								</ul>
-							</li>
-							<li><a href="dashboard/highlights/index.html"><span class="title">What's New</span><span class="badge badge-success badge-roundless">v1.8</span></a></li>
+					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Dashboard</span></a>
+						<ul>						
+							<li><a href="#"><span class="title">Home</span></a></li>
+							<li><a href="#"><span class="title">Help</span></a></li>
 						</ul>
+					</li>
+					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Video</span></a>
+						<ul>						
+							<li><a href="#"><span class="title">New Video</span></a></li>
+							<li><a href="#"><span class="title">List Videos</span></a></li>
+							<li><a href="#"><span class="title">Category</span></a></li>
+							<li><a href="#"><span class="title">Playlist</span></a></li>
+							<li><a href="#"><span class="title">Document</span></a></li>
+							<li><a href="#"><span class="title">Question</span></a></li>
+							<li><a href="#"><span class="title">Answer</span></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="entypo-gauge"></i><span class="title">User</span></a>
+						<ul>						
+							<li><a href="#"><span class="title">New User</span></a></li>
+							<li><a href="#"><span class="title">List Users</span></a></li>
+							<li><a href="#"><span class="title">Department</span></a></li>
+							<li><a href="#"><span class="title">University</span></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="entypo-gauge"></i><span class="title">Report</span></a>
+						
 					</li>
 				</ul>
 			</div>
