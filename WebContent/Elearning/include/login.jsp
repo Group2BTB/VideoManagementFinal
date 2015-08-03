@@ -59,7 +59,7 @@
 
                     <!-- Start modal body -->
                     <div class="modal-body">
-                        <form action="login" method="post" class="form-horizontal" role="form">
+                        <form action="login.hrd" method="post" class="form-horizontal" role="form">
 
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -122,7 +122,7 @@
 
                     <!-- Start modal body -->
                     <div class="modal-body">
-                        <form action="#" method="post" class="form-horizontal" role="form">
+                        <form action="Add.hrd" method="post" class="form-horizontal" role="form">
                             <div class="form-group">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="input-group">
@@ -170,7 +170,7 @@
                                     <div class="form-group">
                                         <!-- Button -->
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 controls">
-                                            <button type="button" href="#" class="btn btn-primary center-block"><i class="glyphicon glyphicon-registration-mark"></i> Register </button>
+                                            <button type="submit"class="btn btn-primary center-block"><i class="glyphicon glyphicon-registration-mark"></i> Register </button>
                                         </div>
                                     </div>
                                 </div>
