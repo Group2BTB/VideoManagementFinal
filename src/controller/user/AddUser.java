@@ -1,14 +1,15 @@
 package controller.user;
 
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Date;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import model.dao.UserDAO;
 import model.dto.User;
@@ -50,13 +51,24 @@ public class AddUser extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		
 		if(dao.checkUser(request.getParameter("username"), request.getParameter("email")) == true){
+			//send message to view that username or password exist and ask user input other username or password
+			try {
+				response.setContentType("application/json");
+				response.setCharacterEncoding("utf8");
+				JsonObject obj = new JsonObject();
+				obj.addProperty("message", "Username or Email is already exist!");// set message property
+				response.getWriter().print(obj);//Output message to view as JSON
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}else{
 			User user = new User();
 			user.setName(request.getParameter("username"));
 			user.setPasswd(request.getParameter("password"));
 			user.setEmail(request.getParameter("email"));
-			user.setFullName(request.getParameter("fulname"));
+			user.setFullName(request.getParameter("fullname"));
 			user.setGender(request.getParameter("gender"));
 			user.setParentID(Integer.parseInt(request.getParameter("parentID")));
 			user.setRole(request.getParameter("role"));
@@ -66,8 +78,32 @@ public class AddUser extends HttpServlet {
 			user.setPhone(request.getParameter("phone"));
 			user.setProfile(request.getParameter("profile"));
 			user.setUniversity(Integer.parseInt(request.getParameter("university")));
-			//user.setDOB(Calendar.getInstance((request.getParameter("dob"))));
-			dao.insertUser(user);
+			user.setDOB(new utilities.WorkWithDate().getDate(request.getParameter("dob")));
+			if(dao.insertUser(user)){
+				//send message success to view
+				try {
+					response.setContentType("application/json");
+					response.setCharacterEncoding("utf8");
+					JsonObject obj = new JsonObject();
+					obj.addProperty("message", "Register successfully!");// set message property
+					response.getWriter().print(obj);//Output message to view as JSON
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else{
+				//send not success message to view
+				try {
+					response.setContentType("application/json");
+					response.setCharacterEncoding("utf8");
+					JsonObject obj = new JsonObject();
+					obj.addProperty("message", "Resgister fail!");// set message property
+					response.getWriter().print(obj);//Output message to view as JSON
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 
