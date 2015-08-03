@@ -20,6 +20,16 @@ public class WorkWithDate {
 	}
 	
 	/**
+	 * Method is to format date to a specific string format
+	 * @param date is Date object to format
+	 * @return as String represents date
+	 */
+	public String getFormatDate(Date date){
+		
+		return df.format(date);
+	}
+	
+	/**
 	 * Note: In order to parse string to date, the string must be in the sample format of SimpleDateFormat
 	 * Method is to convert from string to Date object
 	 * @param d is string date to convert to date object
