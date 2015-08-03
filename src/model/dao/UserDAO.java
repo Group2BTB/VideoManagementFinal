@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import utilities.DBConnection;
+import utilities.WorkWithDate;
 import model.dto.User;
 
 /*
@@ -18,19 +19,7 @@ public class UserDAO {
 	
 	
 	
-	SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-	
-	/**
-	 * Method is to convert form util.Date to sql.Date
-	 * @param date is util.Date to convert
-	 * @return sql.Date
-	 */
-	
-	public java.sql.Date getSqlDate(Date date){
-		
-		return new java.sql.Date(date.getTime()); //convert from util.date to sql.date and return the object sql.Date	
-		
-	}
+	//SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
 	 * Method checks if user exists or not
@@ -63,6 +52,7 @@ public class UserDAO {
 	 */
 	public boolean insertUser(User usr){		
 		
+		WorkWithDate d = new WorkWithDate();
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				//field DOB need double quotes on processing(manipulation)
@@ -84,7 +74,7 @@ public class UserDAO {
 			stmInsert.setString(11, usr.getPhone());
 			stmInsert.setString(12, usr.getProfile());
 			stmInsert.setInt(14, usr.getUniversity());
-			java.sql.Date sdate = getSqlDate(usr.getDOB()); //convert from util.date to sql.date
+			java.sql.Date sdate = d.getSqlDate(usr.getDOB()); //convert from util.date to sql.date
 			stmInsert.setDate(13, sdate);
 			
 			if(stmInsert.executeUpdate()==0) //execute the statement
@@ -162,6 +152,7 @@ public class UserDAO {
 	 */
 	public boolean updateUser(User usr){
 		
+		WorkWithDate d = new WorkWithDate();
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_users set username=?, passwd=?, email=?, fullname=?, gender=?"
@@ -176,11 +167,11 @@ public class UserDAO {
 			stm.setString(6, usr.getRole());
 			stm.setInt(7, usr.getStatus());
 			stm.setInt(8, usr.getApproved());			
-			stm.setDate(9, getSqlDate(new Date()));
+			stm.setDate(9, d.getSqlDate(new Date()));
 			stm.setInt(10, usr.getDepartID());
 			stm.setString(11, usr.getPhone());
 			stm.setString(12, usr.getProfile());
-			stm.setDate(13, getSqlDate(usr.getDOB()));
+			stm.setDate(13, d.getSqlDate(usr.getDOB()));
 			stm.setInt(14, usr.getUniversity());
 			stm.setLong(15, usr.getId());
 			
@@ -223,9 +214,9 @@ public class UserDAO {
 	}
 	
 	public static void main(String[] args) throws ParseException {
-		
-		
-		System.out.println(new UserDAO().df.format(new UserDAO().df.parse("13-15-2014"))); // to convert and format from string to date
+	
+		WorkWithDate wwd = new WorkWithDate();
+		System.out.println(wwd.getDate("15/13/2014////"));
 		
 		System.exit(0);
 		User uu = new UserDAO().getUser("heng22", "11");
