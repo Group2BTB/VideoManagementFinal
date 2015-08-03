@@ -20,6 +20,20 @@
 		<link rel="stylesheet" href="css/blue.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
 		
+		<link rel="stylesheet"
+		href="css/select2-bootstrap.css"
+		id="style-resource-1">
+	<link rel="stylesheet" href="css/select2.css"
+		id="style-resource-2">
+	<link rel="stylesheet"
+		href="css/jquery.selectBoxIt.css"
+		id="style-resource-3">
+		
+		
+		
+		
 		<script src="js/jquery-1.11.0.min.js"></script>
 		<script src="js/image.js"></script>
+		
+		
 	</head>

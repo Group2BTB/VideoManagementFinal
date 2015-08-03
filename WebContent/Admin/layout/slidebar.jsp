@@ -36,7 +36,7 @@
 						<ul>						
 							<li><a href="#"><span class="title">New Video</span></a></li>
 							<li><a href="#"><span class="title">List Videos</span></a></li>
-							<li><a href="#"><span class="title">Category</span></a></li>
+							<li><a href="category.jsp"><span class="title">Category</span></a></li>
 							<li><a href="#"><span class="title">Playlist</span></a></li>
 							<li><a href="#"><span class="title">Document</span></a></li>
 							<li><a href="#"><span class="title">Question</span></a></li>
@@ -47,8 +47,8 @@
 						<ul>						
 							<li><a href="#"><span class="title">New User</span></a></li>
 							<li><a href="#"><span class="title">List Users</span></a></li>
-							<li><a href="#"><span class="title">Department</span></a></li>
-							<li><a href="#"><span class="title">University</span></a></li>
+							<li><a href="department.jsp"><span class="title">Department</span></a></li>
+							<li><a href="university.jsp"><span class="title">University</span></a></li>
 						</ul>
 					</li>
 					<li><a href="#"><i class="glyphicon glyphicon-duplicate"></i><span class="title">Report</span></a>

@@ -8,7 +8,7 @@
 		</div>
 			
 		<!-- Imported styles on this page -->
-		
+		<script src="js/jquery-1.11.0.min.js"></script>
 		<script src="js/main-gsap.js"></script>
 		<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
 		<script src="js/bootstrap.js"></script>
@@ -31,5 +31,6 @@
 		<script src="js/neon-demo.js"></script>
 		<script src="js/neon-skins.js"></script>
 		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/select2.min.js"></script>
 	</body>
 </html>

@@ -16,6 +16,7 @@
 }
 .div-padding-bottom {
 	padding-bottom: 5px;
+    margin-top: 4px;
 }
 .hr-thumb {
 	margin-top: 0px;
@@ -189,4 +190,18 @@ th {
 .color-black{
 	color: #555;
 }
+.require_field{
+	color: #d9534f;
+	font-size:14px
+}
 
+.des_modal{
+	color:#adadad; 
+	font-size: 16px;	
+}
+.max_textarea{
+	max-width:800px;
+}
+.icon_margin_top{
+	margin-top: 4px;
+}
