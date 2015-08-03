@@ -50,4 +50,14 @@ public class WorkWithDate {
 			return null;			
 		}
 	}
+	
+	/**
+	 * Method is to format given date to a specific string date format
+	 * @param d is Date object to format
+	 * @return as string date format
+	 */
+	public String formatDate(Date d){
+		
+		return df.format(d);
+	}
 }
