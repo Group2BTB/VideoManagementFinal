@@ -29,9 +29,9 @@ public class WorkWithDate {
 	public Date getDate(String d){
 		//System.out.println(new UserDAO().df.format(new UserDAO().df.parse("13-15-2014"))); // to convert and format from string to date
 		try {
-			d = d.replaceAll("/+", " ");
-			d=d.replaceAll("-", " ");
-			d=d.replaceAll("\\s+", "-");
+			d = d.replaceAll("/+", " "); //repalce one or more + with a space
+			d=d.replaceAll("-+", " "); //replace one or more - with space  
+			d=d.replaceAll("\\s+", "-"); //repalce one or more space with - sign
 			return df.parse(d);
 			
 		} catch (ParseException e) {
