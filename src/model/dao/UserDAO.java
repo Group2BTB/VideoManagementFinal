@@ -133,7 +133,7 @@ public class UserDAO {
 			pstm.setString(2,e_and_u); //set second value to statement
 			pstm.setString(3, passwd); //set third value to statement
 			
-			ResultSet rs = pstm.executeQuery(); //create resultset to store user's data and it automatically closed when connection is closed
+			ResultSet rs = pstm.executeQuery(); //execute the statement
 			
 			if(rs.next()){
 				
