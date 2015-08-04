@@ -5,7 +5,7 @@
 				<div id="bottom2"  class="col-md-4 col-sm-6" >
 			    	
 	<div class="module  get-in-touch " >
-	    		    <h3 class="modtitle">Get In Touch</h3>
+	    		    <h3 class="modtitle text-center">Get In Touch</h3>
 	    	    <div class="black-P clearfix">
 			
 <p>Address: #12, St 323, Sangkat Boeung Kak II,KhanToul Kork, Phnom Penh, Cambodia.</p>
@@ -24,7 +24,7 @@ phirum.gm@gmail.com</li>
 				<div id="bottom3"  class="col-md-4 col-sm-6" >
 			    	
 	<div class="module  useful-link " >
-	    		    <h3 class="modtitle">ABOUT US</h3>
+	    		    <h3 class="modtitle text-center">ABOUT US</h3>
 	    	    <div class="clearfix">
 			
 <ul class="menu ">
@@ -35,10 +35,10 @@ phirum.gm@gmail.com</li>
 	</div>
     
 		</div>
-				<div id="bottom4"  class="col-md-4 col-sm-6" >
+				<div id="bottom4"  class="col-md-4 col-sm-12 " >
 			    	
 	<div class="module  clients-say " >
-	    		    <h3 class="modtitle">Head Department of korea HRD Center</h3>
+	    		    <h3 class="modtitle text-center">Head Department of korea HRD Center</h3>
 	    	    <div class="modcontent clearfix">
 			
 <div class="carousel-custommer"><div id="yt-extra-carousel" style="width:100%; height:100%" class="yt-extra-carousel carousel slide pull-center" data-ride="carousel" data-interval='false'><div class="carousel-inner"> <div class='item'>
