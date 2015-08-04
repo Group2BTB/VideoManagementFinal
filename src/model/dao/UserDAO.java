@@ -97,7 +97,7 @@ public class UserDAO {
 	 */
 	public String getAllUser(){
 		
-
+		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("select * from tb_users");){
 			
@@ -215,16 +215,16 @@ public class UserDAO {
 	 * @param id user's id to delete
 	 * @return true if user is deleted successfully or false if fail to delete user
 	 */
-	public boolean deleteUser(long id){
+	public boolean DeactiveUser(long id){
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("delete from tb_users where user_id=?");){
+				PreparedStatement stm = con.prepareStatement("update tb_users set status=0, approved=0 where user_id=?");){			
 			
 			/*To set data to preparedStatement from user's data*/
 			stm.setLong(1, id);
 			
-			if(stm.executeUpdate()==0) //execute the statement
+			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
 			
 			return true;
