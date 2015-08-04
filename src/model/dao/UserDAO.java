@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,10 +15,7 @@ import model.dto.User;
  * To work with user's data*/
 
 public class UserDAO {
-	
-	
-	
-	//SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		
 
 	/**
 	 * Method checks if user exists or not
@@ -217,7 +213,7 @@ public class UserDAO {
 	
 		WorkWithDate wwd = new WorkWithDate();
 		System.out.println(wwd.getDate("15/13/2014////"));
-		
+
 		System.exit(0);
 		User uu = new UserDAO().getUser("heng22", "11");
 		uu.setFullName("Leang Heng");
