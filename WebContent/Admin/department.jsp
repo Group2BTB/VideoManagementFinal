@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp" ng-controller="deptcontroller">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<meta charset="utf-8">
+	<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Neon Admin Panel" />
@@ -23,13 +23,13 @@
 		<link rel="stylesheet" href="css/select2-bootstrap.css">
 		<link rel="stylesheet" href="css/select2.css">
 		<link rel="stylesheet" href="css/jquery.selectBoxIt.css">
-		
+	
 		<!-- Imported styles on this page -->
-		<script src="js/jquery.js"></script>		
+		<script src="js/jquery.js"></script> 		
 		<script src="js/angular.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/bootstrapValidator.js"></script>
-		<script src="js/image.js"></script>
+ 		 <script src="js/image.js"></script> 
 </head>
 <body  class="page-body page-fade" data-url="#">
 	
@@ -111,10 +111,11 @@
 						class="glyphicon glyphicon-menu-down"></span></th>
 					<th class="center">Action</th>
 				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
+				<tr ng-repeat="d in list">
+					<td class="center">{{($index+1)}}</td>
+					<td class="center">{{d.department_id}}</td>
+					<td>{{d.department_name}}</td>
+					
 					<td>Admin</td>
 					<td class="center">
 						<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
@@ -123,42 +124,7 @@
 						<button type='button' class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
 					</td>
 				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
+				
 							
 				<tr class="active">
 					<td colspan="5">Total Records: <span class="i-blue">03</span>
@@ -230,7 +196,7 @@
 
 <jsp:include page="footer.jsp"></jsp:include>
 </div>
-<script src="js/main-gsap.js"></script>
+ <script src="js/main-gsap.js"></script>
 		<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
 		<script src="js/joinable.js"></script>
 		<script src="js/resizeable.js"></script>
@@ -245,13 +211,13 @@
 		<script src="js/morris.min.js"></script>
 		<script src="js/toastr.js"></script>
 		<script src="js/neon-chat.js"></script>
-		<!-- JavaScripts initializations and stuff -->
+		JavaScripts initializations and stuff
 		<script src="js/neon-custom.js"></script>
-		<!-- Demo Settings -->
+		Demo Settings
 		<script src="js/neon-demo.js"></script>
 		<script src="js/neon-skins.js"></script>
 		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/select2.min.js"></script>
-	
+		<script src="js/select2.min.js"></script> 
+	<script src="js/data/department.js"></script>
 </body>
 </html>
