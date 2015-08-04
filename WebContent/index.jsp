@@ -1,9 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+ <%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ 		<meta charset="utf-8">
+ 		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="description" content="Khmer Academy, We share Knowledge with IT lessons, IT Traing to students. Enjoy with Khmer Academy!">
+		<meta name="keywords" content="Khmer Academy, Khmer Learning Online, Khmer IT Study , IT Traning in Cambodia, Khmer Forum, IT Chatting">
+		<meta name="author" content="Khmer Academy"> 
+		
 <title>ELearning</title>
     <!-----CSS Main Style------>
    <link rel="stylesheet" href="ELearning/templates/css/template-default.css" type="text/css" />
@@ -38,113 +45,8 @@
 </head>
     
 <body id="bd" class="homepage home-layout1 res" >	
-	<div id="yt_wrapper" class="layout-wide">		
-					<nav id="yt_menuwrap" class="block" style="background-color: #0C959A;">
-                        <div class="container">
-							<div class="row">
-									<div id="yt_logo" class="col-md-3 col-sm-12" >						
-			<a class="logo" href="index.html" title="HRD CENTER">
-				<img data-placeholder="no" src="ELearning/templates/images/styling/default/logo.png" alt="HRD Center" style="width:246px;height:100px;"  />
-			</a>           
-                </div>
-				<div id="yt_mainmenu" class="col-md-9 col-sm-12 "  >
-			<ul id="meganavigator" class="clearfix navi "><li class=" level1 first ">
-	<a title="Home " class=" level1 first  item-link" href="index.html"><span class="menu-title">Home </span></a>	
-	</li>
-<li class="level1 havechild ">
-	<a title="Elearning" class="level1 havechild  item-link" href="#">
-        <span class="menu-title">Elearning </span>
-    </a>	
-</li>
-
-<li class="level1 havechild ">
-	<a title="Tutorials" class="level1 havechild  item-link" href="#"
-       ><span class="menu-title">Tutorails</span>
-    </a>	
-</li>
-
-<li class="level1 havechild ">
-	<a title="Login" class="level1 havechild  item-link" href="#">
-        <span class="menu-title">Login</span>
-    </a>	
-</li>
-
-<li class="level1 havechild mega1">
-	<a title="Sign Up" class="level1 havechild mega1 item-link" href="#">
-        <span class="menu-title">Sign Up</span>
-    </a>
-</li>
-
-<li class="level1 ">
-	<a title="" class="level1  item-link" href="#">
-        <img src="ELearning/media/images/khmer.png" alt="Arabic" title="Arabic" />
-        <img src="ELearning/media/images/English.png" alt="English " title="English " />
-    </a>	
-</li>
-
-<!------//Meun Normal------>
-
-</ul>
-	   <!------Collapse Menu------>
-		<div id="yt-responivemenu" class="yt-resmenu ">
-			<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar collapsed" type="button">
-				<i class="fa fa-bars"></i> Menu			</button>
-			<div id="resmenu_sidebar" class="nav-collapse collapse" >
-				<ul class="nav resmenu">
-				    <li><a title="Home " href='index.html' class="active">Home </a></li>
-        <li class="haveChild level1"><a title="" href='#'>Elearning </a></li>
-            <li class="haveChild level1"><a title="" href='#'>Tutorails</a></li>
-            <li class="haveChild level1"><a title="" href='#'>Login</a></li>
-            <li><a title="" href='#'>Sing Up</a>        </li>
-        <li>
-            <a title="" href='#'>            
-                <img src="ELearning/media/images/English.png" alt="English " title="English " />
-            </a>
-        </li>
-        <li>
-            <a title="" href='#'>
-             <img src="ELearning/media/images/khmer.png" alt="KHMER" title="KHMER" />
-            </a>
-        </li>
-            
-            
-    </ul>
-    </div>			
-    </div>
-<!------//CollapseMenu------>
-	<script type="text/javascript">
-
-	jQuery(document).ready(function($) {
-		$('.btn-navbar').click(function(){
-				$(this).children().toggleClass('fa-times');
-		});
-		$("ul.resmenu li.haveChild").each(function() {
-			$(this).children(".res-wrapnav").css('display', 'none');
-			var ua = navigator.userAgent,
-			event = (ua.match(/iPad/i)) ? "touchstart" : "click";
-			$(this).children(".menuress-toggle").bind(event, function() {
-				
-				$(this).siblings(".res-wrapnav").slideDown(350);
-				$(this).parent().siblings("li").children(".res-wrapnav").slideUp(350);
-				$(this).parent().siblings("li").removeClass("active");
-				
-				$(this).parent().addClass(function(){
-					if($(this).hasClass("active")){
-						$(this).removeClass("active");
-						$(this).children(".res-wrapnav").slideToggle();
-						return "";
-					}
-					return "active";
-				});
-			});
-		});
-	});
-</script>        </div>
-									</div>
-						</div>
-						
-                    </nav>		
-        
+	<div id="yt_wrapper" class="layout-wide">
+		<jsp:include page="/ELearning/include/_header.jsp"></jsp:include>
         <!----Slideshow sections------>
         <section id="yt_spotlight1" class="block">						
                         
@@ -596,120 +498,11 @@
     <script src="ELearning/owl-carousel-plugins/assets/js/application.js"></script>
     </section>
              <!------/owl-carousel-plugins------>
-    </section>
-   
+    </section> 
+    
+    	<jsp:include page="ELearning/include/_footer.jsp"></jsp:include>
+      
             </div>
-        
-        <section id="content" class="no-left  no-right block com_content">						
-						<div  class="container">
-							
-						</div >
-						
-                    </section>					
-        		<section id="yt_spotlight8" class="block">						<div class="container">
-							<div class="row">
-				
-				<div id="bottom2"  class="col-md-4 col-sm-6" >
-			    	
-	<div class="module  get-in-touch " >
-	    		    <h3 class="modtitle">Get In Touch</h3>
-	    	    <div class="black-P clearfix">
-			
-<p>Address: #12, St 323, Sangkat Boeung Kak II,KhanToul Kork, Phnom Penh, Cambodia.</p>
-<ul>
-<li><span class="lea">Tel:</span>(855)23 99 13 14</li>
-<li><span class="lea">Tel:</span>(855)77 77 12 36 (Khmer, English)</li>
-<li><span class="lea">Tel:</span>(855)15 4 5555 2 (Khmer, English)</li>
-<li><span class="lea">Tel:</span>(855)17 52 81 69(Korean, English))</li>
-<li><span class="lea">Email:</span>Email: info.kshrd@gmail.com
-phirum.gm@gmail.com</li>
-</ul>
-	    </div>
-	</div>
-    
-		</div>
-				<div id="bottom3"  class="col-md-4 col-sm-6" >
-			    	
-	<div class="module  useful-link " >
-	    		    <h3 class="modtitle">ABOUT US</h3>
-	    	    <div class="clearfix">
-			
-<ul class="menu ">
-<li class="item-1537">
-    <p class="black-P">Khmer Academy is the first e-learning platform for knowledge sharing in Cambodia. It is developed by Korea Software HRD Center in 2015. All contents are in Khmer language for easy knowledge acquisition. Most contents are related to IT fields and plan to extend more topics. Our mission is to improve education environments of Cambodia by means of IT technologies. Khmer Academy will be a significant education platform which accumulates and shares all kinds of knowledge on internet.</p>
-    </li></ul>
-	    </div>
-	</div>
-    
-		</div>
-				<div id="bottom4"  class="col-md-4 col-sm-6" >
-			    	
-	<div class="module  clients-say " >
-	    		    <h3 class="modtitle">Head Department of korea HRD Center</h3>
-	    	    <div class="modcontent clearfix">
-			
-<div class="carousel-custommer"><div id="yt-extra-carousel" style="width:100%; height:100%" class="yt-extra-carousel carousel slide pull-center" data-ride="carousel" data-interval='false'><div class="carousel-inner"> <div class='item'>
-<div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer1.png" alt="" />
-<div class="over-image"> </div>
-</div>
-<div class="content-main black-P">
-<p class="post-commnets">“Dr. Kim is come from South Korea and he want to improve IT in cambodia by create HRD Center”</p>
-    <h3 class="title"><span class="use"><i class="black-P"><b>Dr. Kim TaeKyung</b></i> </span> - <b class="white">Director of Korea Software HRD Center</b></h3>
-</div>
-</div>
-</div> <div class='item'>
-<div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer2.png" alt="" />
-<div class="over-image"> </div>
-</div>
-<div class="content-main">
-<p class="post-commnets black-P">“ Mr. Chen Phirum is one member in Korea Software HRD Center, He is an Admin Manager sine HRD opened...”</p>
-<h3 class="title"><span class="use"><i class="black-P"><b>Mr. Chen Phirum</b></i> </span> - <b class="white">Admin Manager of Korea Software HRD Center</b></h3>
-</div>
-</div>
-</div> <div class='item'>
-<div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer3.png" alt="" />
-<div class="over-image"> </div>
-</div>
-<div class="content-main">
-<p class="post-commnets black-P">“Harum congue adipisci nostrum laborum luctus nibh, nihil malesuada modi! Voluptate, eleifend! Excepturi mattis”</p>
-<h3 class="title"><span class="use"><i class="black-P">Dr. Kim TaeKyung </span> - Director of Korea Software HRD Center</i></h3>
-</div>
-</div>
-</div> </div><a class="carousel-control left" href="#yt-extra-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a><a class="carousel-control right" href="#yt-extra-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a><ol class="carousel-indicators" ><li data-slide-to="0" data-target="#yt-extra-carousel"></li><li data-slide-to="1" data-target="#yt-extra-carousel"></li><li data-slide-to="2" data-target="#yt-extra-carousel"></li></ol></div></div>
-	    </div>
-	</div>
-    
-		</div>
-									</div>
-						</div>
-						
-                    </section>			<footer id="yt_footer" class="block">						<div class="container">
-							<div class="row">
-									<div id="yt_copyright" class="col-sm-12"  >
-					
-       
-		
-	
-					<div class="copyright">
-				Copyright © 2015 Korean HRD Center. All Rights Reserved			</div>
-		<div class="designby ">
-			Designed by <a target="_blank" title="Vidoes Management" href="#">Group 2 Class BTB</a>
-		</div>
-			  </div>
-									</div>
-						</div>
-						
-                    </footer>			        
-		
-    		<div id="yt_sticky_right" class="yt-slidePanel hidden-sm hidden-xs" >
-			<div class="yt-sticky">
-    
-			</div>
-		</div>
-		
         
 	<script type="text/javascript">
 		
@@ -718,14 +511,7 @@ phirum.gm@gmail.com</li>
 							YTScript.slidePositions('#yt_sticky_right .yt-sticky', 'right', events);
 							
 		});
-		
-		
-		
 	</script>
-
-
-
-
 	<a id="yt-totop" class="backtotop" href="#"><i class="fa fa-angle-up"></i> Top </a>
     <script type="text/javascript">
 		jQuery('.backtotop').click(function () {
@@ -738,61 +524,6 @@ phirum.gm@gmail.com</li>
 
 
 	</div>
-	
-
-	
-<script type="text/javascript" src="plugins/system/EUCookieDirectiveLite/EUCookieDirectiveLite/EUCookieDirective.js"></script>
-<script  type="text/javascript">
-						function jSelectShortcode(text) {
-							jQuery("#yt_shorcodes").removeClass("open");
-							text = text.replace(/'/g, '"');
-							
-							//1.Editor Content
-							if(document.getElementById('jform_articletext') != null) {
-								jInsertEditorText(text, 'jform_articletext');
-							}
-							if(document.getElementById('jform_description') != null) {
-								jInsertEditorText(text, 'jform_description');
-							}
-							
-							//2.Editor K2
-							if(document.getElementById('description') != null) {
-								jInsertEditorText(text, 'description');
-							}
-							if(document.getElementById('text') != null) {
-								jInsertEditorText(text, 'text');
-							}
-							
-							//3.Editor VirtueMart 
-							if(document.getElementById('category_description') != null) {
-								jInsertEditorText(text, 'category_description');
-							}
-							if(document.getElementById('product_desc') != null) {
-								jInsertEditorText(text, 'product_desc');
-							}
-							
-							//4.Editor Contact
-							if(document.getElementById('jform_misc') != null) {
-								jInsertEditorText(text, 'jform_misc');
-							}
-							
-							//5.Editor Easyblog
-							if(document.getElementById('write_content') != null) {
-								jInsertEditorText(text, 'write_content');
-							}
-							
-							//6.Editor Joomshoping
-							if(document.getElementById('description1') != null) {
-								jInsertEditorText(text, 'description1');
-							}
-							
-							//6.Editor HTML
-							if(document.getElementById('jform_content') != null) {
-								jInsertEditorText(text, 'jform_content');
-							}
-							
-							SqueezeBox.close();
-						}
-				   </script></body>
+	</body>
 
 </html>
