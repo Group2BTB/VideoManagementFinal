@@ -7,7 +7,7 @@
 <title>Elearning</title>
 
  <!-----CSS Main Style------>
-   <link rel="stylesheet" href="Elearning/templates/css/template-default.css" type="text/css" />
+   <link rel="stylesheet" href="ELearning/templates/css/template-default.css" type="text/css" />
     <!-------CSS Bootstrap-------->    
   <link rel="stylesheet" href="Elearning/templates/asset/bootstrap/css/bootstrap.min.css" type="text/css" /> 
      <link rel="stylesheet" href="Elearning/templates/asset/fonts/awesome/css/font-awesome.min.css" type="text/css" /> 
