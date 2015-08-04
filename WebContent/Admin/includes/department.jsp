@@ -1,3 +1,5 @@
+
+
 <div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12 clearfix">
 		<div class="col-xs-12 col-md-12 col-sm-12">
@@ -138,56 +140,47 @@
 <div id="myModal" class="modal fade bs-example-modal-lg">
 	<div class="modal-dialog">
 		<div class="modal-content" style="margin: 0 auto;">
-			<div class="modal-header" style="text-align: center;">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h1 class="modal-title"><b>Department</b></h1> 
-				<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
-			</div>
-			<div class="modal-body">	
-				<form>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Name <span class="require_field">*</span> : </label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Name...">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Status <span class="require_field">*</span> : </label>
-						<select class="form-control">
-							<option>-- Select a Status --</option>											
-							<option>Active</option>											
-							<option>Deactivate</option>											
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="description">Description:</label>
-						
-						<textarea class="form-control max_textarea" id="description" placeholder="Description" rows="3"> </textarea>
-				
-					</div>
-				</form>
-				<div class="clearfix"></div>
-			</div>		
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" id="save_change" class="btn btn-primary">Add</button>
-			</div>
+			<form method="post" action="" id="frmDepartment">
+				<div class="modal-header" style="text-align: center;">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h1 class="modal-title"><b>Department</b></h1> 
+					<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
+				</div>
+				<div class="modal-body">	
+					
+						<div class="form-group">
+							<label for="name">Name <span class="require_field">*</span> : </label>
+							<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name...">
+						</div>
+						<div class="form-group">
+							<label for="status">Status <span class="require_field">*</span> : </label>
+							<select id="status" name="status" class="form-control">
+								<option value="">-- Select a Status --</option>											
+								<option value="1">Active</option>											
+								<option value="0">Deactivate</option>											
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="description">Description:</label>
+							
+							<textarea class="form-control max_textarea" name="description" id="description"   placeholder="Description" rows="3"> </textarea>
+					
+						</div>
+					
+					<div class="clearfix"></div>
+				</div>		
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" id="btnadd"  class="btn btn-primary">Add</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
 <!-- End More Filter --> 
-<script>
-	$(function() {
-		$("#msg_sucess").hide();
-		$("#msg_error").hide();
 
-		// choose profile
-		$('#img').change(function() {
-			img();
-		});
-	});
-</script>
 <script>
 	$("document").ready(function(e) {
-		
 		$("#msg_sucess").hide();
 		$("#msg_error").hide();
 		
@@ -215,5 +208,10 @@
 			
 			$("#myModal").remove();
 		});
+		
+		
+		
+
 	});
 </script>
+<script src="js/data/department.js"></script>

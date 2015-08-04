@@ -20,20 +20,16 @@
 		<link rel="stylesheet" href="css/blue.css">
 		<link rel="stylesheet" href="css/bootstrap.css">
 		
-		<link rel="stylesheet"
-		href="css/select2-bootstrap.css"
-		id="style-resource-1">
-	<link rel="stylesheet" href="css/select2.css"
-		id="style-resource-2">
-	<link rel="stylesheet"
-		href="css/jquery.selectBoxIt.css"
-		id="style-resource-3">
+		<link rel="stylesheet" href="css/select2-bootstrap.css">
+		<link rel="stylesheet" href="css/select2.css">
+		<link rel="stylesheet" href="css/jquery.selectBoxIt.css">
 		
-		
-		
-		
-		<script src="js/jquery-1.11.0.min.js"></script>
+		<!-- Imported styles on this page -->
+		<script src="js/jquery.js"></script>		
+		<script src="js/angular.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrapValidator.js"></script>
 		<script src="js/image.js"></script>
 		
-		
+			
 	</head>

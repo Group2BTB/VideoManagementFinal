@@ -7,11 +7,9 @@
 			</footer>
 		</div>
 			
-		<!-- Imported styles on this page -->
-		<script src="js/jquery-1.11.0.min.js"></script>
+		
 		<script src="js/main-gsap.js"></script>
 		<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
-		<script src="js/bootstrap.js"></script>
 		<script src="js/joinable.js"></script>
 		<script src="js/resizeable.js"></script>
 		<script src="js/neon-api.js"></script>
