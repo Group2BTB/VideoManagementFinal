@@ -15,7 +15,8 @@ import model.dto.User;
  * To work with user's data*/
 
 public class UserDAO {
-		
+	
+	ResultSet rs = null;
 
 	/**
 	 * Method checks if user exists or not
@@ -83,6 +84,25 @@ public class UserDAO {
 			ex.printStackTrace();
 			return false;
 		}		
+	}
+	
+	
+	
+	public ResultSet getAllUser(){
+		
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from tb_users");){
+			
+			rs = stm.executeQuery();
+			
+			return rs;
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+		
 	}
 
 
