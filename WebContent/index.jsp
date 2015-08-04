@@ -7,35 +7,35 @@
 <title>Elearning</title>
 
  <!-----CSS Main Style------>
-   <link rel="stylesheet" href="E-learning/templates/css/template-default.css" type="text/css" />
+   <link rel="stylesheet" href="Elearning/templates/css/template-default.css" type="text/css" />
     <!-------CSS Bootstrap-------->    
-  <link rel="stylesheet" href="templates/asset/bootstrap/css/bootstrap.min.css" type="text/css" /> 
-     <link rel="stylesheet" href="templates/asset/fonts/awesome/css/font-awesome.min.css" type="text/css" /> 
+  <link rel="stylesheet" href="Elearning/templates/asset/bootstrap/css/bootstrap.min.css" type="text/css" /> 
+     <link rel="stylesheet" href="Elearning/templates/asset/fonts/awesome/css/font-awesome.min.css" type="text/css" /> 
     <!----Import Font from Google----->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=latin,latin-ext" type="text/css" />   
     <!----CSS SliderShow TOP----->
-  <link rel="stylesheet" href="sliders/slickslider/assets/css/sj-slickslider.css" type="text/css" />
-  <link rel="stylesheet" href="templates/css/responsive.css" type="text/css" />
+  <link rel="stylesheet" href="Elearning/sliders/slickslider/assets/css/sj-slickslider.css" type="text/css" />
+  <link rel="stylesheet" href="Elearning/templates/css/responsive.css" type="text/css" />
     <!---CSS Slider Button----->
-  <link rel="stylesheet" href="plugins/assets/css/shortcodes.css" type="text/css" />
+  <link rel="stylesheet" href="Elearning/plugins/assets/css/shortcodes.css" type="text/css" />
     
     <!-- Owl Carousel Assets -->
-    <link href="owl-carousel-plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="owl-carousel-plugins/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="Elearning/owl-carousel-plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="Elearning/owl-carousel-plugins/owl-carousel/owl.theme.css" rel="stylesheet">
 
 <!-----Javascript----->
- <script src="media/js/jquery.min.js" type="text/javascript"></script>  
+ <script src="Elearning/media/js/jquery.min.js" type="text/javascript"></script>  
   <!-----JS Bootstrap----->
- <script src="templates/asset/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+ <script src="Elearning/templates/asset/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-----JS Slider top----->
-<script src="templates/menusys/jquery.megamenu.js" type="text/javascript"></script>
-<script src="sliders/slider/assets/js/slider.js" type="text/javascript"></script>    
-<script src="sliders/slickslider/assets/js/jcarousel.js" type="text/javascript"></script>
+<script src="Elearning/templates/menusys/jquery.megamenu.js" type="text/javascript"></script>
+<script src="Elearning/sliders/slider/assets/js/slider.js" type="text/javascript"></script>    
+<script src="Elearning/sliders/slickslider/assets/js/jcarousel.js" type="text/javascript"></script>
     <!----JS Slider Button----->
-<script src="plugins/assets/js/shortcodes.js" type="text/javascript"></script>
+<script src="Elearning/plugins/assets/js/shortcodes.js" type="text/javascript"></script>
    
 	<!-- LINK FOR FAVICON -->
-			<link rel="icon" type="image/x-icon" href="images/logo.ico" />
+			<link rel="icon" type="image/x-icon" href="Elearning/images/logo.ico" />
 			
 </head>
 <body id="bd" class="homepage home-layout1 res" >	
@@ -45,7 +45,7 @@
 							<div class="row">
 									<div id="yt_logo" class="col-md-3 col-sm-12" >						
 			<a class="logo" href="index.html" title="HRD CENTER">
-				<img data-placeholder="no" src="templates/images/styling/default/logo.png" alt="sj univercityii" style="width:246px;height:100px;"  />
+				<img data-placeholder="no" src="Elearning/templates/images/styling/default/logo.png" alt="sj univercityii" style="width:246px;height:100px;"  />
 			</a>           
                 </div>
 				<div id="yt_mainmenu" class="col-md-9 col-sm-12 "  >
@@ -78,8 +78,8 @@
 
 <li class="level1 ">
 	<a title="" class="level1  item-link" href="#">
-        <img src="media/images/khmer.png" alt="Arabic" title="Arabic" />
-        <img src="media/images/English.png" alt="English " title="English " />
+        <img src="Elearning/media/images/khmer.png" alt="Arabic" title="Arabic" />
+        <img src="Elearning/media/images/English.png" alt="English " title="English " />
     </a>	
 </li>
 
@@ -99,12 +99,12 @@
             <li><a title="" href='#'>Sing Up</a>        </li>
         <li>
             <a title="" href='#'>            
-                <img src="media/images/English.png" alt="English " title="English " />
+                <img src="Elearning/media/images/English.png" alt="English " title="English " />
             </a>
         </li>
         <li>
             <a title="" href='#'>
-             <img src="media/images/khmer.png" alt="KHMER" title="KHMER" />
+             <img src="Elearning/media/images/khmer.png" alt="KHMER" title="KHMER" />
             </a>
         </li>
             
@@ -158,7 +158,7 @@
     	    	<div class="slickslider-item item clearfix active ">
 									
 				<div class="images-slideshow">
-					<img alt="A Responsive Education Joomla Theme" src="cache/resized/1111.jpg"/>					
+					<img alt="A Responsive Education Joomla Theme" src="Elearning/cache/resized/1111.jpg"/>					
 				</div>		
 						
 			<div class="item-content">
@@ -184,7 +184,7 @@
     	    	<div class="slickslider-item item clearfix ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="cache/resized/2222.jpg"/>					
+					<img alt="" src="Elearning/cache/resized/2222.jpg"/>					
 				</div>						
 			<div class="item-content">
 				<div class="item-content-inner">
@@ -210,7 +210,7 @@
     	    	<div class="slickslider-item item clearfix  ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="cache/resized/3333.jpg"/>					
+					<img alt="" src="Elearning/cache/resized/3333.jpg"/>					
 				</div>
 			<div class="item-content">
 				<div class="item-content-inner">										
@@ -235,7 +235,7 @@
     	    	<div class="slickslider-item item clearfix  ">
 									
 				<div class="images-slideshow">
-					<img alt="Curabitur luctus tortor non quam" src="cache/resized/4444.jpg"/>					
+					<img alt="Curabitur luctus tortor non quam" src="Elearning/cache/resized/4444.jpg"/>					
 				</div>
 			<div class="item-content">
 				<div class="item-content-inner">
@@ -327,22 +327,22 @@
                 <div class="row center-of-box" >
                     <div class="category-box col-md-3 col-sm-6" id="category-programming">
                         <h3>Programming</h3>
-                       <span><img src="cache/categories/programmin%20.png" /></span>
+                       <span><img src="Elearning/cache/categories/programmin%20.png" /></span>
                         <p>This is a programming languages</p>
                     </div>
                     <div class="category-box col-md-3 col-sm-6" id="category-design" style="background-color:#149671;">
                       <h3>Graphic Design</h3>
-                       <span><img src="cache/categories/Design.png" /></span>
+                       <span><img src="Elearning/cache/categories/Design.png" /></span>
                         <p>This is a Design graphic</p>
                     </div>
                      <div class="category-box col-md-3 col-sm-6" id="category-mathematics" style="background-color:#6B80DD;">
                        <h3>Mathematics</h3>
-                       <span><img src="cache/categories/Math.png" /></span>
+                       <span><img src="Elearning/cache/categories/Math.png" /></span>
                         <p>This is a Mathatics Skill</p>
                     </div>
                      <div class="category-box col-md-3 col-sm-6" id="category-mobile">
                       <h3>Mobile Application</h3>
-                       <span><img src="cache/categories/Mobile.png" /></span>
+                       <span><img src="Elearning/cache/categories/Mobile.png" /></span>
                         <p>This is a mobile programming languages</p>
                     </div>
                 </div>
@@ -355,19 +355,19 @@
                         <div style="margin: 0 auto;">
                         <h1 class="text-center"><a href="#" >Programming</a></h1>
                         <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p class="course-text">Learng Java</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learn C#</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learn C# Advance</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg" />    
+                            <img src="Elearning/cache/OK/1.jpg" />    
                             <p>Learng SQL</p>
                         </div>  
                         </div>
@@ -383,11 +383,11 @@
                         <h1 class="text-center"><a href="#" >Design</a></h1>
                         
                         <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learng Photoshop</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learng Illustrator</p>
                         </div>
                          
@@ -401,19 +401,19 @@
                     <div id="category-mathematics-details" >
                         <h1 class="text-center"><a href="#" >Mathematics</a></h1>
                         <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>រៀនពិជគណិត</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>រៀនធរណីមាត្រ</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>កំណែវិញ្ញាសារប្រលងបឋមភូមិ</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg" />    
+                            <img src="Elearning/cache/OK/1.jpg" />    
                             <p>កំណែវិញ្ញាសារប្រលងទុតិយភូមិ</p>
                         </div>
                          
@@ -427,19 +427,19 @@
                     <div id="category-mobile-details">
                         <h1 class="text-center"><a href="#" >Mobile</a></h1>
                        <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learng IOS</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learng Objective C</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="cache/OK/1.jpg"/>    
+                            <img src="Elearning/cache/OK/1.jpg"/>    
                             <p>Learng Android</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="cache/OK/1.jpg" />    
+                            <img src="Elearning/cache/OK/1.jpg" />    
                             <p>Learng Android (Project)</p>
                         </div>
                          
@@ -470,40 +470,40 @@
 
               <div id="owl-demo" class="owl-carousel">
                 <div class="item ">                    
-                    <img src="owl-carousel-plugins/images/1.jpg" alt="">
+                    <img src="Elearning/owl-carousel-plugins/images/1.jpg" alt="">
                      <h4 class="black-color">Ubuntu</h4>
                     <p class="black-color">There's a kind of war going on and we're all caught in the middle. In that war, the two superpowers are Microsoft and Apple. The battlefield is the operating system.</p>
                 </div>
-                <div class="item"><img src="owl-carousel-plugins/images/2.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/2.jpg" alt="">
                   
                   <h4 class="black-color">Mathematics</h4>
                     <p class="black-color">Mathematics as a formal area of teaching and learning was developed about 5,000 years ago by the Sumerians.</p>
                   </div>
-                <div class="item"><img src="owl-carousel-plugins/images/3.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/3.jpg" alt="">
                   <h4 class="black-color">Oracle and Sun Microsystems</h4>
                     <p class="black-color">Oracle acquired Sun Microsystems in 2010, and since that time Oracle's hardware and software engineers have worked side-by-side to build fully integrated systems and optimized solutions designed to achieve performance levels that are unmatched in the industry</p>
                   </div>
-                <div class="item"><img src="owl-carousel-plugins/images/4.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/4.jpg" alt="">
                   
                   <h4 class="black-color">Java</h4>
                     <p class="black-color">Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing.</p>
                   
                   </div>
                    <div class="item ">                    
-                    <img src="owl-carousel-plugins/images/1.jpg" alt="">
+                    <img src="Elearning/owl-carousel-plugins/images/1.jpg" alt="">
                      <h4 class="black-color">Ubuntu</h4>
                     <p class="black-color">There's a kind of war going on and we're all caught in the middle. In that war, the two superpowers are Microsoft and Apple. The battlefield is the operating system.</p>
                 </div>
-                <div class="item"><img src="owl-carousel-plugins/images/2.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/2.jpg" alt="">
                   
                   <h4 class="black-color">Mathematics</h4>
                     <p class="black-color">Mathematics as a formal area of teaching and learning was developed about 5,000 years ago by the Sumerians.</p>
                   </div>
-                <div class="item"><img src="owl-carousel-plugins/images/3.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/3.jpg" alt="">
                   <h4 class="black-color">Oracle and Sun Microsystems</h4>
                     <p class="black-color">Oracle acquired Sun Microsystems in 2010, and since that time Oracle's hardware and software engineers have worked side-by-side to build fully integrated systems and optimized solutions designed to achieve performance levels that are unmatched in the industry</p>
                   </div>
-                <div class="item"><img src="owl-carousel-plugins/images/4.jpg" alt="">
+                <div class="item"><img src="Elearning/owl-carousel-plugins/images/4.jpg" alt="">
                   
                   <h4 class="black-color">Java</h4>
                     <p class="black-color">Java allows you to play online games, chat with people around the world, calculate your mortgage interest, and view images in 3D, just to name a few. It's also integral to the intranet applications and other e-business solutions that are the foundation of corporate computing.</p>
@@ -516,8 +516,8 @@
     </div> 
 
     
-    <script src="owl-carousel-plugins/assets/js/jquery-1.9.1.min.js"></script> 
-    <script src="owl-carousel-plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/jquery-1.9.1.min.js"></script> 
+    <script src="Elearning/owl-carousel-plugins/owl-carousel/owl.carousel.js"></script>
 
 
     <!-- Demo -->
@@ -590,11 +590,11 @@
 
                 });
             </script>
-    <script src="owl-carousel-plugins/assets/js/bootstrap-collapse.js"></script>
-    <script src="owl-carousel-plugins/assets/js/bootstrap-transition.js"></script>
-    <script src="owl-carousel-plugins/assets/js/bootstrap-tab.js"></script>
-    <script src="owl-carousel-plugins/assets/js/google-code-prettify/prettify.js"></script>
-    <script src="owl-carousel-plugins/assets/js/application.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/bootstrap-collapse.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/bootstrap-transition.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/bootstrap-tab.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="Elearning/owl-carousel-plugins/assets/js/application.js"></script>
     </section>
              <!------/owl-carousel-plugins------>
     </section>
@@ -651,7 +651,7 @@ phirum.gm@gmail.com</li>
 			
 <div class="carousel-custommer"><div id="yt-extra-carousel" style="width:100%; height:100%" class="yt-extra-carousel carousel slide pull-center" data-ride="carousel" data-interval='false'><div class="carousel-inner"> <div class='item'>
 <div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer1.png" alt="" />
+<div class="item-image"><img src="Elearning/images/slide-button/customer1.png" alt="" />
 <div class="over-image"> </div>
 </div>
 <div class="content-main black-P">
@@ -661,7 +661,7 @@ phirum.gm@gmail.com</li>
 </div>
 </div> <div class='item'>
 <div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer2.png" alt="" />
+<div class="item-image"><img src="Elearning/images/slide-button/customer2.png" alt="" />
 <div class="over-image"> </div>
 </div>
 <div class="content-main">
@@ -671,7 +671,7 @@ phirum.gm@gmail.com</li>
 </div>
 </div> <div class='item'>
 <div class="customslider">
-<div class="item-image"><img src="images/slide-button/customer3.png" alt="" />
+<div class="item-image"><img src="Elearning/images/slide-button/customer3.png" alt="" />
 <div class="over-image"> </div>
 </div>
 <div class="content-main">
@@ -742,7 +742,7 @@ phirum.gm@gmail.com</li>
 	
 
 	
-<script type="text/javascript" src="plugins/system/EUCookieDirectiveLite/EUCookieDirectiveLite/EUCookieDirective.js"></script>
+<script type="text/javascript" src="Elearning/plugins/system/EUCookieDirectiveLite/EUCookieDirectiveLite/EUCookieDirective.js"></script>
 <script  type="text/javascript">
 						function jSelectShortcode(text) {
 							jQuery("#yt_shorcodes").removeClass("open");
