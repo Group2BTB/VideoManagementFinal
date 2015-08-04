@@ -93,8 +93,10 @@ public class DepartmentDAO {
 			stm.setInt(5, de.getApproved());
 			stm.setLong(6, de.getId());
 			
-			if(stm.executeUpdate()==0) //execute the statement and compare
-				return false;
+			
+			
+			if(stm.executeUpdate() == 0) //execute the statement and compare
+				return false;	
 			
 			return true;
 			
@@ -117,7 +119,7 @@ public class DepartmentDAO {
 			
 			rs = stm.executeQuery(); //execute the statement and assign to Resultset variable
 			
-			return new Gson().toJson(WorkWithJson.convertResultSetIntoJSON(rs));
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();
 			
 		}catch(Exception ex){
 			
@@ -131,17 +133,17 @@ public class DepartmentDAO {
 		Department de = new Department();
 		DepartmentDAO dde = new DepartmentDAO();
 		
+		System.out.println(dde.getAllDepartment());
+		System.exit(0);
+		
 		de.setId(12);
-		de.setName("computer11");
-		de.setDescription("des1");
+		de.setName("computer12");
+		de.setDescription("des12");
 		de.setUserID(22);
 		de.setStatus(1);
 		de.setApproved(1);
 		
-		dde.updateDepartment(de);
-		
-		
-		System.out.println(dde.insertDepartment(de));
+		System.out.println(dde.updateDepartment(de));		
 		
 	}
 }
