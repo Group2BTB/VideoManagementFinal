@@ -16,13 +16,13 @@ import model.dao.UserDAO;
  * Servlet implementation class DeleteUser
  */
 // @WebServlet("/DeleteUser")
-public class DeleteUser extends HttpServlet {
+public class DeactiveUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeleteUser() {
+	public DeactiveUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -52,7 +52,7 @@ public class DeleteUser extends HttpServlet {
 			response.setCharacterEncoding("utf8");
 			response.setContentType("application/json");
 			JsonObject obj = new JsonObject();
-			if (new UserDAO().deleteUser(id)) {
+			if (new UserDAO().DeactiveUser(id)) {
 				obj.addProperty("message", "This user deleted successfully!");
 			} else {
 				obj.addProperty("message", "This user isn't deleted!");

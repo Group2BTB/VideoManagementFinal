@@ -52,7 +52,7 @@ public class AddUser extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		UserDAO dao = new UserDAO();
 		response.setContentType("application/json");
-		response.setCharacterEncoding("utf8");
+		response.setCharacterEncoding("utf-8");
 		JsonObject obj = new JsonObject();
 		try {
 
