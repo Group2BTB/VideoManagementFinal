@@ -103,7 +103,7 @@ public class UserDAO {
 			
 			rs = stm.executeQuery();		
 			
-			return (new Gson().toJson(WorkWithJson.convertResultSetIntoJSON(rs)));		
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();		
 			
 		}catch(Exception ex){
 			
@@ -211,7 +211,7 @@ public class UserDAO {
 	}
 	
 	/**
-	 * Method is to delete user from database by id
+	 * Method is to deactivate user from database by id
 	 * @param id user's id to delete
 	 * @return true if user is deleted successfully or false if fail to delete user
 	 */
