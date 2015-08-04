@@ -2,13 +2,13 @@
                         <div class="container">
 							<div class="row">
 									<div id="yt_logo" class="col-md-3 col-sm-12" >						
-			<a class="logo" href="index.html" title="HRD CENTER">
+			<a class="logo" href="index.jsp" title="HRD CENTER">
 				<img data-placeholder="no" src="ELearning/templates/images/styling/default/logo.png" alt="HRD Center" style="width:246px;height:100px;"  />
 			</a>           
                 </div>
 				<div id="yt_mainmenu" class="col-md-9 col-sm-12 "  >
 			<ul id="meganavigator" class="clearfix navi "><li class=" level1 first ">
-	<a title="Home " class=" level1 first  item-link" href="index.html"><span class="menu-title">Home </span></a>	
+	<a title="Home " class=" level1 first  item-link" href="index.jsp"><span class="menu-title">Home </span></a>	
 	</li>
 <li class="level1 havechild ">
 	<a title="Elearning" class="level1 havechild  item-link" href="#">
@@ -50,7 +50,7 @@
 				<i class="fa fa-bars"></i> Menu			</button>
 			<div id="resmenu_sidebar" class="nav-collapse collapse" >
 				<ul class="nav resmenu">
-				    <li><a title="Home " href='index.html' class="active">Home </a></li>
+				    <li><a title="Home " href='index.jsp' class="active">Home </a></li>
         <li class="haveChild level1"><a title="" href='#'>Elearning </a></li>
             <li class="haveChild level1"><a title="" href='#'>Tutorails</a></li>
             <li class="haveChild level1"><a title="" href='#'>Login</a></li>
