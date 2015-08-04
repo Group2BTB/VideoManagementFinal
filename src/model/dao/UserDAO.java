@@ -241,7 +241,7 @@ public class UserDAO {
 //		WorkWithDate wwd = new WorkWithDate();
 //		System.out.println(wwd.getDate("15/13/2014////"));
 		
-		new UserDAO().getAllUser();
+		System.out.println(new UserDAO().getAllUser());
 
 		System.exit(0);
 		User uu = new UserDAO().getUser("heng22", "11");
