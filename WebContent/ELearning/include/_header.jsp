@@ -23,15 +23,18 @@
 </li>
 
 <li class="level1 havechild ">
-	<a title="Login" class="level1 havechild  item-link" href="#">
-        <span class="menu-title">Login</span>
+	<a title="Login" class="level1 havechild  item-link" id="btnLogin" data-toggle="modal" data-target="#login" style="cursor: pointer;">
+        <span class="menu-title">Login</span>      
     </a>	
 </li>
 
+ <jsp:include page="/ELearning/include/_login.jsp"></jsp:include>
+ 
 <li class="level1 havechild mega1">
-	<a title="Sign Up" class="level1 havechild mega1 item-link" href="#">
-        <span class="menu-title">Sign Up</span>
+	<a title="Sign Up" class="level1 havechild mega1 item-link" id="btnRegister"  data-toggle="modal" data-target="#register" style="cursor: pointer;">
+        <span class="menu-title">Sign Up</span>        
     </a>
+    <jsp:include page="/ELearning/include/_register.jsp"></jsp:include>
 </li>
 
 <li class="level1 ">
