@@ -61,7 +61,7 @@
 		<div class="clearfix"></div>
 		<div class="panel panel-primary">
 			<!-- Default panel contents -->
-			<div class="panel-heading"><i class="glyphicon glyphicon-th-list"></i> List Category</div>
+			<div class="panel-heading"><i class="glyphicon glyphicon-education"></i> List University</div>
 			<div class="panel-body">
 				<form class="form-inline">
 					<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
@@ -92,7 +92,6 @@
 							<input type="text" class="form-control" id="search" placeholder="Search...">
 						</div>
 					</div>
-					
 					<!--  
 						<div class="col-md-2 col-sm-2 col-xs-6 div-padding-bottom">												
 							<button id="search_tool" class="btn btn-default" type="button"><i class="glyphicon glyphicon-wrench i-green"></i> Search Tool</button>
@@ -106,9 +105,9 @@
 				<tr class="active" style="cursor:pointer;">
 					<th class="center">No&nbsp;<span
 						class="glyphicon glyphicon-menu-down"></span></th>					
-					<th class="center">Name&nbsp;<span
+					<th class="center">University Name&nbsp;<span
 						class="glyphicon glyphicon-menu-down"></span></th>	
-					<th class="center">Parent&nbsp;<span
+					<th class="center">Short Name&nbsp;<span
 						class="glyphicon glyphicon-menu-down"></span></th>					
 					<th class="center">Create Date&nbsp;<span
 						class="glyphicon glyphicon-menu-down"></span></th>
@@ -178,7 +177,7 @@
 		<div class="modal-content" style="margin: 0 auto;">
 			<div class="modal-header" style="text-align: center;">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h1 class="modal-title"><b>Category</b></h1> 
+				<h1 class="modal-title"><b>University</b></h1> 
 				<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
 			</div>
 			<div class="modal-body">	
@@ -193,20 +192,12 @@
 					</div>
 					<div class="col-md-7 col-sm-7 col-xs-12">
 						<div class="form-group">
-							<label for="full_name">Name <span class="require_field">*</span> : </label>
+							<label for="full_name">Full Name <span class="require_field">*</span> : </label>
 							<input type="text" class="form-control" id="full_name" placeholder="Full Name...">
 						</div>
 						<div class="form-group">
-							<label for="partent">Parent :</label>
-							<select name="test" class="select2 form-control" data-allow-clear="true"
-								data-placeholder="Parent...">
-									<option></option>
-									<option value="1">Alabama</option>
-									<option value="2">Boston</option>
-									<option value="3">Ohaio</option>
-									<option value="4">New York</option>
-									<option value="5">Washington</option>
-							</select>
+							<label for="short_name">Short Name <span class="require_field">*</span> : </label>
+							<input type="text" class="form-control" name="short_name" id="short_name" placeholder="Short Name...">
 						</div>
 						<div class="form-group">
 							<label for="status">Status <span class="require_field">*</span> : </label>
@@ -331,7 +322,6 @@
 		});
 	});
 </script>
-
 
 
 
