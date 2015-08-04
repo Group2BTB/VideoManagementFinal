@@ -28,17 +28,19 @@ public class VideoDAO {
 			return false;
 		}
 	}
+	
+	
 	public boolean insertVideo(Video vdo){
 		
-		try(Connection con = new DBConnection().getConnection();
-//				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_id,document_url,"
-//						+ "create_date)values()")
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_id,document_url,"
 						+ "create_date,modifier_date,user_id,status,approved,view) values(?,?,?,?,?,?,?,?,?,?,?)");){
 			
 			if(checkVideo(vdo.getUrl()))
 				return false;
 			
+			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl());
@@ -51,7 +53,7 @@ public class VideoDAO {
 			stm.setInt(10, vdo.getApproved());
 			stm.setLong(11, vdo.getView());
 			
-			if(stm.executeUpdate()==0)
+			if(stm.executeUpdate()==0) //execute the statement
 				return false;
 			
 			return true;			
@@ -72,7 +74,7 @@ public class VideoDAO {
 		video.setName("video1");
 		video.setDescription("description1");
 		video.setUrl("url1");
-		video.setDocId(1);
+		video.setDocId(2);
 		video.setDocUrl("docUrl1");
 		video.setCreate_date(wwd.getDate("20 15 2015"));
 		video.setModifier_date(wwd.getDate("20 15 2015"));
