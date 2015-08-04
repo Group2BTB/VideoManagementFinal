@@ -36,8 +36,8 @@
 
 <li class="level1 ">
 	<a title="" class="level1  item-link" href="#">
-        <img src="ELearning/media/images/khmer.png" alt="Arabic" title="Arabic" />
-        <img src="ELearning/media/images/English.png" alt="English " title="English " />
+        <img src="ELearning/js/images/khmer.png" alt="Arabic" title="Arabic" />
+        <img src="ELearning/js/images/English.png" alt="English " title="English " />
     </a>	
 </li>
 
@@ -57,12 +57,12 @@
             <li><a title="" href='#'>Sing Up</a>        </li>
         <li>
             <a title="" href='#'>            
-                <img src="ELearning/media/images/English.png" alt="English " title="English " />
+                <img src="ELearning/js/images/English.png" alt="English " title="English " />
             </a>
         </li>
         <li>
             <a title="" href='#'>
-             <img src="ELearning/media/images/khmer.png" alt="KHMER" title="KHMER" />
+             <img src="ELearning/js/images/khmer.png" alt="KHMER" title="KHMER" />
             </a>
         </li>
             
