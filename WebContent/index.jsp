@@ -30,7 +30,7 @@
     <link href="ELearning/owl-carousel-plugins/owl-carousel/owl.theme.css" rel="stylesheet">
 
 <!-----Javascript----->
- <script src="ELearning/media/js/jquery.min.js" type="text/javascript"></script>  
+ <script src="ELearning/js/js/jquery.min.js" type="text/javascript"></script>  
   <!-----JS Bootstrap----->
  <script src="ELearning/templates/asset/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-----JS Slider top----->
@@ -59,7 +59,7 @@
     	    	<div class="slickslider-item item clearfix active ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="ELearning/cache/resized/1111.jpg"/>					
+					<img alt="" src="ELearning/images/resized/1111.jpg"/>					
 				</div>		
 						
 			<div class="item-content">
@@ -85,7 +85,7 @@
     	    	<div class="slickslider-item item clearfix ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="ELearning/cache/resized/2222.jpg"/>					
+					<img alt="" src="ELearning/images/resized/2222.jpg"/>					
 				</div>						
 			<div class="item-content">
 				<div class="item-content-inner">
@@ -111,7 +111,7 @@
     	    	<div class="slickslider-item item clearfix  ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="ELearning/cache/resized/3333.jpg"/>					
+					<img alt="" src="ELearning/images/resized/3333.jpg"/>					
 				</div>
 			<div class="item-content">
 				<div class="item-content-inner">										
@@ -136,7 +136,7 @@
     	    	<div class="slickslider-item item clearfix  ">
 									
 				<div class="images-slideshow">
-					<img alt="" src="ELearning/cache/resized/4444.jpg"/>					
+					<img alt="" src="ELearning/images/resized/4444.jpg"/>					
 				</div>
 			<div class="item-content">
 				<div class="item-content-inner">
@@ -228,22 +228,22 @@
                 <div class="row center-of-box" >
                     <div class="category-box col-md-3 col-sm-6" id="category-programming">
                         <h3>Programming</h3>
-                       <span><img src="ELearning/cache/categories/programmin%20.png" /></span>
+                       <span><img src="ELearning/images/categories/programmin%20.png" /></span>
                         <p>This is a programming languages</p>
                     </div>
                     <div class="category-box col-md-3 col-sm-6" id="category-design" style="background-color:#149671;">
                       <h3>Graphic Design</h3>
-                       <span><img src="ELearning/cache/categories/Design.png" /></span>
+                       <span><img src="ELearning/images/categories/Design.png" /></span>
                         <p>This is a Design graphic</p>
                     </div>
                      <div class="category-box col-md-3 col-sm-6" id="category-mathematics" style="background-color:#6B80DD;">
                        <h3>Mathematics</h3>
-                       <span><img src="ELearning/cache/categories/Math.png" /></span>
+                       <span><img src="ELearning/images/categories/Math.png" /></span>
                         <p>This is a Mathatics Skill</p>
                     </div>
                      <div class="category-box col-md-3 col-sm-6" id="category-mobile">
                       <h3>Mobile Application</h3>
-                       <span><img src="ELearning/cache/categories/Mobile.png" /></span>
+                       <span><img src="ELearning/images/categories/Mobile.png" /></span>
                         <p>This is a mobile programming languages</p>
                     </div>
                 </div>
@@ -256,19 +256,19 @@
                         <div style="margin: 0 auto;">
                         <h1 class="text-center"><a href="#" >Programming</a></h1>
                         <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p class="course-text">Learng Java</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learn C#</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learn C# Advance</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg" />    
+                            <img src="ELearning/images/OK/1.jpg" />    
                             <p>Learng SQL</p>
                         </div>  
                         </div>
@@ -284,11 +284,11 @@
                         <h1 class="text-center"><a href="#" >Design</a></h1>
                         
                         <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learng Photoshop</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learng Illustrator</p>
                         </div>
                          
@@ -302,19 +302,19 @@
                     <div id="category-mathematics-details" >
                         <h1 class="text-center"><a href="#" >Mathematics</a></h1>
                         <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>រៀនពិជគណិត</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>រៀនធរណីមាត្រ</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>កំណែវិញ្ញាសារប្រលងបឋមភូមិ</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg" />    
+                            <img src="ELearning/images/OK/1.jpg" />    
                             <p>កំណែវិញ្ញាសារប្រលងទុតិយភូមិ</p>
                         </div>
                          
@@ -328,19 +328,19 @@
                     <div id="category-mobile-details">
                         <h1 class="text-center"><a href="#" >Mobile</a></h1>
                        <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learng IOS</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learng Objective C</p>
                         </div>
                          <div class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg"/>    
+                            <img src="ELearning/images/OK/1.jpg"/>    
                             <p>Learng Android</p>
                         </div>
                         <div  class="course-box text-center">
-                            <img src="ELearning/cache/OK/1.jpg" />    
+                            <img src="ELearning/images/OK/1.jpg" />    
                             <p>Learng Android (Project)</p>
                         </div>
                          
