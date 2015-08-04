@@ -160,7 +160,7 @@ public class UserDAO {
 				
 				return user;							
 			}						
-			return user;			
+			return null;			
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
@@ -180,6 +180,9 @@ public class UserDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_users set username=?, passwd=?, email=?, fullname=?, gender=?"
 						+ ", role=?, status=?, approved=?, modifier_date=?, department_id=?, phone=?, profile=?, \"DOB\"=?, university_id=? where user_id=?")){
+			
+			if(checkUser(usr.getName(), usr.getEmail()))
+				return false;
 			
 			/*To set data to preparedStatement from user's data*/
 			stm.setString(1, usr.getName());
@@ -211,7 +214,7 @@ public class UserDAO {
 	}
 	
 	/**
-	 * Method is to deactivate user from database by id
+	 * Method is to deactivate a user from database by id
 	 * @param id user's id to delete
 	 * @return true if user is deleted successfully or false if fail to delete user
 	 */
@@ -241,10 +244,16 @@ public class UserDAO {
 //		WorkWithDate wwd = new WorkWithDate();
 //		System.out.println(wwd.getDate("15/13/2014////"));
 		
-		System.out.println(new UserDAO().getAllUser());
+		//System.out.println(new UserDAO().updateUser(usr));
 
-		System.exit(0);
+		UserDAO ud = new UserDAO();
 		User uu = new UserDAO().getUser("heng22", "11");
+		uu.setName("heng222");
+		uu.setEmail("em");
+		uu.setUniversity(4);
+		System.out.println(ud.updateUser(uu));
+		
+		System.exit(0);
 		uu.setFullName("Leang Heng");
 		uu.setProfile("LyLy");
 		if(!new UserDAO().updateUser(uu));
@@ -271,7 +280,7 @@ public class UserDAO {
 		
 		Calendar date = Calendar.getInstance();
 		date.set(1990, 10, 20);
-		user.setDOB(date.getTime());
+		//user.setDOB(date.getTime());
 		
 		System.out.println(new UserDAO().insertUser(user));
 	}

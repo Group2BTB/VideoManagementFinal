@@ -85,6 +85,9 @@ public class DepartmentDAO {
 				PreparedStatement stm = con.prepareStatement("update tb_department set department_name=?, description=?,"
 						+ "user_id=?, status=?,approved=? where department_id=?")){
 			
+			if(checkDepartment(de.getName()))
+				return false;
+			
 			/*To set data to preparedStatement from department data*/
 			stm.setString(1, de.getName());
 			stm.setString(2, de.getDescription());
@@ -92,9 +95,7 @@ public class DepartmentDAO {
 			stm.setInt(4, de.getStatus());
 			stm.setInt(5, de.getApproved());
 			stm.setLong(6, de.getId());
-			
-			
-			
+						
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;	
 			
@@ -104,6 +105,28 @@ public class DepartmentDAO {
 			
 			ex.printStackTrace();
 			return false;
+		}
+	}
+	
+	public Department getDepartment(long id){
+		
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=?")){
+			
+			stm.setLong(1, id);
+					
+			if(rs.next())
+			{
+				Department d = new Department();
+				
+			}
+			
+			return null;
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -128,17 +151,44 @@ public class DepartmentDAO {
 		}
 	}
 	
+	/**
+	 * Method is to deactivate a department from database
+	 * @param id is id of department to deactivate
+	 * @return  true if it successfully deactivate otherwise return false 
+	 */
+	
+	public boolean deactiveDepartment(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_department set status=0, approved=0 where department_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		Department de = new Department();
 		DepartmentDAO dde = new DepartmentDAO();
 		
-		System.out.println(dde.getAllDepartment());
-		System.exit(0);
+		//System.out.println(dde.getAllDepartment());
+//		dde.deactiveDepartment(7);
+//		System.exit(0);
 		
-		de.setId(12);
-		de.setName("computer12");
-		de.setDescription("des12");
+		de.setId(7);
+		de.setName("computer10");
+		de.setDescription("des10");
 		de.setUserID(22);
 		de.setStatus(1);
 		de.setApproved(1);
