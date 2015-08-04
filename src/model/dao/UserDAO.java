@@ -4,11 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.google.gson.Gson;
+
 import utilities.DBConnection;
 import utilities.WorkWithDate;
+import utilities.WorkWithJson;
 import model.dto.User;
 
 /*
@@ -87,25 +91,28 @@ public class UserDAO {
 	}
 	
 	
-	
-	public ResultSet getAllUser(){
+	/**
+	 * Method is to get all users from database
+	 * @return as string represents string of Json object
+	 */
+	public String getAllUser(){
 		
-		try(Connection con = new DBConnection().getConnection();
+
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("select * from tb_users");){
 			
-			rs = stm.executeQuery();
+			rs = stm.executeQuery();		
 			
-			return rs;
+			return (new Gson().toJson(WorkWithJson.convertResultSetIntoJSON(rs)));		
 			
 		}catch(Exception ex){
 			
 			ex.printStackTrace();
 			return null;
 		}
-		
 	}
-
-
+	
+	
 	/**
 	 * Method is to get data from user 
 	 * @param e_and_u is email or username of user
@@ -231,8 +238,10 @@ public class UserDAO {
 	
 	public static void main(String[] args) throws ParseException {
 	
-		WorkWithDate wwd = new WorkWithDate();
-		System.out.println(wwd.getDate("15/13/2014////"));
+//		WorkWithDate wwd = new WorkWithDate();
+//		System.out.println(wwd.getDate("15/13/2014////"));
+		
+		new UserDAO().getAllUser();
 
 		System.exit(0);
 		User uu = new UserDAO().getUser("heng22", "11");
