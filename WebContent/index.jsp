@@ -248,26 +248,26 @@
 				<h1>All Courses</h1>
 			</div>
 			<div class="row center-of-box">
-				<div class="category-box col-md-3 col-sm-6"
+				<div class="category-box col-md-3 col-sm-6 col-sm-offset-0 col-md-0 col-xs-10 col-xs-offset-1"
 					id="category-programming">
 					<h3>Programming</h3>
 					<span><img
 						src="ELearning/images/categories/programmin%20.png" /></span>
 					<p>This is a programming languages</p>
 				</div>
-				<div class="category-box col-md-3 col-sm-6" id="category-design"
+				<div class="category-box col-md-3 col-sm-6  col-sm-offset-0 col-md-0 col-xs-10 col-xs-offset-1"  id="category-design"
 					style="background-color: #149671;">
 					<h3>Graphic Design</h3>
 					<span><img src="ELearning/images/categories/Design.png" /></span>
 					<p>This is a Design graphic</p>
 				</div>
-				<div class="category-box col-md-3 col-sm-6"
+				<div class="category-box col-md-3 col-sm-6  col-sm-offset-0 col-md-0 col-xs-10 col-xs-offset-1"
 					id="category-mathematics" style="background-color: #6B80DD;">
 					<h3>Mathematics</h3>
 					<span><img src="ELearning/images/categories/Math.png" /></span>
 					<p>This is a Mathatics Skill</p>
 				</div>
-				<div class="category-box col-md-3 col-sm-6" id="category-mobile">
+				<div class="category-box col-md-3 col-sm-6  col-sm-offset-0 col-md-0 col-xs-10 col-xs-offset-1" id="category-mobile">
 					<h3>Mobile Application</h3>
 					<span><img src="ELearning/images/categories/Mobile.png" /></span>
 					<p>This is a mobile programming languages</p>
@@ -279,7 +279,6 @@
 		<div class="container">
 			<div class="form-inline">
 				<div id="category-programming-details">
-					<div style="margin: 0 auto;">
 						<h1 class="text-center">
 							<a href="#">Programming</a>
 						</h1>
@@ -299,9 +298,7 @@
 							<img src="ELearning/images/courses/sql-icon.png" />
 							<p>Learng SQL</p>
 						</div>
-					</div>
 				</div>
-
 			</div>
 		</div>
 
