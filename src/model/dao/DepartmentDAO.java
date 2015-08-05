@@ -191,7 +191,9 @@ public class DepartmentDAO {
 		
 		//System.out.println(dde.getAllDepartment());
 //		dde.deactiveDepartment(7);
-//		System.exit(0);
+		de = dde.getDepartment(12);
+		System.out.println(de);
+		System.exit(0);
 		
 		de.setId(7);
 		de.setName("computer10");
