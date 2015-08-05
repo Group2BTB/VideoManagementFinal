@@ -214,7 +214,7 @@ public class UserDAO {
 	}
 	
 	/**
-	 * Method is to deactivate a user from database by id
+	 * Method is to deactivate a user in database by id
 	 * @param id user's id to delete
 	 * @return true if user is deleted successfully or false if fail to delete user
 	 */
@@ -224,7 +224,7 @@ public class UserDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_users set status=0, approved=0 where user_id=?");){			
 			
-			/*To set data to preparedStatement from user's data*/
+			/*To set data to preparedStatement from id*/
 			stm.setLong(1, id);
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
@@ -239,14 +239,43 @@ public class UserDAO {
 		}
 	}
 	
+	
+	/**
+	 * Method is to active a user in database by id
+	 * @param id is id of user
+	 * @return true if user is updated successfully otherwise return false
+	 */	
+	public boolean activeUser(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_users set status=1, approved=1 where user_id=?");){
+			
+			/*To set data to preparedStatement id*/
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
 	public static void main(String[] args) throws ParseException {
 	
-//		WorkWithDate wwd = new WorkWithDate();
-//		System.out.println(wwd.getDate("15/13/2014////"));
 		
-		//System.out.println(new UserDAO().updateUser(usr));
-
+		WorkWithDate wwd = new WorkWithDate();
 		UserDAO ud = new UserDAO();
+		
+//		System.out.println(ud.DeactiveUser(17));
+		System.out.println(ud.activeUser(23));
+		System.exit(0);
+		
 		User uu = new UserDAO().getUser("heng22", "11");
 		uu.setName("heng222");
 		uu.setEmail("em");
