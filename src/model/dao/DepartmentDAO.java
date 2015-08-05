@@ -180,8 +180,31 @@ public class DepartmentDAO {
 			
 			ex.printStackTrace();
 			return false;
-		}
+		}		
+	}
+	
+	/**
+	 * Method is to activate a department
+	 * @param id is id of department
+	 * @return true if department is updated successfully otherwise return false
+	 */
+	public boolean activeDepartment(long id){
 		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_department set status=1, approved=1 where department_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {
