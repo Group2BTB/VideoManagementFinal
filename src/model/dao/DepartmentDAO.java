@@ -111,7 +111,7 @@ public class DepartmentDAO {
 	public Department getDepartment(long id){
 		
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=?")){
+				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=? and status=1 and approved=1")){
 			
 			stm.setLong(1, id);
 			rs = stm.executeQuery();
@@ -145,7 +145,7 @@ public class DepartmentDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("select * from tb_department");){
+				PreparedStatement stm = con.prepareStatement("select * from tb_department where status=1 and approved=1");){
 			
 			rs = stm.executeQuery(); //execute the statement and assign to Resultset variable
 			
@@ -189,6 +189,8 @@ public class DepartmentDAO {
 		Department de = new Department();
 		DepartmentDAO dde = new DepartmentDAO();
 		
+		System.out.println(dde.getDepartment(12));
+		System.exit(0);
 		//System.out.println(dde.getAllDepartment());
 //		dde.deactiveDepartment(7);
 		de = dde.getDepartment(12);
