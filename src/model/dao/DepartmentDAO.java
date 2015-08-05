@@ -114,11 +114,18 @@ public class DepartmentDAO {
 				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=?")){
 			
 			stm.setLong(1, id);
-					
+			rs = stm.executeQuery();
+			
 			if(rs.next())
 			{
 				Department d = new Department();
-				
+				d.setId(id);
+				d.setName(rs.getString("department_name"));
+				d.setDescription(rs.getString("description"));
+				d.setUserID(rs.getLong("user_id"));
+				d.setStatus(rs.getInt("status"));
+				d.setApproved(rs.getInt("approved"));								
+				return d;
 			}
 			
 			return null;
