@@ -23,7 +23,7 @@
 </li>
 
 <li class="level1 havechild ">
-	<a title="Login" class="level1 havechild  item-link" id="btnLogin" data-toggle="modal" data-target="#login" style="cursor: pointer;">
+	<a title="Login" class="level1 havechild  item-link"  data-toggle="modal" data-target="#login" style="cursor: pointer;">
         <span class="menu-title">Login</span>      
     </a>	
 </li>
