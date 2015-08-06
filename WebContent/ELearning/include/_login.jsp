@@ -59,7 +59,19 @@
 
             </div>
         </div>
+     <script>
      
+
+     $(document).ready(function() {
+     $(function() {
+     $("#login").modal({
+     backdrop : 'static',
+     keyboard : false
+     });
+     });
+     });
+     
+     </script>
         <!-- End modal login -->
    
 
