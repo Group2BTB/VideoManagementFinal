@@ -8,7 +8,7 @@ public class Answer {
 	private String description;
 	private long question_id;	
 	private Date create_date;	
-	private long uerID;
+	
 	private int status;
 	private int approved;
 	
@@ -21,8 +21,7 @@ public class Answer {
 		this.id = id;
 		this.description = description;
 		this.question_id = question_id;
-		this.create_date = create_date;
-		this.uerID = uerID;
+		this.create_date = create_date;		
 		this.status = status;
 		this.approved = approved;
 	}
@@ -49,13 +48,7 @@ public class Answer {
 	}
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
-	}
-	public long getUerID() {
-		return uerID;
-	}
-	public void setUerID(long uerID) {
-		this.uerID = uerID;
-	}
+	}	
 	public int getStatus() {
 		return status;
 	}
