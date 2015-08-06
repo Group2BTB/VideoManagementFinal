@@ -85,8 +85,8 @@ public class DepartmentDAO {
 				PreparedStatement stm = con.prepareStatement("update tb_department set department_name=?, description=?,"
 						+ "user_id=?, status=?,approved=? where department_id=?")){
 			
-			if(checkDepartment(de.getName()))
-				return false;
+//			if(checkDepartment(de.getName()))
+//				return false;
 			
 			/*To set data to preparedStatement from department data*/
 			stm.setString(1, de.getName());
@@ -111,7 +111,7 @@ public class DepartmentDAO {
 	public Department getDepartment(long id){
 		
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=? and status=1 and approved=1")){
+				PreparedStatement stm = con.prepareStatement("select * from tb_department where department_id=? and approved=1")){
 			
 			stm.setLong(1, id);
 			rs = stm.executeQuery();
@@ -145,7 +145,7 @@ public class DepartmentDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("select * from tb_department where status=1 and approved=1");){
+				PreparedStatement stm = con.prepareStatement("select * from tb_department where approved=1");){
 			
 			rs = stm.executeQuery(); //execute the statement and assign to Resultset variable
 			
@@ -168,7 +168,7 @@ public class DepartmentDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("update tb_department set status=0, approved=0 where department_id=?")){
+				PreparedStatement stm = con.prepareStatement("update tb_department set approved=0 where department_id=?")){
 			
 			stm.setLong(1, id);
 			
@@ -192,7 +192,7 @@ public class DepartmentDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("update tb_department set status=1, approved=1 where department_id=?")){
+				PreparedStatement stm = con.prepareStatement("update tb_department set approved=1 where department_id=?")){
 			
 			stm.setLong(1, id);
 			
