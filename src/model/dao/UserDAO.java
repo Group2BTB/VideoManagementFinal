@@ -35,8 +35,8 @@ public class UserDAO {
 				PreparedStatement stm = con.prepareStatement("select * from tb_users where username=? or email=?");){
 			
 			/*To set data to user object field from result*/
-			stm.setString(1, uname);
-			stm.setString(2, email);
+			stm.setString(1, uname.trim());
+			stm.setString(2, email.trim());
 			
 			return stm.executeQuery().next(); //execute the statement
 						
@@ -62,9 +62,9 @@ public class UserDAO {
 								+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);")){
 			
 			/*To set data to preparedStatement from user's data*/
-			stmInsert.setString(1, usr.getName());
+			stmInsert.setString(1, usr.getName().trim());
 			stmInsert.setString(2, usr.getPasswd());
-			stmInsert.setString(3, usr.getEmail());
+			stmInsert.setString(3, usr.getEmail().trim());
 			stmInsert.setString(4, usr.getFullName());
 			stmInsert.setString(5, usr.getGender());			
 			stmInsert.setLong(6, usr.getParentID());
@@ -185,9 +185,9 @@ public class UserDAO {
 //				return false;
 			
 			/*To set data to preparedStatement from user's data*/
-			stm.setString(1, usr.getName());
+			stm.setString(1, usr.getName().trim());
 			stm.setString(2, usr.getPasswd());
-			stm.setString(3, usr.getEmail());
+			stm.setString(3, usr.getEmail().trim());
 			stm.setString(4, usr.getFullName());
 			stm.setString(5, usr.getGender());
 			stm.setString(6, usr.getRole());
