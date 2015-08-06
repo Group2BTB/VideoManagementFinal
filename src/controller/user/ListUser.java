@@ -1,11 +1,14 @@
 package controller.user;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.UserDAO;
 
 /**
  * Servlet implementation class ListUser
@@ -37,7 +40,15 @@ public class ListUser extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		
+		UserDAO dao = new UserDAO();
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		try {
+			response.getWriter().print(dao.getAllUser());// provide to view as JSON format
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
