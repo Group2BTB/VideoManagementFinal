@@ -42,8 +42,8 @@
     });
 });
 */
-alert(1);
-var app = angular.module('myApp', []);
+
+var app = angular.module('myApp', ['ui.bootstrap']);
 
 app.filter('startFrom', function() {
     return function(input, start) {
@@ -54,11 +54,40 @@ app.filter('startFrom', function() {
         return [];
     };
 });
+app.filter('unique', function() {
+    return function(input, key) {
+        var unique = {};
+        var uniqueList = [];
+        for(var i = 0; i < input.length; i++){
+            if(typeof unique[input[i][key]] == "undefined"){
+                unique[input[i][key]] = "";
+                uniqueList.push(input[i]);
+            }
+        }
+        return uniqueList;
+    };
+});
+app.filter('namefilter', function() {
+	  return function(items, search) {
+	    if (!search) {
+	      return items;
+	    }
 
+	    var deptname = search.carType;
+	    if (!carType || '' === carType) {
+	      return items;
+	    }
+
+	    return items.filter(function(element, index, array) {
+	      return element.carType.name === search.carType;
+	    });
+
+	  };
+	});
 app.controller('deptcontroller', function ($scope, $http, $timeout) {
 	
     $http.get('../listdept').success(function(data){
-    	alert(data);
+    	
         $scope.list = data;
         $scope.currentPage = 1 ; //current page
         $scope.entryLimit = 5; //max no of items to display in a page
@@ -68,10 +97,28 @@ app.controller('deptcontroller', function ($scope, $http, $timeout) {
 		$scope.error = false;
 		$scope.incomplete = false;
 		$scope.editid=0;
+		
 	/*	$scope.fName = '';
 		$scope.lName = '';
 		$scope.passw1 = '';
 		$scope.passw2 = ''; */
 		
     });
+    $scope.setPage = function(pageNo) {
+    
+        $scope.currentPage = pageNo; //current page
+       
+};
+    $scope.filter = function() {
+
+        $timeout(function() { 
+            $scope.filteredItems = $scope.filtered.length;
+        }, 10);
+    };
+    $scope.sort_by = function(predicate) {
+    
+        $scope.predicate = predicate;
+        $scope.reverse = !$scope.reverse;
+    };
+    
 });
