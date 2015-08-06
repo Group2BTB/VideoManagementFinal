@@ -99,7 +99,7 @@ public class UserDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("select * from tb_users");){
+				PreparedStatement stm = con.prepareStatement("select * from tb_users where approved=1");){
 			
 			rs = stm.executeQuery();		
 			
@@ -126,7 +126,7 @@ public class UserDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement pstm = con.prepareStatement("select * from tb_users where (username=? or email=?) and passwd=?");){
+				PreparedStatement pstm = con.prepareStatement("select * from tb_users where (username=? or email=?) and passwd=? and approved=1");){
 						
 			/*To set data to preparedStatement from user's data*/
 			pstm.setString(1, e_and_u); //set first value to statement
@@ -181,8 +181,8 @@ public class UserDAO {
 				PreparedStatement stm = con.prepareStatement("update tb_users set username=?, passwd=?, email=?, fullname=?, gender=?"
 						+ ", role=?, status=?, approved=?, modifier_date=?, department_id=?, phone=?, profile=?, \"DOB\"=?, university_id=? where user_id=?")){
 			
-			if(checkUser(usr.getName(), usr.getEmail()))
-				return false;
+//			if(checkUser(usr.getName(), usr.getEmail()))
+//				return false;
 			
 			/*To set data to preparedStatement from user's data*/
 			stm.setString(1, usr.getName());
