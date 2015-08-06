@@ -79,22 +79,37 @@ public class VideoDAO {
 		}
 	}
 	
+	/**
+	 * Method is to update data of video in database
+	 * @param vdo is video object contains data to update in database
+	 * @return true if video is updated successfully otherwise return false
+	 */
 	public boolean updateVideo(Video vdo){
 		
-		try(Connection con = new DBConnection().getConnection();
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_videos set video_name=?, description=?, youtube_url=?,"
 						+ "document_id=?, document_url=?, modifier_date=?, user_id=?, status=?, approved=?,"
 						+ "view=? where video_id=?")){
 			
-			if(checkVideo(vdo.getUrl()))
-				return false;
+//			if(checkVideo(vdo.getUrl()))
+//				return false;
 			
+			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl());
 			stm.setLong(4, vdo.getDocId());
 			stm.setString(5, vdo.getDocUrl());
-			//stm.setDate(6, wwd.getSqlDate(vdo.mo));
+			stm.setDate(6, wwd.getSqlDate(new Date()));
+			stm.setLong(7, vdo.getUerID());
+			stm.setInt(8, vdo.getStatus());
+			stm.setInt(9, vdo.getApproved());
+			stm.setLong(10, vdo.getView());
+			stm.setLong(11, vdo.getId());
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
 			
 			return true;
 			
@@ -103,6 +118,44 @@ public class VideoDAO {
 			
 			ex.printStackTrace();
 			return false;
+		}
+	}
+	
+	public Video getVideo(long id){
+		
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from tb_videos where video_id=? where approved=1");){
+			
+			
+			stm.setLong(1, id);
+			
+			rs = stm.executeQuery();
+			
+			if(rs.next()){
+				
+				Video v = new Video();
+				
+				v.setId(id);
+				v.setName(rs.getString("video_name"));
+				v.setDescription(rs.getString("description"));
+				v.setUrl(rs.getString("youtube_url"));
+				v.setDocId(rs.getLong("document_id"));
+				v.setDocUrl(rs.getString("document_url"));
+				v.setCreate_date(rs.getDate("create_date"));
+				v.setModifier_date(rs.getDate("modifier_date"));
+				v.setUerID(rs.getLong("user_id"));
+				v.setStatus(rs.getInt("status"));
+				v.setApproved(rs.getInt("approved"));
+				v.setView(rs.getLong("view"));
+				return v;
+			}
+			return null;
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
 		}
 	}
 	
@@ -116,7 +169,7 @@ public class VideoDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				Statement stm= con.createStatement();){
 			
-			rs = stm.executeQuery("select * from tb_videos"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from tb_videos where approved=1"); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
 			
@@ -132,23 +185,26 @@ public class VideoDAO {
 		Video video = new Video();
 		VideoDAO vd = new VideoDAO();
 		WorkWithDate wwd = new WorkWithDate();
+		
+//		System.out.println(vd.getVideo(4).getModifier_date());
 		System.out.println(vd.getAllVideo());
 		System.exit(0);
 		
-		video.setName("video2");
+		video.setName("video22");
 		video.setDescription("description2");
 		video.setUrl("url2");
 		video.setDocId(2);
 		video.setDocUrl("docUrl2");
-		video.setCreate_date(wwd.getDate("20 15 2015"));
-		video.setModifier_date(wwd.getDate("20 15 2015"));
+		video.setCreate_date(wwd.getDate("20 15 2015"));		
 		video.setUerID(23);
 		video.setStatus(1);
 		video.setApproved(1);
-		video.setView(100);
+		video.setView(10);
 		
-		System.out.println(vd.insertVideo(video));
-			
+		video.setId(4);
+		System.out.println(vd.updateVideo(video));
+		
+		//System.out.println(vd.insertVideo(video));			
 		
 	}
 }
