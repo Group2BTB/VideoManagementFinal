@@ -30,7 +30,7 @@ public class VideoDAO {
 				PreparedStatement stm = con.prepareStatement("select youtube_url from tb_videos where youtube_url=?");){
 			
 			/*To set data to preparedStatement from video's data*/
-			stm.setString(1, url);
+			stm.setString(1, url.trim());
 						
 			return stm.executeQuery().next(); //execute the statement and return boolean
 			
@@ -61,7 +61,7 @@ public class VideoDAO {
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl());
 			stm.setLong(4, vdo.getDocId());
-			stm.setString(5, vdo.getDocUrl());			
+			stm.setString(5, vdo.getDocUrl().trim());			
 			stm.setLong(8, vdo.getUerID());
 			stm.setInt(9, vdo.getStatus());
 			stm.setInt(10, vdo.getApproved());
@@ -98,7 +98,7 @@ public class VideoDAO {
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
-			stm.setString(3, vdo.getUrl());
+			stm.setString(3, vdo.getUrl().trim());
 			stm.setLong(4, vdo.getDocId());
 			stm.setString(5, vdo.getDocUrl());
 			stm.setDate(6, wwd.getSqlDate(new Date()));
