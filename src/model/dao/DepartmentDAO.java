@@ -27,7 +27,7 @@ public class DepartmentDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("select status from tb_department where department_name=?")){
 			
-			stm.setString(1, dName);
+			stm.setString(1, dName.trim());
 			return stm.executeQuery().next(); //execute the statement and return boolean
 			
 		}catch(Exception ex){
@@ -54,7 +54,7 @@ public class DepartmentDAO {
 				return false;
 			
 			/*To set data to preparedStatement from department data*/
-			stm.setString(1, depart.getName());
+			stm.setString(1, depart.getName().trim());
 			stm.setString(2, depart.getDescription());
 			stm.setLong(3, depart.getUserID());
 			stm.setInt(4, depart.getStatus());
@@ -89,7 +89,7 @@ public class DepartmentDAO {
 //				return false;
 			
 			/*To set data to preparedStatement from department data*/
-			stm.setString(1, de.getName());
+			stm.setString(1, de.getName().trim());
 			stm.setString(2, de.getDescription());
 			stm.setLong(3, de.getUserID());
 			stm.setInt(4, de.getStatus());
