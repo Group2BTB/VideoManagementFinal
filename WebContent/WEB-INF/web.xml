@@ -3,7 +3,30 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
+  <servlet>
+    <servlet-name>addQuest</servlet-name>
+    <servlet-class>controller.question.addQuestion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addQuest</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updateQuest</servlet-name>
+    <servlet-class>controller.question.UpdateQuestion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateQuest</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>listVideo</servlet-name>
+      <servlet-class>controller.video.ListVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>listVideo</servlet-name>
+      <url-pattern>/</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>listdep</servlet-name>
     <servlet-class>controller.department.listdept</servlet-class>
@@ -12,7 +35,6 @@
     <servlet-name>listdep</servlet-name>
     <url-pattern>/listdept</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>adddept</servlet-name>
     <servlet-class>controller.department.adddept</servlet-class>
@@ -21,7 +43,6 @@
     <servlet-name>adddept</servlet-name>
     <url-pattern>/adddept</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>updatedept</servlet-name>
     <servlet-class>controller.department.editDept</servlet-class>
