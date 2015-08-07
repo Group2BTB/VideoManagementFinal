@@ -148,7 +148,7 @@ public class UserDAO {
 				user.setRole(rs.getString("role"));
 				user.setStatus(rs.getInt("status"));
 				user.setApproved(rs.getInt("approved"));
-				user.setRegister_date(rs.getDate("create_date")); //defalut format yyyy-MM-dd				
+				user.setRegister_date(rs.getDate("register_date")); //defalut format yyyy-MM-dd				
 				user.setDepartID(rs.getInt("department_id"));
 				user.setPhone(rs.getString("phone"));
 				user.setProfile(rs.getString("profile"));
