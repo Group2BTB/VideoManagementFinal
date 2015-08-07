@@ -51,7 +51,7 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
-						+ "create_date, user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?)");){
+						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?)");){
 			
 			if(checkVideo(vdo.getUrl()))
 				return false;
@@ -59,13 +59,12 @@ public class VideoDAO {
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
-			stm.setString(3, vdo.getUrl());
-			
-			stm.setString(5, vdo.getDocUrl().trim());			
-			stm.setLong(8, vdo.getUerID());
-			stm.setInt(9, vdo.getStatus());
-			stm.setInt(10, vdo.getApproved());
-			stm.setLong(11, vdo.getView());
+			stm.setString(3, vdo.getUrl());			
+			stm.setString(4, vdo.getDocUrl().trim());			
+			stm.setLong(5, vdo.getUerID());
+			stm.setInt(6, vdo.getStatus());
+			stm.setInt(7, vdo.getApproved());
+			stm.setLong(8, vdo.getView());
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
