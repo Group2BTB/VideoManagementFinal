@@ -47,7 +47,7 @@ public class QuestionDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, answer_id, create_date, "
-						+ "status, approved)values(?,?,?,?,?,?)")){
+						+ "status)values(?,?,?,?,?,?)")){
 						
 			if(checkQuestion(qt.getDescription().trim()))
 				return false;
@@ -56,8 +56,7 @@ public class QuestionDAO {
 			stm.setLong(2, qt.getVideoID());
 			stm.setLong(3, qt.getAnswer_id());
 			stm.setDate(4, wwd.getSqlDate(new Date()));
-			stm.setInt(5, qt.getStatus());
-			stm.setInt(6, qt.getApproved());
+			stm.setInt(5, qt.getStatus());			
 			
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;
@@ -76,13 +75,12 @@ public class QuestionDAO {
 		
 		try(Connection con = new DBConnection().getConnection();
 				PreparedStatement stm = con.prepareStatement("update tb_questions set description=?, video_id=?, answer_id=?,"
-						+ "status=?, approved=? where id=?")){
+						+ "status=? where id=?")){
 			
 			stm.setString(1, qt.getDescription());
 			stm.setLong(2, qt.getVideoID());
 			stm.setLong(3, qt.getAnswer_id());
-			stm.setInt(4, qt.getStatus());
-			stm.setInt(5, qt.getApproved());
+			stm.setInt(4, qt.getStatus());			
 			stm.setLong(6, qt.getId());
 			
 			if(stm.executeUpdate() == 0)
@@ -106,8 +104,7 @@ public class QuestionDAO {
 		qst.setDescription("what is YOU?");
 		qst.setVideoID(3);
 		qst.setAnswer_id(1);
-		qst.setAnswer_id(1);
-		qst.setApproved(1);
+		qst.setAnswer_id(1);		
 		
 		System.out.println(qdo.insertQuestion(qst));
 		
