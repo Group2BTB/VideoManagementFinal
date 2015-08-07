@@ -51,7 +51,7 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
-						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?)");){
+						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?)");){
 			
 			if(checkVideo(vdo.getUrl()))
 				return false;
@@ -185,22 +185,22 @@ public class VideoDAO {
 		WorkWithDate wwd = new WorkWithDate();
 		
 //		System.out.println(vd.getVideo(4).getModifier_date());
-		System.out.println(vd.getAllVideo());
-		System.exit(0);
+//		System.out.println(vd.getAllVideo());
+//		System.exit(0);
 		
 		video.setName("video22");
 		video.setDescription("description2");
 		video.setUrl("url2");
 		
-		video.setDocUrl("docUrl2");
-		video.setCreate_date(wwd.getDate("20 15 2015"));		
-		video.setUerID(23);
+		video.setDocUrl("docUrl2");				
+		video.setUerID(27);
 		video.setStatus(1);
 		video.setApproved(1);
 		video.setView(10);
 		
-		video.setId(4);
-		System.out.println(vd.updateVideo(video));
+		System.out.println(vd.insertVideo(video));
+//		video.setId(4);
+//		System.out.println(vd.updateVideo(video));
 		
 		//System.out.println(vd.insertVideo(video));			
 		

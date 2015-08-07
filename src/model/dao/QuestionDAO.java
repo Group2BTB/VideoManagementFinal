@@ -102,9 +102,8 @@ public class QuestionDAO {
 		QuestionDAO qdo = new QuestionDAO();
 		
 		qst.setDescription("what is YOU?");
-		qst.setVideoID(3);
-		qst.setAnswer_id(1);
-		qst.setAnswer_id(1);		
+		qst.setVideoID(7);
+		qst.setAnswer_id(1);				
 		
 		System.out.println(qdo.insertQuestion(qst));
 		
