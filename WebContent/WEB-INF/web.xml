@@ -3,7 +3,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <!-- Question Block -->
   <servlet>
     <servlet-name>addQuest</servlet-name>
     <servlet-class>controller.question.addQuestion</servlet-class>
@@ -20,24 +19,21 @@
     <servlet-name>updateQuest</servlet-name>
     <url-pattern>/updateQuest</url-pattern>
   </servlet-mapping>
-  <!-- End Question block -->
-  <!-- Category Block-->
-  	<servlet>
-  	    <servlet-name>listCategory</servlet-name>
-  	    <servlet-class>controller.category.listCategory</servlet-class>
-  	</servlet>
-  	<servlet-mapping>
-  	    <servlet-name>listCategory</servlet-name>
-  	    <url-pattern>/listCategory</url-pattern>
-  	</servlet-mapping>
-  <!-- End Category Block -->
   <servlet>
-      <servlet-name>listVideo</servlet-name>
-      <servlet-class>controller.video.ListVideo</servlet-class>
+    <servlet-name>listCategory</servlet-name>
+    <servlet-class>controller.category.listCategory</servlet-class>
   </servlet>
   <servlet-mapping>
-      <servlet-name>listVideo</servlet-name>
-      <url-pattern>/</url-pattern>
+    <servlet-name>listCategory</servlet-name>
+    <url-pattern>/listCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>listvideo</servlet-name>
+    <servlet-class>controller.video.ListVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listvideo</servlet-name>
+    <url-pattern>/listVideo</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>listdep</servlet-name>
