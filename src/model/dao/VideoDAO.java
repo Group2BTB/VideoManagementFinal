@@ -50,8 +50,8 @@ public class VideoDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_id,document_url,"
-						+ "create_date, user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?,?,?)");){
+				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
+						+ "create_date, user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?,?)");){
 			
 			if(checkVideo(vdo.getUrl()))
 				return false;
@@ -60,7 +60,7 @@ public class VideoDAO {
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl());
-			stm.setLong(4, vdo.getDocId());
+			
 			stm.setString(5, vdo.getDocUrl().trim());			
 			stm.setLong(8, vdo.getUerID());
 			stm.setInt(9, vdo.getStatus());
@@ -89,7 +89,7 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_videos set video_name=?, description=?, youtube_url=?,"
-						+ "document_id=?, document_url=?, modifier_date=?, user_id=?, status=?, approved=?,"
+						+ "document_url=?, modifier_date=?, user_id=?, status=?, approved=?,"
 						+ "view=? where video_id=?")){
 			
 //			if(checkVideo(vdo.getUrl()))
@@ -99,7 +99,7 @@ public class VideoDAO {
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl().trim());
-			stm.setLong(4, vdo.getDocId());
+			
 			stm.setString(5, vdo.getDocUrl());
 			stm.setDate(6, wwd.getSqlDate(new Date()));
 			stm.setLong(7, vdo.getUerID());
@@ -139,7 +139,6 @@ public class VideoDAO {
 				v.setName(rs.getString("video_name"));
 				v.setDescription(rs.getString("description"));
 				v.setUrl(rs.getString("youtube_url"));
-				v.setDocId(rs.getLong("document_id"));
 				v.setDocUrl(rs.getString("document_url"));
 				v.setCreate_date(rs.getDate("create_date"));
 				v.setModifier_date(rs.getDate("modifier_date"));
@@ -193,7 +192,7 @@ public class VideoDAO {
 		video.setName("video22");
 		video.setDescription("description2");
 		video.setUrl("url2");
-		video.setDocId(2);
+		
 		video.setDocUrl("docUrl2");
 		video.setCreate_date(wwd.getDate("20 15 2015"));		
 		video.setUerID(23);
