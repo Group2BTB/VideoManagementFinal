@@ -3,11 +3,13 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 
 import model.dto.Question;
 import utilities.DBConnection;
 import utilities.WorkWithDate;
+import utilities.WorkWithJson;
 
 public class QuestionDAO {
 	
@@ -71,6 +73,23 @@ public class QuestionDAO {
 		
 	}
 	
+	public String getAllQuestion(){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			
+			rs = stm.executeQuery("select * from tb_questions"); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public boolean updateQuestion(Question qt){
 		
 		try(Connection con = new DBConnection().getConnection();
@@ -101,6 +120,8 @@ public class QuestionDAO {
 		Question qst = new Question();
 		QuestionDAO qdo = new QuestionDAO();
 		
+		
+		System.exit(0);
 		qst.setDescription("what is YOU?");
 		qst.setVideoID(7);
 		qst.setAnswer_id(1);				
