@@ -3,13 +3,14 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <!-- Question Block -->
   <servlet>
     <servlet-name>addQuest</servlet-name>
     <servlet-class>controller.question.addQuestion</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>addQuest</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/addQuest</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>updateQuest</servlet-name>
@@ -17,17 +18,17 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>updateQuest</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/updateQuest</url-pattern>
   </servlet-mapping>
-  
+  <!-- End Question block -->
   <!-- Category Block-->
   	<servlet>
   	    <servlet-name>listCategory</servlet-name>
-  	    <servlet-class>controller.category.ListCategory</servlet-class>
+  	    <servlet-class>controller.category.listCategory</servlet-class>
   	</servlet>
   	<servlet-mapping>
   	    <servlet-name>listCategory</servlet-name>
-  	    <url-pattern>/</url-pattern>
+  	    <url-pattern>/listCategory</url-pattern>
   	</servlet-mapping>
   <!-- End Category Block -->
   <servlet>
