@@ -34,6 +34,15 @@
 	width: 100%;
 	height: auto;
 }
+#owl-demo1 .item {
+	margin: 3px;
+}
+
+#owl-demo1 .item img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
 </style>
 
 </head>
@@ -350,7 +359,7 @@
 					</div>
 				</section>
 				<section class="panel">
-					<header class="panel-heading"> Recommanded Courses </header>
+					<header class="panel-heading"> Popular Courses </header>
 					<div class="panel-body">
 						<div class="row product-list" id="owl-demo1">
 							<div class="item">
@@ -360,7 +369,6 @@
 											class="adtocart"> <i class="fa-graduation-cap"></i>
 										</a>
 									</div>
-
 									<div class="panel-body text-center">
 										<h4>
 											<a href="#" class="pro-title"> Learning Oracle </a>
@@ -379,22 +387,6 @@
 
 									<div class="panel-body text-center">
 										<h4>
-											<a href="#" class="pro-title"> Adobe Photoshop </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-
-									<div class="panel-body text-center">
-										<h4>
 											<a href="#" class="pro-title"> Java Programming </a>
 										</h4>
 										<p class="price">Free</p>
@@ -404,8 +396,8 @@
 							<div class="item">
 								<section class="panel">
 									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
+										<img src="img/product-list/pro-1.jpg" alt=""> <a
+											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 										</a>
 									</div>
 
@@ -427,7 +419,7 @@
 
 									<div class="panel-body text-center">
 										<h4>
-											<a href="#" class="pro-title"> VB.NET Programming </a>
+											<a href="#" class="pro-title"> Php Web Development </a>
 										</h4>
 										<p class="price">Free</p>
 									</div>
@@ -443,7 +435,7 @@
 
 									<div class="panel-body text-center">
 										<h4>
-											<a href="#" class="pro-title"> C# Programming </a>
+											<a href="#" class="pro-title"> MySQL </a>
 										</h4>
 										<p class="price">Free</p>
 									</div>
@@ -459,28 +451,60 @@
 
 									<div class="panel-body text-center">
 										<h4>
-											<a href="#" class="pro-title"> Mathematics </a>
+											<a href="#" class="pro-title"> Servlet Web Developement </a>
+										</h4>
+										<p class="price">Free</p>
+									</div>
+								</section>
+							</div>
+							<div class="item">
+								<section class="panel">
+									<div class="pro-img-box">
+										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+											class="adtocart"> <i class="fa-graduation-cap"></i>
+										</a>
+									</div>
+
+									<div class="panel-body text-center">
+										<h4>
+											<a href="#" class="pro-title"> Servlet Web Developement </a>
+										</h4>
+										<p class="price">Free</p>
+									</div>
+								</section>
+							</div>
+							<div class="item">
+								<section class="panel">
+									<div class="pro-img-box">
+										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+											class="adtocart"> <i class="fa-graduation-cap"></i>
+										</a>
+									</div>
+
+									<div class="panel-body text-center">
+										<h4>
+											<a href="#" class="pro-title"> Servlet Web Developement </a>
 										</h4>
 										<p class="price">Free</p>
 									</div>
 								</section>
 							</div>
 						</div>
+
+
 						<!-- <div class="pull-right">
 							<ul class="pagination pagination-sm pro-page-list">
 
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
+								<li><a href="#section1">1</a></li>
+								<li><a href="#section2">2</a></li>
+								<li><a href="#section3">3</a></li>
 								<li><a href="#">»</a></li>
 							</ul>
 						</div> -->
-
 					</div>
 				</section>
-			</section>
-		</section>
-		<!--main content end-->
+			
+						<!--main content end-->
 		<!-- Right Slidebar start -->
 		<div class="sb-slidebar sb-right sb-style-overlay">
 			<h5 class="side-title">Messages</h5>
