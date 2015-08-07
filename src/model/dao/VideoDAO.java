@@ -51,7 +51,7 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
-						+ "create_date, user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?,?)");){
+						+ "create_date, user_id, status, approved, view) values(?,?,?,?,?,?,?,?,?)");){
 			
 			if(checkVideo(vdo.getUrl()))
 				return false;
