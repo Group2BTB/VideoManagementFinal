@@ -154,7 +154,8 @@ public class QuestionDAO {
 		Question qst = new Question();
 		QuestionDAO qdo = new QuestionDAO();
 		
-		System.out.println(qdo.getQuestion(1));
+		qdo.getQuestion(1);
+		System.out.println(qdo.getAllQuestion());
 		System.exit(0);
 		qst.setDescription("what is YOU?");
 		qst.setVideoID(7);
