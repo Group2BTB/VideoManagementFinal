@@ -59,7 +59,7 @@ public class UserDAO {
 				//field DOB need double quotes on processing(manipulation)
 						PreparedStatement stmInsert = con.prepareStatement("insert into tb_users(username"
 								+ ",passwd,email,fullname,gender,role,status,approved,department_id,phone,profile,\"DOB\",university_id) "
-								+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?);")){
+								+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?);")){
 			
 			/*To set data to preparedStatement from user's data*/
 			stmInsert.setString(1, usr.getName().trim());
