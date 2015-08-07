@@ -47,7 +47,7 @@ public class QuestionDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, answer_id, create_date, "
-						+ "status)values(?,?,?,?,?,?)")){
+						+ "status)values(?,?,?,?,?)")){
 						
 			if(checkQuestion(qt.getDescription().trim()))
 				return false;
