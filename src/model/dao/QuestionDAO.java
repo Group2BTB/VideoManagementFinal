@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.Date;
 
 import model.dto.Question;
+import model.dto.Video;
 import utilities.DBConnection;
 import utilities.WorkWithDate;
 import utilities.WorkWithJson;
@@ -90,6 +91,39 @@ public class QuestionDAO {
 		}
 	}
 	
+	public Question getQuestion(long id){
+		
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from tb_questions where question_id=?");){
+						
+			stm.setLong(1, id);
+			
+			rs = stm.executeQuery();
+			
+			if(rs.next()){
+				
+				Question v = new Question();
+				
+				v.setId(id);
+				v.setDescription(rs.getString("description"));
+				v.setVideoID(rs.getLong("video_id"));
+				v.setAnswer_id(rs.getLong("answer_id"));
+				v.setCreate_date(rs.getDate("create_date"));
+				v.setStatus(rs.getInt("status"));
+				
+				return v;
+			}
+			
+			return null;
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public boolean updateQuestion(Question qt){
 		
 		try(Connection con = new DBConnection().getConnection();
@@ -120,7 +154,7 @@ public class QuestionDAO {
 		Question qst = new Question();
 		QuestionDAO qdo = new QuestionDAO();
 		
-		
+		System.out.println(qdo.getQuestion(1));
 		System.exit(0);
 		qst.setDescription("what is YOU?");
 		qst.setVideoID(7);
