@@ -100,13 +100,13 @@ public class VideoDAO {
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl().trim());
 			
-			stm.setString(5, vdo.getDocUrl());
-			stm.setDate(6, wwd.getSqlDate(new Date()));
-			stm.setLong(7, vdo.getUerID());
-			stm.setInt(8, vdo.getStatus());
-			stm.setInt(9, vdo.getApproved());
-			stm.setLong(10, vdo.getView());
-			stm.setLong(11, vdo.getId());
+			stm.setString(4, vdo.getDocUrl());
+			stm.setDate(5, wwd.getSqlDate(new Date()));
+			stm.setLong(6, vdo.getUerID());
+			stm.setInt(7, vdo.getStatus());
+			stm.setInt(8, vdo.getApproved());
+			stm.setLong(9, vdo.getView());
+			stm.setLong(10, vdo.getId());
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
