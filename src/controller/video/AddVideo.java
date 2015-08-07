@@ -8,20 +8,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
+
 import model.dao.VideoDAO;
 import model.dto.Video;
 
 /**
- * Servlet implementation class ListVideo
+ * Servlet implementation class AddVideo
  */
 
-public class ListVideo extends HttpServlet {
+public class AddVideo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListVideo() {
+    public AddVideo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,15 +43,27 @@ public class ListVideo extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		String video = new VideoDAO().getAllVideo();
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
-		System.out.println(video);
-		try {
-			response.getWriter().print(video);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		try{
+			Video vid = new Video();
+			vid.setName(request.getParameter("video_name"));
+			vid.setDescription(request.getParameter("description"));
+			vid.setUrl(request.getParameter("youtube_url"));
+			vid.setDocUrl(request.getParameter("document_url"));
+			vid.setUerID(Integer.parseInt(request.getParameter("user_id")));
+			vid.setStatus(Integer.parseInt(request.getParameter("status")));
+			vid.setView(0);
+			vid.setApproved(Integer.parseInt(request.getParameter("approved")));
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("application/json");
+			JsonObject obj = new JsonObject();
+			if(new VideoDAO().insertVideo(vid)){
+				obj.addProperty("message", "Inserted successfully!");
+			}else{
+				obj.addProperty("message", "Cannot insert!");
+			}
+			response.getWriter().print(obj);// return message to view success or not
+		}catch(IOException e){
+			System.out.println("Cannot insert!");
 		}
 	}
 
