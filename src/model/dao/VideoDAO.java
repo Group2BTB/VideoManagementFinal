@@ -175,6 +175,30 @@ public class VideoDAO {
 		}
 	}
 	
+	public boolean upView(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_videos set view = view+1 where video_id=?")){
+
+			
+			/*To set data to preparedStatement from video's data*/
+			
+			stm.setLong(1, id);
+						
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}		
+	}
+	
 	public static void main(String[] args) {
 		
 		Video video = new Video();
