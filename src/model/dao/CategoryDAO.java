@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
 
 import model.dto.Category;
 import model.dto.Video;
@@ -39,7 +40,7 @@ public class CategoryDAO {
 		try(Connection con = new DBConnection().getConnection();
 				PreparedStatement stm = con.prepareStatement("select * from tb_category where category_id=?");){
 						
-			stm.setLong(1, id);
+			stm.setInt(1, id);
 			
 			rs = stm.executeQuery();
 			
@@ -108,6 +109,37 @@ public class CategoryDAO {
 				return false;
 			
 			return true;			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean updateCategory(Category ca){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_category set category_name=?, description=?, logo=?,"
+						+ "parent_id=?, status=?, user_id=?, modifier_date=? where category_id=?")){
+			
+			
+			/*To set data to preparedStatement from video's data*/
+			stm.setString(1, ca.getName());
+			stm.setString(2, ca.getDescription());
+			stm.setString(3, ca.getLogo());
+			stm.setInt(4, ca.getParent_id());
+			stm.setInt(5, ca.getStatus());
+			stm.setLong(6, ca.getUserID());
+			stm.setDate(7, wwd.getSqlDate(new Date()));
+			stm.setInt(8, ca.getId());
+						
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+			
 			
 		}catch(Exception ex){
 			
