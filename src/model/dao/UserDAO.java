@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import com.google.gson.Gson;
 
@@ -67,15 +68,16 @@ public class UserDAO {
 			stmInsert.setString(3, usr.getEmail().trim());
 			stmInsert.setString(4, usr.getFullName());
 			stmInsert.setString(5, usr.getGender());			
-			stmInsert.setString(7, usr.getRole());
-			stmInsert.setInt(8, usr.getStatus());
-			stmInsert.setInt(9, usr.getApproved());
-			stmInsert.setInt(10, usr.getDepartID());
-			stmInsert.setString(11, usr.getPhone());
-			stmInsert.setString(12, usr.getProfile());
-			stmInsert.setInt(14, usr.getUniversity());
+			stmInsert.setString(6, usr.getRole());
+			stmInsert.setInt(7, usr.getStatus());
+			stmInsert.setInt(8, usr.getApproved());
+			stmInsert.setInt(9, usr.getDepartID());
+			stmInsert.setString(10, usr.getPhone());
+			stmInsert.setString(11, usr.getProfile());
+			stmInsert.setInt(13, usr.getUniversity());
+			
 			java.sql.Date sdate = d.getSqlDate(usr.getDOB()); //convert from util.date to sql.date
-			stmInsert.setDate(13, sdate);
+			stmInsert.setDate(12, sdate);
 			
 			if(stmInsert.executeUpdate()==0) //execute the statement
 				return false;
@@ -269,43 +271,41 @@ public class UserDAO {
 		UserDAO ud = new UserDAO();
 		
 //		System.out.println(ud.DeactiveUser(17));
-		System.out.println(ud.activeUser(23));
-		System.exit(0);
+//		System.out.println(ud.activeUser(23));
+//		System.exit(0);
+//		
+//		User uu = new UserDAO().getUser("heng22", "11");
+//		uu.setName("heng222");
+//		uu.setEmail("em");
+//		uu.setUniversity(4);
+//		System.out.println(ud.updateUser(uu));
 		
-		User uu = new UserDAO().getUser("heng22", "11");
-		uu.setName("heng222");
-		uu.setEmail("em");
-		uu.setUniversity(4);
-		System.out.println(ud.updateUser(uu));
+//		System.exit(0);
 		
-		System.exit(0);
-		uu.setFullName("Leang Heng");
-		uu.setProfile("LyLy");
-		if(!new UserDAO().updateUser(uu));
-			System.out.println(uu);
-		System.exit(0);
+//		User uu = new User();
+//		uu.setFullName("Leang Heng");
+//		uu.setProfile("LyLy");
+//		
+//		if(!new UserDAO().updateUser(uu));
+//			System.out.println(uu);
+//		System.exit(0);
 		
 		User user = new User();
 		user.setName("heng66");
 		user.setPasswd("11");
 		user.setEmail("qq4");
+		user.setFullName("ful2");
 		user.setGender("1");
 		user.setStatus(0);
 		user.setApproved(1);
 		
-		user.setDepartID(7);
-		user.setUniversity(4);
+		user.setDepartID(45);
+		user.setUniversity(4);	
 		
-		if(new UserDAO().checkUser(user.getName(), user.getEmail()))
-		{
-			System.out.println("user already exists");
-			return;
-		}
-			
+		Calendar c = Calendar.getInstance();
+		c.set(1990, 07, 07);
 		
-		Calendar date = Calendar.getInstance();
-		date.set(1990, 10, 20);
-		//user.setDOB(date.getTime());
+		user.setDOB(c.getTime());
 		
 		System.out.println(new UserDAO().insertUser(user));
 	}
