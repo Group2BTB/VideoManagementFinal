@@ -92,12 +92,10 @@ public class VideoDAO {
 			
 //			if(checkVideo(vdo.getUrl()))
 //				return false;
-			
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl().trim());
-			
 			stm.setString(4, vdo.getDocUrl());
 			stm.setDate(5, wwd.getSqlDate(new Date()));
 			stm.setLong(6, vdo.getUerID());
