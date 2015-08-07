@@ -32,6 +32,7 @@ public boolean updateStatus(int id){
 			return false;
 		}
 	}
+
 	/**
 	 * Method is to check if Department name exists or not
 	 * @param dName is the name of department
