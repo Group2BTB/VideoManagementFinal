@@ -48,7 +48,7 @@ public class DepartmentDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_department(department_name,description,status)"
-						+ " values(?,?,?,?,?)")){
+						+ " values(?,?,?)")){
 			
 			if(checkDepartment(depart.getName()))
 				return false;
