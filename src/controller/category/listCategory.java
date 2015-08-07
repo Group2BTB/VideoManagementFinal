@@ -42,7 +42,7 @@ public class listCategory extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		try {
-			response.getWriter().print(new CategoryDAO().getAllCategory());
+			response.getWriter().print(new CategoryDAO().getAllCategory());// response data to view as json
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
