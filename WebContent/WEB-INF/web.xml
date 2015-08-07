@@ -19,6 +19,17 @@
     <servlet-name>updateQuest</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  <!-- Category Block-->
+  	<servlet>
+  	    <servlet-name>listCategory</servlet-name>
+  	    <servlet-class>controller.category.ListCategory</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>listCategory</servlet-name>
+  	    <url-pattern>/</url-pattern>
+  	</servlet-mapping>
+  <!-- End Category Block -->
   <servlet>
       <servlet-name>listVideo</servlet-name>
       <servlet-class>controller.video.ListVideo</servlet-class>
