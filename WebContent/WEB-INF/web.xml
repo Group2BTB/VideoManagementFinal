@@ -3,6 +3,41 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>listdep</servlet-name>
+    <servlet-class>controller.department.listdept</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listdep</servlet-name>
+    <url-pattern>/listdept</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>adddept</servlet-name>
+    <servlet-class>controller.department.adddept</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adddept</servlet-name>
+    <url-pattern>/adddept</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>updatedept</servlet-name>
+    <servlet-class>controller.department.editDept</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatedept</servlet-name>
+    <url-pattern>/updatedept</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updatestatus</servlet-name>
+    <servlet-class>controller.department.status</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatestatus</servlet-name>
+    <url-pattern>/updatestatus</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>userLogin</servlet-name>
     <servlet-class>controller.userLogin.UserLogin</servlet-class>
@@ -19,12 +54,4 @@
     <servlet-name>userRegister</servlet-name>
     <url-pattern>/Elearning/include/Add.hrd</url-pattern>
   </servlet-mapping>
-  <filter>
-    <filter-name>permission</filter-name>
-    <filter-class>controller.userLogin.Authentication</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>permission</filter-name>
-    <url-pattern>/Admin/*</url-pattern>
-  </filter-mapping>
 </web-app>

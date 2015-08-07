@@ -67,8 +67,7 @@ public class AddUser extends HttpServlet {
 				user.setPasswd(request.getParameter("password"));
 				user.setEmail(request.getParameter("email"));
 				user.setFullName(request.getParameter("fullname"));
-				user.setGender(request.getParameter("gender"));
-				user.setParentID(Integer.parseInt(request.getParameter("parentID")));
+				user.setGender(request.getParameter("gender"));				
 				user.setRole(request.getParameter("role"));
 				user.setStatus(Integer.parseInt(request.getParameter("status")));
 				user.setApproved(Integer.parseInt(request.getParameter("approved")));

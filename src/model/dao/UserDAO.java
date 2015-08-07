@@ -67,7 +67,6 @@ public class UserDAO {
 			stmInsert.setString(3, usr.getEmail().trim());
 			stmInsert.setString(4, usr.getFullName());
 			stmInsert.setString(5, usr.getGender());			
-			
 			stmInsert.setString(7, usr.getRole());
 			stmInsert.setInt(8, usr.getStatus());
 			stmInsert.setInt(9, usr.getApproved());

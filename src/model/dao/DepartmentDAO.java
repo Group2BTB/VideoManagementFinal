@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+
 import org.apache.tomcat.dbcp.dbcp.DbcpException;
 
 import com.google.gson.Gson;
@@ -15,7 +17,21 @@ import utilities.WorkWithJson;
 public class DepartmentDAO {
 	
 	ResultSet rs = null;
-	
+public boolean updateStatus(int id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_department set status=1-status where department_id=?")){
+			
+			stm.setInt(1, id);
+			return stm.executeUpdate()>0? true:false;
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
 	/**
 	 * Method is to check if Department name exists or not
 	 * @param dName is the name of department
@@ -83,9 +99,7 @@ public class DepartmentDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_department set department_name=?, description=?,"
 						+ "status=? where department_id=?")){
-			
-//			if(checkDepartment(de.getName()))
-//				return false;
+
 			
 			/*To set data to preparedStatement from department data*/
 			stm.setString(1, de.getName().trim());
@@ -140,8 +154,7 @@ public class DepartmentDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("select * from tb_department where status=1");){
-			
+			PreparedStatement stm = con.prepareStatement("select department_id,department_name,description,status,case WHEN status=1 then 'Active' else 'Deactive' end as status from tb_department;");){
 			rs = stm.executeQuery(); //execute the statement and assign to Resultset variable
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();

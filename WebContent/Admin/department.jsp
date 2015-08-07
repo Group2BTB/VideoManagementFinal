@@ -51,7 +51,7 @@
 				<form class="navbar-form navbar-left" role="search"
 					style="border: none;">
 					<!-- Button Save -->
-					<button type="button" id="btnNew" class="btn btn-success btn-act">
+					<button type="button" id="btnNew" class="btn btn-success btn-act" ng-click="editUser('new')">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 						New
 					</button>
@@ -71,27 +71,16 @@
 						<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1">View On:
-								</span> <select ng-model="entryLimit" class="form-control">
-									<option>1</option>
+								</span> 
+								<select id="limitEntry" ng-model="entryLimit" class="form-control">
+									<option>12</option>
 									<option>24</option>
 									<option>48</option>
 									<option>96</option>
 								</select>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">Status:
-								</span> 
-								<select class="form-control" ng-model="txtstatus">
-									<option>All</option>
-									<option value="1">Active</option>
-									<option value="0">Deactive</option>
-
-								</select>
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4 col-xs-12 div-padding-bottom">
+						</div>						
+						<div class="col-md-4 col-sm-4 col-xs-12 div-padding-bottom" style="float: right;">
 							<div class="form-group">							
 								<input type="text" class="form-control" ng-model="search" ng-change="filter()"  id="search" placeholder="Search...">
 							</div>
@@ -106,20 +95,18 @@
 				<!-- Table -->
 				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
 					<tr class="active" style="cursor:pointer;">
-					 <th>No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        			<th>Department&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        			<th>User&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        	        <th>Action</th>
+						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        				<th class="center">Department&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+        	        	<th class="center">Action</th>
 					</tr>
-					<tr ng-repeat="d in filtered = (list | filter:{department_name:search,status:txtstatus} | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 						<td class="center">{{($index+1)}}</td>
-						<td>{{d.department_name}}</td>
-						<td>{{d.username}}</td>
+						<td>{{d.department_name}}</td>						
 						<td class="center">
-							<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
-							<button type='button'  class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							    
-							<button type='button' class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>
-							<button type='button' class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
+							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
+							<button type='button'  ng-click="editUser(d.department_id)" class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							
+							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="!d.status" class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>
+							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="d.status" class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
 						</td>
 					</tr>
 					
@@ -149,18 +136,21 @@
 				<form method="post" action="" id="frmDepartment">
 					<div class="modal-header" style="text-align: center;">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h1 class="modal-title"><b>Department</b></h1> 
+						<h1 class="modal-title" ><b  id="title_1" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Department</b>
+							
+						</h1> 
 						<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
+												
 					</div>
 					<div class="modal-body">	
 						
 							<div class="form-group">
 								<label for="name">Name <span class="require_field">*</span> : </label>
-								<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name...">
+								<input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Enter Name...">
 							</div>
 							<div class="form-group">
 								<label for="status">Status <span class="require_field">*</span> : </label>
-								<select id="status" name="status" class="form-control">
+								<select id="status" name="status" class="form-control" ng-model="status">
 									<option value="">-- Select a Status --</option>											
 									<option value="1">Active</option>											
 									<option value="0">Deactivate</option>											
@@ -169,15 +159,19 @@
 							<div class="form-group">
 								<label for="description">Description:</label>
 								
-								<textarea class="form-control max_textarea" name="description" id="description"   placeholder="Description" rows="3"> </textarea>
+								<textarea class="form-control max_textarea" name="description" ng-model="description" id="description"   placeholder="Description" rows="3"> </textarea>
 						
 							</div>
 						
 						<div class="clearfix"></div>
 					</div>		
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="submit" id="btnadd"  class="btn btn-primary">Add</button>
+						<button id="closeFrmAdd" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button class="btn btn-primary" ng-disabled="error || incomplete" ng-click="save(edit)">
+<span  class="glyphicon glyphicon-save"></span> 
+ <span ng-show="!edit">Update</span>
+ <span ng-show="edit">Add</span>
+</button>
 					</div>
 				</form>
 			</div>
@@ -246,5 +240,21 @@
 	<script src="js/select2.min.js"></script> 
 	<script src="js/data/department.js"></script>
 	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+	<script>
+		$(function(){
+			$('select #limitEntry:first-child').remove();
+		});
+		
+		function setSelectedValue(selectObj, valueToSet) {
+			alert(1);
+			for (var i = 0; i < selectObj.options.length; i++) {
+				if (selectObj.options[i].text == valueToSet) {
+					selectObj.options[i].selected = true;
+					return;
+				}
+			}
+		}
+	</script>
 </body>
+
 </html>

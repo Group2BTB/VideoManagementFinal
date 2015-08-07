@@ -78,7 +78,7 @@
 	<div id="yt_wrapper" class="layout-wide">
 
 		<!-- HEADER INCLUDED -->
-		<jsp:include page="/ELearning/include/_header.jsp"></jsp:include>
+		<jsp:include page="ELearning/include/_header.jsp"></jsp:include>
 		<!-- /HEADER INCLUDED -->
 
 		<!----Slideshow sections------>

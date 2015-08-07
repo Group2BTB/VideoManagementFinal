@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp" ng-controller="deptcontroller">
+
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<meta charset="utf-8">
+	<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Neon Admin Panel" />
@@ -23,13 +25,13 @@
 		<link rel="stylesheet" href="css/select2-bootstrap.css">
 		<link rel="stylesheet" href="css/select2.css">
 		<link rel="stylesheet" href="css/jquery.selectBoxIt.css">
-		
+	
 		<!-- Imported styles on this page -->
-		<script src="js/jquery.js"></script>		
+		<script src="js/jquery.js"></script> 		
 		<script src="js/angular.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/bootstrapValidator.js"></script>
-		<script src="js/image.js"></script>
+ 		 <script src="js/image.js"></script> 
 </head>
 <body  class="page-body page-fade" data-url="#">
 	
@@ -38,188 +40,150 @@
 
 
 <jsp:include page="slidebar.jsp"></jsp:include>
+
 <div class="main-content">
-<jsp:include page="top.jsp"></jsp:include>
-<div class="row">
-	<div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-		<div class="col-xs-12 col-md-12 col-sm-12">
-			<!-- Start From	-->
-			<form class="navbar-form navbar-left" role="search"
-				style="border: none;">
-				<!-- Button Save -->
-				<button type="button" id="btnNew" class="btn btn-success btn-act">
-					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-					New
-				</button>
-				<!-- Button Help -->
-				<button type="submit" class="btn btn-default btn-act">
-					<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-					Help
-				</button>
-			</form>
-		</div>
-		<div class="clearfix"></div>
-		<div class="panel panel-primary">
-			<!-- Default panel contents -->
-			<div class="panel-heading">List Department</div>
-			<div class="panel-body">
-				<form class="form-inline">
-					<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">View On:
-							</span> <select class="form-control">
-								<option>12</option>
-								<option>24</option>
-								<option>48</option>
-								<option>96</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-12 div-padding-bottom">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search for..."> 
-							<span class="input-group-btn">
-								<button style="height: 34px;" class="btn btn-default" type="button">
-									<i class="glyphicon glyphicon-search i-green"></i>
-								</button>
-							</span>
-						</div>
-					</div>
-					<div class="col-md-2 col-sm-1 col-xs-6 div-padding-bottom">												
-						<button id="fmore" class="btn btn-default" type="button"><i class="glyphicon glyphicon-wrench i-green"></i> Search Tool</button>
-					</div>
+	<jsp:include page="top.jsp"></jsp:include>
+	
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 clearfix">
+			<div class="col-xs-12 col-md-12 col-sm-12">
+				<!-- Start From	-->
+				<form class="navbar-form navbar-left" role="search"
+					style="border: none;">
+					<!-- Button Save -->
+					<button type="button" id="btnNew" class="btn btn-success btn-act" ng-click="editUser('new')">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						New
+					</button>
+					<!-- Button Help -->
+					<button type="submit" class="btn btn-default btn-act">
+						<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+						Help
+					</button>
 				</form>
 			</div>
-
-			<!-- Table -->
-			<table class="table table-bordered table-hover">
-				<tr class="active" style="cursor:pointer;">
-					<th class="center">No&nbsp;<span
-						class="glyphicon glyphicon-menu-down"></span></th>					
-					<th class="center">Department&nbsp;<span
-						class="glyphicon glyphicon-menu-down"></span></th>					
-					<th class="center">Create Date&nbsp;<span
-						class="glyphicon glyphicon-menu-down"></span></th>
-					<th class="center">Create By&nbsp;<span
-						class="glyphicon glyphicon-menu-down"></span></th>
-					<th class="center">Action</th>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-				<tr>
-					<td class="center">1</td>
-					<td>HRM</td>
-					<td>Apr 23, 2015 10:00:00</td>
-					<td>Admin</td>
-					<td class="center">
-						<button type='button' class='btn btn-info'><span class='glyphicon glyphicon-eye-open'></span></button>
-						<button type='button'  class='btn btn-primary'><span class='glyphicon glyphicon-pencil'></span></button>							    
-						<button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button>
-						<button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-record'></span></button>		
-					</td>
-				</tr>
-							
-				<tr class="active">
-					<td colspan="5">Total Records: <span class="i-blue">03</span>
-						<ul class="pagination pull-right" style="margin: 0px 0;">
-							<li><a href="#" aria-label="Previous"> <span
-									aria-hidden="true">&laquo;</span>
-							</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#" aria-label="Next"> <span
-									aria-hidden="true">&raquo;</span>
-							</a></li>
-						</ul></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-</div>
-<!-- Start More Filter --> 
-<div id="myModal" class="modal fade bs-example-modal-lg">
-	<div class="modal-dialog">
-		<div class="modal-content" style="margin: 0 auto;">
-			<div class="modal-header" style="text-align: center;">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Department Info</h4>
-			</div>
-			<div class="modal-body">	
-				<form>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Title * : </label>
-						<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Title">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputEmail1">Status * : </label>
-						<select class="form-control">
-							<option>-- Select a Status --</option>											
-							<option>Active</option>											
-							<option>Deactivate</option>											
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="description">Description:</label>
+			<div class="clearfix"></div>
+			<div class="panel panel-primary">
+				<!-- Default panel contents -->
+				<div class="panel-heading"><i class="glyphicon glyphicon-equalizer"></i> List Playlist</div>
+				<div class="panel-body">
+					<form class="form-inline">
+						<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1">View On:
+								</span> 
+								<select id="limitEntry" ng-model="entryLimit" class="form-control">
+									<option>12</option>
+									<option>24</option>
+									<option>48</option>
+									<option>96</option>
+								</select>
+							</div>
+						</div>						
+						<div class="col-md-4 col-sm-4 col-xs-12 div-padding-bottom" style="float: right;">
+							<div class="form-group">							
+								<input type="text" class="form-control" ng-model="search" ng-change="filter()"  id="search" placeholder="Search...">
+							</div>
+						</div>
+						<!-- <div class="col-md-2 col-sm-1 col-xs-6 div-padding-bottom">												
+							<button id="fmore" class="btn btn-default" type="button"><i class="glyphicon glyphicon-wrench i-green"></i> Search Tool</button>
+						</div> -->
 						
-						<textarea class="form-control" id="description" placeholder="Description" rows="4"> </textarea>
-				
-					</div>
-				</form>
-				<div class="clearfix"></div>
-			</div>		
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" id="save_change" class="btn btn-primary">Save</button>
+					</form>
+				</div>
+	
+				<!-- Table -->
+				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
+					<tr class="active" style="cursor:pointer;">
+						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        				<th class="center">Playlist&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+        	        	<th class="center">Create by&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        	        	<th class="center">Action</th>
+					</tr>
+					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+						<td class="center">{{($index+1)}}</td>
+						<td>{{d.department_name}}</td>						
+						<td class="center">
+							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
+							<button type='button'  ng-click="editUser(d.department_id)" class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							
+							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="!d.status" class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>
+							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="d.status" class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
+						</td>
+					</tr>
+					
+								
+					<tr class="active">
+						
+					</tr>
+				</table>
+				  <div class="col-md-12" ng-show="filteredItems == 0">
+        <div class="col-md-12 center">
+            <h4>No Department found</h4>
+        </div>
+    </div>
+    <div class="col-md-12" ng-show="filteredItems > 0">
+      
+      <div pagination="" page="currentPage" max-size="10" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="«" next-text="»"></div>
+ 
+    </div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- End More Filter --> 
-<script>
-	$(function() {
-		$("#msg_sucess").hide();
-		$("#msg_error").hide();
+	
+	<!-- Start More Filter --> 
+	<div id="myModal" class="modal fade bs-example-modal-lg">
+		<div class="modal-dialog">
+			<div class="modal-content" style="margin: 0 auto;">
+				<form method="post" action="" id="frmDepartment">
+					<div class="modal-header" style="text-align: center;">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h1 class="modal-title" ><b  id="title_1" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Playlist</b>
+							
+						</h1> 
+						<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
+												
+					</div>
+					<div class="modal-body">	
+						
+							<div class="form-group">
+								<label for="name">Name <span class="require_field">*</span> : </label>
+								<input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Enter Name...">
+							</div>
+							<div class="form-group">
+								<label for="status">Status <span class="require_field">*</span> : </label>
+								<select id="status" name="status" class="form-control" ng-model="status">
+									<option value="">-- Select a Status --</option>											
+									<option value="1">Active</option>											
+									<option value="0">Deactivate</option>											
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="description">Description:</label>
+								
+								<textarea class="form-control max_textarea" name="description" ng-model="description" id="description"   placeholder="Description" rows="3"> </textarea>
+						
+							</div>
+						
+						<div class="clearfix"></div>
+					</div>		
+					<div class="modal-footer">
+						<button id="closeFrmAdd" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button class="btn btn-primary" ng-disabled="error || incomplete" ng-click="save(edit)">
+<span  class="glyphicon glyphicon-save"></span> 
+ <span ng-show="!edit">Update</span>
+ <span ng-show="edit">Add</span>
+</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End More Filter --> 
 
-		// choose profile
-		$('#img').change(function() {
-			img();
-		});
-	});
-</script>
-<script>
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
+	
+	<script>
 	$("document").ready(function(e) {
 		
 		$("#msg_sucess").hide();
@@ -251,36 +215,32 @@
 		});
 	});
 </script>
-
-
-
-
-
-
-<jsp:include page="footer.jsp"></jsp:include>
-</div>
-<script src="js/main-gsap.js"></script>
-		<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
-		<script src="js/joinable.js"></script>
-		<script src="js/resizeable.js"></script>
-		<script src="js/neon-api.js"></script>
-		<script src="js/cookies.min.js"></script>
-		<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
-		<script src="js/jquery-jvectormap-europe-merc-en.js"></script>
-		<script src="js/jquery.sparkline.min.js"></script>
-		<script src="js/d3.v3.js"></script>
-		<script src="js/rickshaw.min.js"></script>
-		<script src="js/raphael-min.js"></script>
-		<script src="js/morris.min.js"></script>
-		<script src="js/toastr.js"></script>
-		<script src="js/neon-chat.js"></script>
-		<!-- JavaScripts initializations and stuff -->
-		<script src="js/neon-custom.js"></script>
-		<!-- Demo Settings -->
-		<script src="js/neon-demo.js"></script>
-		<script src="js/neon-skins.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/select2.min.js"></script>
 	
+	
+	
+	
+	<script src="js/main-gsap.js"></script>
+	<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="js/joinable.js"></script>
+	<script src="js/resizeable.js"></script>
+	<script src="js/neon-api.js"></script>
+	<script src="js/cookies.min.js"></script>
+	<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="js/jquery-jvectormap-europe-merc-en.js"></script>
+	<script src="js/jquery.sparkline.min.js"></script>
+	<script src="js/d3.v3.js"></script>
+	<script src="js/rickshaw.min.js"></script>
+	<script src="js/raphael-min.js"></script>
+	<script src="js/morris.min.js"></script>
+	<script src="js/toastr.js"></script>
+	<script src="js/neon-chat.js"></script>
+	<script src="js/neon-custom.js"></script>
+	<script src="js/neon-demo.js"></script>
+	<script src="js/neon-skins.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/select2.min.js"></script> 
+	<script src="js/data/playlist.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
 </body>
+
 </html>
