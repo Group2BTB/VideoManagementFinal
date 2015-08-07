@@ -73,7 +73,7 @@ public boolean updateStatus(int id){
 			/*To set data to preparedStatement from department data*/
 			stm.setString(1, depart.getName().trim());
 			stm.setString(2, depart.getDescription());			
-			stm.setInt(4, depart.getStatus());
+			stm.setInt(3, depart.getStatus());
 			
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
