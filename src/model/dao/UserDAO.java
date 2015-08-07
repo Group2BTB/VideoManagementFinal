@@ -177,7 +177,7 @@ public class UserDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_users set username=?, passwd=?, email=?, fullname=?, gender=?"
-						+ ", role=?, status=?, approved=?, modifier_date=?, department_id=?, phone=?, profile=?, \"DOB\"=?, university_id=? where user_id=?")){
+						+ ", role=?, status=?, approved=?, department_id=?, phone=?, profile=?, \"DOB\"=?, university_id=? where user_id=?")){
 			
 //			if(checkUser(usr.getName(), usr.getEmail()))
 //				return false;
@@ -190,14 +190,14 @@ public class UserDAO {
 			stm.setString(5, usr.getGender());
 			stm.setString(6, usr.getRole());
 			stm.setInt(7, usr.getStatus());
-			stm.setInt(8, usr.getApproved());			
-			stm.setDate(9, d.getSqlDate(new Date()));
-			stm.setInt(10, usr.getDepartID());
-			stm.setString(11, usr.getPhone());
-			stm.setString(12, usr.getProfile());
-			stm.setDate(13, d.getSqlDate(usr.getDOB()));
-			stm.setInt(14, usr.getUniversity());
-			stm.setLong(15, usr.getId());
+			stm.setInt(8, usr.getApproved());	
+			
+			stm.setInt(9, usr.getDepartID());
+			stm.setString(10, usr.getPhone());
+			stm.setString(11, usr.getProfile());
+			stm.setDate(12, d.getSqlDate(usr.getDOB()));
+			stm.setInt(13, usr.getUniversity());
+			stm.setLong(14, usr.getId());
 			
 			if(stm.executeUpdate()==0) //execute the statement
 				return false;
@@ -282,13 +282,13 @@ public class UserDAO {
 		
 //		System.exit(0);
 		
-//		User uu = new User();
-//		uu.setFullName("Leang Heng");
-//		uu.setProfile("LyLy");
-//		
-//		if(!new UserDAO().updateUser(uu));
-//			System.out.println(uu);
-//		System.exit(0);
+		User uu = ud.getUser("sss", "11");
+		uu.setFullName("Leang Heng");
+		uu.setProfile("LyLy");
+		
+		System.out.println(ud.updateUser(uu));
+			
+		System.exit(0);
 		
 		User user = new User();
 		user.setName("heng66");
