@@ -81,7 +81,7 @@ public class QuestionDAO {
 			stm.setLong(2, qt.getVideoID());
 			stm.setLong(3, qt.getAnswer_id());
 			stm.setInt(4, qt.getStatus());			
-			stm.setLong(6, qt.getId());
+			stm.setLong(5, qt.getId());
 			
 			if(stm.executeUpdate() == 0)
 				return false;
