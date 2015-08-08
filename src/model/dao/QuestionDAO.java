@@ -149,6 +149,25 @@ public class QuestionDAO {
 		}
 	}
 	
+	public boolean toggleStatus(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_questions set status = 1-status where question_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}	
+	}
+	
 	public static void main(String[] args) {
 		
 		Question qst = new Question();
