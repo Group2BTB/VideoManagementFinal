@@ -4,12 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-
-import org.apache.tomcat.dbcp.dbcp.DbcpException;
-
-import com.google.gson.Gson;
-
 import model.dto.Department;
 import utilities.DBConnection;
 import utilities.WorkWithJson;
@@ -17,7 +11,8 @@ import utilities.WorkWithJson;
 public class DepartmentDAO {
 	
 	ResultSet rs = null;
-public boolean updateStatus(int id){
+	
+	public boolean updateStatus(int id){
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
@@ -166,56 +161,7 @@ public boolean updateStatus(int id){
 			return null;
 		}
 	}
-	
-	/**
-	 * Method is to deactivate a department from database
-	 * @param id is id of department to deactivate
-	 * @return  true if it successfully deactivate otherwise return false 
-	 */
-	
-	public boolean deactiveDepartment(long id){
-		
-		/*Create try with resource*/
-		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("update tb_department set status=0 where department_id=?")){
 			
-			stm.setLong(1, id);
-			
-			if(stm.executeUpdate()==0) //execute the statement and compare
-				return false;
-			
-			return true;
-		}catch(Exception ex){
-			
-			ex.printStackTrace();
-			return false;
-		}		
-	}
-	
-	/**
-	 * Method is to activate a department
-	 * @param id is id of department
-	 * @return true if department is updated successfully otherwise return false
-	 */
-	public boolean activeDepartment(long id){
-		
-		/*Create try with resource*/
-		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("update tb_department set status=1 where department_id=?")){
-			
-			stm.setLong(1, id);
-			
-			if(stm.executeUpdate()==0) //execute the statement and compare
-				return false;
-			
-			return true;
-		}catch(Exception ex){
-			
-			ex.printStackTrace();
-			return false;
-		}
-	}
-	
 	public static void main(String[] args) {
 		
 		Department de = new Department();
