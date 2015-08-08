@@ -43,10 +43,11 @@
 
 	<section id="container" class="">
 		<!--header start-->
-		<header class="header white-bg static-top">
-			<div class="sidebar-toggle-box">
+		<header class="header white-bg">
+			<div class="sidebar-toggle-box" id="hideshow">
 				<div data-original-title="Toggle Navigation" data-placement="right"
-					class="fa fa-bars tooltips"></div>
+					class="fa fa-bars tooltips">
+				</div>
 			</div>
 			<!--logo start-->
 			<a href="index-2.html" class="logo">Khmer<span>Academy</span></a>
@@ -101,7 +102,7 @@
 		<!--header end-->
 		<!--sidebar start-->
 		<aside>
-			<div id="sidebar" class="nav-collapse">
+			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 					<li class="sub-menu text-center" style="color: #fff;">All
@@ -202,15 +203,14 @@
 						</ul>
 						<!--breadcrumbs end -->
 					</div>
-
 				</div>
 
 				<section class="panel">
 					<header class="panel-heading"> Popular Courses </header>
 					<div class="panel-body">
-						<div class="row product-list owl-demo">
-							<div class="item">
-								
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="product-list owl-demo">
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
@@ -224,10 +224,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
@@ -241,10 +239,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro-1.jpg" alt=""> <a
@@ -258,17 +254,15 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
 												class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
-	
+
 										<div class="panel-body text-center">
 											<h4>
 												<a href="#" class="pro-title"> Php Web Development </a>
@@ -276,10 +270,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro-1.jpg" alt=""> <a
@@ -293,10 +285,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
@@ -310,10 +300,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
@@ -327,10 +315,8 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
-							</div>
-							<div class="item">
-								
+								</div>
+								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
 											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
@@ -344,7 +330,22 @@
 											<p class="price">Free</p>
 										</div>
 									</section>
-								
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -353,384 +354,393 @@
 				<section class="panel">
 					<header class="panel-heading"> Recommended Courses </header>
 					<div class="panel-body">
-						<div class="row product-list owl-demo">
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Learning Oracle </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="product-list owl-demo">
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Learning Oracle </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Java Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> VB.NET Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Php Web Development </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> MySQL </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
 							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Java Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> VB.NET Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Php Web Development </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> MySQL </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-						</div>						
+						</div>
 					</div>
 				</section>
 				
 				<section class="panel">
 					<header class="panel-heading"> New Courses </header>
 					<div class="panel-body">
-						<div class="row product-list owl-demo">
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Learning Oracle </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="product-list owl-demo">
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Learning Oracle </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Java Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> VB.NET Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Php Web Development </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> MySQL </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
 							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Java Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> VB.NET Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Php Web Development </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> MySQL </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-						</div>						
+						</div>
 					</div>
 				</section>
 				
 				<section class="panel">
 					<header class="panel-heading"> Highest rated Courses </header>
 					<div class="panel-body">
-						<div class="row product-list owl-demo">
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Learning Oracle </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="product-list owl-demo">
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Learning Oracle </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Java Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> VB.NET Programming </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Php Web Development </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro-1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> MySQL </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
+								<div class="item">
+									<section class="panel">
+										<div class="pro-img-box">
+											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
+												class="adtocart"> <i class="fa-graduation-cap"></i>
+											</a>
+										</div>
+										<div class="panel-body text-center">
+											<h4>
+												<a href="#" class="pro-title"> Servlet Web Developement </a>
+											</h4>
+											<p class="price">Free</p>
+										</div>
+									</section>
+								</div>
 							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Java Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> VB.NET Programming </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Php Web Development </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro-1.jpg" alt=""> <a
-											href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> MySQL </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-							<div class="item">
-								<section class="panel">
-									<div class="pro-img-box">
-										<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-											class="adtocart"> <i class="fa-graduation-cap"></i>
-										</a>
-									</div>
-									<div class="panel-body text-center">
-										<h4>
-											<a href="#" class="pro-title"> Servlet Web Developement </a>
-										</h4>
-										<p class="price">Free</p>
-									</div>
-								</section>
-							</div>
-						</div>						
+						</div>
 					</div>
 				</section>
 			
@@ -769,32 +779,20 @@
 	<script src="js/common-scripts.js"></script>
 
 	<script>
+		
+		
 		$(document).ready(function() {
-
 			$(".owl-demo").owlCarousel({
-
-				autoPlay : 2000, //Set AutoPlay to 3 seconds
+				autoPlay : 3000, //Set AutoPlay to 3 seconds
 				stopOnHover: true,
-				items : 6,
-				itemsDesktop : [ 1199, 3 ],
-				itemsDesktopSmall : [ 979, 3 ]
+				//items : 6,
+				itemsDesktop : [1000,6], //5 items between 1000px and 901px
+				itemsDesktopSmall : [900,3], // betweem 900px and 601px
+				itemsTablet: [600,2], //2 items between 600 and 0
+				itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
 			});
-			
 			
 		});
-		
-		function listCategory(){
-			$.ajax({
-				url : "listCategory",
-				method : "POST",
-				dataType : "JSON",
-				success : function(data){
-					for(var i in data){
-						alert();
-					}
-				}
-			});
-		}
 	</script>
 
 </body>
