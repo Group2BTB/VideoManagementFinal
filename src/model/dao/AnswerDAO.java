@@ -37,8 +37,7 @@ public class AnswerDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_answer set description=?, question_id=?"
-						+ " where answer_id=?")){
-			
+						+ " where answer_id=?")){			
 			
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, an.getDescription());
