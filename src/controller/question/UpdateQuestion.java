@@ -3,10 +3,11 @@ package controller.question;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.JsonObject;
 
 import model.dao.QuestionDAO;
 import model.dto.Question;
@@ -48,10 +49,20 @@ public class UpdateQuestion extends HttpServlet {
 		quest.setAnswer_id(Integer.parseInt(request.getParameter("answer_id")));
 		quest.setStatus(Integer.parseInt(request.getParameter("status")));
 		quest.setId(Integer.parseInt(request.getParameter("id")));
-		
-		if(new QuestionDAO().updateQuestion(quest)){
-			
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		JsonObject obj = new JsonObject();
+		try{
+			if(new QuestionDAO().updateQuestion(quest)){
+				obj.addProperty("message", "Category edited!");
+			}else{
+				obj.addProperty("message", "Category cannot edit!");
+			}
+			response.getWriter().print(obj);
+		}catch(IOException e){
+			System.out.println("Cannot edit category!");
 		}
+		
 	}
 
 }

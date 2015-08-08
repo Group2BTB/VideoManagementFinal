@@ -37,6 +37,8 @@ public class listQuestion extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
 		
 	}
 
