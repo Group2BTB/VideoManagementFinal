@@ -58,7 +58,7 @@ public class WorkWithJson {
 		return jsonArray;
 	}
 	
-	public static String convertSubJson(ResultSet rs){
+	public static String testCat(ResultSet rs){
 		
 		try
 		{						
@@ -115,6 +115,80 @@ public class WorkWithJson {
 					sub.add(rs.getDate("modifier_date"));
 					
 					suparr.add(sub);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
+						
+					
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String convertSubJson(ResultSet rs){
+		
+		try
+		{						
+			HashMap<String, ArrayList<Category>> obj = new HashMap<String, ArrayList<Category>>(); 
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+					
+			ArrayList<Category> suparr = new ArrayList<Category>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("super").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<Category> suptmp = new ArrayList<Category>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<Category>();
+					
+					Category ca = new Category();
+					ca.setId(rs.getInt("id"));
+					ca.setName(rs.getString("name"));
+					ca.setDescription(rs.getString("description"));
+					ca.setLogo(rs.getString("logo"));
+					ca.setStatus(rs.getInt("status"));
+					ca.setUserID(rs.getLong("user_id"));
+					ca.setCreate_date(rs.getDate("create_date"));
+					ca.setModifier_date(rs.getDate("modifier_date"));			
+					
+					suparr.add(ca);
+													
+				}
+				
+				else{
+										
+					Category ca = new Category();					
+					
+					temp = sup;
+					i++;
+					ca.setId(rs.getInt("id"));
+					ca.setName(rs.getString("name"));
+					ca.setDescription(rs.getString("description"));
+					ca.setLogo(rs.getString("logo"));
+					ca.setStatus(rs.getInt("status"));
+					ca.setUserID(rs.getLong("user_id"));
+					ca.setCreate_date(rs.getDate("create_date"));
+					ca.setModifier_date(rs.getDate("modifier_date"));			
+					
+					suparr.add(ca);					
 					
 					if(rs.isLast())
 						obj.put(temp, suparr);
