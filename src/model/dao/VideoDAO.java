@@ -164,7 +164,7 @@ public class VideoDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				Statement stm= con.createStatement();){
 			
-			rs = stm.executeQuery("select * from selectAllVideo;"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from tb_videos where approved=1"); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
 			
@@ -172,6 +172,44 @@ public class VideoDAO {
 			
 			ex.printStackTrace();
 			return null;
+		}
+	}
+	
+	public boolean deactiveVideo(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_videos set status=0 where video_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}	
+	}
+	
+	public boolean activeVideo(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_videos set status=1 where video_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
 		}
 	}
 	
