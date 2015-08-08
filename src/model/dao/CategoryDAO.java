@@ -35,15 +35,15 @@ public class CategoryDAO {
 		}
 	}
 	
-	public String getSubAllCategory(int parentID){
+	public String getSubAllCategory(){
 		
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select * from tb_category where parent_id=?");){
+				Statement stm = con.createStatement()){
 			
-			stm.setInt(1, parentID);
-			rs = stm.executeQuery(); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("SELECT * from \"vCategory\" order by id"); //execute the statement and assign to Resultset object
 			
-			return WorkWithJson.convertResultSetIntoJSON(rs).toString();
+			return wwj.convertSubJson(rs);
+			
 			
 		}catch(Exception ex){
 			
@@ -170,6 +170,6 @@ public class CategoryDAO {
 		Category ca = new Category();
 		CategoryDAO cdo = new CategoryDAO();
 		
-		System.out.println(cdo.getSubAllCategory(3));
+		System.out.println(cdo.getSubAllCategory());
 	}
 }
