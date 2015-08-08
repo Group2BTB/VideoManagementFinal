@@ -165,6 +165,25 @@ public class CategoryDAO {
 			return false;
 		}
 	}
+	
+	public boolean toggleStatus(int id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_category set status = 1-status where category_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}	
+	}
 		
 	
 	public static void main(String[] args) {
