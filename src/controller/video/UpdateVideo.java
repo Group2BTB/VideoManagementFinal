@@ -54,6 +54,8 @@ public class UpdateVideo extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("application/json");
 			JsonObject obj = new JsonObject();
+		}catch(Exception e){
+			e.printStackTrace();
 		}
 	}
 }

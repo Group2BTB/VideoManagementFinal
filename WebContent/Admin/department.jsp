@@ -97,16 +97,20 @@
 					<tr class="active" style="cursor:pointer;">
 						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
         				<th class="center">Department&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+        	        	<th class="center">Status&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
 					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 						<td class="center">{{($index+1)}}</td>
 						<td>{{d.department_name}}</td>						
 						<td class="center">
+							<span ng-show="d.status" class="label label-success">{{d.status1}}</span>
+							<span ng-show="!d.status" class="label label-warning">{{d.status1}}</span>
+						</td>	
+						<td class="center">
 							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
 							<button type='button'  ng-click="editUser(d.department_id)" class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							
-							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="!d.status" class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>
-							<button type='button' ng-click="updateStatus(d.department_id)" ng-show="d.status" class='btn btn-warning icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>		
+							<button type='button' ng-click="updateStatus(d.department_id)"  class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>								
 						</td>
 					</tr>
 					
@@ -136,7 +140,7 @@
 				<form method="post" action="" id="frmDepartment">
 					<div class="modal-header" style="text-align: center;">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h1 class="modal-title" ><b  id="title_1" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Department</b>
+						<h1 class="modal-title" ><b  >Department</b>
 							
 						</h1> 
 						<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
@@ -184,7 +188,7 @@
 	
 	<script>
 	$("document").ready(function(e) {
-		
+	
 		$("#msg_sucess").hide();
 		$("#msg_error").hide();
 		

@@ -1,4 +1,4 @@
-package controller.category;
+package controller.document;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,13 +27,13 @@ import model.dto.Department;
  * Servlet implementation class addCategory
  */
 
-public class addCategory extends HttpServlet {
+public class addDocument extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public addCategory() {
+	public addDocument() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

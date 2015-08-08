@@ -19,22 +19,50 @@
     <servlet-name>updateQuest</servlet-name>
     <url-pattern>/updateQuest</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>listCategory</servlet-name>
-    <servlet-class>controller.category.listCategory</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>listCategory</servlet-name>
-    <url-pattern>/listCategory</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>listvideo</servlet-name>
-    <servlet-class>controller.video.ListVideo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>listvideo</servlet-name>
-    <url-pattern>/listVideo</url-pattern>
-  </servlet-mapping>
+
+  <!-- Category Block-->
+  	<servlet>
+  	    <servlet-name>listCategory</servlet-name>
+  	    <servlet-class>controller.category.listCategory</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>listCategory</servlet-name>
+  	    <url-pattern>/listCategory</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  	    <servlet-name>addCategory</servlet-name>
+  	    <servlet-class>controller.category.addCategory</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>addCategory</servlet-name>
+  	    <url-pattern>/addCategory</url-pattern>
+  	</servlet-mapping>
+  <!-- End Category Block -->
+  
+    <!-- document Block-->
+  	<servlet>
+  	    <servlet-name>listDocument</servlet-name>
+  	    <servlet-class>controller.document.listDocument</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>listDocument</servlet-name>
+  	    <url-pattern>/listDocument</url-pattern>
+  	</servlet-mapping>
+  
+   <!-- End document Block -->
+  
+      <!-- video Block-->
+  	<servlet>
+  	    <servlet-name>listVideo</servlet-name>
+  	    <servlet-class>controller.video.ListVideo</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>listVideo</servlet-name>
+  	    <url-pattern>/listVideo</url-pattern>
+  	</servlet-mapping>
+  
+   <!-- End video Block -->
   <servlet>
     <servlet-name>listdep</servlet-name>
     <servlet-class>controller.department.listdept</servlet-class>

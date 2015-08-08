@@ -9,7 +9,7 @@ public class DBConnection {
 	public Connection getConnection() throws ClassNotFoundException, SQLException{
 		Class.forName("org.postgresql.Driver");// load driver of database postgres
 		/*use to connect to database*/
-		con = DriverManager.getConnection("jdbc:postgresql://192.168.178.148:5432/DBVM","postgres","72241993vichet");
+		con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/NVM","postgres","111111");
 		//System.out.println(con.getMetaData().getDatabaseProductName());
 		return con;// return connection
 	}

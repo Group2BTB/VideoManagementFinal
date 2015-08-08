@@ -155,7 +155,7 @@ public boolean updateStatus(int id){
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-			PreparedStatement stm = con.prepareStatement("select department_id,department_name,description,status,case WHEN status=1 then 'Active' else 'Deactive' end as status from tb_department;");){
+			PreparedStatement stm = con.prepareStatement("select department_id,department_name,description,status,case WHEN status=1 then 'Aactive' else 'Deactive' end as status from tb_department;");){
 			rs = stm.executeQuery(); //execute the statement and assign to Resultset variable
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();

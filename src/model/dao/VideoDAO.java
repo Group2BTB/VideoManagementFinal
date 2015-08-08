@@ -164,7 +164,7 @@ public class VideoDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				Statement stm= con.createStatement();){
 			
-			rs = stm.executeQuery("select * from tb_videos where approved=1"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from selectAllVideo;"); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
 			

@@ -1,4 +1,4 @@
-package controller.category;
+package controller.document;
 
 import java.io.IOException;
 
@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.CategoryDAO;
+import model.dao.DocumentDAO;
 
 /**
  * Servlet implementation class listCategory
  */
 
-public class listCategory extends HttpServlet {
+public class listDocument extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public listCategory() {
+    public listDocument() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,7 +47,7 @@ public class listCategory extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		try {
-			response.getWriter().print(new CategoryDAO().getAllCategory());// response data to view as json
+			response.getWriter().print(new DocumentDAO().getAllDocument());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -84,8 +84,9 @@ app.filter('namefilter', function() {
 
 	};
 });
-app.controller('deptcontroller', function($scope, $http, $timeout) {
-	$http.get('../listdept').success(function(data) {
+app.controller('videocontroller', function($scope, $http, $timeout) {
+	$http.get('../listVideo').success(function(data) {
+		
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 12; // max no of items to display in a page
@@ -95,9 +96,10 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 		$scope.error = false;
 		$scope.incomplete = false;
 		$scope.editid = 0;
+		
 	});
 	$scope.loadData = function() {
-		$http.get('../listdept').success(function(data) {
+		$http.get('../listVideo').success(function(data) {
 			$scope.list = data;
 			$scope.currentPage = 1; // current page
 			$scope.entryLimit = 12; // max no of items to display in a page
@@ -136,22 +138,29 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 		// $("#spinner").show();
 		var data = {
 			'id' : $scope.editid,
+			'image' : $scope.image,
 			'name' : $scope.name,
-			'status' : $scope.status,
+			'parent' : $scope.parent,
+			'status' : $scope.status_ad,
 			'description' : $scope.description
 		};
 		if (e == true) {
-			$.post("../adddept", data).success(function(data) {
+		//	alert();
+			/*$.post("../addCategory", data).success(function(data) {
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();
+					
+					$(".select2-search-choice-close").click();
+					
 					$scope.succ();
 				}else{
 					$scope.er();
 				}
-			});
+			});*/
+			insertStudent();
 		} else {
-			$.post("../updatedept", data).success(function(data, status, headers){
+			$.post("../updateCategory", data).success(function(data, status, headers){
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();

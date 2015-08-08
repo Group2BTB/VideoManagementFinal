@@ -65,7 +65,7 @@
 			<div class="clearfix"></div>
 			<div class="panel panel-primary">
 				<!-- Default panel contents -->
-				<div class="panel-heading"><i class="glyphicon glyphicon-equalizer"></i> List Playlist</div>
+				<div class="panel-heading"><i class="glyphicon glyphicon-question-sign"></i> List Question</div>
 				<div class="panel-body">
 					<form class="form-inline">
 						<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
@@ -96,7 +96,7 @@
 				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
 					<tr class="active" style="cursor:pointer;">
 						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        				<th class="center">Department&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+        				<th class="center">Question&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
         	        	<th class="center">Status&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
@@ -140,7 +140,7 @@
 				<form method="post" action="" id="frmDepartment">
 					<div class="modal-header" style="text-align: center;">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h1 class="modal-title" ><b  id="title_1" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Hello">Department</b>
+						<h1 class="modal-title" ><b>Q</b>uestion
 							
 						</h1> 
 						<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
@@ -149,8 +149,20 @@
 					<div class="modal-body">	
 						
 							<div class="form-group">
-								<label for="name">Name <span class="require_field">*</span> : </label>
+								<label for="name">Question <span class="require_field">*</span> : </label>
 								<input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Enter Name...">
+							</div>
+							<div class="form-group">
+								<label for="partent">Video <span class="require_field">*</span> :</label>
+								<select name="test" class="select2 form-control" data-allow-clear="true"
+									data-placeholder="Video...">
+										<option></option>
+										<option value="1">Alabama</option>
+										<option value="2">Boston</option>
+										<option value="3">Ohaio</option>
+										<option value="4">New York</option>
+										<option value="5">Washington</option>
+								</select>
 							</div>
 							<div class="form-group">
 								<label for="status">Status <span class="require_field">*</span> : </label>
@@ -160,12 +172,7 @@
 									<option value="0">Deactivate</option>											
 								</select>
 							</div>
-							<div class="form-group">
-								<label for="description">Description:</label>
-								
-								<textarea class="form-control max_textarea" name="description" ng-model="description" id="description"   placeholder="Description" rows="3"> </textarea>
-						
-							</div>
+							
 						
 						<div class="clearfix"></div>
 					</div>		
@@ -242,23 +249,8 @@
 	<script src="js/neon-skins.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/select2.min.js"></script> 
-	<script src="js/data/department.js"></script>
-	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-	<script>
-		$(function(){
-			$('select #limitEntry:first-child').remove();
-		});
-		
-		function setSelectedValue(selectObj, valueToSet) {
-			alert(1);
-			for (var i = 0; i < selectObj.options.length; i++) {
-				if (selectObj.options[i].text == valueToSet) {
-					selectObj.options[i].selected = true;
-					return;
-				}
-			}
-		}
-	</script>
+	<script src="js/data/question.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>	
 </body>
 
 </html>
