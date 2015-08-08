@@ -1,6 +1,11 @@
 package utilities;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import model.dto.Category;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -51,5 +56,84 @@ public class WorkWithJson {
 			jsonArray.add(obj);
 		}
 		return jsonArray;
+	}
+	
+	public static String convertSubJson(ResultSet rs){
+		
+		try
+		{						
+			HashMap<String, ArrayList<ArrayList<Object>>> obj = new HashMap<String, ArrayList<ArrayList<Object>>>();
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+					
+			ArrayList<ArrayList<Object>> suparr = new ArrayList<ArrayList<Object>>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("super").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<ArrayList<Object>> suptmp = new ArrayList<ArrayList<Object>>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<ArrayList<Object>>();
+					
+					ArrayList<Object> sub = new ArrayList<Object>();					
+					sub.add(rs.getInt("id"));
+					sub.add(rs.getString("name"));
+					sub.add(rs.getString("description"));
+					sub.add(rs.getString("logo"));					
+					sub.add(rs.getInt("status"));
+					sub.add(rs.getLong("user_id"));
+					sub.add(rs.getDate("create_date"));
+					sub.add(rs.getDate("modifier_date"));
+					
+					suparr.add(sub);
+													
+				}
+				
+				else{
+										
+					ArrayList<Object> sub = new ArrayList<Object>();					
+					
+					temp = sup;
+					i++;
+					sub.add(rs.getInt("id"));
+					sub.add(rs.getString("name"));
+					sub.add(rs.getString("description"));
+					sub.add(rs.getString("logo"));					
+					sub.add(rs.getInt("status"));
+					sub.add(rs.getLong("user_id"));
+					sub.add(rs.getDate("create_date"));
+					sub.add(rs.getDate("modifier_date"));
+					
+					suparr.add(sub);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
+						
+					
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		
 	}
 }
