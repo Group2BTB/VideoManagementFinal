@@ -80,7 +80,7 @@ public class QuestionDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				Statement stm= con.createStatement();){
 			
-			rs = stm.executeQuery("select * from tb_questions"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from \"selectAllQuestion\""); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
 			
@@ -181,6 +181,9 @@ public class QuestionDAO {
 		qst.setAnswer_id(1);				
 		
 		System.out.println(qdo.insertQuestion(qst));
+		
+		
+		System.out.println(qdo.getAllQuestion());
 		
 	}
 }

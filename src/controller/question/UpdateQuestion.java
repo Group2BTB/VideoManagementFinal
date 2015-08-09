@@ -16,7 +16,7 @@ import model.dto.Question;
 /**
  * Servlet implementation class UpdateQuestion
  */
-//@WebServlet("/UpdateQuestion")
+
 public class UpdateQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

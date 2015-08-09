@@ -1,4 +1,4 @@
-package controller.question;
+package controller.video;
 
 import java.io.IOException;
 
@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.CategoryDAO;
-import model.dao.QuestionDAO;
+import model.dao.VideoDAO;
 
 /**
- * Servlet implementation class listQuestion
+ * Servlet implementation class VideoComponnet
  */
 
-public class listQuestion extends HttpServlet {
+public class VideoComponnet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public listQuestion() {
+    public VideoComponnet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,27 +29,28 @@ public class listQuestion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		// TODO Auto-generated method stub
+		process(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		// TODO Auto-generated method stub
+		process(request, response);
 	}
-	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		System.err.println("List Question");
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//String video = new VideoDAO().getAllVideo();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
+		System.out.println("list Video");
 		try {
-		response.getWriter().print(new QuestionDAO().getAllQuestion());// response data to view as json
+			response.getWriter().write(new VideoDAO().getVideoComponnet());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
 }

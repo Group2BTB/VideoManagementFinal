@@ -174,7 +174,6 @@ public class VideoDAO {
 			return null;
 		}
 	}
-	
 	public boolean toggleStatus(long id){
 		
 		/*Create try with resource*/
@@ -245,5 +244,21 @@ public class VideoDAO {
 		
 		//System.out.println(vd.insertVideo(video));			
 		
+	}
+
+	public String getVideoComponnet() {
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			
+			rs = stm.executeQuery("select video_id,video_name from tb_videos where approved=1"); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
 	}
 }

@@ -15,7 +15,7 @@ import model.dto.Question;
 /**
  * Servlet implementation class addQuestion
  */
-@WebServlet("/addQuestion")
+
 public class addQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,6 +32,7 @@ public class addQuestion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
 
 	/**
@@ -39,19 +40,18 @@ public class addQuestion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
 	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+	public void process(HttpServletRequest request, HttpServletResponse response){
 		Question quest = new Question();
-		quest.setDescription(request.getParameter("description"));
-		quest.setVideoID(Integer.parseInt(request.getParameter("video_id")));
-		quest.setAnswer_id(Integer.parseInt(request.getParameter("answer_id")));
-		quest.setStatus(Integer.parseInt(request.getParameter("status")));
-		quest.setCreate_date(new WorkWithDate().getDate("create date"));
+		quest.setDescription(request.getParameter("name"));
+		quest.setStatus(Integer.parseInt("status"));
+		quest.setVideoID(Integer.parseInt("video"));
 		if(new QuestionDAO().insertQuestion(quest)){
-			System.out.println("successfully!");
+			System.out.println("Success!");
 		}else{
-			System.out.println("unsuccessfully!");
+			System.out.println("Fail!");
 		}
 	}
 

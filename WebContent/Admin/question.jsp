@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="myApp" ng-controller="deptcontroller">
+<html ng-app="myApp" ng-controller="questioncontroller">
 
 <head>
 
@@ -95,22 +95,22 @@
 				<!-- Table -->
 				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
 					<tr class="active" style="cursor:pointer;">
-						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        				<th class="center">Question&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+						<th class="center">No&nbsp;<a ng-click="sort_by('question_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        				<th class="center">Question&nbsp;<a ng-click="sort_by('description');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
         	        	<th class="center">Status&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
 					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 						<td class="center">{{($index+1)}}</td>
-						<td>{{d.department_name}}</td>						
+						<td>{{d.description}}</td>						
 						<td class="center">
-							<span ng-show="d.status" class="label label-success">{{d.status1}}</span>
-							<span ng-show="!d.status" class="label label-warning">{{d.status1}}</span>
+							<span ng-show="d.status1" class="label label-success">{{d.status}}</span>
+							<span ng-show="!d.status1" class="label label-warning">{{d.status}}</span>
 						</td>	
 						<td class="center">
 							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
-							<button type='button'  ng-click="editUser(d.department_id)" class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							
-							<button type='button' ng-click="updateStatus(d.department_id)"  class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>								
+							<button type='button'  ng-click="editUser(d.question_id)" class='btn btn-primary icon_margin_top'><span class='glyphicon glyphicon-pencil'></span></button>							
+							<button type='button' ng-click="updateStatus(d.question_id)"  class='btn btn-success icon_margin_top'><span class='glyphicon glyphicon-record'></span></button>								
 						</td>
 					</tr>
 					
@@ -150,18 +150,13 @@
 						
 							<div class="form-group">
 								<label for="name">Question <span class="require_field">*</span> : </label>
-								<input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Enter Name...">
+								<input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="Question...">
 							</div>
 							<div class="form-group">
 								<label for="partent">Video <span class="require_field">*</span> :</label>
-								<select name="test" class="select2 form-control" data-allow-clear="true"
+								<select name="video" id="video" ng-model="video" class="select2 form-control" data-allow-clear="true"
 									data-placeholder="Video...">
 										<option></option>
-										<option value="1">Alabama</option>
-										<option value="2">Boston</option>
-										<option value="3">Ohaio</option>
-										<option value="4">New York</option>
-										<option value="5">Washington</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -224,6 +219,27 @@
 			$("#myModal").remove();
 		});
 	});
+	
+	function getVideo(){
+		$.ajax({
+			url: "../videoComponnet",
+			method: "POST",
+			data: {
+				
+			},success: function(data){
+				if(data){
+					var str = "";
+					for(var i=0;i<data.length;i++){
+						str +="<option value='"+data[i].video_id+"'>"+data[i].video_name+"</option>";
+					}
+					$("#video").append(str);
+				}
+			}
+		});
+	}
+	getVideo();
+	
+	
 </script>
 	
 	
