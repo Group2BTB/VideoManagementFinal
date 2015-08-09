@@ -144,32 +144,11 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 			'status' : $scope.status_ad,
 			'description' : $scope.description
 		};
-		if (e == true) {
-		//	alert();
-			/*$.post("../addCategory", data).success(function(data) {
-				if (data == "Success") {
-					$scope.loadData();
-					frmDepartment.reset();
-					
-					$(".select2-search-choice-close").click();
-					
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});*/
+		if (e == true) {			
 			insertStudent();
+			$scope.loadData();	
 		} else {
-			$.post("../updateCategory", data).success(function(data, status, headers){
-				if (data == "Success") {
-					$scope.loadData();
-					frmDepartment.reset();
-					$("#closeFrmAdd").click();
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});
+			
 		}
 		//$("#spinner").hide();
 	};
@@ -177,16 +156,22 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 		$scope.editid = id;
 		if (id == 'new') {
 			$scope.edit = true;
+			
 		} else {
 			$scope.edit = false;
 			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].department_id == id)
+				if ($scope.list[i].category_id == id)
 					x = i;
 			$("#btnNew").click();
-			$scope.name = $scope.list[x].department_name;
-			$scope.status = $scope.list[x].status;
+			
+			$scope.name = $scope.list[x].category_name;
+			//$scope.status = $scope.list[x].status;
 			$scope.description = $scope.list[x].description;
-
+			//setSelectedValue(status, $scope.list[x].status1);
+			$("#name").val($scope.list[x].category_name);
+			$("#status").val($scope.list[x].status1);			
+			$("#src").attr("src",$scope.list[x].logo);
+			$('#subcat').select2().select2('val', $scope.list[x].parent_id);
 		}
 	};
 	$scope.updateStatus = function(e) {
@@ -200,3 +185,6 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 		});
 	};
 });
+function setSelectedValue(selectObj, valueToSet) {	
+	$("#status").val(valueToSet);
+}

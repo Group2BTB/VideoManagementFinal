@@ -104,10 +104,10 @@
 					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 						<td class="center">{{($index+1)}}</td>
 						<td>{{d.category_name}}</td>	
-						<td>{{d.category_name1}}</td>						
+						<td>{{d.parent_name}}</td>						
 						<td class="center">
-							<span ng-show="d.status" class="label label-success">{{d.status1}}</span>
-							<span ng-show="!d.status" class="label label-warning">{{d.status1}}</span>
+							<span ng-show="d.status" class="label label-success">{{d.status}}</span>
+							<span ng-show="!d.status" class="label label-warning">{{d.status}}</span>
 						</td>	
 						<td class="center">
 							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
@@ -140,7 +140,7 @@
 	<div id="myModal" class="modal fade bs-example-modal-lg">
 		<div class="modal-dialog">
 			<div class="modal-content" style="margin: 0 auto;">
-				<form method="post" action="" id="frmDepartment">
+				<form method="post" action="" id="frmCategory">
 					<div class="modal-header" style="text-align: center;">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h1 class="modal-title"><b>C</b>ategory</h1> 
@@ -162,18 +162,17 @@
 								<label for="full_name">Name <span class="require_field">*</span> : </label>
 								<input type="text" ng-model="name" class="form-control" name="name" id="full_name" placeholder="Full Name...">
 							</div>
-							<div class="form-group">
+							<div id="par" class="form-group">
 								<label for="partent">Parent :</label>
-								<select name="test" ng-model="parent" name="parent" class="select2 form-control" data-allow-clear="true"
+								<select ng-model="parent" name="subcat" id="subcat" class="select2 form-control" data-allow-clear="true"
 									data-placeholder="Parent...">
-										<option></option>
+										<option value="0"></option>
 										<option ng-repeat="d in list" value="{{d.category_id}}">{{d.category_name}}</option>
 								</select>
 							</div>
 							<div class="form-group">
 								<label for="status">Status <span class="require_field">*</span> : </label>
-								<select ng-model="status_ad" class="form-control" id="status" name="status">
-									<option>-- Select a Status --</option>											
+								<select ng-model="status_ad" class="form-control" id="status" name="status">																		
 									<option value="1">Active</option>											
 									<option value="0">Deactivate</option>											
 								</select>
@@ -192,11 +191,11 @@
 			</div>		
 					<div class="modal-footer">
 						<button id="closeFrmAdd" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button class="btn btn-primary" ng-disabled="error || incomplete" ng-click="save(edit)">
-<span  class="glyphicon glyphicon-save"></span> 
- <span ng-show="!edit">Update</span>
- <span ng-show="edit">Add</span>
-</button>
+							<button class="btn btn-primary"  ng-click="save(edit)">
+							<span  class="glyphicon glyphicon-save"></span> 
+							 <span ng-show="!edit">Update</span>
+							 <span ng-show="edit">Add</span>
+						</button>
 					</div>
 				</form>
 			</div>
@@ -213,6 +212,7 @@
 		$("#msg_error").hide();
 		
 		$("#btnNew").on("click", function() {    // wire up the OK button to dismiss the modal when shown
+			clear();
 			$("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
 			  "backdrop"  : "static",
 			  "keyboard"  : true,
@@ -242,7 +242,18 @@
 			img();
 		});
 		
+		
+		
 	});
+	
+	function clear(){
+		$("#status").empty();
+		$("#status").prepend("<option></option><option value='1'>Active</option><option value='0'>Deactivate</option>");	
+		$('#frmCategory')[0].reset();
+		$("#img").val("");
+		$("#src").attr("src","images/uplo.png");
+		$('#subcat').select2().select2('val', 0);
+	}
 	function insertStudent() {
 		//alert(1);
 		var formData = new FormData($("#frmCategory")[0]);
@@ -258,6 +269,7 @@
 				if(data=='Success'){
 					//swal("Congratulation!", "New student has been added!", "success");
 					$('#frmCategory')[0].reset();
+					clear();
 				}
 			},
 			error : function() {

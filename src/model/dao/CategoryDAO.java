@@ -24,7 +24,7 @@ public class CategoryDAO {
 		try(Connection con = new DBConnection().getConnection();
 				Statement stm = con.createStatement()){
 			
-			rs = stm.executeQuery("select * from tb_category"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from \"selectAllCategory\";"); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();
 			
@@ -139,6 +139,7 @@ public class CategoryDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				
 				PreparedStatement stm = con.prepareStatement("update tb_category set category_name=?, description=?, logo=?,"
 						+ "parent_id=?, status=?, user_id=?, modifier_date=? where category_id=?")){
 			
@@ -147,7 +148,7 @@ public class CategoryDAO {
 			stm.setString(1, ca.getName());
 			stm.setString(2, ca.getDescription());
 			stm.setString(3, ca.getLogo());
-			stm.setInt(4, ca.getParent_id());
+			stm.setString(4, checkNull(ca.getParent_id()));
 			stm.setInt(5, ca.getStatus());
 			stm.setLong(6, ca.getUserID());
 			stm.setDate(7, wwd.getSqlDate(new Date()));
@@ -193,4 +194,22 @@ public class CategoryDAO {
 		
 		System.out.println(cdo.getSubAllCategory());
 	}
+
+	public int getLastID() {
+		try(Connection con = new DBConnection().getConnection();){
+			 Statement st=con.createStatement();
+			 ResultSet rs=st.executeQuery("select last_value from category_id_seq");
+			 rs.next();
+			 return rs.getInt(1)+1;
+			 
+		}catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return 0;
+	}
+	public String checkNull(int val){
+		if(val==0) return null; return val+"";
+	}
+	
 }

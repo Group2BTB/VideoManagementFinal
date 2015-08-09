@@ -18,6 +18,27 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.*;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+
 import model.dao.CategoryDAO;
 import model.dao.DepartmentDAO;
 import model.dto.Category;
@@ -62,7 +83,7 @@ public class addCategory extends HttpServlet {
 	protected void process(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		Category c=new Category();
-		String saveFolder = request.getSession().getServletContext().getRealPath("uploads/category");
+		String saveFolder = request.getSession().getServletContext().getRealPath("Admin/uploads/category");
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		factory.setSizeThreshold(1024 * 1024 * 2);
 		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
@@ -72,16 +93,16 @@ public class addCategory extends HttpServlet {
 		
 		try {
 			// Parse the request
-			java.util.List<FileItem> items = upload.parseRequest(request);
+			java.util.List items = upload.parseRequest(request);
 			boolean haspic = false;
-			Iterator<FileItem> iter = items.iterator();
+			Iterator iter = items.iterator();
 			File uploadedFile = null;
 			
 			//System.out.println(request.getParameter("formData"));
 			
-			while (((Iterator<FileItem>) iter).hasNext()) {
-				
-				FileItem item = iter.next();
+			while (iter.hasNext()) {
+				//System.out.println("while");
+				FileItem item = (FileItem) iter.next();
 
 				if (!item.isFormField()) {
 					if (item.getName() == "" || item.getName() == null)
@@ -91,17 +112,17 @@ public class addCategory extends HttpServlet {
 							.substring(item.getName().lastIndexOf("."),
 									item.getName().length());
 
-					//int iu = new selectStudent().getLastID();
-					String filePath = saveFolder + File.separator + fileName;
+					int iu = new CategoryDAO().getLastID();
+					String filePath = saveFolder + File.separator + iu+fileName;
 					uploadedFile = new File(filePath);
-					System.out.println(uploadedFile);
+					//System.out.println(uploadedFile);
 					// saves the file to upload directory
 					item.write(uploadedFile);
-					c.setLogo("uploads/category/"+ fileName);
+					c.setLogo("uploads/category/"+iu+ fileName);
 					System.err.println("photo:" + c.getLogo());
 					haspic = true;
 					// response.getWriter().print("save success.");
-					System.err.println("Save success");
+					//System.err.println("Save success");
 				} else {
 					
 					//System.out.println("text");
@@ -112,22 +133,23 @@ public class addCategory extends HttpServlet {
 					// get name of control of form.
 					String name = item.getFieldName();
 					
-					//System.out.println(name+"/"+value);
+					//System.err.println(name);
 					
 					if (name.equals("name"))
 						c.setName(value);
-
-					if (name.equals("parent"))
+					if (name.equals("subcat")){
 						c.setParent_id(Integer.parseInt(value));
-
+					}
 					if (name.equals("status"))
 						c.setStatus(Integer.parseInt(value));
 					if (name.equals("description"))
 						c.setDescription(value);
 					
 				}
-				System.out.println("end");
+				//System.out.println("end");
 			}
+			c.setUserID(27);
+			
 			System.out.println(c.getName());
 			if (haspic != true)
 				c.setLogo("uploads/noimagecat.png");
