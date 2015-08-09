@@ -1,11 +1,14 @@
 package controller.category;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.CategoryDAO;
 
 /**
  * Servlet implementation class statusCategory
@@ -27,6 +30,7 @@ public class statusCategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
 
 	/**
@@ -34,6 +38,20 @@ public class statusCategory extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
+	
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("update status");
+		
+		if(new CategoryDAO().toggleStatus(Integer.parseInt(request.getParameter("id")))){
+			response.getWriter().write("Success");
+		}else{
+			response.getWriter().write("Fail");			
+		}
+		
+	}
+	
 
 }

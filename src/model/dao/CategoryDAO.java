@@ -140,26 +140,22 @@ public class CategoryDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				
-				PreparedStatement stm = con.prepareStatement("update tb_category set category_name=?, description=?, logo=?,"
+				PreparedStatement stm = con.prepareStatement("update tb_category set category_name=?, description=?,"
 						+ "parent_id=?, status=?, user_id=?, modifier_date=? where category_id=?")){
 			
 			
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, ca.getName());
-			stm.setString(2, ca.getDescription());
-			stm.setString(3, ca.getLogo());
-			stm.setString(4, checkNull(ca.getParent_id()));
-			stm.setInt(5, ca.getStatus());
-			stm.setLong(6, ca.getUserID());
-			stm.setDate(7, wwd.getSqlDate(new Date()));
-			stm.setInt(8, ca.getId());
+			stm.setString(2, ca.getDescription());			
+			stm.setInt(3, ca.getParent_id());
+			stm.setInt(4, ca.getStatus());
+			stm.setLong(5, ca.getUserID());
+			stm.setDate(6, wwd.getSqlDate(new Date()));
+			stm.setInt(7, ca.getId());
 						
 			if(stm.executeUpdate()==0) //execute the statement and compare
-				return false;
-			
+				return false;			
 			return true;
-			
-			
 		}catch(Exception ex){
 			
 			ex.printStackTrace();

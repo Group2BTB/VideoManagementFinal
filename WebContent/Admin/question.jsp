@@ -121,7 +121,7 @@
 				</table>
 				  <div class="col-md-12" ng-show="filteredItems == 0">
         <div class="col-md-12 center">
-            <h4>No Department found</h4>
+            <h4>No Question found</h4>
         </div>
     </div>
     <div class="col-md-12" ng-show="filteredItems > 0">
@@ -178,11 +178,11 @@
 					</div>		
 					<div class="modal-footer">
 						<button id="closeFrmAdd" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<button class="btn btn-primary" ng-disabled="error || incomplete" ng-click="save(edit)">
-<span  class="glyphicon glyphicon-save"></span> 
- <span ng-show="!edit">Update</span>
- <span ng-show="edit">Add</span>
-</button>
+						<button class="btn btn-primary" ng-disabled="error || incomplete" ng-click="save(edit)">
+							<span  class="glyphicon glyphicon-save"></span> 
+						 	<span ng-show="!edit">Update</span>
+						 	<span ng-show="edit">Add</span>
+						</button>
 					</div>
 				</form>
 			</div>

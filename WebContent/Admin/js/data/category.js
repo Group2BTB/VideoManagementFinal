@@ -144,11 +144,13 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 			'status' : $scope.status_ad,
 			'description' : $scope.description
 		};
-		if (e == true) {			
-			insertStudent();
+		if (e == true) {
+			insertCategory();
 			$scope.loadData();	
 		} else {
-			
+			alert("edit");
+			updateCategory();			
+			$scope.loadData();
 		}
 		//$("#spinner").hide();
 	};
@@ -163,23 +165,24 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 				if ($scope.list[i].category_id == id)
 					x = i;
 			$("#btnNew").click();
-			
+			$scope.editid = $scope.list[x].category_id;
 			$scope.name = $scope.list[x].category_name;
-			//$scope.status = $scope.list[x].status;
+			$scope.status = $scope.list[x].status;
 			$scope.description = $scope.list[x].description;
-			//setSelectedValue(status, $scope.list[x].status1);
-			$("#name").val($scope.list[x].category_name);
-			$("#status").val($scope.list[x].status1);			
+			$scope.image = $scope.list[x].logo;
+			
 			$("#src").attr("src",$scope.list[x].logo);
-			$('#subcat').select2().select2('val', $scope.list[x].parent_id);
+			$('#subcat').select2().select2('val', $scope.list[x].parent_id);			
+			setSelectedValue(status, $scope.list[x].status1);
+			$("#code").val($scope.list[x].category_id);
 		}
 	};
 	$scope.updateStatus = function(e) {
 		var data = {
 			'id' : e
 		};
-		$.post("../updatestatus", data).success(function(data, status, headers) {
-			if (data == "Success") {
+		$.post("../updateStatus", data).success(function(data, status, headers) {
+			if (data == "Success") {				
 				$scope.loadData();
 			}
 		});

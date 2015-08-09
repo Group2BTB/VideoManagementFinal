@@ -1,11 +1,14 @@
 package controller.question;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.CategoryDAO;
 
 /**
  * Servlet implementation class listQuestion
@@ -37,8 +40,15 @@ public class listQuestion extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		System.err.println("List Question");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
+		try {
+			response.getWriter().print(new CategoryDAO().getAllCategory());// response data to view as json
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

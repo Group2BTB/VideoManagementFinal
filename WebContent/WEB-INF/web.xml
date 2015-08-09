@@ -3,23 +3,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>addQuest</servlet-name>
-    <servlet-class>controller.question.addQuestion</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>addQuest</servlet-name>
-    <url-pattern>/addQuest</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>updateQuest</servlet-name>
-    <servlet-class>controller.question.UpdateQuestion</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>updateQuest</servlet-name>
-    <url-pattern>/updateQuest</url-pattern>
-  </servlet-mapping>
-
   <!-- Category Block-->
   	<servlet>
   	    <servlet-name>listCategory</servlet-name>
@@ -38,7 +21,26 @@
   	    <servlet-name>addCategory</servlet-name>
   	    <url-pattern>/addCategory</url-pattern>
   	</servlet-mapping>
+  	
+  	<servlet>
+  	    <servlet-name>updateCategory</servlet-name>
+  	    <servlet-class>controller.category.editCategory</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>updateCategory</servlet-name>
+  	    <url-pattern>/updateCategory</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  	    <servlet-name>updateStatus</servlet-name>
+  	    <servlet-class>controller.category.statusCategory</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  	    <servlet-name>updateStatus</servlet-name>
+  	    <url-pattern>/updateStatus</url-pattern>
+  	</servlet-mapping>
   <!-- End Category Block -->
+  
   
     <!-- document Block-->
   	<servlet>

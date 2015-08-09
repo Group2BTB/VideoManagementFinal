@@ -97,7 +97,7 @@
 					<tr class="active" style="cursor:pointer;">
 						<th class="center">No&nbsp;<a ng-click="sort_by('category_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
         				<th class="center">Category&nbsp;<a ng-click="sort_by('category_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
-        	        	<th class="center">Parent&nbsp;<a ng-click="sort_by('category_name1');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        	        	<th class="center">Parent&nbsp;<a ng-click="sort_by('parent_name');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Status&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
@@ -106,8 +106,8 @@
 						<td>{{d.category_name}}</td>	
 						<td>{{d.parent_name}}</td>						
 						<td class="center">
-							<span ng-show="d.status" class="label label-success">{{d.status}}</span>
-							<span ng-show="!d.status" class="label label-warning">{{d.status}}</span>
+							<span ng-show="d.status1" class="label label-success">{{d.status}}</span>
+							<span ng-show="!d.status1" class="label label-warning">{{d.status}}</span>
 						</td>	
 						<td class="center">
 							<!-- <button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button> -->
@@ -149,6 +149,9 @@
 					</div>
 					<div class="modal-body">	
 					<form enctype="multipart/form-data" action="" method="post" id="frmCategory" >
+						<input type="hidden" id="code" name="code" value="">
+						
+						
 						<div class="col-md-5 col-sm-5 col-xs-12 con-center">
 							<img  id="src" src="images/uplo.png" alt="" class="img-rounded" style="width:200px;">
 							<br/>
@@ -254,7 +257,7 @@
 		$("#src").attr("src","images/uplo.png");
 		$('#subcat').select2().select2('val', 0);
 	}
-	function insertStudent() {
+	function insertCategory() {
 		//alert(1);
 		var formData = new FormData($("#frmCategory")[0]);
 		$.ajax({
@@ -278,11 +281,31 @@
 		});
 
 	}
+	function updateCategory() {
+		//alert(1);
+		var formData = new FormData($("#frmCategory")[0]);
+		$.ajax({
+			url : '../updateCategory',
+			type : 'POST',
+			data : formData,
+			async : false,
+			cache : false,
+			contentType : false,
+			processData : false,
+			success : function(data) {
+				if(data=='Success'){					
+					//$('#frmCategory')[0].reset();
+					//clear();	
+					$("#closeFrmAdd").click();
+				}
+			},
+			error : function() {
+				
+			}
+		});
+
+	}
 </script>
-	
-	
-	
-	
 	<script src="js/main-gsap.js"></script>
 	<script src="js/jquery-ui-1.10.3.minimal.min.js"></script>
 	<script src="js/joinable.js"></script>
@@ -309,12 +332,6 @@
 	<script type="text/javascript">
 		
 	</script>
-	
-	
-	
-	
-	
-	
 </body>
 
 </html>
