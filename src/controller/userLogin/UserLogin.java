@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.UserDAO;
+
 /**
  * Servlet implementation class UserLogin
  */
@@ -42,7 +44,7 @@ public class UserLogin extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		if(username.equals("admin")&&password.equals("admin")){
+		if(new UserDAO().checkUser(username, password)){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", username);
 			try {
