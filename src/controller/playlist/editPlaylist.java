@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import utilities.WorkWithDate;
+import model.dao.PlayListDAO;
 import model.dto.PlayList;
 
 /**
@@ -48,6 +49,12 @@ public class editPlaylist extends HttpServlet {
 		plist.setCreate_date(new WorkWithDate().getDate("create_date"));
 		plist.setApproved(Integer.parseInt(request.getParameter("approved")));
 		plist.setId(Integer.parseInt(request.getParameter("id")));
+		
+		if(new PlayListDAO().updatePlayList(plist)){
+			System.out.println("Upadte successfully!");
+		}else{
+			System.out.println("Update unsuccessfully!");
+		}
 	}
 	
 	
