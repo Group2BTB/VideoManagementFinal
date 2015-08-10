@@ -142,5 +142,6 @@
 		</filter>
 		<filter-mapping>
 		    <filter-name>permission</filter-name>
+		    <url-pattern>/Admin/*</url-pattern>
 		</filter-mapping>
 	</web-app>
