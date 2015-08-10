@@ -125,7 +125,7 @@
 		</servlet>
 		<servlet-mapping>
 			<servlet-name>userLogin</servlet-name>
-			<url-pattern>/Elearning/include/login.hrd</url-pattern>
+			<url-pattern>/login</url-pattern>
 		</servlet-mapping>
 		<servlet>
 			<servlet-name>userRegister</servlet-name>
@@ -133,6 +133,14 @@
 		</servlet>
 		<servlet-mapping>
 			<servlet-name>userRegister</servlet-name>
-			<url-pattern>/Elearning/include/Add.hrd</url-pattern>
+			<url-pattern>/Elearning/include/Add</url-pattern>
 		</servlet-mapping>
+		
+		<filter>
+		    <filter-name>permission</filter-name>
+		    <filter-class>controller.userLogin.Authentication</filter-class>
+		</filter>
+		<filter-mapping>
+		    <filter-name>permission</filter-name>
+		</filter-mapping>
 	</web-app>
