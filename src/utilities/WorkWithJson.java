@@ -169,7 +169,11 @@ public class WorkWithJson {
 					ca.setCreate_date(rs.getDate("create_date"));
 					ca.setModifier_date(rs.getDate("modifier_date"));			
 					
+					System.out.println(ca.getName());
 					suparr.add(ca);
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
 													
 				}
 				
@@ -188,6 +192,7 @@ public class WorkWithJson {
 					ca.setCreate_date(rs.getDate("create_date"));
 					ca.setModifier_date(rs.getDate("modifier_date"));			
 					
+					System.out.println(ca.getName() + " me!");
 					suparr.add(ca);					
 					
 					if(rs.isLast())
