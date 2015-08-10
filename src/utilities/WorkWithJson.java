@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.dto.Category;
+import model.dto.Question;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -198,6 +199,76 @@ public class WorkWithJson {
 					if(rs.isLast())
 						obj.put(temp, suparr);
 						
+					
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static String convertQandA(ResultSet rs){
+		
+		try
+		{						
+			HashMap<String, ArrayList<Question>> obj = new HashMap<String, ArrayList<Question>>(); 
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+					
+			ArrayList<Question> suparr = new ArrayList<Question>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("question").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<Question> suptmp = new ArrayList<Question>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<Question>();
+					
+					Question qust = new Question();
+					qust.setDescription(rs.getString("answer"));
+					qust.setVideoID(rs.getLong("video_id"));
+					qust.setAnswer_id(rs.getLong("answer_id"));
+					//qust.setAnswer(rs.getString("answer"));							
+					
+					//System.out.println(ca.getName());
+					suparr.add(qust);
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
+													
+				}
+				
+				else{
+										
+					Question qust = new Question();					
+					
+					temp = sup;
+					i++;
+					qust.setDescription(rs.getString("answer"));
+					qust.setVideoID(rs.getLong("video_id"));
+					qust.setAnswer_id(rs.getLong("answer_id"));
+//					qust.setAnswer(rs.getString("answer"));				
+					
+					//System.out.println(ca.getName() + " me!");
+					suparr.add(qust);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);				
 					
 				}									
 			}		
