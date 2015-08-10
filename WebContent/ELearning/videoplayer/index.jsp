@@ -174,89 +174,31 @@
 									<p>These are playlists</p>
 									<div>
 										<a><img src="images/software-java-icon.png" width="60" /></a>
-										<a><span>1. Java Envirement</span></a>
+										<a class="color_white">1. Java Envirement</a>
 									</div>
 									<div>
 										<a><img src="images/Android-Store-icon.png" width="60" /></a>
-										<a><span>2. Android Applicatoin</span></a>
+										<a>2. Android Applicatoin</a>
 									</div>
 									<div>
 										<a><img src="images/Clouds_Servers-18-128.png" width="60" /></a>
-										<a><span>3. Clouds Servers</span></a>
+										<a>3. Clouds Servers</a>
 									</div>
 									<div>
 										<a><img src="images/Mimetype-source-java-icon.png"
-											width="60" /></a> <a><span>4. Android Applicatoin</span></a>
+											width="60" /></a> <a>4. Android Applicatoin</a>
 									</div>
-									<div>
-										<a><img src="images/software-java-icon.png" width="60" /></a>
-										<a><span>1. Java Envirement</span></a>
-									</div>
-									<div>
-										<a><img src="images/Android-Store-icon.png" width="60" /></a>
-										<a><span>2. Android Applicatoin</span></a>
-									</div>
-									<div>
-										<a><img src="images/Clouds_Servers-18-128.png" width="60" /></a>
-										<a><span>3. Clouds Servers</span></a>
-									</div>
-									<div>
-										<a><img src="images/Mimetype-source-java-icon.png"
-											width="60" /></a> <a><span>4. Android Applicatoin</span></a>
-									</div>
-									<div>
-										<a><img src="images/software-java-icon.png" width="60" /></a>
-										<a><span>1. Java Envirement</span></a>
-									</div>
-									<div>
-										<a><img src="images/Android-Store-icon.png" width="60" /></a>
-										<a><span>2. Android Applicatoin</span></a>
-									</div>
-									<div>
-										<a><img src="images/Clouds_Servers-18-128.png" width="60" /></a>
-										<a><span>3. Clouds Servers</span></a>
-									</div>
-									<div>
-										<a><img src="images/Mimetype-source-java-icon.png"
-											width="60" /></a> <a><span>4. Android Applicatoin</span></a>
-									</div>
-									<div>
-										<a><img src="images/software-java-icon.png" width="60" /></a>
-										<a><span>1. Java Envirement</span></a>
-									</div>
-									<div>
-										<a><img src="images/Android-Store-icon.png" width="60" /></a>
-										<a><span>2. Android Applicatoin</span></a>
-									</div>
-									<div>
-										<a><img src="images/Clouds_Servers-18-128.png" width="60" /></a>
-										<a><span>3. Clouds Servers</span></a>
-									</div>
-									<div>
-										<a><img src="images/Mimetype-source-java-icon.png"
-											width="60" /></a> <a><span>4. Android Applicatoin</span></a>
-									</div>
+									
 
 								</div>
 								<!-- Questions in Playlist -->
 								<div class="tab-pane" id="panel-560832">
-									<p>This is Questions after you finish your study</p>
+									<p id="question"></p>
 									<div>
-										<input type="radio" name="answer" value="1"> <span>I
-											want to take a quiz</span>
+										<input type="radio" name="answer" value="1">
+										 <span class="answer">I want to take a quiz</span>
 									</div>
-									<div>
-										<input type="radio" name="answer" value="1"> <span>NO</span>
-									</div>
-									<div>
-										<input type="radio" name="answer" value="1"> <span>I
-											think it's good for us</span>
-									</div>
-									<div>
-										<input type="radio" name="answer" value="1"> <span>I
-											really happy to learning with your contents. I love Khmer
-											Academy</span>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -310,7 +252,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#category_list").click(function() {
-				$("#category_details").toggle(300);
+				$("#category_details").toggle(100);
 				$("#videos_play").toggleClass("col-md-6");
 				$("#videos_play").toggleClass("col-md-8");
 			});
@@ -329,7 +271,6 @@
 				$("#category_details").toggle();
 				$("#videos_play").toggleClass("col-md-6");
 				$("#videos_play").toggleClass("col-md-8");
-
 			}
 		}
 	</script>
@@ -374,6 +315,48 @@
 				alert(userlike);
 			});
 		}
+	</script>
+	
+	
+	<script>
+		$(document).ready(function(){
+			
+			var str = "";
+			$.ajax({
+				url : "listquestion",
+				method : "POST",
+				dataType : "JSON",
+				success : function(data) {
+					var count=0;
+					var ind = 0;
+					var strsup="";
+					var str="";
+					for ( var i in data) {
+						//alert(i);
+						
+						/*strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';*/
+						
+						for ( var j in data[i]) {
+							//alert(data[i][j].name);
+							ind++;
+							str += "<ul class='sub" +count +" sub'><li><a href='general.html'>"
+								+ data[i][j].name
+								+ "</a></li></ul>";
+							
+						}
+						strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>' + str;
+						str="";
+						count++;
+						ind=0;
+					}
+					
+					$("#nav-accordion").html(strsup+"</li>");
+					//$(".sub0").slideDown(1000);							
+				}
+			});
+			
+		});
+	
 	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
