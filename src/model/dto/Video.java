@@ -8,13 +8,12 @@ public class Video {
 	private String name;
 	private String description;
 	private String url;
-//	private long docId;
 	private String docUrl;
 	private Date create_date;
 	private Date modifier_date;
 	private long uerID;
 	private int status;
-	private int approved;
+	private int approved=1;
 	private long view;	
 	
 	public Video(){

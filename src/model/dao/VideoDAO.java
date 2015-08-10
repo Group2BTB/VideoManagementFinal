@@ -51,9 +51,7 @@ public class VideoDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
 						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?)");){
-			
-			if(checkVideo(vdo.getUrl()))
-				return false;
+						
 			
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, vdo.getName());
@@ -164,7 +162,7 @@ public class VideoDAO {
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				Statement stm= con.createStatement();){
 			
-			rs = stm.executeQuery("select * from tb_videos where approved=1"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("select * from selectallvideo"); //execute the statement and assign to Resultset object
 			
 			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
 			

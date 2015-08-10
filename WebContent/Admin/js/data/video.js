@@ -135,32 +135,27 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 	};
 	
 	$scope.save = function(e) {
-		// $("#spinner").show();
 		var data = {
-			'id' : $scope.editid,
-			'image' : $scope.image,
+			'id'   : $scope.editid,
 			'name' : $scope.name,
-			'parent' : $scope.parent,
-			'status' : $scope.status_ad,
-			'description' : $scope.description
+			'youtube_url'  : $scope.youtube_url,
+			'category': $scope.category,
+			'document': $scope.document,
+			'status': $scope.status,
+			'description':$scope.description
 		};
-		if (e == true) {
-		//	alert();
-			/*$.post("../addCategory", data).success(function(data) {
-				if (data == "Success") {
+		if (e == true) {			
+			$.post("../addVideo", data).success(function(data) {
+				if (data == "Success") {					
 					$scope.loadData();
-					frmDepartment.reset();
-					
-					$(".select2-search-choice-close").click();
-					
+					clear();
 					$scope.succ();
 				}else{
 					$scope.er();
 				}
-			});*/
-			insertStudent();
+			});
 		} else {
-			$.post("../updateCategory", data).success(function(data, status, headers){
+			/*$.post("../updateCategory", data).success(function(data, status, headers){
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();
@@ -169,7 +164,7 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 				}else{
 					$scope.er();
 				}
-			});
+			});*/
 		}
 		//$("#spinner").hide();
 	};

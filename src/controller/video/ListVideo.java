@@ -44,7 +44,6 @@ public class ListVideo extends HttpServlet {
 		String video = new VideoDAO().getAllVideo();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-		System.out.println(video);
 		try {
 			response.getWriter().print(video);
 		} catch (IOException e) {
