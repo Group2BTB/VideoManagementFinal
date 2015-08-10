@@ -1,4 +1,4 @@
-package controller.question;
+package controller.answer;
 
 import java.io.IOException;
 
@@ -8,21 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import utilities.WorkWithDate;
+import model.dao.CategoryDAO;
 import model.dao.QuestionDAO;
-import model.dto.Question;
 
 /**
- * Servlet implementation class addQuestion
+ * Servlet implementation class statusCategory
  */
 
-public class addQuestion extends HttpServlet {
+public class statusAnswer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addQuestion() {
+    public statusAnswer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,16 +42,17 @@ public class addQuestion extends HttpServlet {
 		process(request, response);
 	}
 	
-	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException{				
-		Question quest = new Question();
-		quest.setDescription(request.getParameter("name"));
-		quest.setStatus(Integer.parseInt(request.getParameter("status")));
-		quest.setVideoID(Integer.parseInt(request.getParameter("video")));
-		if(new QuestionDAO().insertQuestion(quest)){
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("update status");
+		
+		if(new QuestionDAO().toggleStatus(Integer.parseInt(request.getParameter("id")))){
 			response.getWriter().write("Success");
 		}else{
-			response.getWriter().write("Fail");
+			response.getWriter().write("Fail");			
 		}
+		
 	}
+	
 
 }

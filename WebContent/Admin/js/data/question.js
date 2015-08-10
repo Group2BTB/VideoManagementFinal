@@ -133,7 +133,7 @@ app.controller('questioncontroller', function($scope, $http, $timeout) {
 	};
 	
 	$scope.save = function(e) {
-		// $("#spinner").show();
+		// $("#spinner").show();		
 		var data = {
 			'id' : $scope.editid,
 			'name' : $scope.name,
@@ -143,8 +143,7 @@ app.controller('questioncontroller', function($scope, $http, $timeout) {
 		if (e == true) {			
 			$.post("../addQuestion", data).success(function(data) {
 				if (data == "Success") {
-					$scope.loadData();
-					
+					$scope.loadData();					
 					frmDepartment.reset();
 					$scope.succ();
 				}else{
@@ -166,28 +165,60 @@ app.controller('questioncontroller', function($scope, $http, $timeout) {
 		//$("#spinner").hide();
 	};
 	$scope.editUser = function(id) {
-		$scope.editid = id;
+		$scope.editid = id;		
 		if (id == 'new') {
 			$scope.edit = true;
 		} else {
 			$scope.edit = false;
 			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].department_id == id)
+				if ($scope.list[i].question_id == id)
 					x = i;
-			$("#btnNew").click();
-			$scope.name = $scope.list[x].department_name;
-			$scope.status = $scope.list[x].status;
-			$scope.description = $scope.list[x].description;
-
+			$("#btnNew").click();			
+			$scope.name = $scope.list[x].description;
+			$scope.status = $scope.list[x].status1;
+			$scope.video = $scope.list[x].video_id;
+			$('#video').select2().select2('val', $scope.video);
 		}
 	};
 	$scope.updateStatus = function(e) {
+		
 		var data = {
 			'id' : e
 		};
-		$.post("../updatestatus", data).success(function(data, status, headers) {
+		$.post("../updateStatusQuestion", data).success(function(data, status, headers) {
 			if (data == "Success") {
 				$scope.loadData();
+			}
+		});
+	};
+	$scope.addQuestion = function(e) {		
+		$scope.question_id=e;		
+		getListAnswerByQuestion(e);
+		ques();			
+	};
+	$scope.saveAnswer = function() {		
+		var trueAns = 0;
+		if($("#mainans").attr("data")==1){
+			trueAns = $("#answer1").attr("data");
+		}else if($("#mainans").attr("data")==2){
+			trueAns = $("#answer2").attr("data");
+		}else{
+			trueAns = $("#answer3").attr("data");
+		}
+		alert(trueAns);
+		var data = {
+			'id' : $scope.question_id,
+			'ans1':$("#answer1").attr("data"),
+			'answer1': $("#answer1").val(),
+			'ans2':$("#answer2").attr("data"),
+			'answer2': $("#answer2").val(),
+			'ans3':$("#answer3").attr("data"),
+			'answer3': $("#answer3").val(),
+			'trueAns': trueAns
+		};
+		$.post("../addAnswerByQuestion", data).success(function(data, status, headers) {
+			if(data == "Success") {
+				alert();
 			}
 		});
 	};

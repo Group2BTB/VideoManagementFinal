@@ -164,7 +164,11 @@ app.controller('catcontroller', function($scope, $http, $timeout) {
 			for (var i = 0; i < $scope.list.length; i++)
 				if ($scope.list[i].category_id == id)
 					x = i;
-			$("#btnNew").click();
+			$("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
+				  "backdrop"  : "static",
+				  "keyboard"  : true,
+				  "show"      : true                     // ensure the modal is shown immediately
+				});
 			$scope.editid = $scope.list[x].category_id;
 			$scope.name = $scope.list[x].category_name;
 			$scope.status = $scope.list[x].status;

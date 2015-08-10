@@ -1,4 +1,4 @@
-package controller.video;
+package controller.question;
 
 import java.io.IOException;
 
@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.VideoDAO;
+import model.dao.CategoryDAO;
+import model.dao.QuestionDAO;
 
 /**
- * Servlet implementation class VideoComponnet
+ * Servlet implementation class statusCategory
  */
 
-public class VideoComponnet extends HttpServlet {
+public class statusQuestion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VideoComponnet() {
+    public statusQuestion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,17 +41,18 @@ public class VideoComponnet extends HttpServlet {
 		// TODO Auto-generated method stub
 		process(request, response);
 	}
+	
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//String video = new VideoDAO().getAllVideo();
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
-		System.out.println("list Video");
-		try {
-			response.getWriter().write(new VideoDAO().getVideoComponnet());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		System.out.println("update status");
+		
+		if(new QuestionDAO().toggleStatus(Integer.parseInt(request.getParameter("id")))){
+			response.getWriter().write("Success");
+		}else{
+			response.getWriter().write("Fail");			
 		}
+		
 	}
+	
+
 }

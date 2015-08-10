@@ -3,27 +3,25 @@ package controller.question;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.JsonObject;
-
 import model.dao.QuestionDAO;
-import model.dto.Question;
-
+import model.dao.VideoDAO;
 
 /**
- * Servlet implementation class UpdateQuestion
+ * Servlet implementation class VideoComponnet
  */
 
-public class UpdateQuestion extends HttpServlet {
+public class questionComponnent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateQuestion() {
+    public questionComponnent() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,6 +31,7 @@ public class UpdateQuestion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
 
 	/**
@@ -40,29 +39,19 @@ public class UpdateQuestion extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		process(request, response);
 	}
-	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		Question quest = new Question();
-		quest.setDescription(request.getParameter("description"));
-		quest.setVideoID(Integer.parseInt(request.getParameter("video_id")));
-		quest.setAnswer_id(Integer.parseInt(request.getParameter("answer_id")));
-		quest.setStatus(Integer.parseInt(request.getParameter("status")));
-		quest.setId(Integer.parseInt(request.getParameter("id")));
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//String video = new VideoDAO().getAllVideo();
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-		JsonObject obj = new JsonObject();
-		try{
-			if(new QuestionDAO().updateQuestion(quest)){
-				obj.addProperty("message", "Category edited!");
-			}else{
-				obj.addProperty("message", "Category cannot edit!");
-			}
-			response.getWriter().print(obj);
-		}catch(IOException e){
-			System.out.println("Cannot edit category!");
+		System.out.println("list Video");
+		try {
+			response.getWriter().write(new QuestionDAO().getAllQuestionCom());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
 	}
-
 }
