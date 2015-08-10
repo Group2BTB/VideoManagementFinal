@@ -15,14 +15,25 @@ public class Video {
 	private int status;
 	private int approved=1;
 	private long view;	
+	private int category_id;
 	
+	public int getCategory_id() {
+		return category_id;
+	}
+
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
+	}
+
 	public Video(){
 		
 	}
 
+	
+
 	public Video(long id, String name, String description, String url,
 			String docUrl, Date create_date, Date modifier_date, long uerID,
-			int status, int approved, long view) {
+			int status, int approved, long view, int category_id) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,6 +46,7 @@ public class Video {
 		this.status = status;
 		this.approved = approved;
 		this.view = view;
+		this.category_id = category_id;
 	}
 
 	public long getId() {

@@ -84,8 +84,10 @@ app.filter('namefilter', function() {
 
 	};
 });
-app.controller('deptcontroller', function($scope, $http, $timeout) {
-	$http.get('../listdept').success(function(data) {
+
+app.controller('PlaylistController', function($scope, $http, $timeout) {
+
+	$http.get('../listPlaylist').success(function(data) {
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 12; // max no of items to display in a page
@@ -97,7 +99,7 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 		$scope.editid = 0;
 	});
 	$scope.loadData = function() {
-		$http.get('../listdept').success(function(data) {
+		$http.get('../listPlaylist').success(function(data) {
 			$scope.list = data;
 			$scope.currentPage = 1; // current page
 			$scope.entryLimit = 12; // max no of items to display in a page
@@ -126,11 +128,7 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 	};
 	
 	$scope.succ = function(){		
-		$("#title_1").click();
-		alert($(".popover .fade .bottom .in").find(".popover-content").text());
-		setTimeout(function(){
-			$("#title_1").click();
-		}, 3000);
+		
 	};
 	
 	
@@ -142,8 +140,8 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 			'status' : $scope.status,
 			'description' : $scope.description
 		};
-		if (e == true) {
-			$.post("../adddept", data).success(function(data) {
+		if (e == true) {			
+			$.post("../addPlaylist", data).success(function(data) {
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();
@@ -151,7 +149,7 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 				}
 			});
 		} else {
-			$.post("../updatedept", data).success(function(data, status, headers){
+			$.post("../updatePlaylist", data).success(function(data, status, headers){
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();
@@ -163,18 +161,19 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 		//$("#spinner").hide();
 	};
 	$scope.editUser = function(id) {
+		alert(id);
 		$scope.editid = id;
 		if (id == 'new') {
 			$scope.edit = true;
 		} else {
 			$scope.edit = false;
-			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].department_id == id)
-					x = i;
-			$("#btnNew").click();
-			$scope.name = $scope.list[x].department_name;
-			$scope.status = $scope.list[x].status;
-			$scope.description = $scope.list[x].description;
+				for (var i = 0; i < $scope.list.length; i++)
+					if ($scope.list[i].playlist_id == id)
+						x = i;
+				$("#btnNew").click();				
+				$scope.name = $scope.list[x].playlist_name;
+				$scope.status = $scope.list[x].status;
+				$scope.description = $scope.list[x].description;
 
 		}
 	};

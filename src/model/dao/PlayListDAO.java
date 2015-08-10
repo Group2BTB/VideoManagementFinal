@@ -2,16 +2,19 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 
 import model.dto.PlayList;
 import utilities.DBConnection;
 import utilities.WorkWithDate;
+import utilities.WorkWithJson;
 
 public class PlayListDAO {
 
 	WorkWithDate wwd = new WorkWithDate();
-	
+	ResultSet rs = null;
 	public boolean insertPlayList(PlayList pl){
 		
 		/*Create try with resource*/
@@ -82,5 +85,21 @@ public class PlayListDAO {
 			ex.printStackTrace();
 			return false;
 		}	
+	}
+	public String getAllPlaylist(){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			
+			rs = stm.executeQuery("select * from \"selectallplaylist\""); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
 	}
 }

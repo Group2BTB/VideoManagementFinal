@@ -134,7 +134,7 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 		
 	};
 	
-	$scope.save = function(e) {
+	$scope.save = function(e) {		
 		var data = {
 			'id'   : $scope.editid,
 			'name' : $scope.name,
@@ -154,8 +154,8 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 					$scope.er();
 				}
 			});
-		} else {
-			/*$.post("../updateCategory", data).success(function(data, status, headers){
+		} else {			
+			$.post("../updateVideo", data).success(function(data, status, headers){
 				if (data == "Success") {
 					$scope.loadData();
 					frmDepartment.reset();
@@ -164,9 +164,8 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 				}else{
 					$scope.er();
 				}
-			});*/
+			});
 		}
-		//$("#spinner").hide();
 	};
 	$scope.editUser = function(id) {
 		$scope.editid = id;
@@ -175,20 +174,31 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 		} else {
 			$scope.edit = false;
 			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].department_id == id)
+				if ($scope.list[i].video_id == id)
 					x = i;
-			$("#btnNew").click();
-			$scope.name = $scope.list[x].department_name;
-			$scope.status = $scope.list[x].status;
+			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+				"backdrop" : "static",
+				"keyboard" : true,
+				"show" : true
+			// ensure the modal is shown immediately
+			});
+		
+			$scope.name = $scope.list[x].video_name;
+			$scope.status = $scope.list[x].status1;
 			$scope.description = $scope.list[x].description;
-
+			$scope.category = $scope.list[x].category_id;
+			$scope.youtube_url = $scope.list[x].youtube_url;
+			$scope.document = $scope.list[x].document_url;			
+			
+			select("category",$scope.list[x].category_id);
+			select("document",$scope.list[x].document_url);
 		}
 	};
-	$scope.updateStatus = function(e) {
+	$scope.updateStatus = function(e) {		
 		var data = {
 			'id' : e
 		};
-		$.post("../updatestatus", data).success(function(data, status, headers) {
+		$.post("../updateStatusVideo", data).success(function(data, status, headers) {
 			if (data == "Success") {
 				$scope.loadData();
 			}

@@ -10,6 +10,7 @@ import utilities.DBConnection;
 import utilities.WorkWithDate;
 import utilities.WorkWithJson;
 import model.dto.Video;
+import model.dto.VideoCategory;
 
 public class VideoDAO {
 	
@@ -50,7 +51,7 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into tb_videos(video_name,description,youtube_url,document_url,"
-						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?)");){
+						+ "user_id, status, approved, view) values(?,?,?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
 						
 			
 			/*To set data to preparedStatement from video's data*/
@@ -62,10 +63,21 @@ public class VideoDAO {
 			stm.setInt(6, vdo.getStatus());
 			stm.setInt(7, vdo.getApproved());
 			stm.setLong(8, vdo.getView());
+												
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
 			
+			
+			
+			long video=0;
+			rs = stm.getGeneratedKeys();
+			if (rs.next()){
+				video=rs.getInt(1);
+			}			
+			if(!new VideoCategoryDAO().insertVideoCategory(new VideoCategory(video,vdo.getCategory_id()))){
+				return false;
+			}			
 			return true;			
 			
 		}catch(Exception ex){
@@ -85,12 +97,11 @@ public class VideoDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_videos set video_name=?, description=?, youtube_url=?,"
-						+ "document_url=?, modifier_date=?, user_id=?, status=?, approved=?,"
-						+ "view=? where video_id=?")){
+						+ "document_url=?, modifier_date=?, user_id=?, status=?, approved=?"
+						+ " where video_id=?")){
 			
-//			if(checkVideo(vdo.getUrl()))
-//				return false;
-			/*To set data to preparedStatement from video's data*/
+			
+			//System.out.println(vdo.getName()+"/"+vdo.getUrl()+"/"+vdo.getDocUrl());
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl().trim());
@@ -99,17 +110,20 @@ public class VideoDAO {
 			stm.setLong(6, vdo.getUerID());
 			stm.setInt(7, vdo.getStatus());
 			stm.setInt(8, vdo.getApproved());
-			stm.setLong(9, vdo.getView());
-			stm.setLong(10, vdo.getId());
+			stm.setLong(9, vdo.getId());
+					
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
 			
+		
+			
+			if(!new VideoCategoryDAO().insertVideoCategory(new VideoCategory(vdo.getId(),vdo.getCategory_id()))) return false;
+			
 			return true;
 			
 			
-		}catch(Exception ex){
-			
+		}catch(Exception ex){		
 			ex.printStackTrace();
 			return false;
 		}

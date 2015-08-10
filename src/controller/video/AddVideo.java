@@ -52,6 +52,8 @@ public class AddVideo extends HttpServlet {
 		v.setStatus(Integer.parseInt(request.getParameter("status")));
 		v.setDocUrl(request.getParameter("document"));
 		v.setUerID(27);
+		v.setCategory_id(Integer.parseInt(request.getParameter("category")));
+					
 		
 		if(new VideoDAO().insertVideo(v)){
 			response.getWriter().write("Success");

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	
 	<servlet>
 		<servlet-name>listQuestion</servlet-name>
 		<servlet-class>controller.question.listQuestion</servlet-class>
@@ -21,25 +24,89 @@
 		<servlet-name>addQuestion</servlet-name>
 		<url-pattern>/addQuestion</url-pattern>
 	</servlet-mapping>
-	
 	<servlet>
-		<servlet-name>getQandA</servlet-name>
-		<servlet-class>controller.question.getQuestAndAnswer</servlet-class>
+		<servlet-name>updateQuestion</servlet-name>
+		<servlet-class>controller.question.editQuestion</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>getQandA</servlet-name>
-		<url-pattern>/getQandA</url-pattern>
+		<servlet-name>updateQuestion</servlet-name>
+		<url-pattern>/updateQuestion</url-pattern>
 	</servlet-mapping>
-	
 	<servlet>
-		<servlet-name>listAllCategory</servlet-name>
-		<servlet-class>controller.category.ListAllCategory</servlet-class>
+		<servlet-name>updateStatusQuestion</servlet-name>
+		<servlet-class>controller.question.statusQuestion</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>listAllCategory</servlet-name>
-		<url-pattern>/ELearning/Dashboard/listAllCategory</url-pattern>
+		<servlet-name>updateStatusQuestion</servlet-name>
+		<url-pattern>/updateStatusQuestion</url-pattern>
 	</servlet-mapping>
-
+	
+	
+	
+	<servlet>
+		<servlet-name>addAnswerByQuestion</servlet-name>
+		<servlet-class>controller.answer.addAnswerByQuestion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addAnswerByQuestion</servlet-name>
+		<url-pattern>/addAnswerByQuestion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>listAnswerByQuestion</servlet-name>
+		<servlet-class>controller.answer.listAnswerByQuestion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listAnswerByQuestion</servlet-name>
+		<url-pattern>/listAnswerByQuestion</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>listAnswer</servlet-name>
+		<servlet-class>controller.answer.listAnswer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listAnswer</servlet-name>
+		<url-pattern>/listAnswer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>addAnswer</servlet-name>
+		<servlet-class>controller.answer.addAnswer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addAnswer</servlet-name>
+		<url-pattern>/addAnswer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>updateAnswer</servlet-name>
+		<servlet-class>controller.answer.editAnswer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateAnswer</servlet-name>
+		<url-pattern>/updateAnswer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>updateStatusAnswer</servlet-name>
+		<servlet-class>controller.answer.statusAnswer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateStatusAnswer</servlet-name>
+		<url-pattern>/updateStatusAnswer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>questionComponnent</servlet-name>
+		<servlet-class>controller.question.questionComponnent</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>questionComponnent</servlet-name>
+		<url-pattern>/questionComponnent</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
 	<servlet>
 		<servlet-name>listCategory</servlet-name>
 		<servlet-class>controller.category.listCategory</servlet-class>
@@ -80,6 +147,8 @@
 		<servlet-name>listDocument</servlet-name>
 		<url-pattern>/listDocument</url-pattern>
 	</servlet-mapping>
+	
+	
 	<servlet>
 		<servlet-name>listVideo</servlet-name>
 		<servlet-class>controller.video.ListVideo</servlet-class>
@@ -89,13 +158,65 @@
 		<url-pattern>/listVideo</url-pattern>
 	</servlet-mapping>
 	<servlet>
-		<servlet-name>videoComponnet</servlet-name>
-		<servlet-class>controller.video.VideoComponnet</servlet-class>
+		<servlet-name>videoComponnent</servlet-name>
+		<servlet-class>controller.video.VideoComponnent</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>videoComponnet</servlet-name>
-		<url-pattern>/videoComponnet</url-pattern>
+		<servlet-name>videoComponnent</servlet-name>
+		<url-pattern>/videoComponnent</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>addVideo</servlet-name>
+		<servlet-class>controller.video.AddVideo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addVideo</servlet-name>
+		<url-pattern>/addVideo</url-pattern>
+	</servlet-mapping>updateVideo
+	<servlet>
+		<servlet-name>updateVideo</servlet-name>
+		<servlet-class>controller.video.UpdateVideo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateVideo</servlet-name>
+		<url-pattern>/updateVideo</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>updateStatusVideo</servlet-name>
+		<servlet-class>controller.video.statusVideo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateStatusVideo</servlet-name>
+		<url-pattern>/updateStatusVideo</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>listPlaylist</servlet-name>
+		<servlet-class>controller.playlist.listPlaylist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>listPlaylist</servlet-name>
+		<url-pattern>/listPlaylist</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>addPlaylist</servlet-name>
+		<servlet-class>controller.playlist.addPlaylist</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addPlaylist</servlet-name>
+		<url-pattern>/addPlaylist</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<servlet>
 		<servlet-name>listdep</servlet-name>
 		<servlet-class>controller.department.listdept</servlet-class>
@@ -134,7 +255,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>userLogin</servlet-name>
-		<url-pattern>/login</url-pattern>
+		<url-pattern>/Elearning/include/login.hrd</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>userRegister</servlet-name>
@@ -142,15 +263,8 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>userRegister</servlet-name>
-		<url-pattern>/Elearning/include/Add</url-pattern>
+		<url-pattern>/Elearning/include/Add.hrd</url-pattern>
 	</servlet-mapping>
-	<filter>
-		<filter-name>permission</filter-name>
-		<filter-class>controller.userLogin.Authentication</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>permission</filter-name>
-		<url-pattern>/Admin/*</url-pattern>
-	</filter-mapping>
 </web-app>
 
+	

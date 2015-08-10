@@ -134,11 +134,11 @@
 									<button type='button' class='btn btn-info icon_margin_top'>
 										<span class='glyphicon glyphicon-eye-open'></span>
 									</button>
-									<button type='button' ng-click="editUser(d.department_id)"
+									<button type='button' ng-click="editUser(d.video_id)"
 										class='btn btn-primary icon_margin_top'>
 										<span class='glyphicon glyphicon-pencil'></span>
 									</button>
-									<button type='button' ng-click="updateStatus(d.department_id)"
+									<button type='button' ng-click="updateStatus(d.video_id)"
 										class='btn btn-success icon_margin_top'>
 										<span class='glyphicon glyphicon-record'></span>
 									</button>
@@ -195,22 +195,18 @@
 								<div class="form-group">
 									<label for="url">URL<span class="require_field">*</span>
 										:
-									</label> <input type="url" ng-model="youtube_url" class="form-control"
+									</label> <input type="text" ng-model="youtube_url" class="form-control"
 										name="youtube_url" id="youtube_url" placeholder="Youtube URL...">
 								</div>
 								<div class="form-group">
-									<label for="category">Category :</label> <select name="test"
-										ng-model="category" ng-model="category" id="category"
-										name="category" class="select2 form-control"
-										data-allow-clear="true" data-placeholder="Category...">
+									<label for="category">Category :</label> 
+									<select ng-model="category" id="category" name="category" class="select2 form-control" data-allow-clear="true" data-placeholder="Category...">
 										<option></option>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="partent">Document :</label> <select name="test"
-										ng-model="document" ng-model="document" id="document"
-										name="document" class="select2 form-control"
-										data-allow-clear="true" data-placeholder="Document...">
+									<label for="partent">Document :</label> 
+									<select ng-model="document" id="document" name="document" class="select2 form-control" data-allow-clear="true" data-placeholder="Document...">
 										<option></option>
 									</select>
 								</div>
@@ -259,6 +255,7 @@
 				$("#msg_error").hide();
 
 				$("#btnNew").on("click", function() { // wire up the OK button to dismiss the modal when shown
+					clear();
 					$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 						"backdrop" : "static",
 						"keyboard" : true,
@@ -286,7 +283,11 @@
 
 				listDocument();
 				listCategory();
+			
 			});
+			function select(id,val){
+				$('#'+id).select2().select2('val', val);
+			}
 			function listCategory(){	
 				$.ajax({
 					url : '../listCategory',
@@ -346,6 +347,8 @@
 				$('#document').select2().select2('val', 0);
 			}
 			
+		//	$('#document').select2().select2('val', $scope.document_url);
+			
 		</script>
 
 
@@ -373,21 +376,7 @@
 		<script src="js/select2.min.js"></script>
 		<script src="js/data/video.js"></script>
 		<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-		<script>
-			$(function() {
-				$('select #limitEntry:first-child').remove();
-			});
-
-			function setSelectedValue(selectObj, valueToSet) {
-				alert(1);
-				for (var i = 0; i < selectObj.options.length; i++) {
-					if (selectObj.options[i].text == valueToSet) {
-						selectObj.options[i].selected = true;
-						return;
-					}
-				}
-			}
-		</script>
+		
 </body>
 
 </html>

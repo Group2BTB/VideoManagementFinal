@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.VideoDAO;
 import model.dto.Video;
 
 import com.google.gson.JsonObject;
@@ -40,22 +41,24 @@ public class UpdateVideo extends HttpServlet {
 		doProcess(request, response);
 	}
 
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		try{
-			Video vid = new Video();
-			vid.setName(request.getParameter("video_name"));
-			vid.setDescription(request.getParameter("description"));
-			vid.setUrl(request.getParameter("youtube_url"));
-			vid.setDocUrl(request.getParameter("document_url"));
-			vid.setUerID(Integer.parseInt(request.getParameter("user_id")));
-			vid.setStatus(Integer.parseInt(request.getParameter("status")));
-			vid.setView(0);
-			vid.setApproved(Integer.parseInt(request.getParameter("approved")));
-			response.setCharacterEncoding("utf-8");
-			response.setContentType("application/json");
-			JsonObject obj = new JsonObject();
-		}catch(Exception e){
-			e.printStackTrace();
+	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		System.out.println("update Video");
+		Video v = new Video();
+		v.setName(request.getParameter("name"));
+		v.setUrl(request.getParameter("youtube_url"));
+		v.setDescription(request.getParameter("description"));
+		v.setStatus(Integer.parseInt(request.getParameter("status")));
+		v.setDocUrl(request.getParameter("document"));
+		v.setUerID(27);
+		v.setCategory_id(Integer.parseInt(request.getParameter("category")));
+					
+		
+		if(new VideoDAO().updateVideo(v)){
+			System.out.println("Success");
+			response.getWriter().write("Success");
+		}else{
+			System.out.println("Fail");
+			response.getWriter().write("Fail");
 		}
 	}
 }
