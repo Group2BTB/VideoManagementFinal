@@ -42,14 +42,13 @@ public class UserLogin extends HttpServlet {
 	}
 
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		if(new UserDAO().checkUser(username, password)){
-			HttpSession session = request.getSession();
-			session.setAttribute("user", username);
+		String username = request.getParameter("username");//get username from view
+		String password = request.getParameter("password");//get password from view
+		if(new UserDAO().checkUser(username, password)){// if username and password is correct
+			HttpSession session = request.getSession();//create session
+			session.setAttribute("user", username);// set session for user
 			session.setAttribute("userID", new UserDAO().getUser(username, password).getId());
 			try {
-				System.out.println(session.getAttribute("userID"));
 				response.sendRedirect("/VideoManagementFinal/index.jsp");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
