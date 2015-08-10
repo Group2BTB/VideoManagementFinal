@@ -188,11 +188,33 @@ public class QuestionDAO {
 		}	
 	}
 	
+	public String getQandA(long videoId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select question, video_id, answer_id, answer from \"vQuestion\" where video_id=?");){
+						
+			stm.setLong(1, videoId);
+			
+			rs = stm.executeQuery();			
+			
+			return WorkWithJson.convertQandA(rs);
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		Question qst = new Question();
 		QuestionDAO qdo = new QuestionDAO();
 		
+		System.out.println(qdo.getQandA(7));
+		System.exit(0);
 		qdo.getQuestion(1);
 		System.out.println(qdo.getAllQuestion());
 		System.exit(0);
@@ -200,7 +222,7 @@ public class QuestionDAO {
 		qst.setVideoID(7);
 		qst.setAnswer_id(1);				
 		
-		System.out.println(qdo.insertQuestion(qst));
+		//System.out.println(qdo.insertQuestion(qst));
 		
 		
 		System.out.println(qdo.getAllQuestion());
