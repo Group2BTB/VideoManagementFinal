@@ -47,7 +47,9 @@ public class UserLogin extends HttpServlet {
 		if(new UserDAO().checkUser(username, password)){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", username);
+			session.setAttribute("userID", new UserDAO().getUser(username, password).getId());
 			try {
+				System.out.println(session.getAttribute("userID"));
 				response.sendRedirect("/VideoManagementFinal/index.jsp");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
