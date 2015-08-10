@@ -40,7 +40,7 @@ public class CategoryDAO {
 		try(Connection con = new DBConnection().getConnection();
 				Statement stm = con.createStatement()){
 			
-			rs = stm.executeQuery("SELECT * from \"vCategory\" order by id"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("SELECT * from \"vCategory\" order by name"); //execute the statement and assign to Resultset object
 			
 			return wwj.convertSubJson(rs);
 			
