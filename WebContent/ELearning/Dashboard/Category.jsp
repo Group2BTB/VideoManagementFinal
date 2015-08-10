@@ -103,9 +103,23 @@
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 					<li class="sub-menu text-center" style="color: #fff;">All
-						Category</li>
-					<li class="sub-menu" id="menu"> </li>
-
+						Category
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-cogs"></i>
+							<span>MS Windows</span>
+							<span class="badge pull-right">5</span>
+						</a>
+						<ul class="sub">
+							<li><a href="grids.html">Window Server 2008</a></li>
+							 <li><a href="calendar.html">Window 8</a></li>
+							<li><a href="gallery.html">Window 7</a></li>
+							<li><a href="todo_list.html">Window Vista</a></li>
+							<li><a href="draggable_portlet.html">Window Xp</a></li>
+						</ul>
+					</li>
+				</ul>
 					<!-- <li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-cogs"></i> <span>MS Windows</span><span
 							class="badge pull-right">5</span>
@@ -760,6 +774,8 @@
 				</footer>
 				<!--footer end-->
 			</section>
+		</section>
+	</section>
 
 			<!-- js placed at the end of the document so the pages load faster -->
 			<script src="js/jquery.js"></script>
@@ -770,14 +786,17 @@
 			<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 			<script src="js/respond.min.js"></script>
 			<script src="js/owl.carousel.js"></script>
-
-
 			<!--right slidebar-->
 			<script src="js/slidebars.min.js"></script>
 			<!--common script for all pages-->
 			<script src="js/common-scripts.js"></script>
+			
 			<script>
 				$(document).ready(function() {
+					viewCategory();
+					
+					
+					
 					$(".owl-demo").owlCarousel({
 						autoPlay : 3000, //Set AutoPlay to 3 seconds
 						stopOnHover : true,
@@ -788,30 +807,55 @@
 						itemsMobile : false
 					// itemsMobile disabled - inherit from itemsTablet option
 					});
+					
 				});
 
 				function viewCategory() {
 					var str = "";
-					$
-							.ajax({
-								url : "listAllCategory",
-								method : "POST",
-								dataType : "JSON",
-								success : function(data) {
-									for ( var i in data) {
-										str += '<a href="javascript:;"> <i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">5</span></a>';
-										for ( var j in data[i]) {
-											//alert(data[i][j].name);
-											/* str += "<ul class='sub'><li><a href='general.html'>"
-													+ data[i][j].name
-													+ "</a></li></ul>"; */
-										}
-									}
-									$("#menu").html(str);
+					$.ajax({
+						url : "listAllCategory",
+						method : "POST",
+						dataType : "JSON",
+						success : function(data) {
+							var count=0;
+							var ind=0;
+							for ( var i in data) {
+								alert(i);
+								str += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';
+								for ( var j in data[i]) {
+									//alert(data[i][j].name);
+									ind++;
+									str += "<ul class='sub" +count +" sub'><li><a href='general.html'>"
+										+ data[i][j].name
+										+ "</a></li></ul>";
 								}
-							});
+			
+								count++;
+							}
+							
+							$("#nav-accordion").html(str+"</li>");
+							//$(".sub0").slideDown(1000);							
+						}
+					});
+					
+				}			
+				$(".hhh1").click(function(){
+					$(".sub").slideToggle(1000);
+					alert(12345);
+				});
+				
+				function dopro(id){
+					
+					//$(".sub").slideToggle(1000);
+					//$(".sub-menu").remove(obj.innerHTML);
+						$(".sub").slideUp(1000);			
+						$(".sub"+id).slideToggle(1000);
+					
 				}
-				viewCategory();
+				/* $("#nav-accordion").click(function(){
+					$(".sub").slideToggle(1000);
+					//alert(12345);
+				}); */
 			</script>
 </body>
 </html>
