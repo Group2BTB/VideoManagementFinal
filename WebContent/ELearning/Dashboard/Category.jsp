@@ -847,7 +847,7 @@
 					
 				}			
 				$(".hhh1").click(function(){
-					$(".sub").slideToggle(1000);
+					$(".sub").slideToggle(500);
 					alert(12345);
 				});
 				
@@ -855,8 +855,8 @@
 					
 					//$(".sub").slideToggle(1000);
 					//$(".sub-menu").remove(obj.innerHTML);
-						$(".sub").slideUp(1000);			
-						$(".sub"+id).slideToggle(1000);
+						$(".sub").slideUp(500);			
+						$(".sub"+id).slideToggle(500);
 					
 				}
 				/* $("#nav-accordion").click(function(){
