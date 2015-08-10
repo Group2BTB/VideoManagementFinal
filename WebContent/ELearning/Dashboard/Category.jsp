@@ -21,7 +21,7 @@
 <!-- Custom styles for this template -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
 
 <style>
@@ -34,7 +34,6 @@
 	width: 100%;
 	height: auto;
 }
-
 </style>
 
 </head>
@@ -45,8 +44,7 @@
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box" id="hideshow">
 				<div data-original-title="Toggle Navigation" data-placement="right"
-					class="fa fa-bars tooltips">
-				</div>
+					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
 			<a href="index-2.html" class="logo">Khmer<span>Academy</span></a>
@@ -106,19 +104,9 @@
 				<ul class="sidebar-menu" id="nav-accordion">
 					<li class="sub-menu text-center" style="color: #fff;">All
 						Category</li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-book"></i> <span>General</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="general.html">Internet & Email</a></li>
-							<li><a href="buttons.html">Mathematics</a></li>
-							<li><a href="modal.html">Physic</a></li>
-							<li><a href="toastr.html">Chemistry</a></li>
-							<li><a href="widget.html">Biology</a></li>
-						</ul></li>
+					<li class="sub-menu" id="menu"> </li>
 
-					<li class="sub-menu"><a href="javascript:;"> <i
+					<!-- <li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-cogs"></i> <span>MS Windows</span><span
 							class="badge pull-right">5</span>
 					</a>
@@ -184,7 +172,7 @@
 							<li><a href="coming_soon.html">Ms. Access 2013</a></li>
 							<li><a href="lock_screen.html">Ms. Publisher 2013</a></li>
 							<li><a href="profile.html">Ms. Visio 2013</a></li>
-						</ul></li>
+						</ul></li> -->
 				</ul>
 				<!-- sidebar menu end-->
 			</div>
@@ -212,8 +200,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -227,8 +215,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -257,8 +245,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 
@@ -288,13 +276,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -303,13 +292,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -318,13 +308,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -333,13 +324,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -349,7 +341,7 @@
 						</div>
 					</div>
 				</section>
-				
+
 				<section class="panel">
 					<header class="panel-heading"> Recommended Courses </header>
 					<div class="panel-body">
@@ -358,8 +350,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -373,8 +365,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -403,8 +395,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 
@@ -434,13 +426,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -449,13 +442,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -464,13 +458,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -480,7 +475,7 @@
 						</div>
 					</div>
 				</section>
-				
+
 				<section class="panel">
 					<header class="panel-heading"> New Courses </header>
 					<div class="panel-body">
@@ -489,8 +484,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -504,8 +499,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -534,8 +529,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 
@@ -565,13 +560,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -580,13 +576,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -595,13 +592,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -611,7 +609,7 @@
 						</div>
 					</div>
 				</section>
-				
+
 				<section class="panel">
 					<header class="panel-heading"> Highest rated Courses </header>
 					<div class="panel-body">
@@ -620,8 +618,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro1.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro1.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -635,8 +633,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
@@ -665,8 +663,8 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro3.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 
@@ -696,13 +694,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -711,13 +710,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -726,13 +726,14 @@
 								<div class="item">
 									<section class="panel">
 										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a href="#"
-												class="adtocart"> <i class="fa-graduation-cap"></i>
+											<img src="img/product-list/pro2.jpg" alt=""> <a
+												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
 											</a>
 										</div>
 										<div class="panel-body text-center">
 											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement </a>
+												<a href="#" class="pro-title"> Servlet Web Developement
+												</a>
 											</h4>
 											<p class="price">Free</p>
 										</div>
@@ -742,66 +743,75 @@
 						</div>
 					</div>
 				</section>
-			
-						<!--main content end-->
-		<!-- Right Slidebar start -->
-		<div class="sb-slidebar sb-right sb-style-overlay">
-			<h5 class="side-title">Messages</h5>
-		</div>
-		<!-- Right Slidebar end -->
-		<!--footer start-->
-		<footer class="site-footer">
-			<div class="text-center">
-				2015 &copy; KHMERACADEMY<a href="#" class="go-top"> <i
-					class="fa fa-angle-up"></i>
-				</a>
-			</div>
-		</footer>
-		<!--footer end-->
-	</section>
 
-	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript"
-		src="js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="js/jquery.scrollTo.min.js"></script>
-	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="js/respond.min.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	
+				<!--main content end-->
+				<!-- Right Slidebar start -->
+				<div class="sb-slidebar sb-right sb-style-overlay">
+					<h5 class="side-title">Messages</h5>
+				</div>
+				<!-- Right Slidebar end -->
+				<!--footer start-->
+				<footer class="site-footer">
+					<div class="text-center">
+						2015 &copy; KHMERACADEMY<a href="#" class="go-top"> <i
+							class="fa fa-angle-up"></i>
+						</a>
+					</div>
+				</footer>
+				<!--footer end-->
+			</section>
 
-	<!--right slidebar-->
-	<script src="js/slidebars.min.js"></script>
-	<!--common script for all pages-->
-	<script src="js/common-scripts.js"></script>
-	<script>
-		$(document).ready(function() {
-			$(".owl-demo").owlCarousel({
-				autoPlay : 3000, //Set AutoPlay to 3 seconds
-				stopOnHover: true,
-				//items : 6,
-				itemsDesktop : [1000,6], //5 items between 1000px and 901px
-				itemsDesktopSmall : [900,3], // betweem 900px and 601px
-				itemsTablet: [600,2], //2 items between 600 and 0
-				itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-			});
-		});
+			<!-- js placed at the end of the document so the pages load faster -->
+			<script src="js/jquery.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script class="include" type="text/javascript"
+				src="js/jquery.dcjqaccordion.2.7.js"></script>
+			<script src="js/jquery.scrollTo.min.js"></script>
+			<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+			<script src="js/respond.min.js"></script>
+			<script src="js/owl.carousel.js"></script>
 
-		function viewCategory(){
-			$.ajax({
-				url : "listAllCategory",
-				method: "POST",
-				dataType : "JSON",
-				success: function(data){
-					for(var i in data){
-						alert(i);
-						}
-					}
+
+			<!--right slidebar-->
+			<script src="js/slidebars.min.js"></script>
+			<!--common script for all pages-->
+			<script src="js/common-scripts.js"></script>
+			<script>
+				$(document).ready(function() {
+					$(".owl-demo").owlCarousel({
+						autoPlay : 3000, //Set AutoPlay to 3 seconds
+						stopOnHover : true,
+						//items : 6,
+						itemsDesktop : [ 1000, 6 ], //5 items between 1000px and 901px
+						itemsDesktopSmall : [ 900, 3 ], // betweem 900px and 601px
+						itemsTablet : [ 600, 2 ], //2 items between 600 and 0
+						itemsMobile : false
+					// itemsMobile disabled - inherit from itemsTablet option
+					});
 				});
-			}
-		viewCategory();
-	</script>
 
+				function viewCategory() {
+					var str = "";
+					$
+							.ajax({
+								url : "listAllCategory",
+								method : "POST",
+								dataType : "JSON",
+								success : function(data) {
+									for ( var i in data) {
+										str += '<a href="javascript:;"> <i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">5</span></a>';
+										for ( var j in data[i]) {
+											//alert(data[i][j].name);
+											/* str += "<ul class='sub'><li><a href='general.html'>"
+													+ data[i][j].name
+													+ "</a></li></ul>"; */
+										}
+									}
+									$("#menu").html(str);
+								}
+							});
+				}
+				viewCategory();
+			</script>
 </body>
 </html>
