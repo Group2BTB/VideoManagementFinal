@@ -40,7 +40,6 @@
 </head>
 
 <body>
-
 	<section id="container" class="">
 		<!--header start-->
 		<header class="header white-bg">
@@ -774,13 +773,9 @@
 
 	<!--right slidebar-->
 	<script src="js/slidebars.min.js"></script>
-
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
-
 	<script>
-		
-		
 		$(document).ready(function() {
 			$(".owl-demo").owlCarousel({
 				autoPlay : 3000, //Set AutoPlay to 3 seconds
@@ -791,8 +786,21 @@
 				itemsTablet: [600,2], //2 items between 600 and 0
 				itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
 			});
-			
 		});
+
+		function viewCategory(){
+			$.ajax({
+				url : "listAllCategory",
+				method: "POST",
+				dataType : "JSON",
+				success: function(data){
+					for(var i in data){
+						alert(i);
+						}
+					}
+				});
+			}
+		viewCategory();
 	</script>
 
 </body>
