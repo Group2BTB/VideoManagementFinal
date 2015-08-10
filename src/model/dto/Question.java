@@ -10,6 +10,7 @@ public class Question {
 	private long answer_id;
 	private Date create_date;
 	private int status;	
+	private String answer;
 	
 	public Question(){
 		
@@ -24,6 +25,15 @@ public class Question {
 		this.answer_id = answer_id;
 		this.create_date = create_date;
 		this.status = status;
+	}
+
+	
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
 	public long getId() {
