@@ -818,22 +818,29 @@
 						dataType : "JSON",
 						success : function(data) {
 							var count=0;
-							var ind=0;
+							var ind = 0;
+							var strsup="";
+							var str="";
 							for ( var i in data) {
-								alert(i);
-								str += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';
+								//alert(i);
+								
+								/*strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';*/
+								
 								for ( var j in data[i]) {
 									//alert(data[i][j].name);
 									ind++;
 									str += "<ul class='sub" +count +" sub'><li><a href='general.html'>"
 										+ data[i][j].name
 										+ "</a></li></ul>";
+									
 								}
-			
+								strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>' + str;
+								str="";
 								count++;
+								ind=0;
 							}
 							
-							$("#nav-accordion").html(str+"</li>");
+							$("#nav-accordion").html(strsup+"</li>");
 							//$(".sub0").slideDown(1000);							
 						}
 					});
