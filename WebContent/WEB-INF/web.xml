@@ -135,7 +135,6 @@
 			<servlet-name>userRegister</servlet-name>
 			<url-pattern>/Elearning/include/Add</url-pattern>
 		</servlet-mapping>
-		
 		<filter>
 		    <filter-name>permission</filter-name>
 		    <filter-class>controller.userLogin.Authentication</filter-class>
