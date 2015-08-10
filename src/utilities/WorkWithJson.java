@@ -132,7 +132,7 @@ public class WorkWithJson {
 		}
 	}
 	
-	public String convertSubJson(ResultSet rs){
+	public static String convertSubJson(ResultSet rs){
 		
 		try
 		{						
