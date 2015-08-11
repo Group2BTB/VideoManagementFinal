@@ -43,7 +43,6 @@ public class ListAllCategory extends HttpServlet {
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("application/json");
 			response.getWriter().print(new CategoryDAO().getSubAllCategory());
-			System.out.println(new CategoryDAO().getSubAllCategory());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
