@@ -150,7 +150,7 @@ public class WorkWithJson {
 			while(rs.next()){
 					
 				sup = rs.getString("super").trim();
-				System.out.println(sup);
+				//System.out.println(sup);
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
 					
@@ -171,7 +171,7 @@ public class WorkWithJson {
 					ca.setCreate_date(rs.getDate("create_date"));
 					ca.setModifier_date(rs.getDate("modifier_date"));			
 					
-					System.out.println(ca.getName());
+					//System.out.println(ca.getName());
 					suparr.add(ca);
 					
 					if(rs.isLast())
@@ -194,7 +194,7 @@ public class WorkWithJson {
 					ca.setCreate_date(rs.getDate("create_date"));
 					ca.setModifier_date(rs.getDate("modifier_date"));			
 					
-					System.out.println(ca.getName() + " me!");
+					//System.out.println(ca.getName() + " me!");
 					suparr.add(ca);					
 					
 					if(rs.isLast())
