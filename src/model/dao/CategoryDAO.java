@@ -43,9 +43,7 @@ public class CategoryDAO {
 			rs = stm.executeQuery("SELECT * from \"vCategory\" order by name"); //execute the statement and assign to Resultset object
 			
 			return wwj.convertSubJson(rs);
-			
-			
-			
+		
 		}catch(Exception ex){
 			
 			ex.printStackTrace();
@@ -181,16 +179,6 @@ public class CategoryDAO {
 			return false;
 		}	
 	}
-		
-	
-	public static void main(String[] args) {
-		
-		Category ca = new Category();
-		CategoryDAO cdo = new CategoryDAO();
-		
-		System.out.println(cdo.getSubAllCategory());
-	}
-
 	public int getLastID() {
 		try(Connection con = new DBConnection().getConnection();){
 			 Statement st=con.createStatement();
