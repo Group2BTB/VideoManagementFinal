@@ -279,130 +279,7 @@
 					<div class="panel-body">
 						<div class="col-lg-12 col-md-12 col-sm-12">
 							<div class="product-list owl-demo">
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro1.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Learning Oracle </a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Java Programming </a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro-1.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> VB.NET Programming </a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro3.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Php Web Development </a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro-1.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> MySQL </a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement
-												</a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement
-												</a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
-								<div class="item">
-									<section class="panel">
-										<div class="pro-img-box">
-											<img src="img/product-list/pro2.jpg" alt=""> <a
-												href="#" class="adtocart"> <i class="fa-graduation-cap"></i>
-											</a>
-										</div>
-										<div class="panel-body text-center">
-											<h4>
-												<a href="#" class="pro-title"> Servlet Web Developement
-												</a>
-											</h4>
-											<p class="price">Free</p>
-										</div>
-									</section>
-								</div>
+								<div class="item" id="video-recommand"></div>
 							</div>
 						</div>
 					</div>
@@ -712,6 +589,7 @@
 			<script>
 				$(document).ready(function() {
 					viewCategory();
+					getRecommentVideo();
 					$(".owl-demo").owlCarousel({
 						autoPlay : 3000, //Set AutoPlay to 3 seconds
 						stopOnHover : true,
@@ -770,6 +648,27 @@
 					//alert(12345);
 				}); */
 
+				function getRecommentVideo(){
+					var str = "";
+					$.ajax({
+						url : "getRecVideo",
+						method: "POST",
+						dataType: "JSON",
+						success: function(data){
+							for(var i in data){
+								str += '<section class="panel">';
+								str += '<div class="pro-img-box">';
+								str += '<img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/default.jpg" alt=""><a href="#" class="adtocart"><i class="fa-graduation-cap"></i></a>';
+								str += '</div>';
+								str += '<div class="panel-body text-center">';
+								str += '<h4><a href="#" class="pro-title"> Learning Oracle </a></h4>';
+								str += '<p class="price">Free</p>';
+								str += '</div></section>';
+							}
+							$("#video-recommand").html(str);
+						}
+					});	
+				}
 			</script>
 </body>
 </html>
