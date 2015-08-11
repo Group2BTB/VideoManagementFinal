@@ -33,6 +33,14 @@
 		<url-pattern>/updateQuestion</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>getQandA</servlet-name>
+		<servlet-class>controller.question.getQuestAndAnswer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getQandA</servlet-name>
+		<url-pattern>/ELearning/videoplayer/getQandA</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>updateStatusQuestion</servlet-name>
 		<servlet-class>controller.question.statusQuestion</servlet-class>
 	</servlet>
@@ -40,8 +48,6 @@
 		<servlet-name>updateStatusQuestion</servlet-name>
 		<url-pattern>/updateStatusQuestion</url-pattern>
 	</servlet-mapping>
-	
-	
 	
 	<servlet>
 		<servlet-name>addAnswerByQuestion</servlet-name>
@@ -99,14 +105,6 @@
 		<servlet-name>questionComponnent</servlet-name>
 		<url-pattern>/questionComponnent</url-pattern>
 	</servlet-mapping>
-	
-	
-	
-	
-	
-	
-	
-	
 	<servlet>
 		<servlet-name>listCategory</servlet-name>
 		<servlet-class>controller.category.listCategory</servlet-class>
@@ -147,7 +145,6 @@
 		<servlet-name>listDocument</servlet-name>
 		<url-pattern>/listDocument</url-pattern>
 	</servlet-mapping>
-	
 	
 	<servlet>
 		<servlet-name>listVideo</servlet-name>
@@ -190,7 +187,6 @@
 		<url-pattern>/updateStatusVideo</url-pattern>
 	</servlet-mapping>
 	
-	
 	<servlet>
 		<servlet-name>listPlaylist</servlet-name>
 		<servlet-class>controller.playlist.listPlaylist</servlet-class>
@@ -207,16 +203,7 @@
 		<servlet-name>addPlaylist</servlet-name>
 		<url-pattern>/addPlaylist</url-pattern>
 	</servlet-mapping>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<servlet>
 		<servlet-name>listdep</servlet-name>
 		<servlet-class>controller.department.listdept</servlet-class>
@@ -255,7 +242,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>userLogin</servlet-name>
-		<url-pattern>/Elearning/include/login.hrd</url-pattern>
+		<url-pattern>/ELearning/include/login</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>userRegister</servlet-name>
@@ -263,8 +250,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>userRegister</servlet-name>
-		<url-pattern>/Elearning/include/Add.hrd</url-pattern>
+		<url-pattern>/ELearning/include/Add</url-pattern>
 	</servlet-mapping>
+	<filter>
+		<filter-name>permission</filter-name>
+		<filter-class>controller.userLogin.Authentication</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>permission</filter-name>
+		<url-pattern>/Admin/*</url-pattern>
+	</filter-mapping>
 </web-app>
 
 	
