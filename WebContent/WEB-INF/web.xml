@@ -267,7 +267,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>userLogin</servlet-name>
-    <url-pattern>/ELearning/include/login</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>userRegister</servlet-name>
