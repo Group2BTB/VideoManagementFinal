@@ -314,7 +314,7 @@
 	
 	
 	<script>
-		$(document).ready(function(){
+		function viewQuestionAnswer(){
 			var str = "";
 			$.ajax({
 				url : "getQandA",
@@ -335,8 +335,22 @@
 				}
 			});
 			
+		}
+		
+		function getAllVideo(){
+			$.ajax({
+				url : "listVideo",
+				method: "POST",
+				dataType: "JSON",
+				success: function(data){
+					alert(data);
+				}
+			});
+		}
+		$(document).ready(function(){
+			getAllVideo();
+			viewQuestionAnswer();
 		});
-	
 	</script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
