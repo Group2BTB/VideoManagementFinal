@@ -46,6 +46,7 @@ public class ListVideo extends HttpServlet {
 		response.setContentType("application/json");
 		try {
 			response.getWriter().print(video);
+			System.out.println(video);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
