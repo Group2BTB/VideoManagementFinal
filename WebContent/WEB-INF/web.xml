@@ -99,8 +99,6 @@
     <servlet-name>questionComponnent</servlet-name>
     <url-pattern>/questionComponnent</url-pattern>
   </servlet-mapping>
-  
-  <!-- Start Category Block -->
   <servlet>
     <servlet-name>listCategory</servlet-name>
     <servlet-class>controller.category.listCategory</servlet-class>
@@ -137,8 +135,6 @@
     <servlet-name>listAllCategory</servlet-name>
     <url-pattern>/ELearning/Dashboard/listAllCategory</url-pattern>
   </servlet-mapping>
-  <!-- End category Block -->
-  
   <servlet-mapping>
     <servlet-name>updateStatus</servlet-name>
     <url-pattern>/updateStatus</url-pattern>
@@ -151,16 +147,13 @@
     <servlet-name>listDocument</servlet-name>
     <url-pattern>/listDocument</url-pattern>
   </servlet-mapping>
-  
-  
-  <!--Start Video Block -->
   <servlet>
     <servlet-name>listVideo</servlet-name>
     <servlet-class>controller.video.ListVideo</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>listVideo</servlet-name>
-    <url-pattern>/listVideo</url-pattern>
+    <url-pattern>/ELearning/Dashboard/listVideo</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>videoComponnent</servlet-name>
@@ -199,15 +192,21 @@
     <servlet-class>controller.playlist.listPlaylist</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>getRecVideo</servlet-name>
-  	<servlet-class>controller.video.getRecommentVideo</servlet-class>
+    <servlet-name>getRecVideo</servlet-name>
+    <servlet-class>controller.video.getRecommentVideo</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>getRecVideo</servlet-name>
-  	<url-pattern>/ELearning/Dashboard/getRecVideo</url-pattern>
+    <servlet-name>getRecVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getRecVideo</url-pattern>
   </servlet-mapping>
-  
-  <!-- End video block -->
+  <servlet>
+    <servlet-name>getPopVideo</servlet-name>
+    <servlet-class>controller.video.getVideoPopular</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getPopVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getPopVideo</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>listPlaylist</servlet-name>
     <url-pattern>/listPlaylist</url-pattern>
