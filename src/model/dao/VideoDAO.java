@@ -117,6 +117,7 @@ public class VideoDAO {
 				return false;
 			
 		
+			System.out.println(vdo.getId() +" || "+ vdo.getCategory_id());
 			
 			if(!new VideoCategoryDAO().insertVideoCategory(new VideoCategory(vdo.getId(),vdo.getCategory_id()))) return false;
 			
@@ -132,7 +133,7 @@ public class VideoDAO {
 	public Video getVideo(long id){
 		
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select * from tb_videos where video_id=? where approved=1");){
+				PreparedStatement stm = con.prepareStatement("select * from tb_videos where video_id=? and approved=1");){
 			
 			
 			stm.setLong(1, id);
@@ -230,6 +231,23 @@ public class VideoDAO {
 		}		
 	}
 	
+	public String getRecommentVideo(){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			
+			rs = stm.executeQuery("select * from \"vRecommend\""); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		Video video = new Video();
@@ -239,6 +257,15 @@ public class VideoDAO {
 //		System.out.println(vd.getVideo(4).getModifier_date());
 //		System.out.println(vd.getAllVideo());
 //		System.exit(0);
+		
+		System.out.println(vd.getRecommentVideo());
+		System.exit(0);
+		video = vd.getVideo(7);		
+		video.setName("video11");
+		video.setCategory_id(6);
+		
+		System.out.println(vd.updateVideo(video));
+		System.exit(0);
 		
 		video.setName("video22");
 		video.setDescription("description2");
