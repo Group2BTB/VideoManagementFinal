@@ -99,6 +99,8 @@
     <servlet-name>questionComponnent</servlet-name>
     <url-pattern>/questionComponnent</url-pattern>
   </servlet-mapping>
+  
+  <!-- Start Category Block -->
   <servlet>
     <servlet-name>listCategory</servlet-name>
     <servlet-class>controller.category.listCategory</servlet-class>
@@ -127,6 +129,16 @@
     <servlet-name>updateStatus</servlet-name>
     <servlet-class>controller.category.statusCategory</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>listAllCategory</servlet-name>
+    <servlet-class>controller.category.ListAllCategory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listAllCategory</servlet-name>
+    <url-pattern>/ELearning/Dashboard/listAllCategory</url-pattern>
+  </servlet-mapping>
+  <!-- End category Block -->
+  
   <servlet-mapping>
     <servlet-name>updateStatus</servlet-name>
     <url-pattern>/updateStatus</url-pattern>
