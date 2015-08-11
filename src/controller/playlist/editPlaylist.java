@@ -41,20 +41,20 @@ public class editPlaylist extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		PlayList plist = new PlayList();
-		plist.setName(request.getParameter("playlist_name"));
-		plist.setDescription(request.getParameter("description"));
-		plist.setCategory_id(Integer.parseInt(request.getParameter("category_id")));
-		plist.setCreate_date(new WorkWithDate().getDate("create_date"));
-		plist.setApproved(Integer.parseInt(request.getParameter("approved")));
-		plist.setId(Integer.parseInt(request.getParameter("id")));
+	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		System.out.println("update Playlist");
+		System.out.println(request.getParameter("id"));
+		PlayList pl = new PlayList();
+		pl.setId(Integer.parseInt(request.getParameter("id")));
+		pl.setName(request.getParameter("name"));
+		pl.setDescription(request.getParameter("description"));
 		
-		if(new PlayListDAO().updatePlayList(plist)){
-			System.out.println("Upadte successfully!");
+		if(new PlayListDAO().updatePlayList(pl)){
+			response.getWriter().write("Success");
 		}else{
-			System.out.println("Update unsuccessfully!");
+			response.getWriter().write("Fail");
 		}
+		
 	}
 	
 	

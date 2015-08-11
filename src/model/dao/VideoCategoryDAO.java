@@ -43,13 +43,12 @@ public class VideoCategoryDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				
-				PreparedStatement stm = con.prepareStatement("update tb_video_category set category_id=? where category_id=? and video_id=?")){
+				PreparedStatement stm = con.prepareStatement("update tb_video_category set category_id=? where video_id=?")){
 			
 			
 			/*To set data to preparedStatement from video's data*/
-			stm.setInt(1, vc.getCategory_id());			
-			stm.setInt(2, vc.getCategory_id());	
-			stm.setLong(3, vc.getVideo_id());
+			stm.setInt(1, vc.getCategory_id());	
+			stm.setLong(2, vc.getVideo_id());
 						
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;			

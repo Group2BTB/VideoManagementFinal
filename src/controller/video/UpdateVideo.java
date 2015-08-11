@@ -44,6 +44,7 @@ public class UpdateVideo extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		System.out.println("update Video");
 		Video v = new Video();
+		v.setId(Integer.parseInt(request.getParameter("id")));
 		v.setName(request.getParameter("name"));
 		v.setUrl(request.getParameter("youtube_url"));
 		v.setDescription(request.getParameter("description"));

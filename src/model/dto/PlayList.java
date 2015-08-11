@@ -11,7 +11,7 @@ public class PlayList {
 	private Date create_date;
 	private Date modifier_date;
 	private int status;
-	private int approved;
+	private int approved=1;
 	
 	public PlayList(){
 		

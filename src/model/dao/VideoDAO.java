@@ -99,9 +99,7 @@ public class VideoDAO {
 				PreparedStatement stm = con.prepareStatement("update tb_videos set video_name=?, description=?, youtube_url=?,"
 						+ "document_url=?, modifier_date=?, user_id=?, status=?, approved=?"
 						+ " where video_id=?")){
-			
-			
-			//System.out.println(vdo.getName()+"/"+vdo.getUrl()+"/"+vdo.getDocUrl());
+							
 			stm.setString(1, vdo.getName());
 			stm.setString(2, vdo.getDescription());
 			stm.setString(3, vdo.getUrl().trim());
@@ -111,15 +109,16 @@ public class VideoDAO {
 			stm.setInt(7, vdo.getStatus());
 			stm.setInt(8, vdo.getApproved());
 			stm.setLong(9, vdo.getId());
-					
+						
 			
-			if(stm.executeUpdate()==0) //execute the statement and compare
+			if(stm.executeUpdate()==0){
 				return false;
+			} 
+									
 			
-		
 			System.out.println(vdo.getId() +" || "+ vdo.getCategory_id());
 			
-			if(!new VideoCategoryDAO().insertVideoCategory(new VideoCategory(vdo.getId(),vdo.getCategory_id()))) return false;
+			if(!new VideoCategoryDAO().updateVideoCategory(new VideoCategory(vdo.getId(),vdo.getCategory_id()))) return false;
 			
 			return true;
 			

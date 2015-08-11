@@ -44,7 +44,7 @@ public class PlayListDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("update tb_playlist set playlist_name=?, description=?, category_id=?,"
-						+ "modifier_date=?, approved=?, where playlist_id=?")){
+						+ "modifier_date=?, approved=?,status=? where playlist_id=?")){
 			
 			
 			/*To set data to preparedStatement from video's data*/
@@ -53,7 +53,8 @@ public class PlayListDAO {
 			stm.setInt(3, pl.getCategory_id());
 			stm.setDate(4, wwd.getSqlDate(new Date()));
 			stm.setInt(5, pl.getApproved());
-			stm.setLong(6, pl.getId());
+			stm.setInt(6, pl.getStatus());
+			stm.setLong(7, pl.getId());
 						
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;

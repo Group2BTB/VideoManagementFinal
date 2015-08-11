@@ -41,24 +41,12 @@ public class statusPlaylist extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		int id = Integer.parseInt(request.getParameter("playlist_id"));
-		response.setContentType("application/json");
-		response.setCharacterEncoding("utf-8");
-		JsonObject obj = new JsonObject();// create JSON object
-		try{
-			if(new PlayListDAO().toggleStatus(id)){// if status have been change
-				System.out.println("updated!");
-				obj.addProperty("message", "Status updated!");
-			}else{
-				System.out.println("cannot update!");
-				obj.addProperty("message", "Status cannot updat!");
-			}
-			
-			response.getWriter().print(obj);// send message to view
-		}catch(IOException e){
-			System.out.println(" Cannot updated status");
+	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		if(new PlayListDAO().toggleStatus(Integer.parseInt(request.getParameter("id")))){
+			response.getWriter().write("Success");
+		}else{
+			response.getWriter().write("Fail");
 		}
 	}
 

@@ -136,7 +136,7 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 	
 	$scope.save = function(e) {		
 		var data = {
-			'id'   : $scope.editid,
+			'id'   : $scope.id,
 			'name' : $scope.name,
 			'youtube_url'  : $scope.youtube_url,
 			'category': $scope.category,
@@ -182,7 +182,7 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 				"show" : true
 			// ensure the modal is shown immediately
 			});
-		
+			$scope.id = $scope.list[x].video_id;
 			$scope.name = $scope.list[x].video_name;
 			$scope.status = $scope.list[x].status1;
 			$scope.description = $scope.list[x].description;

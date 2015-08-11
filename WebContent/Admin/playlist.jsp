@@ -103,7 +103,7 @@
 							ng-show="filteredItems > 0">
 							<tr class="active" style="cursor: pointer;">
 								<th class="center">No&nbsp;<a
-									ng-click="sort_by('Playlist_id');"><i
+									ng-click="sort_by('playlist_id');"><i
 										class="glyphicon glyphicon-sort"></i></a></th>
 								<th class="center">Playlist&nbsp;<a
 									ng-click="sort_by('playlist_name');"><i
@@ -123,15 +123,15 @@
 								</td>
 								<td class="center">
 									<button type='button'
-										ng-click="addVideoToPlaylist(d.Playlist_id)"
+										ng-click="addVideoToPlaylist(d.playlist_id)"
 										class='btn btn-info icon_margin_top'>
 										<span class='glyphicon glyphicon-link'></span>
 									</button>
-									<button type='button' ng-click="editUser(d.Playlist_id)"
+									<button type='button' ng-click="editUser(d.playlist_id)"
 										class='btn btn-primary icon_margin_top'>
 										<span class='glyphicon glyphicon-pencil'></span>
 									</button>
-									<button type='button' ng-click="updateStatus(d.Playlist_id)"
+									<button type='button' ng-click="updateStatus(d.playlist_id)"
 										class='btn btn-success icon_margin_top'>
 										<span class='glyphicon glyphicon-record'></span>
 									</button>
@@ -221,6 +221,83 @@
 				</div>
 			</div>
 			<!-- End More Filter -->
+			<!-- Start More Filter -->
+			<div id="addPlayListVieo" class="modal fade bs-example-modal-lg">
+				<div class="modal-dialog">
+					<div class="modal-content" style="margin: 0 auto;">
+						<form method="post" action="" id="frmDepartment">
+							<div class="modal-header" style="text-align: center;">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h1 class="modal-title">
+									<b id="title_1" data-container="body" data-toggle="popover"
+										data-placement="bottom" data-content="Hello">Add video to
+										playlist</b>
+
+								</h1>
+								<p class="modal-title des_modal">The informaiton will let us
+									know more about you.</p>
+
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-12 div-padding-bottom"
+								style="float: right;">
+								<div class="form-group">
+									<input type="text" class="form-control" ng-model="search"
+										ng-change="filter()" id="search" placeholder="Search...">
+								</div>
+							</div>
+							<div class="modal-body" ng-controller="videocontroller">
+
+								<div class="row">
+									<div class="col-sm-12 col-md-12" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+										<div class="col-sm-3 col-md-3">
+											<div class="thumbnail">
+												<img src="https://i.ytimg.com/vi/NiYYidFxDbA/mqdefault.jpg" alt="...">
+											</div>
+										</div>
+										<div class="col-sm-7 col-md-7">
+											<h4>{{d.video_name}}</h4>
+										</div>
+										<div class="col-sm-2 col-md-2">
+											<button type='button' ng-click="updateStatus(d.video_id)"
+												class='btn btn-success icon_margin_top'>Add</button>
+										</div>
+									</div>
+								</div>			
+
+									<div class="col-md-12" ng-show="filteredItems == 0">
+										<div class="col-md-12 center">
+											<h4>No Video found</h4>
+										</div>
+									</div>
+									<div class="col-md-12" ng-show="filteredItems > 0">
+
+										<div pagination="" page="currentPage" max-size="10"
+											on-select-page="setPage(page)" boundary-links="true"
+											total-items="filteredItems" items-per-page="entryLimit"
+											class="pagination-small" previous-text="«" next-text="»"></div>
+
+									</div>
+
+									<div class="clearfix"></div>
+								</div>
+								<div class="modal-footer">
+									<button id="closeFrmAdd" type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- End More Filter -->
+
+
+
+
+
 
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
@@ -256,12 +333,30 @@
 
 					$("#myModal").remove();
 				});
+
+				$("#addPlayListVieo").on("show", function() { // wire up the OK button to dismiss the modal when shown
+					$("#addPlayListVieo a.btn").on("click", function(e) {
+						console.log("button pressed"); // just as an example...
+						$("#addPlayListVieo").modal('hide'); // dismiss the dialog
+					});
+				});
+
+				$("#addPlayListVieo").on("hide", function() { // remove the event listeners when the dialog is dismissed
+
+					$("#addPlayListVieo a.btn").off("click");
+				});
+
+				$("#addPlayListVieo").on("hidden", function() { // remove the actual elements from the DOM when fully hidden
+
+					$("#addPlayListVieo").remove();
+				});
+
 			});
 		</script>
 		<script type="text/javascript">
-		
+			
 		</script>
-		
+
 
 
 		<script src="js/main-gsap.js"></script>
