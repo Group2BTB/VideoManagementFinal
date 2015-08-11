@@ -248,6 +248,23 @@ public class VideoDAO {
 		}
 	}
 	
+	public String getPopVideo(){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			
+			rs = stm.executeQuery("select * from \"vPop\""); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		Video video = new Video();
@@ -258,7 +275,7 @@ public class VideoDAO {
 //		System.out.println(vd.getAllVideo());
 //		System.exit(0);
 		
-		System.out.println(vd.getRecommentVideo());
+		System.out.println(vd.getPopVideo());
 		System.exit(0);
 		video = vd.getVideo(7);		
 		video.setName("video11");
