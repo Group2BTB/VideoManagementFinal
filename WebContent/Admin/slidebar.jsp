@@ -48,6 +48,10 @@
 							<li><a href="university.jsp"><span class="title">University</span></a></li>
 						</ul>
 					</li>
+					<li>
+						<a href="comment.jsp"><i class="glyphicon glyphicon-comment"></i><span class="title">Manage Comment</span></a>
+						
+					</li>
 					<li><a href="#"><i class="glyphicon glyphicon-duplicate"></i><span class="title">Report</span></a>
 						
 					</li>
