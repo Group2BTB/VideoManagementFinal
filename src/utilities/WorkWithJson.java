@@ -199,8 +199,7 @@ public class WorkWithJson {
 					
 					if(rs.isLast())
 						obj.put(temp, suparr);
-						
-					
+			
 				}									
 			}		
 			
