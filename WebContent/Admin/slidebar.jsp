@@ -32,21 +32,18 @@
 							<li><a href="#"><span class="title">Help</span></a></li>
 						</ul>
 					</li>
-					<li class="active opened active"><a href="#"><i class="glyphicon glyphicon-facetime-video"></i><span class="title">Video</span></a>
-						<ul>						
-							<li><a href="#"><span class="title">New Video</span></a></li>
-							<li><a href="#"><span class="title">List Videos</span></a></li>
+					<li class=""><a href="#"><i class="glyphicon glyphicon-facetime-video"></i><span class="title">Video</span></a>
+						<ul>													
+							<li><a href="video.jsp"><span class="title">Manage Videos</span></a></li>
 							<li><a href="category.jsp"><span class="title">Category</span></a></li>
-							<li><a href="#"><span class="title">Playlist</span></a></li>
-							<li  class="active"><a href="#"><span class="title">Document</span></a></li>
-							<li><a href="#"><span class="title">Question</span></a></li>
-							<li><a href="#"><span class="title">Answer</span></a></li>
+							<li><a href="playlist.jsp"><span class="title">Playlist</span></a></li>
+							<li><a href="ducument.jsp"><span class="title">Document</span></a></li>
+							<li><a href="question.jsp"><span class="title">Question</span></a></li>							
 						</ul>
 					</li>
 					<li><a href="#"><i class="glyphicon glyphicon-user"></i><span class="title">User</span></a>
-						<ul>						
-							<li><a href="#"><span class="title">New User</span></a></li>
-							<li><a href="#"><span class="title">List Users</span></a></li>
+						<ul>							
+							<li><a href="user.jsp"><span class="title">Manage Users</span></a></li>
 							<li><a href="department.jsp"><span class="title">Department</span></a></li>
 							<li><a href="university.jsp"><span class="title">University</span></a></li>
 						</ul>

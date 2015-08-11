@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="myApp" ng-controller="universitycontroller">
+<html ng-app="myApp" ng-controller="catcontroller">
 
 <head>
 
@@ -65,7 +65,7 @@
 			<div class="clearfix"></div>
 			<div class="panel panel-primary">
 				<!-- Default panel contents -->
-				<div class="panel-heading"><i class="glyphicon glyphicon-education"></i> List University</div>
+				<div class="panel-heading"><i class="glyphicon glyphicon-user"></i> List Users</div>
 				<div class="panel-body">
 					<form class="form-inline">
 						<div class="col-md-3 col-sm-3 col-xs-6 div-padding-bottom">
@@ -96,7 +96,7 @@
 				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
 					<tr class="active" style="cursor:pointer;">
 						<th class="center">No&nbsp;<a ng-click="sort_by('category_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        				<th class="center">Category&nbsp;<a ng-click="sort_by('category_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+        				<th class="center">Username&nbsp;<a ng-click="sort_by('category_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
         	        	<th class="center">Parent&nbsp;<a ng-click="sort_by('parent_name');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Status&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
@@ -124,7 +124,7 @@
 				
 				  <div class="col-md-12" ng-show="filteredItems == 0">
         <div class="col-md-12 center">
-            <h4>No University found</h4>
+            <h4>No Department found</h4>
         </div>
     </div>
     <div class="col-md-12" ng-show="filteredItems > 0">
@@ -140,51 +140,87 @@
 	<div id="myModal" class="modal fade bs-example-modal-lg">
 		<div class="modal-dialog">
 			<div class="modal-content" style="margin: 0 auto;">
-				<form method="post" action="" id="frmUniversity">
+				<form method="post" action="" id="frmCategory">
 					<div class="modal-header" style="text-align: center;">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h1 class="modal-title"><b>U</b>niversity</h1> 
+						<h1 class="modal-title"><b>U</b>ser</h1> 
 						<p class="modal-title des_modal">The informaiton will let us know more about you.</p>
 												
 					</div>
 					<div class="modal-body">	
-					<form enctype="multipart/form-data" action="" method="post" id="frmUniversity" >
-						<input type="hidden" id="code" name="code" value="">
-						
-						
-						<div class="col-md-5 col-sm-5 col-xs-12 con-center">
-							<img  id="src" src="images/uplo.png" alt="" class="img-rounded" style="width:200px;">
-							<br/>
-							<div class="fileUpload btn btn-success">
-								<span>CHOOSE LOGO</span>
-								<input ng-model="image" type="file" id="img" name="img" accept="image/*" class="upload" />
+					<form enctype="multipart/form-data" action="" method="post" id="addUserForm" >
+						<input type="hidden" id="code" name="code" value="">																	
+							<div class="col-md-5 col-sm-5 col-xs-12 con-center">
+								<img  id="src" src="images/pro1.png" alt="" class="img-rounded" style="width:200px;">
+								<br/>
+								<div class="fileUpload btn btn-success">
+									<span>CHOOSE IMAGE</span>
+									<input type="file" id="img" accept="image/*" class="upload" />
+								</div>
 							</div>
-						</div>
-						<div class="col-md-7 col-sm-7 col-xs-12">
-							<div class="form-group">
-								<label for="full_name">Full Name <span class="require_field">*</span> : </label>
-								<input type="text" ng-model="name" class="form-control" name="name" id="full_name" placeholder="Full Name...">
-							</div>
-							<div class="form-group">
-								<label for="full_name">Short Name <span class="require_field">*</span> : </label>
-								<input type="text" ng-model="name" class="form-control" name="name" id="full_name" placeholder="Short Name...">
-							</div>
-							<div class="form-group">
-								<label for="status">Status <span class="require_field">*</span> : </label>
-								<select ng-model="status_ad" class="form-control" id="status" name="status">																		
-									<option value="1">Active</option>											
-									<option value="0">Deactivate</option>											
-								</select>
-							</div>													
-						</div>					
-						<div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px;">
-							<div class="form-group">
-								<label for="description">Description:</label>
+
+							<div class="col-md-7 col-sm-7 col-xs-12 form-horizontal">																
+								<div class="form-group">
+									<label for="full_name">Username <span class="require_field">*</span> : </label>
+									<input type="text" ng-model="full_name" class="form-control" name="full_name" id="full_name" placeholder="Full Name...">
+								</div>								
+								<div class="form-group">
+									<label for="email">Email <span class="require_field">*</span> : </label>
+									<input type="email" ng-model="email" class="form-control" name="email" id="email" placeholder="Email...">
+								</div>
+								<div class="form-group">
+									<label for="department">Department <span class="require_field">*</span> : </label>
+									<select id="department" class="form-control">
+									  	<option value="1">Computer Science Department</option>
+									  	<option value="2">Business and Economic Department</option>
+									  	<option value="0">Other</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="university">University <span class="require_field">*</span> : </label>
+									<select id="university" class="form-control">
+									  	<option value="1">RUPP</option>
+									  	<option value="2">SETEC</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="">Gender : </label>
+									<div class="">
+										<label class="radio-inline">
+										  <input type="radio" name="gender" id="male" value="1" checked> Male
+										</label>
+										<label class="radio-inline">
+										  <input type="radio" name="gender" id="female" value="0" > Female
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="role">Date Of Birth : </label>
+									<div class="input-group">
+										<input type="text" class="form-control datepicker"
+											data-format="dd MM yyyy" placeholder="Date of Birth">
+										<div class="input-group-addon">
+											<a href="#"><i class="entypo-calendar"></i></a>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="password">Password<span class="require_field">*</span> : </label>
+									<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+								</div>
+								<div class="form-group">
+									<label for="confirmPassword">Repeat Password<span class="require_field">*</span> : </label>
+									<input type="password" id="confirmPassword" class="form-control" name="confirmPassword" placeholder="Repeat Password">
+								</div>
+								<div class="form-group">
+									<label for="role">Role<span class="require_field">*</span> : </label>
+									<select id="role" class="form-control">
+										<option value="admin">Administrator</option>
+										<option value="user">User</option>
+									</select>
+								</div>								
 								
-								<textarea ng-model="description" class="form-control max_textarea" name="description" id="description" rows="3"> </textarea>
-						
 							</div>
-						</div>
 					</form>
 				<div class="clearfix"></div>
 			</div>		
@@ -248,16 +284,16 @@
 	function clear(){
 		$("#status").empty();
 		$("#status").prepend("<option></option><option value='1'>Active</option><option value='0'>Deactivate</option>");	
-		$('#frmUniversity')[0].reset();
+		$('#frmCategory')[0].reset();
 		$("#img").val("");
 		$("#src").attr("src","images/uplo.png");
 		$('#subcat').select2().select2('val', 0);
 	}
-	function insertUniversity() {
+	function insertCategory() {
 		//alert(1);
-		var formData = new FormData($("#frmUniversity")[0]);
+		var formData = new FormData($("#frmCategory")[0]);
 		$.ajax({
-			url : '../addUniversity',
+			url : '../addCategory',
 			type : 'POST',
 			data : formData,
 			async : false,
@@ -267,7 +303,7 @@
 			success : function(data) {
 				if(data=='Success'){
 					//swal("Congratulation!", "New student has been added!", "success");
-					$('#frmUniversity')[0].reset();
+					$('#frmCategory')[0].reset();
 					clear();
 				}
 			},
@@ -277,11 +313,11 @@
 		});
 
 	}
-	function updateUniversity() {
+	function updateCategory() {
 		//alert(1);
-		var formData = new FormData($("#frmUniversity")[0]);
+		var formData = new FormData($("#frmCategory")[0]);
 		$.ajax({
-			url : '../updateUniversity',
+			url : '../updateCategory',
 			type : 'POST',
 			data : formData,
 			async : false,
@@ -290,7 +326,7 @@
 			processData : false,
 			success : function(data) {
 				if(data=='Success'){					
-					//$('#frmUniversity')[0].reset();
+					//$('#frmCategory')[0].reset();
 					//clear();	
 					$("#closeFrmAdd").click();
 				}
@@ -322,7 +358,7 @@
 	<script src="js/neon-skins.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/select2.min.js"></script> 
-	<script src="js/data/university.js"></script>
+	<script src="js/data/category.js"></script>
 	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>	
 	
 	<script type="text/javascript">

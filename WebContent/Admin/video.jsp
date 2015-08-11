@@ -152,7 +152,7 @@
 						</table>
 						<div class="col-md-12" ng-show="filteredItems == 0">
 							<div class="col-md-12 center">
-								<h4>No Department found</h4>
+								<h4>No Video found</h4>
 							</div>
 						</div>
 						<div class="col-md-12" ng-show="filteredItems > 0">

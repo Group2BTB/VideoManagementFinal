@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="myApp" ng-controller="PlaylistController">
+<html ng-app="myApp" >
 
 <head>
 
@@ -37,7 +37,7 @@
 <body class="page-body page-fade" data-url="#">
 
 
-	<div class="page-container">
+	<div class="page-container" ng-controller="PlaylistController">
 
 
 		<jsp:include page="slidebar.jsp"></jsp:include>
@@ -221,8 +221,19 @@
 				</div>
 			</div>
 			<!-- End More Filter -->
-			<!-- Start More Filter -->
-			<div id="addPlayListVieo" class="modal fade bs-example-modal-lg">
+			
+
+
+
+
+
+
+			<jsp:include page="footer.jsp"></jsp:include>
+		</div>
+</div>
+<!-- Start More Filter -->
+			<div id="addPlayListVieo" ng-controller="videocontroller" class="modal fade bs-example-modal-lg">
+			
 				<div class="modal-dialog">
 					<div class="modal-content" style="margin: 0 auto;">
 						<form method="post" action="" id="frmDepartment">
@@ -241,14 +252,14 @@
 									know more about you.</p>
 
 							</div>
-							<div class="col-md-4 col-sm-4 col-xs-12 div-padding-bottom"
-								style="float: right;">
+							
+							<div class="modal-body" >
+							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="form-group">
 									<input type="text" class="form-control" ng-model="search"
 										ng-change="filter()" id="search" placeholder="Search...">
 								</div>
 							</div>
-							<div class="modal-body" ng-controller="videocontroller">
 
 								<div class="row">
 									<div class="col-sm-12 col-md-12" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -260,9 +271,14 @@
 										<div class="col-sm-7 col-md-7">
 											<h4>{{d.video_name}}</h4>
 										</div>
+										
 										<div class="col-sm-2 col-md-2">
 											<button type='button' ng-click="updateStatus(d.video_id)"
+											ng-show="!d.playlist_id"
 												class='btn btn-success icon_margin_top'>Add</button>
+											<button type='button' ng-click="updateStatus(d.video_id)"
+											ng-show="d.playlist_id"
+												class='btn btn-danger icon_margin_top'>Remove</button>	
 										</div>
 									</div>
 								</div>			
@@ -280,7 +296,6 @@
 											class="pagination-small" previous-text="«" next-text="»"></div>
 
 									</div>
-
 									<div class="clearfix"></div>
 								</div>
 								<div class="modal-footer">
@@ -291,17 +306,8 @@
 						</form>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<!-- End More Filter -->
-
-
-
-
-
-
-			<jsp:include page="footer.jsp"></jsp:include>
-		</div>
-
 		<script>
 			$("document").ready(function(e) {
 
@@ -381,21 +387,7 @@
 		<script src="js/select2.min.js"></script>
 		<script src="js/data/playlist.js"></script>
 		<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-		<script>
-			$(function() {
-				$('select #limitEntry:first-child').remove();
-			});
-
-			function setSelectedValue(selectObj, valueToSet) {
-				alert(1);
-				for (var i = 0; i < selectObj.options.length; i++) {
-					if (selectObj.options[i].text == valueToSet) {
-						selectObj.options[i].selected = true;
-						return;
-					}
-				}
-			}
-		</script>
+		<input type="hidden" id="plid"/>	
 </body>
 
 </html>
