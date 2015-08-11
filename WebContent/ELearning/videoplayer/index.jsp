@@ -193,10 +193,9 @@
 								</div>
 								<!-- Questions in Playlist -->
 								<div class="tab-pane" id="panel-560832">
-									<p id="question"></p>
-									<div>
-										<input type="radio" name="answer" value="1">
-										 <span class="answer">I want to take a quiz</span>
+									<div id="question"></div>
+									<div id="answer">
+										
 									</div>
 									
 								</div>
@@ -286,25 +285,21 @@
 			});
 		});
 		//add text form textarea to the div below
-		$(document)
-				.ready(
-						function() {
-							$("#btnComments")
-									.click(
-											function() {
-												//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
+		$(document).ready(function() {
+			$("#btnComments").click(function() {
+				//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
 
-												var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-top:10px; margin-bottom:10px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-												var c = '<div class="col-md-12 col-xs-12">'
-														+ $("#comment").val()
-														+ '</div></div></div>';
-												$("#comment").val("");
+				var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-top:10px; margin-bottom:10px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+				var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+				var c = '<div class="col-md-12 col-xs-12">'
+						+ $("#comment").val()
+						+ '</div></div></div>';
+				$("#comment").val("");
 
-												$("#show_comments").prepend(
-														a + b + c);
-											});
-						});
+				$("#show_comments").prepend(
+						a + b + c);
+			});
+		});
 
 		var userlike = document.getElementById("UserLike");
 
@@ -320,38 +315,23 @@
 	
 	<script>
 		$(document).ready(function(){
-			
 			var str = "";
 			$.ajax({
-				url : "listquestion",
+				url : "getQandA",
 				method : "POST",
 				dataType : "JSON",
+				data:{
+					video_id : 7
+					},
 				success : function(data) {
-					var count=0;
-					var ind = 0;
-					var strsup="";
-					var str="";
 					for ( var i in data) {
+						str += '<p>'+i+'</p>';
 						//alert(i);
-						
-						/*strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';*/
-						
-						for ( var j in data[i]) {
-							//alert(data[i][j].name);
-							ind++;
-							str += "<ul class='sub" +count +" sub'><li><a href='general.html'>"
-								+ data[i][j].name
-								+ "</a></li></ul>";
-							
-						}
-						strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>' + str;
-						str="";
-						count++;
-						ind=0;
-					}
-					
-					$("#nav-accordion").html(strsup+"</li>");
-					//$(".sub0").slideDown(1000);							
+						for(var j in data[i]){
+							str +='<input type="radio" name="answer" value="1"><span class="answer">'+ data[i][j].description+'</span><br/>';
+							}
+					}		
+					$("#question").html(str);		
 				}
 			});
 			
