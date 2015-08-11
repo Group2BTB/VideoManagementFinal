@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.JsonObject;
+
 import model.dao.PlayListDAO;
 import model.dto.PlayList;
 
@@ -42,10 +44,21 @@ public class statusPlaylist extends HttpServlet {
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int id = Integer.parseInt(request.getParameter("playlist_id"));
-		if(new PlayListDAO().toggleStatus(id)){
-			System.out.println("updated!");
-		}else{
-			System.out.println("cannot update!");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("utf-8");
+		JsonObject obj = new JsonObject();// create JSON object
+		try{
+			if(new PlayListDAO().toggleStatus(id)){// if status have been change
+				System.out.println("updated!");
+				obj.addProperty("message", "Status updated!");
+			}else{
+				System.out.println("cannot update!");
+				obj.addProperty("message", "Status cannot updat!");
+			}
+			
+			response.getWriter().print(obj);// send message to view
+		}catch(IOException e){
+			System.out.println(" Cannot updated status");
 		}
 	}
 
