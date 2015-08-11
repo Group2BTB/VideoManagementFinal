@@ -42,7 +42,7 @@ public class getRecommentVideo extends HttpServlet {
 		response.setContentType("application/json");
 		try {
 			response.getWriter().print(new VideoDAO().getRecommentVideo());
-			System.out.println(new VideoDAO().getRecommentVideo());
+			//System.out.println(new VideoDAO().getRecommentVideo());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
