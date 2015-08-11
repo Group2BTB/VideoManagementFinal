@@ -7,6 +7,7 @@ import java.util.Map;
 
 import model.dto.Category;
 import model.dto.Question;
+import model.dto.Video;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -281,6 +282,10 @@ public class WorkWithJson {
 			return null;
 		}
 	}
+	
+//	public static String convertRecommendVideo(ResultSet rs){
+//		
+//	}
 	
 	public static void main(String[] args) {
 		
