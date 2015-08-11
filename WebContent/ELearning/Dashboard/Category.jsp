@@ -105,88 +105,6 @@
 					<li class="sub-menu text-center" style="color: #fff;">All
 						Category
 					</li>
-					<li class="sub-menu">
-						<a href="javascript:;">
-							<i class="fa fa-cogs"></i>
-							<span>MS Windows</span>
-							<span class="badge pull-right">5</span>
-						</a>
-						<ul class="sub">
-							<li><a href="grids.html">Window Server 2008</a></li>
-							 <li><a href="calendar.html">Window 8</a></li>
-							<li><a href="gallery.html">Window 7</a></li>
-							<li><a href="todo_list.html">Window Vista</a></li>
-							<li><a href="draggable_portlet.html">Window Xp</a></li>
-						</ul>
-					</li>
-				</ul>
-					<!-- <li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-cogs"></i> <span>MS Windows</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="grids.html">Window Server 2008</a></li>
-							<li><a href="calendar.html">Window 8</a></li>
-							<li><a href="gallery.html">Window 7</a></li>
-							<li><a href="todo_list.html">Window Vista</a></li>
-							<li><a href="draggable_portlet.html">Window Xp</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-tasks"></i> <span>Web Development</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="form_component.html">Html</a></li>
-							<li><a href="advanced_form_components.html">CSS</a></li>
-							<li><a href="form_wizard.html">Javascript</a></li>
-							<li><a href="form_validation.html">Jquery</a></li>
-							<li><a href="dropzone.html">Ajax</a></li>
-							<li><a href="inline_editor.html">Xml</a></li>
-							<li><a href="image_cropping.html">Jsp</a></li>
-							<li><a href="file_upload.html">Servlet</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-th"></i> <span>Design</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="basic_table.html">Adobe Photoshop</a></li>
-							<li><a href="responsive_table.html">Adobe Illustrator</a></li>
-							<li><a href="dynamic_table.html">Adobe Flash
-									Professional</a></li>
-							<li><a href="editable_table.html">Adobe InDesign</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class=" fa fa-envelope"></i> <span>Presentation</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="inbox.html">Presentation</a></li>
-							<li><a href="inbox_details.html">Professional Comm</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class=" fa fa-bar-chart-o"></i> <span>Programming</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="morris.html">C++</a></li>
-							<li><a href="chartjs.html">JAVA</a></li>
-							<li><a href="flot_chart.html">C#</a></li>
-							<li><a href="xchart.html">VB.NET</a></li>
-						</ul></li>
-
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-glass"></i> <span>Ms.Office</span><span
-							class="badge pull-right">5</span>
-					</a>
-						<ul class="sub">
-							<li><a href="blank.html">Ms. Word 2013</a></li>
-							<li><a href="sidebar_closed.html">Ms. Excel 2013</a></li>
-							<li><a href="people_directory.html">Ms. Powerpoint 2013</a></li>
-							<li><a href="coming_soon.html">Ms. Access 2013</a></li>
-							<li><a href="lock_screen.html">Ms. Publisher 2013</a></li>
-							<li><a href="profile.html">Ms. Visio 2013</a></li>
-						</ul></li> -->
 				</ul>
 				<!-- sidebar menu end-->
 			</div>
@@ -794,9 +712,6 @@
 			<script>
 				$(document).ready(function() {
 					viewCategory();
-					
-					
-					
 					$(".owl-demo").owlCarousel({
 						autoPlay : 3000, //Set AutoPlay to 3 seconds
 						stopOnHover : true,
@@ -827,9 +742,9 @@
 								/*strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';*/
 								
 								for ( var j in data[i]) {
-									//alert(data[i][j].name);
+									alert(data[i][j].name);
 									ind++;
-									str += "<ul class='sub" +count +" sub'><li><a href='general.html'>"
+									str += "<ul class='sub" +count +" sub'><li><a href='#'>"
 										+ data[i][j].name
 										+ "</a></li></ul>";
 									
@@ -839,30 +754,22 @@
 								count++;
 								ind=0;
 							}
-							
 							$("#nav-accordion").html(strsup+"</li>");
-							//$(".sub0").slideDown(1000);							
+							$(".sub0").slideDown(1000);
+							$("li .sub-menu").addClass("active");						
 						}
 					});
-					
 				}			
-				$(".hhh1").click(function(){
-					$(".sub").slideToggle(500);
-					alert(12345);
-				});
-				
-				function dopro(id){
-					
-					//$(".sub").slideToggle(1000);
-					//$(".sub-menu").remove(obj.innerHTML);
-						$(".sub").slideUp(500);			
-						$(".sub"+id).slideToggle(500);
-					
+
+				function dopro(id){	
+					$(".sub").slideUp();
+					$(".sub"+id).slideToggle();
 				}
 				/* $("#nav-accordion").click(function(){
 					$(".sub").slideToggle(1000);
 					//alert(12345);
 				}); */
+
 			</script>
 </body>
 </html>
