@@ -44,7 +44,7 @@
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-lock"></i></span> <input id="password"
 										type="password" class="form-control" name="password"
-										placeholder="Password or Phone number">
+										placeholder="Password">
 								</div>
 							</div>
 						</div>
