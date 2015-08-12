@@ -17,55 +17,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">
-					<div id="category_list" style="padding-left: 150px;">
-						<img src="collapse.png" width="50" id="collapseimg" />
-					</div>
-				</div>
-				<!--====== Category list Left ======-->
-				<div class="row">
-					<div class="col-md-2" id="category_details">
-						<div class="list-group pointers">
-							<a href="#" class="list-group-item base_color">JAVA</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a> <a
-								class="list-group-item">1. What is Java?</a> <a
-								class="list-group-item">1.2 Introduction to Java</a> <a
-								class="list-group-item">1.3 Install Java Eviroments</a> <a
-								class="list-group-item">1.4 Create project</a> <a
-								class="list-group-item">1.5 Display hello world</a>
-						</div>
-					</div>
+				<div class="row">					
 					<!--====== Videos Play ======-->
-					<div class="col-md-6" id="videos_play">
+					<div class="col-md-8" id="videos_play">
 						<div id="myplayerwrapper">
 							<video id="vid1" class="video-js vjs-default-skin" controls
 								preload="auto" width="640" height="360"></video>
@@ -180,8 +134,11 @@
 								<!-- Questions in Playlist -->
 								<div class="tab-pane" id="panel-560832">
 									<div id="question">
+									
 									</div>
+									
 									<div id="answer">
+									
 									<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
 									<button class="btn btn-success" id="btnnext" onclick="doNext()">NEXT</button>
 										
@@ -271,6 +228,7 @@
 		$(document).ready(function() {
 			$("#comment").focusin(function() {
 				$("#btnComments").fadeIn(1000);
+				$("#btnComments").css("margin-bottom","10px");
 			});
 		});
 		//add text form textarea to the div below
@@ -278,7 +236,7 @@
 			$("#btnComments").click(function() {
 				//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
 
-				var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-top:10px; margin-bottom:10px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+				var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
 				var b = '<div class="col-md-4 col-xs-6">Just now</div>';
 				var c = '<div class="col-md-12 col-xs-12">'
 						+ $("#comment").val()
@@ -309,7 +267,9 @@
 		var answer = [];
 		var nextAnswer = 0;
 		var answerStatus = false;
-		var childQuestion = [];		
+		var childQuestion = [];	
+		var objAnswer;
+		
 		function viewQuestionAnswer(){
 			var str = "";
 			$.ajax({
@@ -317,54 +277,56 @@
 				method : "POST",
 				dataType : "JSON",
 				data:{
-					video_id : 7
+					video_id : 17
 					},
 				success : function(data) {
-					var ind = 1;
-					var indexAnswer = 0;
-					
-					for ( var i in data) {
-						
-						childQuestion[indexAnswer] = '<p>'+i+'</p>';
-						//alert(i);
-						for(var j in data[i]){
-							childQuestion[indexAnswer]+='<input type="radio" onclick="checkAnswer(' + ind + ')" name="answer" value="1"><span class="answer">'+ data[i][j].description+'</span><br/>';
-								ind++;	
-							}
-						ind=0;			
-						question[indexAnswer] = i;
-						
-						answerCorrect[indexAnswer] = data[i][0].answer_id;
-						indexAnswer++;
-					}		
-					$("#question").html(childQuestion[0]);		
+					/* for(var i=0;i<data.lenght;i++){
+						alert(data[i].question_id);
+					}	 */
+					//alert(data);
 				}
 			});
 			
 		}
 		
-		function checkAnswer(correct){
-						
+		function doCorrect(obj){
+		
+			objAnswer = obj; 
+		}
+				
+		function checkAnswer(correct, obj){
+				
+			objAnswer = obj;
 			if(correct == answerCorrect[nextAnswer])
-				answerStatus = true;
+				{
+					answerStatus = true;	 
+					alert("");
+				}
 			else				
-				answerStatus = false;
+				{answerStatus = false;
+					
+				}
 		}
 		
 		function doOk(){
 			
-			if(answerStatus == true){				
-				alert(true);
+			var obj = document.getElementsByClassName("answer");
+			obj[answerCorrect[nextAnswer]-1].style.color = "blue";
+			
+			if(answerStatus == false){
 				
-			}else{
-				alert(false);
+				objAnswer.style.color = "red";		
+				
 			}
+			
+				
 			
 		}
 		
 		function doNext(){	
 			
 			nextAnswer++;
+			 question[nextAnswer];
 		}
 		
 		

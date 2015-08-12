@@ -39,6 +39,7 @@ public class getQuestAndAnswer extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("dddd");
 		int video_id = Integer.parseInt(request.getParameter("video_id"));
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
