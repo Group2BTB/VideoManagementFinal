@@ -18,8 +18,7 @@
 
 				<!-- Start modal header -->
 				<div class="modal-header">
-					<h3 class="modal-title text-center text-info">Login to your
-						account</h3>
+					<h3 class="modal-title text-center text-info">Welcome Admin</h3>
 				</div>
 				<!-- End modal header -->
 
@@ -29,7 +28,7 @@
 						role="form" onsubmit="return validateLogin();">
 
 						<div class="form-group" id="username_field">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-user"></i></span> <input id="username"
@@ -40,7 +39,7 @@
 						</div>
 
 						<div class="form-group" id="password_field">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
 								<div class="input-group">
 									<span class="input-group-addon"><i
 										class="glyphicon glyphicon-lock"></i></span> <input id="password"
