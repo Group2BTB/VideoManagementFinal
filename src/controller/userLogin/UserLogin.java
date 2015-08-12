@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
+import model.dto.User;
 
 /**
  * Servlet implementation class UserLogin
@@ -47,16 +48,23 @@ public class UserLogin extends HttpServlet {
 		if(new UserDAO().checkUser(username, password)){// if username and password is correct
 			HttpSession session = request.getSession();//create session
 			session.setAttribute("user", username);// set session for user
-			session.setAttribute("userID", new UserDAO().getUser(username, password).getId());
+			User user = new UserDAO().getUser(username, password);
 			try {
-				response.sendRedirect("/VideoManagementFinal/index.jsp");
+				if(user.getRole().equalsIgnoreCase("admin")){
+					session.setAttribute("userID", user.getId());
+					System.out.println(user.getName());
+					response.sendRedirect("/VideoManagementFinal/Admin/index.jsp");
+				}else{
+					session.setAttribute("userID", user.getId());
+					response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/Category.jsp");
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
 			try {
-				request.getRequestDispatcher("login.jsp").forward(request, response);
+				request.getRequestDispatcher("Admin/login.jsp").forward(request, response);
 			} catch (ServletException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
