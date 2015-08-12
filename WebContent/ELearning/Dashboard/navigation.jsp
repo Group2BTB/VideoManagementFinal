@@ -24,6 +24,20 @@
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
 
+
+
+
+<!-- videoplayer script and style -->
+<link rel="stylesheet" href="libs/video-js/video-js.css">
+<link rel="stylesheet" href="src/videojs.logobrand.css">
+<script src="libs/video-js/video.js"></script>
+<script src="youtube.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="build/mediaelementplayer.min.css" />
+<script src="build/jquery.js"></script>
+<script src="build/mediaelement-and-player.min.js"></script>
+
 <style>
 .owl-demo .item {
 	margin: 3px;
@@ -52,7 +66,6 @@
 			<!--logo end-->
 
 			<div class="top-nav ">
-
 				<form class="navbar-form navbar-left" role="search" id="search">
 					<div class="form-group">
 						<input type="text" class="form-control input-sm"
@@ -123,8 +136,10 @@
 						<!--breadcrumbs end -->
 					</div>
 				</div>
-				<!-- Include other page here -->
 				
+				
+				<!-- Include other page here -->
+				<jsp:include page="../videoplayer/test.jsp"></jsp:include>
 				
 				<!-- Right Slidebar start -->
 				<div class="sb-slidebar sb-right sb-style-overlay">
