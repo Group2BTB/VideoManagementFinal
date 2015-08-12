@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,12 +12,29 @@
 <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
 <script src="build/jquery.js"></script>
 <script src="build/mediaelement-and-player.min.js"></script>
+
+
+<!-- like plugin  -->
+<script type="text/javascript">
+	var switchTo5x = true;
+</script>
+<script type="text/javascript"
+	src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+	stLight.options({
+		publisher : "42ae4b0d-ab72-4692-9d29-db48c1f86256",
+		doNotHash : false,
+		doNotCopy : false,
+		hashAddressBar : false
+	});
+</script>
+
 </head>
 <body onresize="myFunction()">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="row">					
+				<div class="row">
 					<!--====== Videos Play ======-->
 					<div class="col-md-8" id="videos_play">
 						<div id="myplayerwrapper">
@@ -32,47 +49,54 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6 col-sm-6 col-xs-6">
-									<span><img src="avatar.png" width="50" height="50" />Admin</span>
+									<span><img src="../videoplayer/avatar.png" width="50"
+										height="50" /><b>Admin</b></span>
 								</div>
 								<div class="col-md-6 col-sm-6 col-xs-6"
 									style="text-align: right;">
-									<p>Veiws: 989007</p>
+									<p>
+										<b style="font-size: 16px;">Veiws:</b> 989007
+									</p>
 								</div>
 							</div>
+
+							<hr style="border-color:#545D61; height: 5px;" />
+
 							<div class="row">
-								<div class="col-md-6 col-sm-6 col-xs-6">
-									<p>Published on Jul 17, 2015</p>
+								<div class="col-md-6 col-sm-6 col-xs-12">
+									<span class='st_sharethis_large' displayText='ShareThis'></span>
+									<span class='st_facebook_large' displayText='Facebook'></span>
+									<span class='st_twitter_large' displayText='Tweet'></span> <span
+										class='st_linkedin_large' displayText='LinkedIn'></span> <span
+										class='st_pinterest_large' displayText='Pinterest'></span> <span
+										class='st_email_large' displayText='Email'></span>
 								</div>
-								<div class="col-md-6 col-sm-6 col-xs-6">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<div class="col-md-6 col-sm-6 col-xs-6">
-											<img src="avatar.png" width="20" /> <span>10398</span>
+
+								<div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+									<div class="col-md-12 col-sm-12 col-xs-12 ">
+										<div class="pull-right">
+											<a style="cursor: pointer;"><i class="fa fa-thumbs-up fa-2x"
+												style="padding: 0px 10px; color: #3BAFDA;"></i> <span>10398</span>
+
+											<i class="fa fa-thumbs-down fa-2x"
+												style="padding: 0px 10px; color: #3BAFDA;"></i><span>10398</span></a>
 										</div>
-										<div class="col-md-6 col-sm-6 col-xs-6">
-											<img src="avatar.png" width="20" /> <span>10398</span>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-3"></div>
+
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<img src="images/facebook.png" width="40" /> <img
-										src="images/google-plus.png" width="40" />
-								</div>
-							</div>
-						</div>
+							
 						<div class="row">
 							<hr style="padding-top: 30px;">
 							<div class="col-md-12">
-
+						
 								<div class="row comments">
 									<div class="col-md-12">
 										<div class="well">
 											<b>Public on June 13, 2015</b> <br /> Learn four methods for
 											passing values from one page to another. You'll work with
-											Session...PreviousPage...QueryString...
-											the Profile Object. For more tips and tutorials, visit
+											Session...PreviousPage...QueryString... the Profile Object.
+											For more tips and tutorials, visit
 											www.detacheddesigns.com/blog
 										</div>
 										<form role="form">
@@ -93,7 +117,7 @@
 									style='border: 1px solid red;'>
 									<div class="row wells">
 										<div class="col-md-1">
-											<img src="avatar.png" width="50">
+											<img src="../videoplayer/avatar.png" width="50">
 										</div>
 										<div class="col-md-11">
 											<div class="col-md-4 col-xs-6">
@@ -101,49 +125,53 @@
 											</div>
 											<div class="col-md-4 col-xs-6">10 minutes ago</div>
 											<div class="col-md-12 col-xs-12" style="padding-top: 10px;">I
-												really like this website.
-												</div>
-										</div>									</div>
+												really like this website.</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<!------End of Comment------>
 						</div>
+					</div>
 					</div>
 					<!--====== PlayList and questions ======-->
 					<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
 						id="playlist_show">
 						<div class="tabbable" id="tabs-161102">
 							<div>
-								<ul class="nav nav-tabs" >
-									<li class="active"><a class="color_white" href="#panel-590992"
-										data-toggle="tab" >Playlist</a></li>
-									<li><a href="#panel-560832" data-toggle="tab" class="color_white">Quiz</a></li>
+								<ul class="nav nav-tabs">
+									<li class="active"><a class="color_white"
+										href="#panel-590992" data-toggle="tab">Playlist</a></li>
+									<li><a href="#panel-560832" data-toggle="tab"
+										class="color_white">Quiz</a></li>
 								</ul>
 							</div>
 							<div class="tab-content color_white">
 								<div class="tab-pane active" id="panel-590992">
-									
+
 									<div>
-									
-									<a href="">	<img src="images/software-java-icon.png" width="60"  id="playlsits_shows" /><span class="color_white" style="padding-left:20px;">asdfsad</span></a>
-										
-										
+
+										<a href=""> <img
+											src="../videoplayer/images/software-java-icon.png" width="60"
+											id="playlsits_shows" /><span class="color_white"
+											style="padding-left: 20px;">asdfsad</span></a>
+
+
 									</div>
 
 								</div>
 								<!-- Questions in Playlist -->
 								<div class="tab-pane" id="panel-560832">
-									<div id="question">
-									
-									</div>
-									
+									<div id="question"></div>
+
 									<div id="answer">
-									
-									<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
-									<button class="btn btn-success" id="btnnext" onclick="doNext()">NEXT</button>
-										
+
+										<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
+										<button class="btn btn-success" id="btnnext"
+											onclick="doNext()">NEXT</button>
+
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -178,7 +206,7 @@
 
 				var events = [ 'loadstart', 'play', 'pause', 'ended' ];
 
-				for ( var i = 0, il = events.length; i < il; i++) {
+				for (var i = 0, il = events.length; i < il; i++) {
 
 					var eventName = events[i];
 
@@ -194,31 +222,7 @@
 		});
 	</script>
 	<!--===== collapse category======-->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#category_list").click(function() {
-				$("#category_details").toggle(100);
-				$("#videos_play").toggleClass("col-md-6");
-				$("#videos_play").toggleClass("col-md-8");
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function() {
 
-			//myFunction();
-		});
-		function myFunction() {
-			var w = window.outerWidth;
-
-			if (w = 991) {
-				//alert("show");
-				$("#category_details").toggle();
-				$("#videos_play").toggleClass("col-md-6");
-				$("#videos_play").toggleClass("col-md-8");
-			}
-		}
-	</script>
 	<script>
 		//hide button comment
 		$(document).ready(function() {
@@ -228,25 +232,29 @@
 		$(document).ready(function() {
 			$("#comment").focusin(function() {
 				$("#btnComments").fadeIn(1000);
-				$("#btnComments").css("margin-bottom","10px");
+				$("#btnComments").css("margin-bottom", "10px");
 			});
 		});
 		//add text form textarea to the div below
-		$(document).ready(function() {
-			$("#btnComments").click(function() {
-				//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
+		$(document)
+				.ready(
+						function() {
+							$("#btnComments")
+									.click(
+											function() {
+												//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
 
-				var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-				var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-				var c = '<div class="col-md-12 col-xs-12">'
-						+ $("#comment").val()
-						+ '</div></div></div>';
-				$("#comment").val("");
+												var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+												var c = '<div class="col-md-12 col-xs-12">'
+														+ $("#comment").val()
+														+ '</div></div></div>';
+												$("#comment").val("");
 
-				$("#show_comments").prepend(
-						a + b + c);
-			});
-		});
+												$("#show_comments").prepend(
+														a + b + c);
+											});
+						});
 
 		var userlike = document.getElementById("UserLike");
 
@@ -258,99 +266,92 @@
 			});
 		}
 	</script>
-	
-	
+
+
 	<script>
-		
 		var answerCorrect = [];
 		var question = [];
 		var answer = [];
 		var nextAnswer = 0;
 		var answerStatus = false;
-		var childQuestion = [];	
+		var childQuestion = [];
 		var objAnswer;
-		
-		function viewQuestionAnswer(){
+
+		function viewQuestionAnswer() {
 			var str = "";
 			$.ajax({
 				url : "getQandA",
 				method : "POST",
 				dataType : "JSON",
-				data:{
+				data : {
 					video_id : 17
-					},
+				},
 				success : function(data) {
-					/* for(var i=0;i<data.lenght;i++){
-						alert(data[i].question_id);
-					}	 */
-					//alert(data);
-				}
-			});
-			
-		}
-		
-		function doCorrect(obj){
-		
-			objAnswer = obj; 
-		}
-				
-		function checkAnswer(correct, obj){
-				
-			objAnswer = obj;
-			if(correct == answerCorrect[nextAnswer])
-				{
-					answerStatus = true;	 
-					alert("");
-				}
-			else				
-				{answerStatus = false;
-					
-				}
-		}
-		
-		function doOk(){
-			
-			var obj = document.getElementsByClassName("answer");
-			obj[answerCorrect[nextAnswer]-1].style.color = "blue";
-			
-			if(answerStatus == false){
-				
-				objAnswer.style.color = "red";		
-				
-			}
-			
-				
-			
-		}
-		
-		function doNext(){	
-			
-			nextAnswer++;
-			 question[nextAnswer];
-		}
-		
-		
-		
-		function getAllVideo(){
-			$.ajax({
-				url : "listVideo",
-				method: "POST",
-				dataType: "JSON",
-				success: function(data){
-					for(var i in data){
-						
-						
+					var str = "";
+					for ( var i in data) {
+						str += i;
+						alert(i)
 					}
 				}
-			}); 
+			});
+
 		}
-		
-		$(document).ready(function(){
+
+		function doCorrect(obj) {
+
+			objAnswer = obj;
+		}
+
+		function checkAnswer(correct, obj) {
+
+			objAnswer = obj;
+			if (correct == answerCorrect[nextAnswer]) {
+				answerStatus = true;
+				alert("");
+			} else {
+				answerStatus = false;
+
+			}
+		}
+
+		function doOk() {
+
+			var obj = document.getElementsByClassName("answer");
+			obj[answerCorrect[nextAnswer] - 1].style.color = "blue";
+
+			if (answerStatus == false) {
+
+				objAnswer.style.color = "red";
+
+			}
+
+		}
+
+		function doNext() {
+
+			nextAnswer++;
+			question[nextAnswer];
+		}
+
+		function getAllVideo() {
+			$.ajax({
+				url : "listVideo",
+				method : "POST",
+				dataType : "JSON",
+				success : function(data) {
+					for ( var i in data) {
+
+					}
+				}
+			});
+		}
+
+		$(document).ready(function() {
 			getAllVideo();
 			viewQuestionAnswer();
 		});
 	</script>
-		
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
