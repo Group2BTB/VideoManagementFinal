@@ -206,9 +206,11 @@
 		<!-- Raw Links -->
 		<div class="col-md-6 col-sm-4 clearfix hidden-xs">
 			<ul class="list-inline links-list pull-right">										
-				<li><a href="extra/login/index.html"> Log Out <i
-						class="entypo-logout right"></i>
-				</a></li>
+				<li>
+				<a href="logout">Log Out <i class="entypo-logout right"></i>
+				</a>
+				
+				</li>
 			</ul>
 		</div>
 	</div>
