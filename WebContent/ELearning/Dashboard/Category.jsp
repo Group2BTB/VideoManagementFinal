@@ -212,9 +212,8 @@
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
-										str+='<a href="#" class="pro-title"> Servlet Web Developement </a>';
+										str+='<a href="#" class="pro-title">'+data[i].video_name+'</a>';
 									str+='</h4>';
-									str+='<p class="price">Free</p>';
 								str+='</div>';
 							str+='</section>';
 						str+='</div>';
@@ -290,9 +289,8 @@
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
-										str+='<a href="#" class="pro-title"> Servlet Web Developement </a>';
+										str+='<a href="#" class="pro-title">'+data[i].video_name+'</a>';
 									str+='</h4>';
-									str+='<p class="price">Free</p>';
 								str+='</div>';
 							str+='</section>';
 						str+='</div>';
