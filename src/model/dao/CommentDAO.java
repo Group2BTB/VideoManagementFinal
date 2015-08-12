@@ -4,12 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import utilities.DBConnection;
 import utilities.WorkWithDate;
 import utilities.WorkWithJson;
 import model.dto.Comment;
-
 public class CommentDAO {
 
 	ResultSet rs = null;
@@ -35,15 +33,22 @@ public class CommentDAO {
 	public boolean insertComment(Comment cm){
 		
 		/*Create try with resource*/
+		String str = "insert into tb_comment(description,user_id, video_id) values(?,?,?)";
+		
+		if(cm.getParent_id() != 0)			
+			str = "insert into tb_comment(description, user_id, video_id, parent_id) values(?,?,?,?)";
+		
+		
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("insert into tb_comment(description, parent_id, "
-						+ "user_id, video_id) values(?,?,?,?)");){
+				PreparedStatement stm = con.prepareStatement(str);){
 					
 			/*To set data to preparedStatement from video's data*/
-			stm.setString(1, cm.getDescription());
-			stm.setLong(2, cm.getParent_id());
-			stm.setLong(3, cm.getUserID());
-			stm.setLong(4, cm.getVideoID());
+			stm.setString(1, cm.getDescription());			
+			stm.setLong(2, cm.getUserID());
+			stm.setLong(3, cm.getVideoID());
+			
+			if(cm.getParent_id() != 0)
+				stm.setLong(4, cm.getParent_id());
 						
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
@@ -121,6 +126,7 @@ public class CommentDAO {
 			return false;
 		}
 	}
+	
 	public boolean upView(long id){
 		
 		/*Create try with resource*/
@@ -174,4 +180,5 @@ public class CommentDAO {
 			return false;
 		}
 	}
+
 }
