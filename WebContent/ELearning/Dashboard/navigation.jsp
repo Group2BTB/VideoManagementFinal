@@ -137,7 +137,9 @@
 					</div>
 				</div>
 				<!-- Include other page here -->
-				<jsp:include page="../videoplayer/index.jsp"></jsp:include>				
+				
+				<jsp:include page="../videoplayer/index.jsp"></jsp:include>	
+							
 				<!-- Right Slidebar start -->
 				<div class="sb-slidebar sb-right sb-style-overlay">
 					<h5 class="side-title">Messages</h5>
@@ -240,9 +242,9 @@
 		<!-- hide some header when scroll less than 768px  -->
 	<script>
 		$(document).ready(function(){
-			srollhide();
-			
+			srollhide();			
 		});
+		
 		function srollhide() {
 			var w = innerWidth;
 			if (w < 768) {				
@@ -258,8 +260,8 @@
 			}
 		}
 	</script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../videoplayer/js/jquery.min.js"></script>
+	<script src="../videoplayer/js/bootstrap.min.js"></script>
+	<script src="../videoplayer/js/scripts.js"></script>
 </body>
 </html>
