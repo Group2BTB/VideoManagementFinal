@@ -40,7 +40,7 @@ public class CategoryDAO {
 		try(Connection con = new DBConnection().getConnection();
 				Statement stm = con.createStatement()){
 			
-			rs = stm.executeQuery("SELECT * from \"vCategory\" order by name"); //execute the statement and assign to Resultset object
+			rs = stm.executeQuery("SELECT * from \"vCategory\" order by super"); //execute the statement and assign to Resultset object
 			
 			return wwj.convertSubJson(rs);
 		
@@ -195,5 +195,9 @@ public class CategoryDAO {
 	public String checkNull(int val){
 		if(val==0) return null; return val+"";
 	}
-	
+
+	public static void main(String[] args) {
+		
+		System.out.println(new CategoryDAO().getSubAllCategory());
+	}
 }
