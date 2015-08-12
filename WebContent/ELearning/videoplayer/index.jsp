@@ -48,19 +48,22 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6 col-sm-6 col-xs-6">
+								<div class="col-md-12">
 									<span><img src="../videoplayer/avatar.png" width="50"
 										height="50" /><b>Admin</b></span>
 								</div>
-								<div class="col-md-6 col-sm-6 col-xs-6"
+							</div>
+							<div class="row">
+								<div class="col-md-12"
 									style="text-align: right;">
 									<p>
+										<img alt="views" src="../videoplayer/eyes.png" width="35" style="margin-left:20px;">
 										<b style="font-size: 16px;">Veiws:</b> 989007
 									</p>
 								</div>
 							</div>
 
-							<hr style="border-color:#545D61; height: 5px;" />
+							<hr style="border-color:#545D61; height:1px; margin-top:0px;" />
 
 							<div class="row">
 								<div class="col-md-6 col-sm-6 col-xs-12">
