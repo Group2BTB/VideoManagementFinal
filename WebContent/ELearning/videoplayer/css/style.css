@@ -1,10 +1,12 @@
-.bg_black{background-color:#6D6968; max-height:500px;}
+.bg_black{background-color:#6D6968; height:500px;}
 .color_white{color:#fff;}
 .color_black{color: #000;}
 .color_red{color:red;}
 .color_green{color:green;}
 .pointers{cursor:pointer}
 .base_color{background-color: #0C959A !important; color:#fff !important;}
+.color_green{color:green;}
+.color_red{color:red;}
 /**scrollbar**/
 .scrollbar {
 	float: left;
