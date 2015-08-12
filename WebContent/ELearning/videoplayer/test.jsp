@@ -32,7 +32,7 @@
 							</div>
 							<div class="row">
 								<div class="col-md-6 col-sm-6 col-xs-6">
-									<span><img src="avatar.png" width="50" height="50" />Admin</span>
+									<span><img src="../videoplayer/avatar.png" width="50" height="50" />Admin</span>
 								</div>
 								<div class="col-md-6 col-sm-6 col-xs-6"
 									style="text-align: right;">
@@ -46,10 +46,10 @@
 								<div class="col-md-6 col-sm-6 col-xs-6">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<div class="col-md-6 col-sm-6 col-xs-6">
-											<img src="avatar.png" width="20" /> <span>10398</span>
+											<img src="../videoplayer/avatar.png" width="20" /> <span>10398</span>
 										</div>
 										<div class="col-md-6 col-sm-6 col-xs-6">
-											<img src="avatar.png" width="20" /> <span>10398</span>
+											<img src="../videoplayer/avatar.png" width="20" /> <span>10398</span>
 										</div>
 										<div class="col-md-3 col-sm-3 col-xs-3"></div>
 									</div>
@@ -57,8 +57,8 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<img src="images/facebook.png" width="40" /> <img
-										src="images/google-plus.png" width="40" />
+									<img src="../videoplayer/images/facebook.png" width="40" /> <img
+										src="../videoplayer/images/google-plus.png" width="40" />
 								</div>
 							</div>
 						</div>
@@ -93,7 +93,7 @@
 									style='border: 1px solid red;'>
 									<div class="row wells">
 										<div class="col-md-1">
-											<img src="avatar.png" width="50">
+											<img src="../videoplayer/avatar.png" width="50">
 										</div>
 										<div class="col-md-11">
 											<div class="col-md-4 col-xs-6">
@@ -123,11 +123,8 @@
 							<div class="tab-content color_white">
 								<div class="tab-pane active" id="panel-590992">
 									
-									<div>
-									
-									<a href="">	<img src="images/software-java-icon.png" width="60"  id="playlsits_shows" /><span class="color_white" style="padding-left:20px;">asdfsad</span></a>
-										
-										
+									<div>								
+									<a href="">	<img src="../videoplayer/images/software-java-icon.png" width="60"  id="playlsits_shows" /><span class="color_white" style="padding-left:20px;">asdfsad</span></a>
 									</div>
 
 								</div>
