@@ -50,15 +50,14 @@ public class QuestionDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, answer_id, create_date, "
+				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, create_date, "
 						+ "status, correct)values(?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
 								
 			stm.setString(1, qt.getDescription().trim());
-			stm.setLong(2, qt.getVideoID());
-			stm.setLong(3, qt.getAnswer_id());
-			stm.setDate(4, wwd.getSqlDate(new Date()));
-			stm.setInt(5, qt.getStatus());
-			stm.setInt(6, qt.getCorrect());
+			stm.setLong(2, qt.getVideoID());			
+			stm.setDate(3, wwd.getSqlDate(new Date()));
+			stm.setInt(4, qt.getStatus());
+			stm.setInt(5, qt.getCorrect());
 			
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;
@@ -128,8 +127,7 @@ public class QuestionDAO {
 				
 				v.setId(id);
 				v.setDescription(rs.getString("description"));
-				v.setVideoID(rs.getLong("video_id"));
-				v.setAnswer_id(rs.getLong("answer_id"));
+				v.setVideoID(rs.getLong("video_id"));				
 				v.setCreate_date(rs.getDate("create_date"));
 				v.setStatus(rs.getInt("status"));
 				
@@ -148,14 +146,14 @@ public class QuestionDAO {
 	
 	public boolean updateQuestion(Question qt){
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("update tb_questions set description=?, video_id=?, answer_id=?,"
+				PreparedStatement stm = con.prepareStatement("update tb_questions set description=?, video_id=?,"
 						+ "status=? where question_id=?")){
 			
 			stm.setString(1, qt.getDescription());
 			stm.setLong(2, qt.getVideoID());
-			stm.setLong(3, qt.getAnswer_id());
-			stm.setInt(4, qt.getStatus());			
-			stm.setLong(5, qt.getId());
+			
+			stm.setInt(3, qt.getStatus());			
+			stm.setLong(4, qt.getId());
 			
 			if(stm.executeUpdate() == 0)
 				return false;
@@ -193,7 +191,7 @@ public class QuestionDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select question, video_id, answer_id, answer from \"vQuestion\" where video_id=?");){
+				PreparedStatement stm = con.prepareStatement("select * from \"vQuestion\" where video_id=?");){
 						
 			stm.setLong(1, videoId);
 			
@@ -214,14 +212,15 @@ public class QuestionDAO {
 		Question qst = new Question();
 		QuestionDAO qdo = new QuestionDAO();
 		
-		System.out.println(qdo.getQandA(7));
+		System.out.println(qdo.getQandA(17));
 		System.exit(0);
+		
 		qdo.getQuestion(1);
 		System.out.println(qdo.getAllQuestion());
 		System.exit(0);
 		qst.setDescription("what is YOU?");
 		qst.setVideoID(7);
-		qst.setAnswer_id(1);				
+					
 		
 		//System.out.println(qdo.insertQuestion(qst));
 		
