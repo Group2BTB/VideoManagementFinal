@@ -3,8 +3,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
-  <!-- Start question block -->
   <servlet>
     <servlet-name>listQuestion</servlet-name>
     <servlet-class>controller.question.listQuestion</servlet-class>
@@ -62,9 +60,6 @@
     <url-pattern>/listAnswerByQuestion</url-pattern>
   </servlet-mapping>
   <servlet>
-  <!-- End Question Block -->
-  
-  <!-- Start Answer Block -->
     <servlet-name>listAnswer</servlet-name>
     <servlet-class>controller.answer.listAnswer</servlet-class>
   </servlet>
@@ -104,9 +99,6 @@
     <servlet-name>questionComponnent</servlet-name>
     <url-pattern>/questionComponnent</url-pattern>
   </servlet-mapping>
-  <!-- End Answer Block  -->
-  
-  <!-- Start Category Blcok -->
   <servlet>
     <servlet-name>listCategory</servlet-name>
     <servlet-class>controller.category.listCategory</servlet-class>
@@ -147,7 +139,6 @@
     <servlet-name>listAllCategory</servlet-name>
     <url-pattern>/ELearning/Dashboard/listAllCategory</url-pattern>
   </servlet-mapping>
-  <!-- End Category Block -->
   <servlet>
     <servlet-name>listDocument</servlet-name>
     <servlet-class>controller.document.listDocument</servlet-class>
@@ -196,7 +187,6 @@
     <servlet-name>updateStatusVideo</servlet-name>
     <url-pattern>/updateStatusVideo</url-pattern>
   </servlet-mapping>
-  <!-- End Video Block -->
   <servlet>
     <servlet-name>listPlaylist</servlet-name>
     <servlet-class>controller.playlist.listPlaylist</servlet-class>
@@ -273,16 +263,20 @@
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>adminLogin</servlet-name>
+    <servlet-class>controller.userLogin.UserLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminLogin</servlet-name>
+    <url-pattern>/Admin/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>userRegister</servlet-name>
+    <servlet-class>controller.user.AddUser</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>userRegister</servlet-name>
     <url-pattern>/ELearning/include/Add</url-pattern>
   </servlet-mapping>
-  <filter>
-    <filter-name>permission</filter-name>
-    <filter-class>controller.userLogin.Authentication</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>permission</filter-name>
-    <url-pattern>/Admin/*</url-pattern>
-  </filter-mapping>
 </web-app>
