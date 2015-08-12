@@ -9,7 +9,7 @@
 					<!-- add class "pull-right" if you want to place this from right -->
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img
 						src="images/profile.jpg" alt="" class="img-circle"
-						width="44" /> THORN Sereyvong
+						width="44" /> <%= session.getAttribute("user")%>
 				</a>
 					<ul class="dropdown-menu">
 						<!-- Reverse Caret -->

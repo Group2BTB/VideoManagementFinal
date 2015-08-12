@@ -54,11 +54,12 @@ public class QuestionDAO {
 						+ "status, correct)values(?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
 								
 			stm.setString(1, qt.getDescription().trim());
+
+
 			stm.setLong(2, qt.getVideoID());			
 			stm.setDate(3, wwd.getSqlDate(new Date()));
 			stm.setInt(4, qt.getStatus());
 			stm.setInt(5, qt.getCorrect());
-			
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;
 			
@@ -68,7 +69,10 @@ public class QuestionDAO {
 				question_id=rs.getInt(1);
 			}
 			for(int i=0;i<3;i++){
-				new AnswerDAO().insertAnswer(new Answer(0, null, question_id, null, 0));
+				if(i==0)
+					new AnswerDAO().insertAnswer(new Answer(0, null, question_id, null, 1));
+				else
+					new AnswerDAO().insertAnswer(new Answer(0, null, question_id, null, 0));
 			}
 			return true;
 			
@@ -127,7 +131,7 @@ public class QuestionDAO {
 				
 				v.setId(id);
 				v.setDescription(rs.getString("description"));
-				v.setVideoID(rs.getLong("video_id"));				
+				v.setVideoID(rs.getLong("video_id"));			
 				v.setCreate_date(rs.getDate("create_date"));
 				v.setStatus(rs.getInt("status"));
 				

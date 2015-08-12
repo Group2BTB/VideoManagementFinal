@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
 <title>Login|Admin</title>
-<link rel="stylesheet" href="Admin/css/bootstrap.css">
+<link rel="stylesheet" href="ELearning/Dashboard/css/bootstrap.min.css">
 
-<script type="text/javascript" src="Admin/js/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="Admin/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="ELearning/Dashboard/js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="ELearning/Dashboard/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- Start container -->

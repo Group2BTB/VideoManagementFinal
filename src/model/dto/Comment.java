@@ -14,14 +14,13 @@ public class Comment {
 	private long videoID;	
 	private int view;
 	
-	
 	public Comment(){
 		
 	}
 
 
 	public Comment(long id, String description, Date create_date, long like,
-			long unlike, long parent_id, long userID, long videoID) {
+			long unlike, long parent_id, long userID, long videoID, int view) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -31,6 +30,7 @@ public class Comment {
 		this.parent_id = parent_id;
 		this.userID = userID;
 		this.videoID = videoID;		
+		this.view = view;
 	}
 
 	
@@ -43,8 +43,6 @@ public class Comment {
 	public void setView(int view) {
 		this.view = view;
 	}
-
-
 	public long getId() {
 		return id;
 	}
@@ -123,6 +121,5 @@ public class Comment {
 	public void setVideoID(long videoID) {
 		this.videoID = videoID;
 	}
-	
 	
 }

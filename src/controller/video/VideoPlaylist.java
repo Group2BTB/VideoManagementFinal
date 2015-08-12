@@ -1,4 +1,4 @@
-package controller.userLogin;
+package controller.video;
 
 import java.io.IOException;
 
@@ -7,19 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import model.dao.VideoDAO;
+import model.dto.Video;
 
 /**
- * Servlet implementation class userLogout
+ * Servlet implementation class ListVideo
  */
 
-public class userLogout extends HttpServlet {
+public class VideoPlaylist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public userLogout() {
+    public VideoPlaylist() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,12 +41,12 @@ public class userLogout extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		HttpSession session = request.getSession();
-		session.setAttribute("username", null);
-		session.invalidate();
+		System.out.println(request.getParameter("id"));
+		String video = new VideoDAO().getVideoPlaylist(Integer.parseInt(request.getParameter("id")));
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
 		try {
-			response.getWriter().print("Logout successfully!");
-			response.sendRedirect("/VideoManagementFinal/login.jsp");
+			response.getWriter().print(video);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

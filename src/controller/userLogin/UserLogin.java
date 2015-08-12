@@ -64,7 +64,7 @@ public class UserLogin extends HttpServlet {
 			}
 		}else {
 			try {
-				request.getRequestDispatcher("Admin/login.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} catch (ServletException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

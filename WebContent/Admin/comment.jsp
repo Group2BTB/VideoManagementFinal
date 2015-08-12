@@ -46,23 +46,23 @@
 	
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 clearfix">
-			<div class="col-xs-12 col-md-12 col-sm-12">
-				<!-- Start From	-->
+			<!-- <div class="col-xs-12 col-md-12 col-sm-12">
+				Start From	
 				<form class="navbar-form navbar-left" role="search"
 					style="border: none;">
-					<!-- Button Save -->
+					Button Save
 					<button type="button" id="btnNew" class="btn btn-success btn-act" ng-click="editUser('new')">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 						New
 					</button>
-					<!-- Button Help -->
+					Button Help
 					<button type="submit" class="btn btn-default btn-act">
 						<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 						Help
 					</button>
 				</form>
 			</div>
-			<div class="clearfix"></div>
+			<div class="clearfix"></div> -->
 			<div class="panel panel-primary">
 				<!-- Default panel contents -->
 				<div class="panel-heading"><i class="glyphicon glyphicon-comment"></i> List Commment</div>

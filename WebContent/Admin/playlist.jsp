@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="myApp" >
+<html ng-app="myApp"  ng-controller="PlaylistController">
 
 <head>
 
@@ -37,7 +37,7 @@
 <body class="page-body page-fade" data-url="#">
 
 
-	<div class="page-container" ng-controller="PlaylistController">
+	<div class="page-container" >
 
 
 		<jsp:include page="slidebar.jsp"></jsp:include>
@@ -232,7 +232,7 @@
 		</div>
 </div>
 <!-- Start More Filter -->
-			<div id="addPlayListVieo" ng-controller="videocontroller" class="modal fade bs-example-modal-lg">
+			<div id="addPlayListVieo" class="modal fade bs-example-modal-lg">
 			
 				<div class="modal-dialog">
 					<div class="modal-content" style="margin: 0 auto;">
@@ -256,13 +256,13 @@
 							<div class="modal-body" >
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="form-group">
-									<input type="text" class="form-control" ng-model="search"
-										ng-change="filter()" id="search" placeholder="Search...">
+									<input type="text" class="form-control" ng-model="searchpl"
+										ng-change="filter()" id="searchpl" placeholder="Search...">
 								</div>
 							</div>
 
 								<div class="row">
-									<div class="col-sm-12 col-md-12" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+									<div class="col-sm-12 col-md-12" ng-repeat="d in filteredpl = pl  |filter:searchpl |  startFrom:(currentPagepl-1)*entryLimitpl | limitTo:entryLimitpl">
 										<div class="col-sm-3 col-md-3">
 											<div class="thumbnail">
 												<img src="https://i.ytimg.com/vi/NiYYidFxDbA/mqdefault.jpg" alt="...">
@@ -273,26 +273,26 @@
 										</div>
 										
 										<div class="col-sm-2 col-md-2">
-											<button type='button' ng-click="updateStatus(d.video_id)"
-											ng-show="!d.playlist_id"
+											<button type='button' ng-click="addVideo(d.video_id)"
+											ng-show="!d.has"
 												class='btn btn-success icon_margin_top'>Add</button>
-											<button type='button' ng-click="updateStatus(d.video_id)"
-											ng-show="d.playlist_id"
+											<button type='button' ng-click="removeVideo(d.video_id)"
+											ng-show="d.has"
 												class='btn btn-danger icon_margin_top'>Remove</button>	
 										</div>
 									</div>
 								</div>			
 
-									<div class="col-md-12" ng-show="filteredItems == 0">
+									<div class="col-md-12" ng-show="filteredItemspl == 0">
 										<div class="col-md-12 center">
 											<h4>No Video found</h4>
 										</div>
 									</div>
-									<div class="col-md-12" ng-show="filteredItems > 0">
+									<div class="col-md-12" ng-show="filteredItemspl > 0">
 
-										<div pagination="" page="currentPage" max-size="10"
-											on-select-page="setPage(page)" boundary-links="true"
-											total-items="filteredItems" items-per-page="entryLimit"
+										<div pagination="" page="currentPagepl" max-size="10"
+											on-select-page="setPagepl(page)" boundary-links="true"
+											total-items="filteredItemspl" items-per-page="entryLimitpl"
 											class="pagination-small" previous-text="«" next-text="»"></div>
 
 									</div>

@@ -183,7 +183,6 @@ app.controller('PlaylistController', function($scope, $http, $timeout) {
 		}
 	};
 	$scope.updateStatus = function(e) {
-		alert(e);
 		var data = {
 			'id' : e
 		};
@@ -195,20 +194,64 @@ app.controller('PlaylistController', function($scope, $http, $timeout) {
 	};
 	
 	$scope.addVideoToPlaylist = function(e) {
-		$scope.plid=e;
-		//alert($scope.plid+"x");
+		$scope.playlist_id=e;
+		$scope.listVideoByPlaylist(e);
 		$("#addPlayListVieo").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
 			"keyboard" : true,
 			"show" : true
 		// ensure the modal is shown immediately
 		});
-		
-		
-		
-		
-		
 	};
+	$scope.listVideoByPlaylist = function(e){
+	
+		$http.get('../videoPlaylist?id='+e).success(function(data) {
+			
+			$scope.pl = data;
+			$scope.currentPagepl = 1; // current page
+			$scope.entryLimitpl = 10; // max no of items to display in a page
+			$scope.filteredItemspl = $scope.pl.length; // Initially for no filter
+			
+			$scope.totalItemspl = $scope.pl.length;
+		});
+	}
+	
+	
+		$scope.setPagepl = function(pageNo) {
+			$scope.currentPagepl = pageNo; // current page
+		};
+		$scope.filterpl = function() {
+
+			$timeout(function() {
+				$scope.filteredItemspl = $scope.filteredpl.length;
+			}, 10);
+		};
+		
+		$scope.addVideo = function(e) {
+			var data = {
+				'id' : e,
+				'playlist':$scope.playlist_id
+			};
+			$.post("../addVideoToPlaylist", data).success(function(data, status, headers) {
+				if (data == "Success") {
+					$scope.listVideoByPlaylist($scope.playlist_id);
+				}
+			});
+			
+		};
+		$scope.removeVideo = function(e) {
+			
+			var data = {
+				'id' : e,
+				'playlist':$scope.playlist_id
+			};
+			$.post("../removeVideoToPlaylist", data).success(function(data, status, headers) {
+				if (data == "Success") {
+					$scope.listVideoByPlaylist($scope.playlist_id);
+				}
+			});
+		};
+
 	
 });
 	
@@ -224,20 +267,7 @@ app.controller('PlaylistController', function($scope, $http, $timeout) {
 	
 	
 	
-app.controller('videocontroller', function($scope, $http, $timeout) {
-	$http.get('../videoPlaylist').success(function(data) {
-		
-		$scope.list = data;
-		$scope.currentPage = 1; // current page
-		$scope.entryLimit = 12; // max no of items to display in a page
-		$scope.filteredItems = $scope.list.length; // Initially for no filter
-		$scope.totalItems = $scope.list.length;
-		$scope.edit = true;
-		$scope.error = false;
-		$scope.incomplete = false;
-		$scope.editid = 0;
-		
-	});
+/*
 	$scope.loadData = function() {
 		$http.get('../videoPlaylist').success(function(data) {
 			$scope.list = data;
@@ -266,82 +296,4 @@ app.controller('videocontroller', function($scope, $http, $timeout) {
 		$scope.predicate = predicate;
 		$scope.reverse = !$scope.reverse;
 	};
-	
-	$scope.succ = function(){		
-		
-	};
-	$scope.er = function(){		
-		
-	};
-	
-	$scope.save = function(e) {		
-		var data = {
-			'id'   : $scope.id,
-			'name' : $scope.name,
-			'youtube_url'  : $scope.youtube_url,
-			'category': $scope.category,
-			'document': $scope.document,
-			'status': $scope.status,
-			'description':$scope.description
-		};
-		if (e == true) {			
-			$.post("../addVideo", data).success(function(data) {
-				if (data == "Success") {					
-					$scope.loadData();
-					clear();
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});
-		} else {			
-			$.post("../updateVideo", data).success(function(data, status, headers){
-				if (data == "Success") {
-					$scope.loadData();
-					frmDepartment.reset();
-					$("#closeFrmAdd").click();
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});
-		}
-	};
-	$scope.editUser = function(id) {
-		$scope.editid = id;
-		if (id == 'new') {
-			$scope.edit = true;
-		} else {
-			$scope.edit = false;
-			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].video_id == id)
-					x = i;
-			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
-				"backdrop" : "static",
-				"keyboard" : true,
-				"show" : true
-			// ensure the modal is shown immediately
-			});
-			$scope.id = $scope.list[x].video_id;
-			$scope.name = $scope.list[x].video_name;
-			$scope.status = $scope.list[x].status1;
-			$scope.description = $scope.list[x].description;
-			$scope.category = $scope.list[x].category_id;
-			$scope.youtube_url = $scope.list[x].youtube_url;
-			$scope.document = $scope.list[x].document_url;			
-			
-			select("category",$scope.list[x].category_id);
-			select("document",$scope.list[x].document_url);
-		}
-	};
-	$scope.updateStatus = function(e) {		
-		var data = {
-			'id' : e
-		};
-		$.post("../updateStatusVideo", data).success(function(data, status, headers) {
-			if (data == "Success") {
-				$scope.loadData();
-			}
-		});
-	};
-});
+	*/

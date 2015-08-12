@@ -316,4 +316,25 @@ public class VideoDAO {
 			return null;
 		}
 	}
+
+	public String getVideoPlaylist(int playlistId) {
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				Statement stm= con.createStatement();){
+			String sql ="select v.video_id,v.video_name,c.category_name,"+
+						" (select count(*) from tb_videos vs join tb_video_playlist vl on vs.video_id=vl.video_id where vs.video_id=v.video_id and vl.playlist_id="+playlistId+") as has"+
+						" from tb_videos v"+
+						" left JOIN tb_video_category vc on vc.video_id=v.video_id"+
+						" LEFT JOIN tb_category c on c.category_id=vc.category_id"+
+						" WHERE v.approved=1";
+			System.out.println(sql);
+			rs = stm.executeQuery(sql); //execute the statement and assign to Resultset object
+			
+			return WorkWithJson.convertResultSetIntoJSON(rs).toString();			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
 }
