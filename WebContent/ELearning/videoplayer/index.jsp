@@ -44,7 +44,7 @@
 						<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<h2>1.1. Jquery</h2>
+									<h2>1.1. Jquery tutorials for beginner students </h2>
 								</div>
 							</div>
 							<div class="row">
@@ -113,18 +113,17 @@
 								</div>
 								<div id="show_comments"></div>
 
-								<div class="col-md-12 comments" id="comment_box"
-									style='border: 1px solid red;'>
+								<div class="col-md-12 comments box_comment" id="comment_box">
 									<div class="row wells">
 										<div class="col-md-1">
 											<img src="../videoplayer/avatar.png" width="50">
 										</div>
-										<div class="col-md-11">
+										<div class="col-md-11" >
 											<div class="col-md-4 col-xs-6">
 												<span><b>Prem Chanthorn</b></span>
 											</div>
 											<div class="col-md-4 col-xs-6">10 minutes ago</div>
-											<div class="col-md-12 col-xs-12" style="padding-top: 10px;">I
+											<div class="col-md-12 col-xs-12">I
 												really like this website.</div>
 										</div>
 									</div>
@@ -234,6 +233,10 @@
 				$("#btnComments").fadeIn(1000);
 				$("#btnComments").css("margin-bottom", "10px");
 			});
+			$("#comment").focusout(function() {
+				$("#btnComments").fadeOut(500);
+				$("#btnComments").css("margin-bottom", "10px");
+			});
 		});
 		//add text form textarea to the div below
 		$(document)
@@ -244,7 +247,7 @@
 											function() {
 												//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
 
-												var a = '<div class="col-md-12 comments" id="comment_box" style="border: 1px solid red; margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+												var a = '<div class="col-md-12 comments box_comment" id="comment_box" style="margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
 												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
 												var c = '<div class="col-md-12 col-xs-12">'
 														+ $("#comment").val()
