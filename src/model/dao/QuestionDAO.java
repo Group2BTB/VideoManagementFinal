@@ -51,7 +51,7 @@ public class QuestionDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, create_date, "
-						+ "status, correct)values(?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
+						+ "status)values(?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
 								
 			stm.setString(1, qt.getDescription().trim());
 
@@ -59,7 +59,7 @@ public class QuestionDAO {
 			stm.setLong(2, qt.getVideoID());			
 			stm.setDate(3, wwd.getSqlDate(new Date()));
 			stm.setInt(4, qt.getStatus());
-			stm.setInt(5, qt.getCorrect());
+			
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;
 			
