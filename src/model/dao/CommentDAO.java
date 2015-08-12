@@ -121,4 +121,57 @@ public class CommentDAO {
 			return false;
 		}
 	}
+	public boolean upView(long id){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("update tb_comment set view = 1  where comment_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	public int countComment() {
+		try(Connection con = new DBConnection().getConnection();
+				Statement stm = con.createStatement()){
+			
+			rs = stm.executeQuery("select count(*) from tb_comment where view=0;"); //execute the statement and assign to Resultset object
+			while(rs.next())
+				return rs.getInt(1);
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return 0;
+		}
+		return 0;
+		
+	}
+
+	public boolean deletComment(int id) {
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("delete from tb_comment where comment_id=?")){
+			
+			stm.setLong(1, id);
+			
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
 }

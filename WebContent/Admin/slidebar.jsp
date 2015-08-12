@@ -49,7 +49,7 @@
 						</ul>
 					</li>
 					<li>
-						<a href="comment.jsp"><i class="glyphicon glyphicon-comment"></i><span class="title">Manage Comment</span><span class="badge badge-secondary">8</span></a>
+						<a href="comment.jsp"><i class="glyphicon glyphicon-comment"></i><span class="title">Manage Comment</span><span id="couCom" class="badge badge-secondary">8</span></a>
 						
 					</li>
 					<li><a href="#"><i class="glyphicon glyphicon-duplicate"></i><span class="title">Report</span></a>
@@ -58,3 +58,25 @@
 				</ul>
 			</div>
 		</div>
+		<script>
+			function countCommentNotView() {	
+				$.ajax({
+					url : '../countComment',
+					type : 'POST',
+					async : false,
+					cache : false,
+					contentType : false,
+					processData : false,
+					success : function(data) {
+						
+						$("#couCom").text(data+"");
+					},
+					error : function() {
+						//swal("Error!", "Cannot add new student!", "error");
+					}
+				});
+			}
+			countCommentNotView();
+		</script>
+		
+		

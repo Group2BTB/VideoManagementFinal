@@ -15,12 +15,12 @@ import model.dao.CommentDAO;
  * Servlet implementation class listCategory
  */
 
-public class listComment extends HttpServlet {
+public class deleteComment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public listComment() {
+    public deleteComment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,16 +40,13 @@ public class listComment extends HttpServlet {
 	}
 	
 	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		
-		System.out.println("List Comment");
-		
-		
+	public void doProcess(HttpServletRequest request, HttpServletResponse response){		
+		System.out.println("update Comment");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		try {
-			System.out.println(new CommentDAO().getAllComment());
-			response.getWriter().print(new CommentDAO().getAllComment());// response data to view as json
+			System.out.println("Delete ");
+			response.getWriter().print(new CommentDAO().deletComment(Integer.parseInt(request.getParameter("id"))));// response data to view as json
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

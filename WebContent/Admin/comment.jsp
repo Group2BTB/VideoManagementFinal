@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="myApp" ng-controller="deptcontroller">
+<html ng-app="myApp" ng-controller="commmentcontroller">
 
 <head>
 
@@ -93,26 +93,35 @@
 				</div>
 	
 				<!-- Table -->
-				<table class="table table-bordered table-hover" ng-show="filteredItems > 0">
+				<table class="table table-bordered" ng-show="filteredItems > 0">
 					<tr class="active" style="cursor:pointer;">
-						<th class="center">No&nbsp;<a ng-click="sort_by('department_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
-        				<th class="center">Comment&nbsp;<a ng-click="sort_by('department_name');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
+						<th class="center">No&nbsp;<a ng-click="sort_by('comment_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        				<th class="center">Comment&nbsp;<a ng-click="sort_by('description');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
         	        	<th class="center">Comment By&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
-					<tr ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+					<tr ng-click="updateView(d.comment_id)" ng-show="!d.view" class="active" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 						<td class="center">{{($index+1)}}</td>
-						<td>{{d.department_name}}</td>						
+						<td>{{d.description}}</td>						
 						<td class="center">
-							<span ng-show="d.status" class="label label-success">{{d.status1}}</span>
-							<span ng-show="!d.status" class="label label-warning">{{d.status1}}</span>
+							{{d.username}}
 						</td>	
 						<td class="center">
-							<button type='button' class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
-							<button type='button'  ng-click="editUser(d.department_id)" class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>														
+							<button type='button' ng-click="viewComment(d.comment_id)" class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
+							<button type='button'  ng-click="editUser(d.comment_id)" class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>														
 						</td>
 					</tr>
-					
+					<tr ng-show="d.view" class="" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+						<td class="center">{{($index+1)}}</td>
+						<td>{{d.description}}</td>						
+						<td class="center">
+							{{d.username}}
+						</td>	
+						<td class="center">
+							<button type='button' ng-click="viewComment(d.comment_id)" class='btn btn-info icon_margin_top'><span class='glyphicon glyphicon-eye-open'></span></button>
+							<button type='button'  ng-click="deleteComment(d.comment_id)" class='btn btn-danger icon_margin_top'><span class='glyphicon glyphicon-remove'></span></button>														
+						</td>
+					</tr>
 								
 					<tr class="active">
 						
@@ -243,21 +252,7 @@
 	<script src="js/select2.min.js"></script> 
 	<script src="js/data/comment.js"></script>
 	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
-	<script>
-		$(function(){
-			$('select #limitEntry:first-child').remove();
-		});
-		
-		function setSelectedValue(selectObj, valueToSet) {
-			alert(1);
-			for (var i = 0; i < selectObj.options.length; i++) {
-				if (selectObj.options[i].text == valueToSet) {
-					selectObj.options[i].selected = true;
-					return;
-				}
-			}
-		}
-	</script>
+	
 </body>
 
 </html>

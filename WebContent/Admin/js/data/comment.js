@@ -84,8 +84,8 @@ app.filter('namefilter', function() {
 
 	};
 });
-app.controller('deptcontroller', function($scope, $http, $timeout) {
-	$http.get('../listdept').success(function(data) {
+app.controller('commmentcontroller', function($scope, $http, $timeout) {
+	$http.get('../listComment').success(function(data) {
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 12; // max no of items to display in a page
@@ -95,9 +95,10 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 		$scope.error = false;
 		$scope.incomplete = false;
 		$scope.editid = 0;
+		countCommentNotView();
 	});
 	$scope.loadData = function() {
-		$http.get('../listdept').success(function(data) {
+		$http.get('../listComment').success(function(data) {
 			$scope.list = data;
 			$scope.currentPage = 1; // current page
 			$scope.entryLimit = 12; // max no of items to display in a page
@@ -108,6 +109,9 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 			$scope.error = false;
 			$scope.incomplete = false;
 			$scope.editid = 0;
+			
+			
+			countCommentNotView();
 		});
 	};
 	$scope.setPage = function(pageNo) {
@@ -180,14 +184,29 @@ app.controller('deptcontroller', function($scope, $http, $timeout) {
 
 		}
 	};
-	$scope.updateStatus = function(e) {
+	
+	$scope.updateView = function(e) {
 		var data = {
 			'id' : e
 		};
-		$.post("../updatestatus", data).success(function(data, status, headers) {
-			if (data == "Success") {
+		$.post("../updateViewComment", data).success(function(data, status, headers) {
+			
+			if (data == true) {
 				$scope.loadData();
 			}
 		});
 	};
+	$scope.deleteComment = function(e) {
+		var data = {
+			'id' : e
+		};
+		$.post("../deleteComment", data).success(function(data, status, headers) {			
+			alert(data);
+			if (data == true) {				
+				$scope.loadData();
+				
+			}
+		});
+	};
+	
 });

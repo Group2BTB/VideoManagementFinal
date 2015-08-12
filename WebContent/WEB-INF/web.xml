@@ -4,6 +4,43 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>listComment</servlet-name>
+    <servlet-class>controller.comment.listComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>listComment</servlet-name>
+    <url-pattern>/listComment</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>deleteComment</servlet-name>
+    <servlet-class>controller.comment.deleteComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteComment</servlet-name>
+    <url-pattern>/deleteComment</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>countComment</servlet-name>
+    <servlet-class>controller.comment.countComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>countComment</servlet-name>
+    <url-pattern>/countComment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>updateViewComment</servlet-name>
+    <servlet-class>controller.comment.updateViewComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateViewComment</servlet-name>
+    <url-pattern>/updateViewComment</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
   <servlet>
     <servlet-name>listQuestion</servlet-name>
     <servlet-class>controller.question.listQuestion</servlet-class>
