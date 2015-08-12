@@ -11,7 +11,7 @@
 	<a title="Home " class=" level1 first  item-link" href="index.jsp"><span class="menu-title">Home </span></a>	
 	</li>
 <li class="level1 havechild ">
-	<a title="Elearning" class="level1 havechild  item-link" href="#">
+	<a title="Elearning" class="level1 havechild  item-link" href="ELearning/Dashboard/Category.jsp">
         <span class="menu-title">Elearning </span>
     </a>	
 </li>
