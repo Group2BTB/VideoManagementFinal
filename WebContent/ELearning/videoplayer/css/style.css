@@ -1,12 +1,50 @@
-.bg_black{background-color:#6D6968; height:500px;}
-.color_white{color:#fff;}
-.color_black{color: #000;}
-.color_red{color:red;}
-.color_green{color:green;}
-.pointers{cursor:pointer}
-.base_color{background-color: #0C959A !important; color:#fff !important;}
-.color_green{color:green;}
-.color_red{color:red;}
+.bg_black {
+	background-color: #6D6968;
+	height: 500px;
+}
+
+.color_white {
+	color: #fff;
+}
+
+.color_black {
+	color: #000;
+}
+
+.color_red {
+	color: red;
+}
+
+.color_green {
+	color: green;
+}
+
+.pointers {
+	cursor: pointer
+}
+
+.base_color {
+	background-color: #0C959A !important;
+	color: #fff !important;
+}
+
+.color_green {
+	color: green;
+}
+
+.color_red {
+	color: red;
+}
+
+.box_comment {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #E5E4E2;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
 /**scrollbar**/
 .scrollbar {
 	float: left;
@@ -14,6 +52,7 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
 .vjs-default-skin .vjs-big-play-button {
 	left: 8.5em;
 	top: 3.5em;
@@ -21,7 +60,6 @@
 /*
  *  STYLE 1
  */
- 
 #playlist_show::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
@@ -220,7 +258,7 @@ TABLET < 767px
 	body {
 		font-size: 12px;
 	}
-	h3, h4 {
+	h3,h4 {
 		font-size: 14px;
 	}
 }
