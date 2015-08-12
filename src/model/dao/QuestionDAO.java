@@ -51,13 +51,14 @@ public class QuestionDAO {
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement("insert into \"tb_questions\"(description, video_id, answer_id, create_date, "
-						+ "status)values(?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
+						+ "status, correct)values(?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS)){
 								
 			stm.setString(1, qt.getDescription().trim());
 			stm.setLong(2, qt.getVideoID());
 			stm.setLong(3, qt.getAnswer_id());
 			stm.setDate(4, wwd.getSqlDate(new Date()));
-			stm.setInt(5, qt.getStatus());			
+			stm.setInt(5, qt.getStatus());
+			stm.setInt(6, qt.getCorrect());
 			
 			if(stm.executeUpdate() == 0) //execute the statement and compare
 				return false;
