@@ -84,6 +84,5 @@ public class Question {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
-	
+		
 }
