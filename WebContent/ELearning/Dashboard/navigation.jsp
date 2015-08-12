@@ -28,15 +28,15 @@
 
 
 <!-- videoplayer script and style -->
-<link rel="stylesheet" href="libs/video-js/video-js.css">
-<link rel="stylesheet" href="src/videojs.logobrand.css">
-<script src="libs/video-js/video.js"></script>
-<script src="youtube.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="../videoplayer/libs/video-js/video-js.css">
+<link rel="stylesheet" href="../videoplayer/src/videojs.logobrand.css">
+<script src="../videoplayer/libs/video-js/video.js"></script>
+<script src="../videoplayer/youtube.js"></script>
+<link href="../videoplayer/css/bootstrap.min.css" rel="stylesheet">
+<link href="../videoplayer/css/style.css" rel="stylesheet">
 <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
-<script src="build/jquery.js"></script>
-<script src="build/mediaelement-and-player.min.js"></script>
+<script src="../videoplayer/build/jquery.js"></script>
+<script src="../videoplayer/build/mediaelement-and-player.min.js"></script>
 
 <style>
 .owl-demo .item {
@@ -136,11 +136,8 @@
 						<!--breadcrumbs end -->
 					</div>
 				</div>
-				
-				
 				<!-- Include other page here -->
-				<jsp:include page="../videoplayer/test.jsp"></jsp:include>
-				
+				<jsp:include page="../videoplayer/test.jsp"></jsp:include>				
 				<!-- Right Slidebar start -->
 				<div class="sb-slidebar sb-right sb-style-overlay">
 					<h5 class="side-title">Messages</h5>
@@ -261,5 +258,8 @@
 			}
 		}
 	</script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 </html>
