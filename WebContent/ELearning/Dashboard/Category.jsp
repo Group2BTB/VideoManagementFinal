@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="java.nio.channels.SeekableByteChannel"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -78,8 +79,7 @@
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="img/avatar1_small.jpg"> <span class="username">Sophath
-								Chan</span> <b class="caret"></b>
+							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span> <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
