@@ -137,7 +137,7 @@
 					</div>
 				</div>
 				<!-- Include other page here -->
-				<jsp:include page="../videoplayer/test.jsp"></jsp:include>				
+				<jsp:include page="../videoplayer/index.jsp"></jsp:include>				
 				<!-- Right Slidebar start -->
 				<div class="sb-slidebar sb-right sb-style-overlay">
 					<h5 class="side-title">Messages</h5>
