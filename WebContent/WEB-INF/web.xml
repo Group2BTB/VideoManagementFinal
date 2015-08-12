@@ -264,14 +264,20 @@
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
   </servlet>
-  <!-- <servlet>
-    <servlet-name>adminLogin</servlet-name>
-    <servlet-class>controller.userLogin.UserLogin</servlet-class>
+  
+  <servlet>
+    <servlet-name>userLogout</servlet-name>
+    <servlet-class>controller.userLogin.userLogout</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>adminLogin</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping> -->
+    <servlet-name>userLogout</servlet-name>
+    <url-pattern>/Admin/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>userRegister</servlet-name>
+    <servlet-class>controller.user.AddUser</servlet-class>
+  </servlet>
+  
   <servlet>
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
