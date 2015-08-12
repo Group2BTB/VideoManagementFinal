@@ -33,11 +33,12 @@ public class AnswerDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("insert into tb_answer(description, question_id) values(?,?)");){
+				PreparedStatement stm = con.prepareStatement("insert into tb_answer(description, question_id,status) values(?,?,?)");){
 									
 			/*To set data to preparedStatement from video's data*/
 			stm.setString(1, an.getDescription());
 			stm.setLong(2, an.getQuestion_id());
+			stm.setInt(3, an.getStatus());
 			
 			if(stm.executeUpdate()==0) //execute the statement and compare
 				return false;
