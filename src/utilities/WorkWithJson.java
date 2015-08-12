@@ -243,7 +243,7 @@ public class WorkWithJson {
 					Question qust = new Question();
 					qust.setDescription(rs.getString("answer"));
 					qust.setVideoID(rs.getLong("video_id"));
-					qust.setAnswer_id(rs.getLong("answer_id"));
+					qust.setStatus((rs.getInt("status")));
 					//qust.setAnswer(rs.getString("answer"));							
 					
 					//System.out.println(ca.getName());
@@ -262,7 +262,7 @@ public class WorkWithJson {
 					i++;
 					qust.setDescription(rs.getString("answer"));
 					qust.setVideoID(rs.getLong("video_id"));
-					qust.setAnswer_id(rs.getLong("answer_id"));
+					qust.setStatus((rs.getInt("status")));
 //					qust.setAnswer(rs.getString("answer"));				
 					
 					//System.out.println(ca.getName() + " me!");
@@ -283,10 +283,11 @@ public class WorkWithJson {
 		}
 	}
 	
-//	public static String convertRecommendVideo(ResultSet rs){
-//		
-//	}
-	
+
+	//public static String convertCommentToJson(){
+		
+		
+	//}
 	public static void main(String[] args) {
 		
 		
