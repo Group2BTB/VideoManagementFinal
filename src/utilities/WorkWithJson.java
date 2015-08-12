@@ -229,7 +229,7 @@ public class WorkWithJson {
 			while(rs.next()){
 					
 				sup = rs.getString("question").trim();
-				System.out.println(sup);
+				//System.out.println(sup);
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
 					
