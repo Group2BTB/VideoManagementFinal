@@ -6,8 +6,7 @@ public class Question {
 	
 	private long id;
 	private String description;
-	private long videoID;
-	private long answer_id;
+	private long videoID;	
 	private Date create_date;
 	private int status;	
 	private String answer;
@@ -17,13 +16,12 @@ public class Question {
 		
 	}
 
-	public Question(long id, String description, long videoID, long answer_id,
+	public Question(long id, String description, long videoID,
 			Date create_date, int status, int correct) {
 		super();
 		this.id = id;
 		this.description = description;
-		this.videoID = videoID;
-		this.answer_id = answer_id;
+		this.videoID = videoID;		
 		this.create_date = create_date;
 		this.status = status;
 		this.correct = correct;
@@ -69,14 +67,6 @@ public class Question {
 
 	public void setVideoID(long videoID) {
 		this.videoID = videoID;
-	}
-
-	public long getAnswer_id() {
-		return answer_id;
-	}
-
-	public void setAnswer_id(long answer_id) {
-		this.answer_id = answer_id;
 	}
 
 	public Date getCreate_date() {
