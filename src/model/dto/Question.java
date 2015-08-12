@@ -11,13 +11,14 @@ public class Question {
 	private Date create_date;
 	private int status;	
 	private String answer;
+	private int correct;
 	
 	public Question(){
 		
 	}
 
 	public Question(long id, String description, long videoID, long answer_id,
-			Date create_date, int status) {
+			Date create_date, int status, int correct) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -25,9 +26,19 @@ public class Question {
 		this.answer_id = answer_id;
 		this.create_date = create_date;
 		this.status = status;
+		this.correct = correct;
+		
 	}
 
 	
+	public int getCorrect() {
+		return correct;
+	}
+
+	public void setCorrect(int correct) {
+		this.correct = correct;
+	}
+
 	public String getAnswer() {
 		return answer;
 	}
