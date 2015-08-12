@@ -11,7 +11,8 @@ public class Comment {
 	private long unlike;
 	private long parent_id;
 	private long userID;
-	private long videoID;
+	private long videoID;	
+	private int view;
 	
 	
 	public Comment(){
@@ -29,7 +30,18 @@ public class Comment {
 		this.unlike = unlike;
 		this.parent_id = parent_id;
 		this.userID = userID;
-		this.videoID = videoID;
+		this.videoID = videoID;		
+	}
+
+	
+	
+	public int getView() {
+		return view;
+	}
+
+
+	public void setView(int view) {
+		this.view = view;
 	}
 
 
