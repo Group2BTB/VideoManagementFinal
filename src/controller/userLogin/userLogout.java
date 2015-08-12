@@ -43,6 +43,7 @@ public class userLogout extends HttpServlet {
 		session.setAttribute("username", null);
 		session.invalidate();
 		try {
+			System.out.println("Logout!");
 			response.getWriter().print("Logout successfully!");
 			response.sendRedirect("/VideoManagementFinal/login.jsp");
 		} catch (IOException e) {
