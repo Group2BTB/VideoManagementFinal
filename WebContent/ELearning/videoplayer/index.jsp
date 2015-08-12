@@ -117,7 +117,7 @@
 										<div class="well">
 											<b>Public on June 13, 2015</b> <br /> Learn four methods for
 											passing values from one page to another. You'll work with
-											Session...PreviousPage...QueryString...aÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­nd
+											Session...PreviousPage...QueryString...
 											the Profile Object. For more tips and tutorials, visit
 											www.detacheddesigns.com/blog
 										</div>
@@ -149,10 +149,7 @@
 											<div class="col-md-12 col-xs-12" style="padding-top: 10px;">I
 												really like this website.
 												</div>
-										</div>
-
-
-									</div>
+										</div>									</div>
 								</div>
 							</div>
 							<!------End of Comment------>
@@ -164,37 +161,29 @@
 						<div class="tabbable" id="tabs-161102">
 							<div>
 								<ul class="nav nav-tabs" >
-									<li class="active"><a href="#panel-590992"
-										data-toggle="tab">Playlist</a></li>
-									<li><a href="#panel-560832" data-toggle="tab">Quiz</a></li>
+									<li class="active"><a class="color_white" href="#panel-590992"
+										data-toggle="tab" >Playlist</a></li>
+									<li><a href="#panel-560832" data-toggle="tab" class="color_white">Quiz</a></li>
 								</ul>
 							</div>
 							<div class="tab-content color_white">
 								<div class="tab-pane active" id="panel-590992">
-									<p>These are playlists</p>
-									<div>
-										<a><img src="images/software-java-icon.png" width="60" /></a>
-										<a class="color_white">1. Java Envirement</a>
-									</div>
-									<div>
-										<a><img src="images/Android-Store-icon.png" width="60" /></a>
-										<a>2. Android Applicatoin</a>
-									</div>
-									<div>
-										<a><img src="images/Clouds_Servers-18-128.png" width="60" /></a>
-										<a>3. Clouds Servers</a>
-									</div>
-									<div>
-										<a><img src="images/Mimetype-source-java-icon.png"
-											width="60" /></a> <a>4. Android Applicatoin</a>
-									</div>
 									
+									<div>
+									
+									<a href="">	<img src="images/software-java-icon.png" width="60"  id="playlsits_shows" /><span class="color_white" style="padding-left:20px;">asdfsad</span></a>
+										
+										
+									</div>
 
 								</div>
 								<!-- Questions in Playlist -->
 								<div class="tab-pane" id="panel-560832">
-									<div id="question"></div>
+									<div id="question">
+									</div>
 									<div id="answer">
+									<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
+									<button class="btn btn-success" id="btnnext" onclick="doNext()">NEXT</button>
 										
 									</div>
 									
@@ -314,6 +303,13 @@
 	
 	
 	<script>
+		
+		var answerCorrect = [];
+		var question = [];
+		var answer = [];
+		var nextAnswer = 0;
+		var answerStatus = false;
+		var childQuestion = [];		
 		function viewQuestionAnswer(){
 			var str = "";
 			$.ajax({
@@ -324,18 +320,54 @@
 					video_id : 7
 					},
 				success : function(data) {
+					var ind = 1;
+					var indexAnswer = 0;
+					
 					for ( var i in data) {
-						str += '<p>'+i+'</p>';
+						
+						childQuestion[indexAnswer] = '<p>'+i+'</p>';
 						//alert(i);
 						for(var j in data[i]){
-							str +='<input type="radio" name="answer" value="1"><span class="answer">'+ data[i][j].description+'</span><br/>';
+							childQuestion[indexAnswer]+='<input type="radio" onclick="checkAnswer(' + ind + ')" name="answer" value="1"><span class="answer">'+ data[i][j].description+'</span><br/>';
+								ind++;	
 							}
+						ind=0;			
+						question[indexAnswer] = i;
+						
+						answerCorrect[indexAnswer] = data[i][0].answer_id;
+						indexAnswer++;
 					}		
-					$("#question").html(str);		
+					$("#question").html(childQuestion[0]);		
 				}
 			});
 			
 		}
+		
+		function checkAnswer(correct){
+						
+			if(correct == answerCorrect[nextAnswer])
+				answerStatus = true;
+			else				
+				answerStatus = false;
+		}
+		
+		function doOk(){
+			
+			if(answerStatus == true){				
+				alert(true);
+				
+			}else{
+				alert(false);
+			}
+			
+		}
+		
+		function doNext(){	
+			
+			nextAnswer++;
+		}
+		
+		
 		
 		function getAllVideo(){
 			$.ajax({
@@ -343,15 +375,20 @@
 				method: "POST",
 				dataType: "JSON",
 				success: function(data){
-					alert(data);
+					for(var i in data){
+						
+						
+					}
 				}
-			});
+			}); 
 		}
+		
 		$(document).ready(function(){
 			getAllVideo();
 			viewQuestionAnswer();
 		});
 	</script>
+		
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
