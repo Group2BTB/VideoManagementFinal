@@ -49,14 +49,6 @@ public class PlayVideo extends HttpServlet {
 		HttpSession session = request.getSession();
 		Video url = new VideoDAO().getVideo(video_id);
 		session.setAttribute("url", url);
-		System.out.println(video_id);
-		/*String obj  = new Gson().toJson(url);
-		try {
-			response.getWriter().write(obj);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};*/
 		try {
 			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
 		} catch (IOException e) {
