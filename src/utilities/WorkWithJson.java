@@ -3,11 +3,12 @@ package utilities;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
+import java.util.TreeMap;
 
 import model.dto.Category;
+import model.dto.Comment;
 import model.dto.Question;
-import model.dto.Video;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -217,18 +218,19 @@ public class WorkWithJson {
 		
 		try
 		{						
-			HashMap<String, ArrayList<Question>> obj = new HashMap<String, ArrayList<Question>>(); 
+			TreeMap<String, ArrayList<Question>> obj = new TreeMap<String, ArrayList<Question>>(); 
 			
 			
 			String sup = "";
 			String temp = "";
 			int i = 0;
-					
+			int j=10;
 			ArrayList<Question> suparr = new ArrayList<Question>();
 						
 			while(rs.next()){
 					
 				sup = rs.getString("question").trim();
+
 				//System.out.println(sup);
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
@@ -241,6 +243,7 @@ public class WorkWithJson {
 					suparr = new ArrayList<Question>();
 					
 					Question qust = new Question();
+					qust.setId(j++);
 					qust.setDescription(rs.getString("answer"));
 					qust.setVideoID(rs.getLong("video_id"));
 					qust.setStatus((rs.getInt("status")));
@@ -260,6 +263,7 @@ public class WorkWithJson {
 					
 					temp = sup;
 					i++;
+					qust.setId(j++);
 					qust.setDescription(rs.getString("answer"));
 					qust.setVideoID(rs.getLong("video_id"));
 					qust.setStatus((rs.getInt("status")));
@@ -284,10 +288,102 @@ public class WorkWithJson {
 	}
 	
 
-	//public static String convertCommentToJson(){
+	public static String convertCommentToJson(ResultSet rs){
 		
-		
-	//}
+		try
+		{						
+			HashMap<String, ArrayList<Comment>> obj = new HashMap<String, ArrayList<Comment>>(); 
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+			
+			
+			ArrayList<Comment> suparr = new ArrayList<Comment>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("comment_id").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<Comment> suptmp = new ArrayList<Comment>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<Comment>();
+										
+					Comment cm = new Comment();					
+					
+					cm.setDescription(rs.getString("super"));
+					cm.setCreate_date(rs.getDate("create_date"));
+					cm.setLike(rs.getLong("like"));
+					cm.setUnlike(rs.getLong("unlike"));
+					cm.setUserID(rs.getLong("user_id"));
+					cm.setVideoID(rs.getLong("video_id"));
+					cm.setView(rs.getInt("view"));
+					
+					cm.setId1(rs.getLong("id1"));
+					cm.setDescription1(rs.getString("child"));
+					cm.setCreate_date1(rs.getDate("create_date1"));
+					cm.setLike1(rs.getLong("like1"));
+					cm.setUnlike1(rs.getLong("unlike1"));
+					cm.setUserID1(rs.getLong("user_id1"));
+					cm.setVideoID1(rs.getLong("video_id1"));
+					cm.setView1(rs.getInt("view1"));
+										
+					suparr.add(cm);
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
+													
+				}
+				
+				else{
+										
+					Comment cm = new Comment();					
+					
+					temp = sup;
+					i++;
+					
+					cm.setDescription(rs.getString("super"));
+					cm.setCreate_date(rs.getDate("create_date"));
+					cm.setLike(rs.getLong("like"));
+					cm.setUnlike(rs.getLong("unlike"));
+					cm.setUserID(rs.getLong("user_id"));
+					cm.setVideoID(rs.getLong("video_id"));
+					cm.setView(rs.getInt("view"));
+					
+					cm.setId1(rs.getLong("id1"));
+					cm.setDescription1(rs.getString("child"));
+					cm.setCreate_date1(rs.getDate("create_date1"));
+					cm.setLike1(rs.getLong("like1"));
+					cm.setUnlike1(rs.getLong("unlike1"));
+					cm.setUserID1(rs.getLong("user_id1"));
+					cm.setVideoID1(rs.getLong("video_id1"));
+					cm.setView1(rs.getInt("view1"));				
+					
+//					System.out.println(ca.getName() + " me!");
+					suparr.add(cm);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);				
+					
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
 		
