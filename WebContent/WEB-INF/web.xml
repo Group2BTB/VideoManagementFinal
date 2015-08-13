@@ -223,6 +223,16 @@
     <servlet-name>updateVideo</servlet-name>
     <url-pattern>/updateVideo</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>videoPlayList</servlet-name>
+    <servlet-class>controller.video.VideoPlaylist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>videoPlayList</servlet-name>
+    <url-pattern>/videoPlayList</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>updateStatusVideo</servlet-name>
     <servlet-class>controller.video.statusVideo</servlet-class>
@@ -231,6 +241,16 @@
     <servlet-name>updateStatusVideo</servlet-name>
     <url-pattern>/updateStatusVideo</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>updateStatusPlaylist</servlet-name>
+    <servlet-class>controller.playlist.statusPlaylist</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateStatusPlaylist</servlet-name>
+    <url-pattern>/updateStatusPlaylist</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>listPlaylist</servlet-name>
     <servlet-class>controller.playlist.listPlaylist</servlet-class>
@@ -238,6 +258,10 @@
   <servlet-mapping>
     <servlet-name>listPlaylist</servlet-name>
     <url-pattern>/ELearning/videoplayer/listPlaylist</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>listPlaylist</servlet-name>
+    <url-pattern>/listPlaylist</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>getPlayList</servlet-name>
