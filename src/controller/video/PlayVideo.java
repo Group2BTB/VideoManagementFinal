@@ -56,6 +56,12 @@ public class PlayVideo extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		};*/
+		try {
+			response.sendRedirect("VideoManagementFinal/ELeaning/Dashboard/player.jsp");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
