@@ -41,8 +41,12 @@ public class Authentication implements Filter {
 		if(session.getAttribute("user")== null){
 			((HttpServletResponse)response).sendRedirect("/VideoManagementFinal/login.jsp");
 		}else{
-			// pass the request along the filter chain
-			chain.doFilter(request, response);
+			if(session.getAttribute("role").equals("admin")){
+				chain.doFilter(request, response);
+			}else{
+				((HttpServletResponse)response).sendRedirect("/VideoManagementFinal/login.jsp");
+			}
+			
 		}
 	}
 
