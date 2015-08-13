@@ -13,6 +13,14 @@ public class PlayList {
 	private int status;
 	private int approved=1;
 	
+	private long video_id;
+	private String video_name;	
+	private String description1;
+	private String youtube_url;
+	private String doc_url;
+	private Date create_date1;
+	
+	
 	public PlayList(){
 		
 	}
@@ -28,6 +36,56 @@ public class PlayList {
 		this.modifier_date = modifier_date;
 		this.status = status;
 		this.approved = approved;
+	}
+	
+	
+
+	public long getVideo_id() {
+		return video_id;
+	}
+
+	public void setVideo_id(long video_id) {
+		this.video_id = video_id;
+	}
+
+	public String getVideo_name() {
+		return video_name;
+	}
+
+	public void setVideo_name(String video_name) {
+		this.video_name = video_name;
+	}
+
+	public String getDescription1() {
+		return description1;
+	}
+
+	public void setDescription1(String description1) {
+		this.description1 = description1;
+	}
+
+	public String getYoutube_url() {
+		return youtube_url;
+	}
+
+	public void setYoutube_url(String youtube_url) {
+		this.youtube_url = youtube_url;
+	}
+
+	public String getDoc_url() {
+		return doc_url;
+	}
+
+	public void setDoc_url(String doc_url) {
+		this.doc_url = doc_url;
+	}
+
+	public Date getCreate_date1() {
+		return create_date1;
+	}
+
+	public void setCreate_date1(Date create_date1) {
+		this.create_date1 = create_date1;
 	}
 
 	public long getId() {
