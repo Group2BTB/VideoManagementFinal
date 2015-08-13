@@ -233,7 +233,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>getPlayList</servlet-name>
-    <url-pattern>/ELearning/videoplayer/getPlayList</url-pattern>
+    <url-pattern>/ELearning/Dashboard/getPlayList</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>getRecVideo</servlet-name>
@@ -242,6 +242,14 @@
   <servlet-mapping>
     <servlet-name>getRecVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/getRecVideo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>playVideo</servlet-name>
+    <servlet-class>controller.video.PlayVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>playVideo</servlet-name>
+    <url-pattern>/ELearning/videoplayer/playervideo</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>getPopVideo</servlet-name>
