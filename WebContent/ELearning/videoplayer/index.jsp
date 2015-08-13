@@ -353,7 +353,7 @@
 	
 		function getVideoPlaylist(){
 			$.ajax({
-				url : "listPlaylist",
+				url : "getPlayList",
 				method : "POST",
 				dataType : "JSON",
 				success : function(data) {
