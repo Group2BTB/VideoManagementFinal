@@ -103,4 +103,29 @@ public class PlayListDAO {
 			return null;
 		}
 	}
+	
+	public String getVideoPlaylist(long playlistId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from \"vPlaylist\" where playlist_id=?");){
+						
+			stm.setLong(1, playlistId);
+			
+			rs = stm.executeQuery();			
+			
+			return WorkWithJson.convertPlaylistToJson(rs);
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		System.out.println(new PlayListDAO().getVideoPlaylist(4));
+	}
 }
