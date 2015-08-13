@@ -57,7 +57,7 @@ public class UserLogin extends HttpServlet {
 					response.sendRedirect("/VideoManagementFinal/Admin/index.jsp");
 				}else{
 					session.setAttribute("userID", user.getId());
-					response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/Category.jsp");
+					response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
