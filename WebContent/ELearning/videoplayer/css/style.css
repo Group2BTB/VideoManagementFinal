@@ -1,3 +1,4 @@
+
 .bg_black {
 	background-color: #6D6968;
 	height: 500px;
@@ -43,8 +44,13 @@
 	background-color: #E5E4E2;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 5px; 
 }
+
+.bg_playlist:hover{background-color:#7A7A78;-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px; }
+
 /**scrollbar**/
 .scrollbar {
 	float: left;
