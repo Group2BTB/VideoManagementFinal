@@ -252,6 +252,14 @@
     <url-pattern>/ELearning/Dashboard/getPopVideo</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>getVideo</servlet-name>
+    <servlet-class>controller.video.PlayVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getVideo</servlet-name>
+    <url-pattern>/ELearning/videoplayer/v</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>addPlaylist</servlet-name>
     <servlet-class>controller.playlist.addPlaylist</servlet-class>
   </servlet>
