@@ -3,11 +3,11 @@ package utilities;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import java.util.TreeMap;
 
 import model.dto.Category;
 import model.dto.Comment;
+import model.dto.PlayList;
 import model.dto.Question;
 
 import com.google.gson.Gson;
@@ -384,6 +384,84 @@ public class WorkWithJson {
 		}
 	}
 	
+	public static String convertPlaylistToJson(ResultSet rs){
+		
+		try
+		{						
+			HashMap<String, ArrayList<PlayList>> obj = new HashMap<String, ArrayList<PlayList>>(); 
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+			
+			
+			ArrayList<PlayList> suparr = new ArrayList<PlayList>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("playlist_id").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<PlayList> suptmp = new ArrayList<PlayList>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<PlayList>();
+									
+					PlayList pl = new PlayList();
+					
+					pl.setName(rs.getString("playlist_name"));
+					pl.setDescription(rs.getString("description"));
+					pl.setVideo_id(rs.getLong("video_id"));
+					pl.setVideo_name(rs.getString("video_name"));
+					pl.setDescription1(rs.getString("description1"));
+					pl.setYoutube_url(rs.getString("youtube_url"));
+					pl.setDoc_url(rs.getString("document_url"));
+					pl.setCreate_date1(rs.getDate("create_date"));
+														
+					suparr.add(pl);
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);
+													
+				}
+				
+				else{
+										
+					PlayList pl = new PlayList();					
+					
+					temp = sup;
+					i++;
+					
+					pl.setName(rs.getString("playlist_name"));
+					pl.setDescription(rs.getString("description"));
+					pl.setVideo_id(rs.getLong("video_id"));
+					pl.setVideo_name(rs.getString("video_name"));
+					pl.setDescription1(rs.getString("description1"));
+					pl.setYoutube_url(rs.getString("youtube_url"));
+					pl.setDoc_url(rs.getString("document_url"));
+					pl.setCreate_date1(rs.getDate("create_date"));				
+					
+//					System.out.println(ca.getName() + " me!");
+					suparr.add(pl);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);							
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
 	public static void main(String[] args) {
 		
 		
