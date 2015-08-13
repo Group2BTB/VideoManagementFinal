@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import model.dao.VideoDAO;
 import model.dto.Video;
 
@@ -45,8 +47,15 @@ public class PlayVideo extends HttpServlet {
 		long video_id = Integer.parseInt(request.getParameter("v"));
 		System.out.println(video_id);
 		HttpSession session = request.getSession();
-		String url = new VideoDAO().getVideo(video_id).getUrl();
-		session.setAttribute("url", url);
+		Video url = new VideoDAO().getVideo(video_id);
+		session.setAttribute("url", url.getUrl());
+		/*String obj  = new Gson().toJson(url);
+		try {
+			response.getWriter().write(obj);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};*/
 	}
 
 }
