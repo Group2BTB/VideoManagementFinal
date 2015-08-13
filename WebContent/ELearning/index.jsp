@@ -20,7 +20,7 @@
 <!--right slidebar-->
 <link href="Dashboard/css/slidebars.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="Dashboard/css/style.css" rel="stylesheet">
+<link href="templates/css/style.css" rel="stylesheet">
 <link href="Dashboard/css/style-responsive.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="Dashboard/css/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="Dashboard/css/owl.theme.css" />
@@ -87,8 +87,7 @@
 							<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
 							<li><a href="#"><i class="fa fa-bell-o"></i>
 									Notification</a></li>
-							<li><a href="login.html"><i class="fa fa-key"></i> Log
-									Out</a></li>
+							<li><a href="logout"><i class="fa fa-key"></i> Log Out</a></li>
 						</ul></li>
 					<!-- user login dropdown end -->
 					<li class="sb-toggle-right"><i class="fa  fa-align-right"></i>

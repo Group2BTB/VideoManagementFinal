@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
 <title>Login|Admin</title>
-<link rel="stylesheet" href="Dashboard/css/bootstrap.min.css">
+<link rel="stylesheet" href="templates/css/bootstrap.min.css">
 
-<script type="text/javascript" src="Dashboard/js/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="Dashboard/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="templates/js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="templates/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- Start container -->
