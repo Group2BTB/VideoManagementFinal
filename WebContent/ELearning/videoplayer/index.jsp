@@ -296,7 +296,6 @@
 					var str = "";
 					for ( var i in data) {
 						str += i;
-						alert(i)
 					}
 				}
 			});
@@ -346,13 +345,27 @@
 				dataType : "JSON",
 				success : function(data) {
 					for ( var i in data) {
-
+						//alert(data[i].youtube_url);
 					}
 				}
 			});
 		}
+	
+		function getVideoPlaylist(){
+			$.ajax({
+				url : "listPlaylist",
+				method : "POST",
+				dataType : "JSON",
+				success : function(data) {
+					for ( var i in data) {
+						alert(data[i].playlist_name);
+					}
+				}
+			});
+		}	
 
 		$(document).ready(function() {
+			getVideoPlaylist();
 			getAllVideo();
 			viewQuestionAnswer();
 		});
