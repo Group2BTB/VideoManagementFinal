@@ -1,11 +1,15 @@
 package controller.comment;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.CommentDAO;
+import model.dto.Comment;
 
 /**
  * Servlet implementation class AddComment
@@ -36,7 +40,17 @@ public class AddComment extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		Comment cmt = new Comment();
+		cmt.setDescription(request.getParameter("comment"));
+		cmt.setUserID(Integer.parseInt(request.getParameter("user_id")));
+		cmt.setVideoID(Integer.parseInt(request.getParameter("video_id")));
+		cmt.setParent_id(0);
 		
+		if(new CommentDAO().insertComment(cmt)){
+			System.out.println("success!");
+		}else{
+			System.out.println("not success!");
+		}
 	}
 
 }
