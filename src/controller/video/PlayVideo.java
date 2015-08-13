@@ -33,22 +33,23 @@ public class PlayVideo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		long video_id = Integer.parseInt(request.getParameter("v"));
-		System.out.println(video_id);
+		
 		HttpSession session = request.getSession();
 		Video url = new VideoDAO().getVideo(video_id);
-		session.setAttribute("url", url.getUrl());
+		session.setAttribute("url", url);
+		System.out.println(video_id);
 		/*String obj  = new Gson().toJson(url);
 		try {
 			response.getWriter().write(obj);
@@ -57,7 +58,7 @@ public class PlayVideo extends HttpServlet {
 			e.printStackTrace();
 		};*/
 		try {
-			response.sendRedirect("VideoManagementFinal/ELeaning/Dashboard/player.jsp");
+			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
