@@ -348,7 +348,7 @@
 					for ( var i in data) {
 						for(var j in data[i]){
 							//alert(data[i][j].youtube_url);
-							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo/?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
+							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
 							}
 					
 					}	$("#list_video").html(str);
