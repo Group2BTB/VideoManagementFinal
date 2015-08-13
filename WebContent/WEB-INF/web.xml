@@ -12,6 +12,14 @@
     <url-pattern>/listComment</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>addComment</servlet-name>
+    <servlet-class>controller.comment.AddComment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addComment</servlet-name>
+    <url-pattern>/ELearning/Dashboard/addComment</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>deleteComment</servlet-name>
     <servlet-class>controller.comment.deleteComment</servlet-class>
   </servlet>
@@ -65,7 +73,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>getQandA</servlet-name>
-    <url-pattern>/ELearning/videoplayer/getQandA</url-pattern>
+    <url-pattern>/ELearning/Dashboard/getQandA</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>updateStatusQuestion</servlet-name>
@@ -170,6 +178,10 @@
   <servlet-mapping>
     <servlet-name>listAllCategory</servlet-name>
     <url-pattern>/ELearning/listAllCategory</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>listAllCategory</servlet-name>
+    <url-pattern>/ELearning/Dashboard/listAllCategory</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>listDocument</servlet-name>
@@ -324,6 +336,14 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>controller.userLogin.UserLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/ELearning/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
   </servlet>
@@ -333,6 +353,14 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>userLogout</servlet-name>
+    <url-pattern>/ELearning/Dashboard/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>adminLogout</servlet-name>
+    <servlet-class>controller.userLogin.AdminLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminLogout</servlet-name>
     <url-pattern>/Admin/logout</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -347,6 +375,14 @@
     <servlet-name>userRegister</servlet-name>
     <url-pattern>/ELearning/include/Add</url-pattern>
   </servlet-mapping>
+  <filter>
+    <filter-name>userAuth</filter-name>
+    <filter-class>controller.userLogin.UserAuth</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>userAuth</filter-name>
+    <url-pattern>/ELearning/Dashboard/*</url-pattern>
+  </filter-mapping>
   <filter>
     <filter-name>permission</filter-name>
     <filter-class>controller.userLogin.Authentication</filter-class>
