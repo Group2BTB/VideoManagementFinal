@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="model.dto.Video"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -51,6 +52,35 @@
 </head>
 
 <body onresize="srollhide()">
+
+	<%
+		
+		String str;
+		String title = "1.1. Jquery tutorials for beginner students";
+		long view = 10l;
+				
+		str = "Wkkshutyv0g";
+		
+		try{	
+			Video obj = (Video)session.getAttribute("url");
+			//System.out.println(obj.getUrl());
+			if(obj == null)
+				{str = "Wkkshutyv0g";
+				 title = "1.1. Jquery tutorials for beginner students";
+				 view =10l;
+				}
+			else
+				{str = obj.getUrl();
+				 title = obj.getName();
+				 view = obj.getView();
+				}
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+	%>
+	
 	<section id="container" class="">
 		<!--header start-->
 		<header class="header white-bg">
@@ -148,7 +178,7 @@
 						<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<h2>1.1. Jquery tutorials for beginner students</h2>
+									<h2><%=title%></h2>
 								</div>
 							</div>
 							<div class="row">
@@ -162,7 +192,7 @@
 									<p>
 										<img alt="views" src="../videoplayer/eyes.png" width="35"
 											style="margin-left: 20px;"> <b style="font-size: 16px;">Veiws:</b>
-										989007
+										<%=view %>
 									</p>
 								</div>
 							</div>
@@ -387,10 +417,7 @@
 			}			
 		}
 		
-	<%String str = (String)session.getAttribute("url");
-		if(str == null)
-			str = "Wkkshutyv0g";
-	%>
+
 	</script>
 	<!--====== Video script ======-->
 	<script>
@@ -552,6 +579,7 @@
 				success : function(data) {
 					for ( var i in data) {
 						for(var j in data[i]){
+
 							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
 							}
 					
@@ -560,7 +588,20 @@
 			});
 		}	
 
-
+		function getVideoPlay(playlist_id){
+			$.ajax({
+				url : "playVideo",
+				method : "POST",
+				dataType: "JSON",
+				data : {
+					playlist_id : playlist_id
+				},
+				success: function(data){
+					alert(data);
+				}
+			});
+		}
+		
 		$(document).ready(function() {
 			getVideoPlaylist();
 			viewQuestionAnswer();
