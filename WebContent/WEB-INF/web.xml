@@ -249,7 +249,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>playVideo</servlet-name>
-    <url-pattern>/ELearning/videoplayer/playervideo</url-pattern>
+    <url-pattern>/ELearning/Dashboard/playervideo</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>getPopVideo</servlet-name>
