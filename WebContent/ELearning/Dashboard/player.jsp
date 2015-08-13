@@ -4,10 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
-<meta name="author" content="Mosaddek">
-<meta name="keyword"
-	content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-<link rel="shortcut icon" href="img/favicon.html">
+
+<link rel="shortcut icon" href="">
 
 <title>Navigate</title>
 
@@ -268,7 +266,7 @@
 
 		function srollhide() {
 			var w = innerWidth;
-			if (w < 768) {				
+			if (w < 990) {				
 				$("#languages").hide();
 				$("#search").hide();
 				$("#sms").hide();
@@ -281,6 +279,7 @@
 				$("#sms").show();
 				$("#playlist_show").show();
 			}
+			
 		}
 	</script>
 
