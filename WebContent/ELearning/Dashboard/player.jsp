@@ -366,7 +366,9 @@
 					});
 			$("#reply_back").hide();
 			
-			
+			$("#btn_reply").click(function(){
+				$("#reply_back").show();
+			});
 			
 				
 				
