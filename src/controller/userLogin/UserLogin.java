@@ -49,6 +49,7 @@ public class UserLogin extends HttpServlet {
 			HttpSession session = request.getSession();//create session
 			session.setAttribute("user", username);// set session for user
 			User user = new UserDAO().getUser(username, password);
+			session.setAttribute("role", user.getRole());
 			try {
 				if(user.getRole().equalsIgnoreCase("admin")){
 					session.setAttribute("userID", user.getId());
