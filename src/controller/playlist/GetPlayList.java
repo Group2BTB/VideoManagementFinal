@@ -44,6 +44,7 @@ public class GetPlayList extends HttpServlet {
 		response.setContentType("application/json");
 		try {
 			response.getWriter().print(new PlayListDAO().getVideoPlaylist(playlist_id));
+			System.out.println(new PlayListDAO().getVideoPlaylist(playlist_id));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
