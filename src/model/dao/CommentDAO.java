@@ -194,7 +194,6 @@ public class CommentDAO {
 			
 			return WorkWithJson.convertCommentToJson(rs);
 			
-			
 		}catch(Exception ex){
 			
 			ex.printStackTrace();
