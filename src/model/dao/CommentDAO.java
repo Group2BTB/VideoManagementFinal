@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import utilities.DBConnection;
 import utilities.WorkWithDate;
 import utilities.WorkWithJson;
@@ -179,6 +180,32 @@ public class CommentDAO {
 			ex.printStackTrace();
 			return false;
 		}
+	}
+	
+	public String getCommentWithSub(long videoId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from \"vComment\" where video_id=?");){
+						
+			stm.setLong(1, videoId);
+			
+			rs = stm.executeQuery();			
+			
+			return WorkWithJson.convertCommentToJson(rs);
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		
+		System.out.println(new CommentDAO().getCommentWithSub(17));
 	}
 
 }
