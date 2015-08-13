@@ -56,8 +56,9 @@
 	<%
 		
 		String str;
-		String title = "1.1. Jquery tutorials for beginner students";
+		String title = "1.1. Jquery tutorials for beginner students";		
 		long view = 10l;
+		long video_id=0;
 				
 		str = "Wkkshutyv0g";
 		
@@ -68,11 +69,13 @@
 				{str = "Wkkshutyv0g";
 				 title = "1.1. Jquery tutorials for beginner students";
 				 view =10l;
+				 video_id = 0;
 				}
 			else
 				{str = obj.getUrl();
 				 title = obj.getName();
 				 view = obj.getView();
+				 video_id = obj.getId();
 				}
 			
 		}catch(Exception ex){
@@ -602,9 +605,24 @@
 			});
 		}
 		
+		function upVideoView(){
+			$.ajax({
+				url : "getViewVideo",
+				method : "POST",
+				dataType: "JSON",
+				data : {
+					video_id : <%=video_id%>
+				},
+				success: function(data){
+					alert(data);
+				}
+			});
+		}
+		
 		$(document).ready(function() {
 			getVideoPlaylist();
 			viewQuestionAnswer();
+			upVideoView();
 		});
 	</script>
 </body>
