@@ -175,7 +175,6 @@
 	<script>
 		$(document).ready(function() {
 			viewCategory();
-			getRecommentVideo();
 			$(".owl-demo").owlCarousel({
 				autoPlay : 3000, //Set AutoPlay to 3 seconds
 				stopOnHover : true,
@@ -189,7 +188,7 @@
 
 		});
 
-		function viewCategory() {
+		/* function viewCategory() {
 			var str = "";
 			$
 					.ajax({
@@ -204,7 +203,7 @@
 							for ( var i in data) {
 								//alert(i);
 
-								/*strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';*/
+								strsup += '<li class="sub-menu"><a href="javascript:dopro('+count+');"><i class="fa fa-book"></i> <span>'+ i+'</span><span class="badge pull-right">'+ind+'</span></a>';
 
 								for ( var j in data[i]) {
 									//	alert(data[i][j].name);
@@ -230,7 +229,34 @@
 							$("li .sub-menu").addClass("active");
 						}
 					});
-		}
+		} */
+		function viewCategory() {
+			$.ajax({
+					url : "listAllCategory",
+					method : "POST",
+					dataType : "JSON",
+					success : function(data) {
+						alert();
+						var count = 0;
+						var ind = 0;
+						var strsup = "";
+						var str = "";
+						for ( var i in data) {
+							for ( var j in data[i]) {
+								ind++;
+								str += "<ul class='sub" +count +" sub'><li><a href='#'>"+ data[i][j].name+ "</a></li></ul>";
+							}
+							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
+							str = "";
+							count++;
+							ind = 0;
+						}
+						$("#nav-accordion").html(strsup + "</li>");
+						$(".sub0").slideDown(1000);
+						$("li .sub-menu").addClass("active");
+					}
+				});
+			}
 
 		function dopro(id) {
 			$(".sub").slideUp();
@@ -238,13 +264,9 @@
 		}
 				
 	</script>
-
 		<!-- hide some header when scroll less than 768px  -->
 	<script>
-		$(document).ready(function(){
-			srollhide();			
-		});
-		
+
 		function srollhide() {
 			var w = innerWidth;
 			if (w < 768) {				
@@ -260,8 +282,8 @@
 			}
 		}
 	</script>
-	<script src="../videoplayer/js/jquery.min.js"></script>
-	<script src="../videoplayer/js/bootstrap.min.js"></script>
-	<script src="../videoplayer/js/scripts.js"></script>
+
+
+
 </body>
 </html>
