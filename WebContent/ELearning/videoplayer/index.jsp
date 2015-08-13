@@ -44,7 +44,7 @@
 						<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<h2>1.1. Jquery tutorials for beginner students </h2>
+									<h2>1.1. Jquery tutorials for beginner students</h2>
 								</div>
 							</div>
 							<div class="row">
@@ -54,17 +54,16 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-12"
-									style="text-align: right;">
+								<div class="col-md-12" style="text-align: right;">
 									<p>
-										<img alt="views" src="../videoplayer/eyes.png" width="35" style="margin-left:20px;">
-										<b style="font-size: 16px;">Veiws:</b> 989007
+										<img alt="views" src="../videoplayer/eyes.png" width="35"
+											style="margin-left: 20px;"> <b style="font-size: 16px;">Veiws:</b>
+										989007
 									</p>
 								</div>
 							</div>
 
-							<hr style="border-color:#545D61; height:1px; margin-top:0px;" />
-
+							<hr style="border-color: #545D61; height: 1px; margin-top: 0px;" />
 							<div class="row">
 								<div class="col-md-6 col-sm-6 col-xs-12">
 									<span class='st_sharethis_large' displayText='ShareThis'></span>
@@ -74,67 +73,74 @@
 										class='st_pinterest_large' displayText='Pinterest'></span> <span
 										class='st_email_large' displayText='Email'></span>
 								</div>
-
 								<div class="col-md-6 col-sm-6 col-xs-12 pull-right">
 									<div class="col-md-12 col-sm-12 col-xs-12 ">
 										<div class="pull-right">
-											<a style="cursor: pointer;"><i class="fa fa-thumbs-up fa-2x"
+											<a style="cursor: pointer;"><i
+												class="fa fa-thumbs-up fa-2x"
 												style="padding: 0px 10px; color: #3BAFDA;"></i> <span>10398</span>
 
-											<i class="fa fa-thumbs-down fa-2x"
+												<i class="fa fa-thumbs-down fa-2x"
 												style="padding: 0px 10px; color: #3BAFDA;"></i><span>10398</span></a>
 										</div>
 
 									</div>
 								</div>
 							</div>
-							
-						<div class="row">
-							<hr style="padding-top: 30px;">
-							<div class="col-md-12">
-						
-								<div class="row comments">
-									<div class="col-md-12">
-										<div class="well">
-											<b>Public on June 13, 2015</b> <br /> Learn four methods for
-											passing values from one page to another. You'll work with
-											Session...PreviousPage...QueryString... the Profile Object.
-											For more tips and tutorials, visit
-											www.detacheddesigns.com/blog
-										</div>
-										<form role="form">
-											<div class="form-group">
-												<label for="comment">Comment:</label>
-												<textarea class="form-control" rows="5" id="comment"></textarea>
-											</div>
-											<input type="button" value="Comment" id="btnComments"
-												class="pull-right btn btn-default" />
 
-										</form>
+							<div class="row">
+								<hr style="padding-top: 30px;">
+								<div class="col-md-12">
+
+									<div class="row comments">
+										<div class="col-md-12">
+											<div class="well">
+												<b>Public on June 13, 2015</b> <br /> Learn four methods
+												for passing values from one page to another. You'll work
+												with Session...PreviousPage...QueryString... the Profile
+												Object. For more tips and tutorials, visit
+												www.detacheddesigns.com/blog
+											</div>
+
+											<form role="form" action="" method="get">
+												<div class="form-group">
+													<label for="comment">Comment:</label>
+													<textarea class="form-control" rows="5" id="comment"></textarea>
+												</div>
+												<input type="button" value="Comment" id="btnComments"
+													class="pull-right btn btn-default" />
+
+											</form>
+
+										</div>
+									</div>
+									<div id="show_comments"></div>
+									<div class="col-md-12 comments box_comment" id="comment_box">
+										<div class="row wells">
+											<div class="col-md-1">
+												<img src="../videoplayer/avatar.png" width="50">
+											</div>
+											<div class="col-md-11">
+												<div class="col-md-4 col-xs-6">
+													<span><b>Prem Chanthorn</b></span>
+												</div>
+												<div class="col-md-4 col-xs-6">10 minutes ago</div>
+												<div class="col-md-12 col-xs-12">I really like this
+													website.</div>
+
+												<div class="row">
+													<div>
+														<button class="btn" id="btn_reply">Reply</button>
+													</div>
+												</div>
+											</div>
+										</div>
 
 									</div>
 								</div>
-								<div id="show_comments"></div>
-
-								<div class="col-md-12 comments box_comment" id="comment_box">
-									<div class="row wells">
-										<div class="col-md-1">
-											<img src="../videoplayer/avatar.png" width="50">
-										</div>
-										<div class="col-md-11" >
-											<div class="col-md-4 col-xs-6">
-												<span><b>Prem Chanthorn</b></span>
-											</div>
-											<div class="col-md-4 col-xs-6">10 minutes ago</div>
-											<div class="col-md-12 col-xs-12">I
-												really like this website.</div>
-										</div>
-									</div>
-								</div>
+								<!------End of Comment------>
 							</div>
-							<!------End of Comment------>
 						</div>
-					</div>
 					</div>
 					<!--====== PlayList and questions ======-->
 					<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
@@ -150,13 +156,11 @@
 							</div>
 							<div class="tab-content color_white">
 								<div class="tab-pane active" id="panel-590992">
+									<div id="list_video">
 
-									<div>
-
-										<a href=""> <img
-											src="../videoplayer/images/software-java-icon.png" width="60"
-											id="playlsits_shows" /><span class="color_white"
-											style="padding-left: 20px;">asdfsad</span></a>
+										<!-- 	<a href="#"> <img src="https://i.ytimg.com/vi/DmUv8fwRpXE/default.jpg" width="100" height="60"/>
+											<span class="color_white" style="padding-left: 20px;"></span>
+										</a> -->
 
 
 									</div>
@@ -171,7 +175,6 @@
 										<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
 										<button class="btn btn-success" id="btnnext"
 											onclick="doNext()">NEXT</button>
-
 									</div>
 
 								</div>
@@ -191,6 +194,7 @@
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],
 			'src' : 'https://youtu.be/Wkkshutyv0g'
+				<%-- //'src' : 'https://youtu.be/<%=session.getAttrbute("video");%>' --%>
 		});
 
 		// initialize the plugin with some custom options:
@@ -224,7 +228,6 @@
 		});
 	</script>
 	<!--===== collapse category======-->
-
 	<script>
 		//hide button comment
 		$(document).ready(function() {
@@ -241,6 +244,7 @@
 				$("#btnComments").css("margin-bottom", "10px");
 			});
 		});
+
 		//add text form textarea to the div below
 		$(document)
 				.ready(
@@ -248,9 +252,7 @@
 							$("#btnComments")
 									.click(
 											function() {
-												//$("#show_comments").text($("#comment").val()).addClass("wells col-md-12");
-
-												var a = '<div class="col-md-12 comments box_comment" id="comment_box" style="margin-bottom:5px;"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+												var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
 												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
 												var c = '<div class="col-md-12 col-xs-12">'
 														+ $("#comment").val()
@@ -263,7 +265,6 @@
 						});
 
 		var userlike = document.getElementById("UserLike");
-
 		function likeIncrement() {
 			$("#ThumbLike").click(function() {
 				userlike += 1;
@@ -301,9 +302,7 @@
 			});
 
 		}
-
 		function doCorrect(obj) {
-
 			objAnswer = obj;
 		}
 
@@ -331,47 +330,35 @@
 			}
 
 		}
-
 		function doNext() {
-
 			nextAnswer++;
 			question[nextAnswer];
 		}
 
-		function getAllVideo() {
-			$.ajax({
-				url : "listVideo",
-				method : "POST",
-				dataType : "JSON",
-				success : function(data) {
-					for ( var i in data) {
-						//alert(data[i].youtube_url);
-					}
-				}
-			});
-		}
-	
 		function getVideoPlaylist(){
+			var str = "";
 			$.ajax({
 				url : "getPlayList",
 				method : "POST",
 				dataType : "JSON",
 				data:{
-					playlist_id : 4
+					playlist_id : 1
 					},
 				success : function(data) {
 					for ( var i in data) {
 						for(var j in data[i]){
-							alert(data[i][j].name);
+							//alert(data[i][j].youtube_url);
+							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo/?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
 							}
-					}
+					
+					}	$("#list_video").html(str);
 				}
 			});
 		}	
 
+
 		$(document).ready(function() {
 			getVideoPlaylist();
-			getAllVideo();
 			viewQuestionAnswer();
 		});
 	</script>
