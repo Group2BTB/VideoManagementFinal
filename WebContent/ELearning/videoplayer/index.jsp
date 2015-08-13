@@ -356,9 +356,14 @@
 				url : "getPlayList",
 				method : "POST",
 				dataType : "JSON",
+				data:{
+					playlist_id : 4
+					},
 				success : function(data) {
 					for ( var i in data) {
-						alert(data[i].playlist_name);
+						for(var j in data[i]){
+							alert(data[i][j].name);
+							}
 					}
 				}
 			});
