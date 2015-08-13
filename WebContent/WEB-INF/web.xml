@@ -268,6 +268,14 @@
     <url-pattern>/ELearning/videoplayer/v</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>getViewVideo</servlet-name>
+    <servlet-class>controller.video.GetViewVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getViewVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getViewVideo</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>addPlaylist</servlet-name>
     <servlet-class>controller.playlist.addPlaylist</servlet-class>
   </servlet>
