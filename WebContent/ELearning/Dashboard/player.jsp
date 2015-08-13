@@ -242,7 +242,7 @@
 											<form role="form" action="" method="get">
 												<div class="form-group">
 													<label for="comment">Comment:</label>
-													<textarea class="form-control" rows="5" id="comment"></textarea>
+													<textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
 												</div>
 												<input type="button" value="Comment" id="btnComments"
 													class="pull-right btn btn-default" />
