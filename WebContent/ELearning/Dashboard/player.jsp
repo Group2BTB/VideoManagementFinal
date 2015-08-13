@@ -387,6 +387,10 @@
 			}			
 		}
 		
+	<%String str = (String)session.getAttribute("url");
+		if(str == null)
+			str = "Wkkshutyv0g";
+	%>
 	</script>
 	<!--====== Video script ======-->
 	<script>
@@ -394,9 +398,8 @@
 		video = document.querySelector('video'),
 		// save a reference to the video.js player for that element
 		player = videojs(video, {
-			'techOrder' : [ 'youtube' ],
-			'src' : 'https://youtu.be/Wkkshutyv0g'
-				<%-- //'src' : 'https://youtu.be/<%=session.getAttrbute("video");%>' --%>
+			'techOrder' : [ 'youtube' ],			
+			'src' : 'https://youtu.be/<%=str%>'
 		});
 
 		// initialize the plugin with some custom options:
@@ -549,7 +552,7 @@
 				success : function(data) {
 					for ( var i in data) {
 						for(var j in data[i]){
-							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
+							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
 							}
 					
 					}	$("#list_video").html(str);
