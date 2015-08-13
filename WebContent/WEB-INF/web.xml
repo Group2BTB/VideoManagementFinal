@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <servlet-name>listComment</servlet-name>
     <servlet-class>controller.comment.listComment</servlet-class>
@@ -13,7 +11,7 @@
     <servlet-name>listComment</servlet-name>
     <url-pattern>/listComment</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>deleteComment</servlet-name>
     <servlet-class>controller.comment.deleteComment</servlet-class>
   </servlet>
@@ -21,7 +19,7 @@
     <servlet-name>deleteComment</servlet-name>
     <url-pattern>/deleteComment</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>countComment</servlet-name>
     <servlet-class>controller.comment.countComment</servlet-class>
   </servlet>
@@ -37,10 +35,6 @@
     <servlet-name>updateViewComment</servlet-name>
     <url-pattern>/updateViewComment</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
   <servlet>
     <servlet-name>listQuestion</servlet-name>
     <servlet-class>controller.question.listQuestion</servlet-class>
@@ -229,6 +223,10 @@
     <servlet-name>listPlaylist</servlet-name>
     <servlet-class>controller.playlist.listPlaylist</servlet-class>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>listPlaylist</servlet-name>
+    <url-pattern>/ELearning/videoplayer/listPlaylist</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>getRecVideo</servlet-name>
     <servlet-class>controller.video.getRecommentVideo</servlet-class>
@@ -244,10 +242,6 @@
   <servlet-mapping>
     <servlet-name>getPopVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/getPopVideo</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>listPlaylist</servlet-name>
-    <url-pattern>/listPlaylist</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>addPlaylist</servlet-name>
@@ -301,7 +295,6 @@
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
   </servlet>
-  
   <servlet>
     <servlet-name>userLogout</servlet-name>
     <servlet-class>controller.userLogin.userLogout</servlet-class>
@@ -314,7 +307,6 @@
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
   </servlet>
-  
   <servlet>
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>
@@ -324,11 +316,11 @@
     <url-pattern>/ELearning/include/Add</url-pattern>
   </servlet-mapping>
   <filter>
-  	<filter-name>permission</filter-name>
-  	<filter-class>controller.userLogin.Authentication</filter-class>
+    <filter-name>permission</filter-name>
+    <filter-class>controller.userLogin.Authentication</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>permission</filter-name>
-  	<url-pattern>/Admin/*</url-pattern>
+    <filter-name>permission</filter-name>
+    <url-pattern>/Admin/*</url-pattern>
   </filter-mapping>
 </web-app>
