@@ -122,7 +122,6 @@
 						<!--breadcrumbs end -->
 					</div>
 				</div>
-
 				<section class="panel">
 					<header class="panel-heading"> Popular Courses </header>
 					<div class="panel-body">
@@ -208,7 +207,7 @@
 						str+='<div class="item" style="margin-right: 10px;">';
 							str+='<section class="panel">';
 								str+='<div class="pro-img-box">';
-									str+='<img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/default.jpg"> <a href="#" class="adtocart"> <i class="fa-graduation-cap"></i></a>';
+									str+='<img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"> <a href="#"> <i class="fa-graduation-cap"></i></a>';
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
@@ -285,7 +284,7 @@
 						str+='<div class="item" style="margin-right: 10px;">';
 							str+='<section class="panel">';
 								str+='<div class="pro-img-box">';
-									str+='<img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/default.jpg"> <a href="#" class="adtocart"> <i class="fa-graduation-cap"></i></a>';
+									str+='<img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"> <a href="#"> <i class="fa-graduation-cap"></i></a>';
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
@@ -301,7 +300,6 @@
 				}
 			});
 		}
-		
 	</script>
 </body>
 </html>
