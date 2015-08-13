@@ -8,7 +8,7 @@
 
 <link rel="shortcut icon" href="">
 
-<title>Navigate</title>
+<title>Video Player</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -123,8 +123,7 @@
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="img/avatar1_small.jpg"> <span class="username">Sophath
-								Chan</span> <b class="caret"></b>
+							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span> <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
@@ -132,8 +131,7 @@
 							<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
 							<li><a href="#"><i class="fa fa-bell-o"></i>
 									Notification</a></li>
-							<li><a href="login.html"><i class="fa fa-key"></i> Log
-									Out</a></li>
+							<li><a href="logout"><i class="fa fa-key"></i> Log Out</a></li>
 						</ul></li>
 					<!-- user login dropdown end -->
 					<li class="sb-toggle-right" id="sms"><i class="fa  fa-align-right"></i>
@@ -157,18 +155,18 @@
 		<!--main content start-->
 		<section id="main-content">
 			<section class="wrapper site-min-height">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col-lg-12">
-						<!--breadcrumbs start -->
+						breadcrumbs start
 						<ul class="breadcrumb">
 							<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
 							<li class="active">Courses</li>
 						</ul>
-						<!--breadcrumbs end -->
+						breadcrumbs end
 					</div>
-				</div>
+				</div> -->
 				<!-- Include other page here -->
-				<div class="container-fluid">
+			<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="row">
@@ -239,13 +237,12 @@
 												www.detacheddesigns.com/blog
 											</div>
 
-											<form role="form" action="" method="get">
+											<form role="form" action="" method="post">
 												<div class="form-group">
 													<label for="comment">Comment:</label>
 													<textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
 												</div>
-												<input type="button" value="Comment" id="btnComments"
-													class="pull-right btn btn-default" />
+												<input type="button" value="Comment" id="btnComments" class="pull-right btn btn-default" onclick="addComment()"/>
 
 											</form>
 
@@ -481,23 +478,19 @@
 		});
 
 		//add text form textarea to the div below
-		$(document)
-				.ready(
-						function() {
-							$("#btnComments")
-									.click(
-											function() {
-												var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-												var c = '<div class="col-md-12 col-xs-12">'
-														+ $("#comment").val()
-														+ '</div></div></div>';
-												$("#comment").val("");
+		$(document).ready(function() {
+			$("#btnComments").click(function() {
+					var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+					var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+					var c = '<div class="col-md-12 col-xs-12">'
+							+ $("#comment").val()
+							+ '</div></div></div>';
+					$("#comment").val("");
 
-												$("#show_comments").prepend(
-														a + b + c);
-											});
-						});
+					$("#show_comments").prepend(
+							a + b + c);
+				});
+			});
 
 		var userlike = document.getElementById("UserLike");
 		function likeIncrement() {
@@ -615,6 +608,18 @@
 				},
 				success: function(data){
 					alert(data);
+				}
+			});
+		}
+
+		function addComment(){
+			$.ajax({
+				url : "addComment",
+				method : "POST",
+				data:{
+					comment : $("#comment").val(),
+					user_id : <%=session.getAttribute("userID")%>,
+					video_id : <%=video_id%>,
 				}
 			});
 		}
