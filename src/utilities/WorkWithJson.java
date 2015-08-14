@@ -170,7 +170,8 @@ public class WorkWithJson {
 					ca.setStatus(rs.getInt("status"));
 					ca.setUserID(rs.getLong("user_id"));
 					ca.setCreate_date(rs.getDate("create_date"));
-					ca.setModifier_date(rs.getDate("modifier_date"));			
+					ca.setModifier_date(rs.getDate("modifier_date"));	
+					ca.setPlId(rs.getLong("plid"));
 					
 					System.out.println(ca.getName() + "|| if");
 					suparr.add(ca);
@@ -193,7 +194,8 @@ public class WorkWithJson {
 					ca.setStatus(rs.getInt("status"));
 					ca.setUserID(rs.getLong("user_id"));
 					ca.setCreate_date(rs.getDate("create_date"));
-					ca.setModifier_date(rs.getDate("modifier_date"));			
+					ca.setModifier_date(rs.getDate("modifier_date"));	
+					ca.setPlId(rs.getLong("plid"));
 					
 					System.out.println(ca.getName() + "|| else");
 					suparr.add(ca);					
