@@ -95,7 +95,7 @@
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="index-2.html" class="logo">Khmer<span>Academy</span></a>
+			<a href="#" class="logo">Khmer<span>Academy</span></a>
 
 			<!--logo end-->
 
@@ -295,11 +295,6 @@
 								<div class="tab-pane active" id="panel-590992">
 									<div id="list_video">
 
-										<!-- 	<a href="#"> <img src="https://i.ytimg.com/vi/DmUv8fwRpXE/default.jpg" width="100" height="60"/>
-											<span class="color_white" style="padding-left: 20px;"></span>
-										</a> -->
-
-
 									</div>
 
 								</div>
@@ -308,11 +303,29 @@
 									<div id="question"></div>
 
 									<div id="answer">
-
+										<p>What is Java Class?</p>
+										<p class="success" id="suc" style="display:none;color:rgb(46, 255, 46)">it correct.</p>
+										<p class="danger" id="err" style="display:none;color:red">it incorrect.</p>
+										<div class="radio">
+										  <label>
+										    <input type="radio" onclick="checkAns('a1')" name="a" id="a1" value="1">
+										    Class is blueprint.
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+										    <input type="radio" onclick="checkAns('a2')" name="a" id="a2" value="0">
+										   	Class is object.
+										  </label>
+										</div>
+										<div class="radio">
+										  <label>
+										    <input type="radio" onclick="checkAns('a3')" name="a" id="a3" value="0">
+										    other
+										  </label>
+										</div>
+										
 										<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
-										<button class="btn btn-success" id="btnnext"
-											onclick="doNext()">NEXT</button>
-									</div>
 
 								</div>
 							</div>
@@ -369,7 +382,6 @@
 			});
 
 		});
-
 		function viewCategory() {
 			$.ajax({
 					url : "listAllCategory",
@@ -382,8 +394,8 @@
 						var str = "";
 						for ( var i in data) {
 							for ( var j in data[i]) {
-								ind++;
-								str += "<ul class='sub" +count +" sub'><li><a href='#'>"+ data[i][j].name+ "</a></li></ul>";
+								ind++; 
+								str += "<ul class='sub" +count +" sub'><li><a href='playlist.jsp?"+ data[i][j].description +"'>"+ data[i][j].name+ "</a></li></ul>";
 							}
 							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
@@ -487,7 +499,7 @@
 					var b = '<div class="col-md-4 col-xs-6">Just now</div>';
 					var c = '<div class="col-md-12 col-xs-12">'
 							+ $("#comment").val()
-							+ '</div></div></div>';
+							+ '</div></div>';
 					$("#comment").val("");
 
 					$("#show_comments").prepend(
@@ -507,14 +519,21 @@
 
 
 	<script>
+	
+	
+	
+		
+		
+		
+		
 		var answerCorrect = [];
-		var question = [];
+		//var question = new Array();
 		var answer = [];
 		var nextAnswer = 0;
 		var answerStatus = false;
 		var childQuestion = [];
 		var objAnswer;
-
+		
 		function viewQuestionAnswer() {
 			var str = "";
 			$.ajax({
@@ -525,10 +544,9 @@
 					video_id : 17
 				},
 				success : function(data) {
-					var str = "";
-					for ( var i in data) {
-						str += i;
-					}
+					for(var i in data){
+						question.push(i);
+					}					
 				}
 			});
 
@@ -548,10 +566,26 @@
 
 			}
 		}
-
+		var code=""
+		function checkAns(id){
+			$("#suc").attr("style","display:none;");
+			$("#err").attr("style","display:none;");
+			code=""+id;
+		}
 		function doOk() {
-
-			var obj = document.getElementsByClassName("answer");
+			
+			var radios = $('input:radio[name=a]').filter('[id=' + code +']').attr('checked', true).val();
+			if(radios==1){
+				$("#suc").attr("style","display:block;color:rgb(46, 255, 46);font-weight: bold;");
+			}else{
+				$("#err").attr("style","display:block;color:red;font-weight: bold;");
+			}
+			
+			
+			
+			
+			//alert(code);
+			/* var obj = document.getElementsByClassName("answer");
 			obj[answerCorrect[nextAnswer] - 1].style.color = "blue";
 
 			if (answerStatus == false) {
@@ -559,7 +593,8 @@
 				objAnswer.style.color = "red";
 
 			}
-
+ */
+ 			
 		}
 		function doNext() {
 			nextAnswer++;
@@ -626,10 +661,26 @@
 				}
 			});
 		}
-		
+		var question=new Array();
 		$(document).ready(function() {
+			
+			$.ajax({
+				url : "getQandA",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					video_id : 17
+				},
+				success : function(data) {
+					for(var i in data){
+						question.push(i);
+					}	
+				}
+			});
+			
+
 			getVideoPlaylist();
-			viewQuestionAnswer();
+			
 			upVideoView();
 		});
 	</script>
