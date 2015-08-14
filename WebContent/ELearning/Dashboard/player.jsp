@@ -59,14 +59,14 @@
 		String title = "1.1. Jquery tutorials for beginner students";		
 		long view = 10l;
 		long video_id=0;
-		int playlist_id = 0;
+		int pl = 1;	
 				
 		str = "Wkkshutyv0g";
 		
 		try{	
 			Video obj = (Video)session.getAttribute("url");			
-			if(session.getAttribute("playlist")!=null)
-				playlist_id = (int)session.getAttribute("playlist");
+			if(session.getAttribute("pl")!=null)
+				pl = Integer.parseInt(session.getAttribute("pl").toString()) ;
 			//System.out.println(obj.getUrl());
 			if(obj == null)
 				{str = "Wkkshutyv0g";
@@ -83,6 +83,11 @@
 			
 		}catch(Exception ex){
 			ex.printStackTrace();
+			title = "1.1. Jquery tutorials for beginner students";		
+			view = 10l;
+			video_id=0;
+			pl = 1;
+			str = "Wkkshutyv0g";
 		}
 		
 	%>
@@ -394,8 +399,10 @@
 						var str = "";
 						for ( var i in data) {
 							for ( var j in data[i]) {
-								ind++; 
-								str += "<ul class='sub" +count +" sub'><li><a href='playlist.jsp?"+ data[i][j].description +"'>"+ data[i][j].name+ "</a></li></ul>";
+								ind++;
+								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
+								//str += "<ul class='sub" +count +" sub'><li><a href='#'>"+ data[i][j].name+ "</a></li></ul>";
+
 							}
 							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
@@ -544,6 +551,7 @@
 					video_id : 17
 				},
 				success : function(data) {
+
 					for(var i in data){
 						question.push(i);
 					}					
@@ -608,12 +616,12 @@
 				method : "POST",
 				dataType : "JSON",
 				data:{
-					playlist_id : <%=playlist_id%>
+					playlist_id : <%=pl%>
 					},
 				success : function(data) {
 					for ( var i in data) {
 						for(var j in data[i]){
-
+							//str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
 							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
 							}
 					
