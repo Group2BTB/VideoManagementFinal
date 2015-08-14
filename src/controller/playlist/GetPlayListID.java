@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.PlayListDAO;
 import model.dao.VideoDAO;
+import model.dto.PlayList;
 import model.dto.Video;
 
 /**
@@ -30,21 +32,22 @@ public class GetPlayListID extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int playlist_id = Integer.parseInt(request.getParameter("p"));
-		HttpSession session = request.getSession();
 		
-		session.setAttribute("playlist", playlist_id);
+		HttpSession session = request.getSession();		
+		session.setAttribute("pl", playlist_id);
+		
 		try {
 			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
 		} catch (IOException e) {
