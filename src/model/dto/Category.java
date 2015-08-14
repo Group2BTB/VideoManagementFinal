@@ -13,6 +13,7 @@ public class Category {
 	private long userID;
 	private Date create_date;
 	private Date modifier_date;
+	private long plId;
 	
 	public Category(){
 		
@@ -30,6 +31,15 @@ public class Category {
 		this.userID = userID;
 		this.create_date = create_date;
 		this.modifier_date = modifier_date;
+	}
+	
+	
+	
+	public long getPlId() {
+		return plId;
+	}
+	public void setPlId(long plId) {
+		this.plId = plId;
 	}
 	public int getId() {
 		return id;
