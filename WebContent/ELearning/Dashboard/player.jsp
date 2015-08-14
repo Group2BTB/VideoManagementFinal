@@ -59,11 +59,14 @@
 		String title = "1.1. Jquery tutorials for beginner students";		
 		long view = 10l;
 		long video_id=0;
+		int playlist_id = 0;
 				
 		str = "Wkkshutyv0g";
 		
 		try{	
-			Video obj = (Video)session.getAttribute("url");
+			Video obj = (Video)session.getAttribute("url");			
+			if(session.getAttribute("playlist")!=null)
+				playlist_id = (int)session.getAttribute("playlist");
 			//System.out.println(obj.getUrl());
 			if(obj == null)
 				{str = "Wkkshutyv0g";
@@ -570,7 +573,7 @@
 				method : "POST",
 				dataType : "JSON",
 				data:{
-					playlist_id : 1
+					playlist_id : <%=playlist_id%>
 					},
 				success : function(data) {
 					for ( var i in data) {
