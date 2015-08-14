@@ -271,6 +271,20 @@
     <servlet-name>getPlayList</servlet-name>
     <url-pattern>/ELearning/Dashboard/getPlayList</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>getPlayListID</servlet-name>
+    <servlet-class>controller.playlist.GetPlayListID</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getPlayListID</servlet-name>
+    <url-pattern>/ELearning/playlist</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getPlayListID</servlet-name>
+    <url-pattern>/ELearning/Dashboard/playlist</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>getRecVideo</servlet-name>
     <servlet-class>controller.video.getRecommentVideo</servlet-class>
