@@ -2,8 +2,7 @@
 <head>
 <title>Login|Admin</title>
 <link rel="stylesheet" href="ELearning/templates/css/bootstrap.min.css">
-
-<script type="text/javascript" src="ELearning/templates/js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="ELearning/templates/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="ELearning/templates/js/bootstrap.min.js"></script>
 </head>
 <body>
