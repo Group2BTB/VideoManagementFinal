@@ -6,8 +6,8 @@
 				<header class="logo-env">
 					<!-- logo -->
 					<div class="logo">
-						<a href="dashboard/main/index.html"> <img
-							src="images/logo%402x.png" width="120" alt="" />
+						<a href="#"> <img
+							src="images/mainImg.png" width="200" alt="" />
 						</a>
 					</div>
 					<!-- logo collapse icon -->
