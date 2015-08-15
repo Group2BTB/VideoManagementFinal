@@ -41,7 +41,7 @@ public class VideoPlaylist extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		System.out.println(request.getParameter("id"));
+		System.out.println("list video by playlist"+request.getParameter("id"));
 		String video = new VideoDAO().getVideoPlaylist(Integer.parseInt(request.getParameter("id")));
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
