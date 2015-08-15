@@ -549,9 +549,6 @@
                         $("#category-mobile-details").show(); 
                         
                     });
-                    
-                    
-
                 });
             </script>
     <script src="ELearning/owl-carousel-plugins/assets/js/bootstrap-collapse.js"></script>
