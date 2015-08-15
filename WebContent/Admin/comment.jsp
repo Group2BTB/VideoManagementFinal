@@ -97,7 +97,7 @@
 					<tr class="active" style="cursor:pointer;">
 						<th class="center">No&nbsp;<a ng-click="sort_by('comment_id');"><i class="glyphicon glyphicon-sort"></i></a></th>
         				<th class="center">Comment&nbsp;<a ng-click="sort_by('description');"><i class="glyphicon glyphicon-sort"></i></a></th>        			
-        	        	<th class="center">Comment By&nbsp;<a ng-click="sort_by('status');"><i class="glyphicon glyphicon-sort"></i></a></th>
+        	        	<th class="center">Comment By&nbsp;<a ng-click="sort_by('username');"><i class="glyphicon glyphicon-sort"></i></a></th>
         	        	<th class="center">Action</th>
 					</tr>
 					<tr ng-click="updateView(d.comment_id)" ng-show="!d.view" class="active" ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
