@@ -147,6 +147,10 @@
     <servlet-name>listCategory</servlet-name>
     <url-pattern>/Admin/listCategory</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>listCategory</servlet-name>
+    <url-pattern>/listCategory</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>addCategory</servlet-name>
     <servlet-class>controller.category.addCategory</servlet-class>
@@ -199,6 +203,10 @@
     <servlet-name>listVideo</servlet-name>
     <url-pattern>/ELearning/videoplayer/listVideo</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>listVideo</servlet-name>
+    <url-pattern>/listVideo</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>videoComponnent</servlet-name>
     <servlet-class>controller.video.VideoComponnent</servlet-class>
@@ -232,6 +240,11 @@
     <servlet-name>videoPlayList</servlet-name>
     <url-pattern>/videoPlayList</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>videoPlayList</servlet-name>
+    <url-pattern>/Admin/videoPlayList</url-pattern>
+  </servlet-mapping>
+  
   
   <servlet>
     <servlet-name>updateStatusVideo</servlet-name>
