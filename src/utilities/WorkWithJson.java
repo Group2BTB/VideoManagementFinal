@@ -307,7 +307,7 @@ public class WorkWithJson {
 			while(rs.next()){
 					
 				sup = rs.getString("comment_id").trim();
-				System.out.println(sup);
+				//System.out.println(sup);
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
 					
