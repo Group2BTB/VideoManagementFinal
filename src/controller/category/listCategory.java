@@ -41,7 +41,7 @@ public class listCategory extends HttpServlet {
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		
-		System.out.println("Hello");
+		System.out.println("list category");
 		
 		
 		response.setCharacterEncoding("utf-8");
