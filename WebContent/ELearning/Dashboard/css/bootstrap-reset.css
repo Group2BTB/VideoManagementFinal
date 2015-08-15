@@ -160,8 +160,8 @@ ul {
 .btn-primary[disabled],
 .btn-primary.disabled.active,
 .btn-primary.active[disabled]{
-    background-color: #41cac0;
-    border-color: #41cac0;
+    background-color: #337AB7;
+    border-color: #337AB7;
     color: #FFFFFF;
 }
 
