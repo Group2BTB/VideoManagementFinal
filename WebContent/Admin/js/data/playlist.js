@@ -204,9 +204,10 @@ app.controller('PlaylistController', function($scope, $http, $timeout) {
 		});
 	};
 	$scope.listVideoByPlaylist = function(e){
-	
-		$http.get('../videoPlaylist?id='+e).success(function(data) {
-			
+		var data = {
+				'id' : e
+			};
+		$.post("../videoPlayList", data).success(function(data, status, headers) {
 			$scope.pl = data;
 			$scope.currentPagepl = 1; // current page
 			$scope.entryLimitpl = 10; // max no of items to display in a page
