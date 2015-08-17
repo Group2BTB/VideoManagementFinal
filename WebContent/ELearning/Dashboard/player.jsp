@@ -309,17 +309,6 @@
 						<h5 class="side-title">Messages</h5>
 					</div>
 					<!-- Right Slidebar end -->
-					<!--footer start-->
-					<footer class="site-footer">
-						<div class="text-center">
-							2015 &copy; KHMERA CADEMY<a href="#" class="go-top"> <i
-								class="fa fa-angle-up"></i>
-							</a>
-						</div>
-						</div>
-					<!-- Right Slidebar end -->
-					</footer>
-					<!--footer end-->
 			</section>
 		</section>
 		<!--footer start-->
