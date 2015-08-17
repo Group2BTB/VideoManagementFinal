@@ -5,11 +5,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
-
 <link rel="shortcut icon" href="">
-
 <title>Video Player</title>
-
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap-reset.css" rel="stylesheet">
@@ -22,10 +19,6 @@
 <link href="css/style-responsive.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
-
-
-
-
 <!-- videoplayer script and style -->
 <link rel="stylesheet" href="../videoplayer/libs/video-js/video-js.css">
 <link rel="stylesheet" href="../videoplayer/src/videojs.logobrand.css">
@@ -292,48 +285,16 @@
 								<ul class="nav nav-tabs">
 									<li class="active"><a class="color_white"
 										href="#panel-590992" data-toggle="tab">Playlist</a></li>
-									<li><a href="#panel-560832" data-toggle="tab"
-										class="color_white">Quiz</a></li>
+									
 								</ul>
 							</div>
 							<div class="tab-content color_white">
 								<div class="tab-pane active" id="panel-590992">
 									<div id="list_video">
-
+											
 									</div>
 
 								</div>
-								<!-- Questions in Playlist -->
-								<div class="tab-pane" id="panel-560832">
-									<div id="question"></div>
-
-									<div id="answer">
-										<p>What is Java Class?</p>
-										<p class="success" id="suc" style="display:none;color:rgb(46, 255, 46)">it correct.</p>
-										<p class="danger" id="err" style="display:none;color:red">it incorrect.</p>
-										<div class="radio">
-										  <label>
-										    <input type="radio" onclick="checkAns('a1')" name="a" id="a1" value="1">
-										    Class is blueprint.
-										  </label>
-										</div>
-										<div class="radio">
-										  <label>
-										    <input type="radio" onclick="checkAns('a2')" name="a" id="a2" value="0">
-										   	Class is object.
-										  </label>
-										</div>
-										<div class="radio">
-										  <label>
-										    <input type="radio" onclick="checkAns('a3')" name="a" id="a3" value="0">
-										    other
-										  </label>
-										</div>
-										
-										<button class="btn btn-success" id="btnok" onclick="doOk()">OK</button>
-
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -373,6 +334,7 @@
 	<script src="js/common-scripts.js"></script>
 
 	<script>
+	
 		$(document).ready(function() {
 			viewCategory();
 			$(".owl-demo").owlCarousel({
@@ -401,8 +363,6 @@
 							for ( var j in data[i]) {
 								ind++;
 								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
-								//str += "<ul class='sub" +count +" sub'><li><a href='#'>"+ data[i][j].name+ "</a></li></ul>";
-
 							}
 							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
@@ -438,8 +398,6 @@
 				$("#playlist_show").show();
 			}			
 		}
-		
-
 	</script>
 	<!--====== Video script ======-->
 	<script>
@@ -474,7 +432,6 @@
 						$('#output').append($('<div>' + e.type + '</div>'));
 						if (e.type == 'ended') {
 							$("#playlistshow").hide();
-							$("#quizshow").show();
 						}
 					});
 				}
@@ -498,7 +455,6 @@
 				$("#btnComments").css("margin-bottom", "10px");
 			});
 		});
-
 		//add text form textarea to the div below
 		$(document).ready(function() {
 			$("#btnComments").click(function() {
@@ -513,102 +469,8 @@
 							a + b + c);
 				});
 			});
-
-		var userlike = document.getElementById("UserLike");
-		function likeIncrement() {
-			$("#ThumbLike").click(function() {
-				userlike += 1;
-				/*$("#Userlike").text(userlike);*/
-				alert(userlike);
-			});
-		}
-	</script>
-
-
-	<script>
-	
-	
-	
 		
-		
-		
-		
-		var answerCorrect = [];
-		//var question = new Array();
-		var answer = [];
-		var nextAnswer = 0;
-		var answerStatus = false;
-		var childQuestion = [];
-		var objAnswer;
-		
-		function viewQuestionAnswer() {
-			var str = "";
-			$.ajax({
-				url : "getQandA",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					video_id : 17
-				},
-				success : function(data) {
-
-					for(var i in data){
-						question.push(i);
-					}					
-				}
-			});
-
-		}
-		function doCorrect(obj) {
-			objAnswer = obj;
-		}
-
-		function checkAnswer(correct, obj) {
-
-			objAnswer = obj;
-			if (correct == answerCorrect[nextAnswer]) {
-				answerStatus = true;
-				alert("");
-			} else {
-				answerStatus = false;
-
-			}
-		}
-		var code=""
-		function checkAns(id){
-			$("#suc").attr("style","display:none;");
-			$("#err").attr("style","display:none;");
-			code=""+id;
-		}
-		function doOk() {
-			
-			var radios = $('input:radio[name=a]').filter('[id=' + code +']').attr('checked', true).val();
-			if(radios==1){
-				$("#suc").attr("style","display:block;color:rgb(46, 255, 46);font-weight: bold;");
-			}else{
-				$("#err").attr("style","display:block;color:red;font-weight: bold;");
-			}
-			
-			
-			
-			
-			//alert(code);
-			/* var obj = document.getElementsByClassName("answer");
-			obj[answerCorrect[nextAnswer] - 1].style.color = "blue";
-
-			if (answerStatus == false) {
-
-				objAnswer.style.color = "red";
-
-			}
- */
- 			
-		}
-		function doNext() {
-			nextAnswer++;
-			question[nextAnswer];
-		}
-
+		//function for list playlist 
 		function getVideoPlaylist(){
 			var str = "";
 			$.ajax({
@@ -619,17 +481,23 @@
 					playlist_id : <%=pl%>
 					},
 				success : function(data) {
+					var substring="";
 					for ( var i in data) {
 						for(var j in data[i]){
+							substring = data[i][j].video_name;
 							//str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
-							str +='<div class="bg_playlist" style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" + '" > <img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span class="color_white" style="padding-left: 20px;">'+ data[i][j].video_name+'</span></div>';
+							if(substring.length > 45){
+								 substring = substring.substr(0,42) + "...";
+							}
+							str +='<div class="bg_playlist " style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" +'"><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span style="padding-left:15px;" class="">'+ substring+'</span></div>';
 							}
 					
 					}	$("#list_video").html(str);
 				}
 			});
 		}	
-
+		
+		//function for get videos play when 
 		function getVideoPlay(playlist_id){
 			$.ajax({
 				url : "playVideo",
@@ -643,7 +511,7 @@
 				}
 			});
 		}
-		
+		//increase 1 for view once videos
 		function upVideoView(){
 			$.ajax({
 				url : "getViewVideo",
@@ -657,7 +525,8 @@
 				}
 			});
 		}
-
+		
+		//function for add comment
 		function addComment(){
 			$.ajax({
 				url : "addComment",
@@ -669,28 +538,9 @@
 				}
 			});
 		}
-		var question=new Array();
-		$(document).ready(function() {
-			
-			$.ajax({
-				url : "getQandA",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					video_id : 17
-				},
-				success : function(data) {
-					for(var i in data){
-						question.push(i);
-					}	
-				}
-			});
-			
-
-			getVideoPlaylist();
-			
-			upVideoView();
-		});
+	
+		upVideoView();
+		getVideoPlaylist();
 	</script>
 </body>
 </html>
