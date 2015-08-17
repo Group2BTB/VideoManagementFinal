@@ -47,44 +47,41 @@
 <body onresize="srollhide()">
 
 	<%
-		
 		String str;
-		String title = "1.1. Jquery tutorials for beginner students";		
+		String title = "1.1. Jquery tutorials for beginner students";
 		long view = 10l;
-		long video_id=0;
-		int pl = 1;	
-				
+		long video_id = 0;
+		int pl = 1;
+
 		str = "Wkkshutyv0g";
-		
-		try{	
-			Video obj = (Video)session.getAttribute("url");			
-			if(session.getAttribute("pl")!=null)
-				pl = Integer.parseInt(session.getAttribute("pl").toString()) ;
+
+		try {
+			Video obj = (Video) session.getAttribute("url");
+			if (session.getAttribute("pl") != null)
+				pl = Integer.parseInt(session.getAttribute("pl").toString());
 			//System.out.println(obj.getUrl());
-			if(obj == null)
-				{str = "Wkkshutyv0g";
-				 title = "1.1. Jquery tutorials for beginner students";
-				 view =10l;
-				 video_id = 0;
-				}
-			else
-				{str = obj.getUrl();
-				 title = obj.getName();
-				 view = obj.getView();
-				 video_id = obj.getId();
-				}
-			
-		}catch(Exception ex){
+			if (obj == null) {
+				str = "Wkkshutyv0g";
+				title = "1.1. Jquery tutorials for beginner students";
+				view = 10l;
+				video_id = 0;
+			} else {
+				str = obj.getUrl();
+				title = obj.getName();
+				view = obj.getView();
+				video_id = obj.getId();
+			}
+
+		} catch (Exception ex) {
 			ex.printStackTrace();
-			title = "1.1. Jquery tutorials for beginner students";		
+			title = "1.1. Jquery tutorials for beginner students";
 			view = 10l;
-			video_id=0;
+			video_id = 0;
 			pl = 1;
 			str = "Wkkshutyv0g";
 		}
-		
 	%>
-	
+
 	<section id="container" class="">
 		<!--header start-->
 		<header class="header white-bg">
@@ -124,7 +121,8 @@
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span> <b class="caret"></b>
+							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span>
+							<b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
@@ -135,8 +133,8 @@
 							<li><a href="logout"><i class="fa fa-key"></i> Log Out</a></li>
 						</ul></li>
 					<!-- user login dropdown end -->
-					<li class="sb-toggle-right" id="sms"><i class="fa  fa-align-right"></i>
-					</li>
+					<li class="sb-toggle-right" id="sms"><i
+						class="fa  fa-align-right"></i></li>
 				</ul>
 			</div>
 		</header>
@@ -167,153 +165,159 @@
 					</div>
 				</div> -->
 				<!-- Include other page here -->
-			<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<!--====== Videos Play ======-->
-					<div class="col-md-8" id="videos_play">
-						<div id="myplayerwrapper">
-							<video id="vid1" class="video-js vjs-default-skin" controls
-								preload="auto" width="640" height="360"></video>
-						</div>
-						<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
 							<div class="row">
-								<div class="col-md-12 col-sm-12 col-xs-12">
-									<h2><%=title%></h2>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<span><img src="../videoplayer/avatar.png" width="50"
-										height="50" /><b>Admin</b></span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12" style="text-align: right;">
-									<p>
-										<img alt="views" src="../videoplayer/eyes.png" width="35"
-											style="margin-left: 20px;"> <b style="font-size: 16px;">Veiws:</b>
-										<%=view %>
-									</p>
-								</div>
-							</div>
-
-							<hr style="border-color: #545D61; height: 1px; margin-top: 0px;" />
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-xs-12">
-									<span class='st_sharethis_large' displayText='ShareThis'></span>
-									<span class='st_facebook_large' displayText='Facebook'></span>
-									<span class='st_twitter_large' displayText='Tweet'></span> <span
-										class='st_linkedin_large' displayText='LinkedIn'></span> <span
-										class='st_pinterest_large' displayText='Pinterest'></span> <span
-										class='st_email_large' displayText='Email'></span>
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs-12 pull-right">
-									<div class="col-md-12 col-sm-12 col-xs-12 ">
-										<div class="pull-right">
-											<a style="cursor: pointer;"><i
-												class="fa fa-thumbs-up fa-2x"
-												style="padding: 0px 10px; color: #3BAFDA;"></i> <span>10398</span>
-
-												<i class="fa fa-thumbs-down fa-2x"
-												style="padding: 0px 10px; color: #3BAFDA;"></i><span>10398</span></a>
+								<!--====== Videos Play ======-->
+								<div class="col-md-8" id="videos_play">
+									<div id="myplayerwrapper">
+										<video id="vid1" class="video-js vjs-default-skin" controls
+											preload="auto" width="640" height="360"></video>
+									</div>
+									<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
+										<div class="row">
+											<div class="col-md-12 col-sm-12 col-xs-12">
+												<h2><%=title%></h2>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<span><img src="../videoplayer/avatar.png" width="50"
+													height="50" /><b>Admin</b></span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12" style="text-align: right;">
+												<p>
+													<img alt="views" src="../videoplayer/eyes.png" width="35"
+														style="margin-left: 20px;"> <b
+														style="font-size: 16px;">Veiws:</b>
+													<%=view%>
+												</p>
+											</div>
 										</div>
 
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<hr style="padding-top: 30px;">
-								<div class="col-md-12">
-
-									<div class="row comments">
-										<div class="col-md-12">
-											<div class="well">
-												<b>Public on June 13, 2015</b> <br /> Learn four methods
-												for passing values from one page to another. You'll work
-												with Session...PreviousPage...QueryString... the Profile
-												Object. For more tips and tutorials, visit
-												www.detacheddesigns.com/blog
+										<hr
+											style="border-color: #545D61; height: 1px; margin-top: 0px;" />
+										<div class="row">
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<span class='st_sharethis_large' displayText='ShareThis'></span>
+												<span class='st_facebook_large' displayText='Facebook'></span>
+												<span class='st_twitter_large' displayText='Tweet'></span> <span
+													class='st_linkedin_large' displayText='LinkedIn'></span> <span
+													class='st_pinterest_large' displayText='Pinterest'></span>
+												<span class='st_email_large' displayText='Email'></span>
 											</div>
+											<div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+												<div class="col-md-12 col-sm-12 col-xs-12 ">
+													<div class="pull-right">
+														<a style="cursor: pointer;"><i
+															class="fa fa-thumbs-up fa-2x"
+															style="padding: 0px 10px; color: #3BAFDA;"></i> <span>10398</span>
 
-											<form role="form" action="" method="post">
-												<div class="form-group">
-													<label for="comment">Comment:</label>
-													<textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+															<i class="fa fa-thumbs-down fa-2x"
+															style="padding: 0px 10px; color: #3BAFDA;"></i><span>10398</span></a>
+													</div>
+
 												</div>
-												<input type="button" value="Comment" id="btnComments" class="pull-right btn btn-default" onclick="addComment()"/>
-
-											</form>
-
+											</div>
 										</div>
-									</div>
-									<div id="show_comments"></div>
-									<div class="col-md-12 comments box_comment" id="comment_box">
-										<div class="row wells">
-											<div class="col-md-1">
-												<img src="../videoplayer/avatar.png" width="50">
-											</div>
-											<div class="col-md-11">
-												<div class="col-md-4 col-xs-6">
-													<span><b>Prem Chanthorn</b></span>
-												</div>
-												<div class="col-md-4 col-xs-6">10 minutes ago</div>
-												<div class="col-md-12 col-xs-12">I really like this
-													website.</div>
 
-												<div class="row">
-													<div>
-														<button class="btn" id="btn_reply">Reply</button>
+										<div class="row">
+											<hr style="padding-top: 30px;">
+											<div class="col-md-12">
+
+												<div class="row comments">
+													<div class="col-md-12">
+														<div class="well">
+															<b>Public on June 13, 2015</b> <br /> Learn four methods
+															for passing values from one page to another. You'll work
+															with Session...PreviousPage...QueryString... the Profile
+															Object. For more tips and tutorials, visit
+															www.detacheddesigns.com/blog
+														</div>
+
+														<form role="form" action="" method="post">
+															<div class="form-group">
+																<label for="comment">Comment:</label>
+																<textarea class="form-control" rows="5" id="comment"
+																	name="comment"></textarea>
+															</div>
+															<input type="button" value="Comment" id="btnComments"
+																class="pull-right btn btn-default"
+																onclick="addComment()" />
+
+														</form>
+
 													</div>
 												</div>
+												<div id="show_comments"></div>
+												<div class="col-md-12 comments box_comment" id="comment_box">
+													<div class="row wells">
+														<div class="col-md-1">
+															<img src="../videoplayer/avatar.png" width="50">
+														</div>
+														<div class="col-md-11">
+															<div class="col-md-4 col-xs-6">
+																<span><b>Prem Chanthorn</b></span>
+															</div>
+															<div class="col-md-4 col-xs-6">10 minutes ago</div>
+															<div class="col-md-12 col-xs-12">I really like this
+																website.</div>
+
+															<div class="row">
+																<div>
+																	<button class="btn" id="btn_reply">Reply</button>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+											<!------End of Comment------>
+										</div>
+									</div>
+								</div>
+								<!--====== PlayList and questions ======-->
+								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
+									id="playlist_show">
+									<div class="tabbable" id="tabs-161102">
+										<div>
+											<ul class="nav nav-tabs">
+												<li class="active"><a class="color_white">Learn
+														Java</a></li>
+												<li class="pull-right text-center"
+													style="padding-top: 10px; color: white;">Result : 50
+													Videos</li>
+											</ul>
+										</div>
+										<div class="tab-content color_white">
+											<div class="tab-pane active" id="panel-590992">
+												<div id="list_video"></div>
+
 											</div>
 										</div>
-
 									</div>
 								</div>
-								<!------End of Comment------>
 							</div>
 						</div>
 					</div>
-					<!--====== PlayList and questions ======-->
-					<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
-						id="playlist_show">
-						<div class="tabbable" id="tabs-161102">
-							<div>
-								<ul class="nav nav-tabs">
-									<li class="active"><a class="color_white"
-										href="#panel-590992" data-toggle="tab">Playlist</a></li>
-								</ul>
-							</div>
-							<div class="tab-content color_white">
-								<div class="tab-pane active" id="panel-590992">
-									<div id="list_video">
-											
-									</div>
-
-								</div>
+					<!-- Right Slidebar start -->
+					<div class="sb-slidebar sb-right sb-style-overlay">
+						<h5 class="side-title">Messages</h5>
+					</div>
+					<!-- Right Slidebar end -->
+					<!--footer start-->
+					<footer class="site-footer">
+						<div class="text-center">
+							2015 &copy; KHMERA CADEMY<a href="#" class="go-top"> <i
+								class="fa fa-angle-up"></i>
+							</a>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-				<!-- Right Slidebar start -->
-				<div class="sb-slidebar sb-right sb-style-overlay">
-					<h5 class="side-title">Messages</h5>
-				</div>
-				<!-- Right Slidebar end -->
-				<!--footer start-->
-				<footer class="site-footer">
-					<div class="text-center">
-						2015 &copy; KHMERA CADEMY<a href="#" class="go-top"> <i
-							class="fa fa-angle-up"></i>
-						</a>
-					</div>
-				</footer>
-				<!--footer end-->
+					</footer>
+					<!--footer end-->
 			</section>
 		</section>
 	</section>
@@ -381,8 +385,8 @@
 			$(".active").removeClass("active");
 			$(obj).addClass("active");
 		}
-	</script>	
-		<!-- hide some header when scroll less than 768px  -->
+	</script>
+	<!-- hide some header when scroll less than 768px  -->
 	<script>
 		function srollhide() {
 			var w = innerWidth;
@@ -458,89 +462,107 @@
 			});
 		});
 		//add text form textarea to the div below
-		$(document).ready(function() {
-			$("#btnComments").click(function() {
-					var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-					var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-					var c = '<div class="col-md-12 col-xs-12">'
-							+ $("#comment").val()
-							+ '</div></div>';
-					$("#comment").val("");
+		$(document)
+				.ready(
+						function() {
+							$("#btnComments")
+									.click(
+											function() {
+												var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+												var c = '<div class="col-md-12 col-xs-12">'
+														+ $("#comment").val()
+														+ '</div></div>';
+												$("#comment").val("");
 
-					$("#show_comments").prepend(
-							a + b + c);
-				});
-			});
-		
+												$("#show_comments").prepend(
+														a + b + c);
+											});
+						});
+
 		//function for list playlist 
-		function getVideoPlaylist(){
+		function getVideoPlaylist() {
 			var str = "";
-			$.ajax({
-				url : "getPlayList",
-				method : "POST",
-				dataType : "JSON",
-				data:{
-					playlist_id : <%=pl%>
-					},
-				success : function(data) {
-					var substring="";
-					for ( var i in data) {
-						for(var j in data[i]){
-							substring = data[i][j].video_name;
-							//str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
-							if(substring.length > 45){
-								 substring = substring.substr(0,42) + "...";
+			$
+					.ajax({
+						url : "getPlayList",
+						method : "POST",
+						dataType : "JSON",
+						data : {
+							playlist_id :
+	<%=pl%>
+		},
+						success : function(data) {
+							var substring = "";
+							for ( var i in data) {
+								for ( var j in data[i]) {
+									substring = data[i][j].video_name;
+									//str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
+									if (substring.length > 45) {
+										substring = substring.substr(0, 42)
+												+ "...";
+									}
+									str += '<div class="bg_playlist " style ="margin-top: 10px;"onclick="window.location= '
+											+ "'playervideo?v="
+											+ data[i][j].video_id
+											+ "'"
+											+ '"><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span style="padding-left:15px;" class="">'
+											+ substring + '</span></div>';
+								}
+
 							}
-							str +='<div class="bg_playlist " style ="margin-top: 10px;"onclick="window.location= ' + "'playervideo?v=" + data[i][j].video_id + "'" +'"><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span style="padding-left:15px;" class="">'+ substring+'</span></div>';
-							}
-					
-					}	$("#list_video").html(str);
-				}
-			});
-		}	
-		
+							$("#list_video").html(str);
+						}
+					});
+		}
+
 		//function for get videos play when 
-		function getVideoPlay(playlist_id){
+		function getVideoPlay(playlist_id) {
 			$.ajax({
 				url : "playVideo",
 				method : "POST",
-				dataType: "JSON",
+				dataType : "JSON",
 				data : {
 					playlist_id : playlist_id
 				},
-				success: function(data){
+				success : function(data) {
 					alert(data);
 				}
 			});
 		}
 		//increase 1 for view once videos
-		function upVideoView(){
+		function upVideoView() {
 			$.ajax({
 				url : "getViewVideo",
 				method : "POST",
-				dataType: "JSON",
+				dataType : "JSON",
 				data : {
-					video_id : <%=video_id%>
-				},
-				success: function(data){
+					video_id :
+	<%=video_id%>
+		},
+				success : function(data) {
 					alert(data);
 				}
 			});
 		}
-		
+
 		//function for add comment
-		function addComment(){
+		function addComment() {
 			$.ajax({
 				url : "addComment",
 				method : "POST",
-				data:{
+				data : {
 					comment : $("#comment").val(),
-					user_id : <%=session.getAttribute("userID")%>,
-					video_id : <%=video_id%>,
+					user_id :
+	<%=session.getAttribute("userID")%>
+		,
+					video_id :
+	<%=video_id%>
+		,
 				}
 			});
 		}
-	
+
 		upVideoView();
 		getVideoPlaylist();
 	</script>
