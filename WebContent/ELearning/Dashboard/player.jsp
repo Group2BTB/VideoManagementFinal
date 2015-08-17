@@ -58,7 +58,8 @@
 		try {
 			Video obj = (Video) session.getAttribute("url");
 			if (session.getAttribute("pl") != null)
-				pl = Integer.parseInt(session.getAttribute("pl").toString());
+				pl = Integer
+						.parseInt(session.getAttribute("pl").toString());
 			//System.out.println(obj.getUrl());
 			if (obj == null) {
 				str = "Wkkshutyv0g";
@@ -296,7 +297,6 @@
 										<div class="tab-content color_white">
 											<div class="tab-pane active" id="panel-590992">
 												<div id="list_video"></div>
-
 											</div>
 										</div>
 									</div>
@@ -316,12 +316,22 @@
 								class="fa fa-angle-up"></i>
 							</a>
 						</div>
+						</div>
+					<!-- Right Slidebar end -->
 					</footer>
 					<!--footer end-->
 			</section>
 		</section>
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2015 &copy; KHMERA CADEMY<a href="#" class="go-top"> <i
+					class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
 	</section>
-
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -553,12 +563,8 @@
 				method : "POST",
 				data : {
 					comment : $("#comment").val(),
-					user_id :
-	<%=session.getAttribute("userID")%>
-		,
-					video_id :
-	<%=video_id%>
-		,
+					user_id : <%=session.getAttribute("userID")%>,
+					video_id :<%=video_id%>,
 				}
 			});
 		}
