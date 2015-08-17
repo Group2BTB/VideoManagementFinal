@@ -536,9 +536,8 @@
 				method : "POST",
 				dataType : "JSON",
 				data : {
-					video_id :
-	<%=video_id%>
-		},
+					video_id :<%=video_id%>
+				},
 				success : function(data) {
 					alert(data);
 				}
