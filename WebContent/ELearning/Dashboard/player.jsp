@@ -285,7 +285,6 @@
 								<ul class="nav nav-tabs">
 									<li class="active"><a class="color_white"
 										href="#panel-590992" data-toggle="tab">Playlist</a></li>
-									
 								</ul>
 							</div>
 							<div class="tab-content color_white">
@@ -364,21 +363,24 @@
 								ind++;
 								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
 							}
-							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
+							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
 							count++;
 							ind = 0;
 						}
 						$("#nav-accordion").html(strsup + "</li>");
-						$(".sub0").slideDown(1000);
-						$("li .sub-menu").addClass("active");
+						//$(".sub0").slideDown(1000);
 					}
 				});
 			}
 		function dopro(id) {
 			$(".sub").slideUp();
 			$(".sub" + id).slideToggle();
-		}				
+		}	
+		function doAddClass(obj){
+			$(".active").removeClass("active");
+			$(obj).addClass("active");
+		}
 	</script>	
 		<!-- hide some header when scroll less than 768px  -->
 	<script>
