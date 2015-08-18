@@ -133,14 +133,14 @@
 					<div class="panel-heading" style="background-color: #558d48">
 						<ul class="nav nav-tabs">
 							<li class=""><a href="#panel-videos" data-toggle="tab"
-								aria-expanded="false"><i class="fa fa fa-eye"></i> Videos</a></li>
+								aria-expanded="false"><i class="fa fa fa-eye"></i>Home</a></li>
 							<li class="active"><a href="#panel-playlist"
 								data-toggle="tab" aria-expanded="true"><i
-									class="fa fa-caret-square-o-right"></i> Playlist</a></li>
+									class="fa fa-caret-square-o-right"></i>Video</a></li>
 							<li class=""><a href="#panel-history" data-toggle="tab"
 								aria-expanded="false"><i class="fa fa fa-eye"></i> History</a></li>
 							<li class=""><a href="#panel-myinfo" data-toggle="tab"
-								aria-expanded="false"><i class="fa  fa-user"></i> About</a></li>
+								aria-expanded="false"><i class="fa  fa-user"></i> Watch Later</a></li>
 							<li class="pull-right">
 								<!-- 										 <span class="btn btn-group inline-popups"> --> <a
 								class="btn btn-success btn-rounded-lg" href="video.act"
