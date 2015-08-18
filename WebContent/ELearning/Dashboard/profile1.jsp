@@ -131,28 +131,19 @@
 				<div
 					class="panel with-nav-tabs panel-primary panel-square panel-no-border">
 					<div class="panel-heading" style="background-color: #558d48">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#panel-videos" data-toggle="tab"
-								aria-expanded="true"><i class="fa fa fa-eye"></i>Home</a></li>
-							<li class=""><a href="#panel-playlist" data-toggle="tab"
-								aria-expanded="false"><i class="fa fa-caret-square-o-right"></i>Video</a></li>
+						<ul class="nav nav-tabs">							
 							<li class=""><a href="#panel-history" data-toggle="tab"
 								aria-expanded="false"><i class="fa fa fa-eye"></i> History</a></li>
-							<li class=""><a href="#panel-myinfo" data-toggle="tab"
+							<li class=""><a href="#panel-watch-later" data-toggle="tab"
 								aria-expanded="false"><i class="fa  fa-user"></i> Watch
 									Later</a></li>
 							<li class="pull-right">
-								<!-- 										 <span class="btn btn-group inline-popups"> --> <a
+								<!-- <span class="btn btn-group inline-popups"> --> <a
 								class="btn btn-success btn-rounded-lg" href="video.act"
 								data-effect="mfp-zoom-in"> <i class="fa fa-cloud-upload"></i>
 									Upload video
 							</a> <!-- 										</span> -->
 							</li>
-
-
-
-
-
 						</ul>
 					</div>
 					<div id="panel-collapse-1" class="collapse in">
@@ -160,29 +151,17 @@
 							<div class="tab-content">
 								<!-- Videos -->
 
-								<div class="tab-pane fade active in" id="panel-videos">
-
+								<!-- <div class="tab-pane fade active in" id="panel-videos">
 									<div id="v"></div>
-
 									<div class="btn-toolbar top-table" role="toolbar">
-
-
 										<div class="btn-group pull-right">
 											<form role="form">
 												<input type="text" id="searchVideo" class="form-control"
 													placeholder="Search by Video title">
 											</form>
-
 										</div>
-										<!-- /.btn-group .pull-right -->
-
-
-
-
-
+										/.btn-group .pull-right
 									</div>
-
-
 
 									<div id="getUserVideos">
 										<div class="alert alert-success fade in alert-dismissable">
@@ -191,16 +170,11 @@
 											<strong>No</strong> videos!
 										</div>
 									</div>
-
 								</div>
-
-
+ -->
 								<!-- Info -->
 
-
-
 								<div class="tab-pane fade" id="panel-history">
-
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
@@ -229,275 +203,60 @@
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-
-
 									<div id="getHistory">
 										<div>
 											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=11"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown" aria-expanded="false">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=11">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
-																		from History</a></li>
+												<div class="the-box no-border store-list">
+													<div class="media">
+														<a class="pull-left" href="../elearning/play.act?v=11"><img
+															alt="image" class="store-image img-responsive"
+															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
+														<div class="clearfix visible-xs"></div>
+														<div class="media-body" style="overflow: visible">
+															<a href="#fakelink"></a>
+															<div class="btn-group pull-right">
+																<button type="button"
+																	class="btn btn-default btn-sm dropdown-toggle"
+																	data-toggle="dropdown" aria-expanded="false">
+																	<i class="fa fa-cog"></i>
+																</button>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a href="../elearning/play.act?v=11">Play</a></li>
+																	<li><a href="#"
+																		onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
+																			from History</a></li>
+																</ul>
+															</div>
+															<ul class="list-inline">
+																<li><a href="../elearning/play.act?v=11"><strong
+																		class="text-black">Introduction, Syntax,
+																			Selectors &amp; How to Apply</strong></a></li>
+																<br>
+																<li><a><span class="small text-muted"
+																		style="color: #AAB2BD"> by Admin</span></a></li>
 															</ul>
+															<p class="hidden-xs"></p>
+															<span class="small text-muted" style="color: #AAB2BD"><i
+																class="fa fa-eye">&nbsp;&nbsp;2093</i> &nbsp;&nbsp;&nbsp;
+															</span><br /><br />
+															<div class="progress">
+															    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+															    	<span class="text-info" style="color: #fff"><i
+																		class="fa fa-clock-o"></i>
+																	</span>4:37 (70%&nbsp;completed)
+															    </div>
+															    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+															    	<span class="text-info" style="color: #fff"><i
+																		class="fa fa-clock-o"></i>
+																	</span>1:23 (30%&nbsp;remain)
+															    </div>
+															</div>
+															
 														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=11"><strong
-																	class="text-black">Introduction, Syntax,
-																		Selectors &amp; How to Apply</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;2093</i> &nbsp;&nbsp;&nbsp;
-														</span>
 													</div>
 												</div>
 											</div>
-											</div>
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=60"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/NjNptB53g9I/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=60">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=3875&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=60"><strong
-																	class="text-black">1.1 - Introduction &amp;
-																		Overview</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;7075</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=51"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/Ih8H6HXeKQQ/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=51">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=11243&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=51"><strong
-																	class="text-black">Introduction to HTML</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;5178</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=281"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/kDr-xQO4to0/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=281">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=54957&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=281"><strong
-																	class="text-black">1.1 - Objective C Content</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs">Objective C Programming tutorial
-															by HRD Students</p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;818</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=55"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/VjFMoS7Fklk/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=55">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=11244&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=55"><strong
-																	class="text-black">5. HTML Table, Block</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;631</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=52"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/ShTRRMsvT9I/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=52">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=45697&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=52"><strong
-																	class="text-black">2. HTML Elements, Syntax,
-																		Attribute, Heading, Line</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;1197</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=56"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/KIgQMfoUvCs/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=56">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=45678&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=56"><strong
-																	class="text-black">6. HTML Layout, Forms</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs"></p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;601</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-											</div>
-											
+										</div>
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="dataTables_info" id="datatable-example_info">Page
@@ -523,10 +282,106 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
-								<!-- /#panel-about -->
+								
+								<div class="tab-pane fade" id="panel-watch-later">
+									<div class="btn-toolbar top-table" role="toolbar">
+										<div class="btn-group">
+											<form role="form" id="frmSetNumrowHistory">
+												<select class="form-control" id="setNumrowHistory">
+													<option>10</option>
+													<option>20</option>
+													<option>30</option>
+													<option>50</option>
+												</select>
+											</form>
+										</div>
+										<div class="btn-group">
+											<a href="#"
+												onclick="deleteallhistory('deleteallhistory.act')"
+												class="btn btn-danger"> <i class="fa fa-ban"></i> Clear
+												All Watch Later
+											</a>
+										</div>
 
+										<div class="btn-group pull-right">
+											<form role="form">
+												<input type="text" class="form-control" id="tfsearchHistory"
+													placeholder="Search category">
+											</form>
+
+										</div>
+										<!-- /.btn-group .pull-right -->
+									</div>
+									<div id="getWatchlater">
+										<div>
+											<div class="alert alert-info">
+												<div class="the-box no-border store-list">
+													<div class="media">
+														<a class="pull-left" href="../elearning/play.act?v=11"><img
+															alt="image" class="store-image img-responsive"
+															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
+														<div class="clearfix visible-xs"></div>
+														<div class="media-body" style="overflow: visible">
+															<a href="#fakelink"></a>
+															<div class="btn-group pull-right">
+																<button type="button"
+																	class="btn btn-default btn-sm dropdown-toggle"
+																	data-toggle="dropdown" aria-expanded="false">
+																	<i class="fa fa-cog"></i>
+																</button>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a href="../elearning/play.act?v=11">Play</a></li>
+																	<li><a href="#"
+																		onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
+																			from watch later</a></li>
+																</ul>
+															</div>
+															<ul class="list-inline">
+																<li><a href="../elearning/play.act?v=11"><strong
+																		class="text-black">Introduction, Syntax,
+																			Selectors &amp; How to Apply</strong></a></li>
+																<br>
+																<li><a><span class="small text-muted"
+																		style="color: #AAB2BD"> by Admin</span></a></li>
+															</ul>
+															<p class="hidden-xs"></p>
+															<span class="small text-muted" style="color: #AAB2BD"><i
+																class="fa fa-eye">&nbsp;&nbsp;2093</i> &nbsp;&nbsp;&nbsp;
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="dataTables_info" id="datatable-example_info">Page
+													1 of 4 entries</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="dataTables_paginate paging_bootstrap">
+													<ul class="pagination separated">
+														<li class="active"><a href="#page=1"
+															onclick="gotohistorypage('historylist.act?page=1')">1</a></li>
+														<li><a href="#page=2"
+															onclick="gotohistorypage('historylist.act?page=2')">2</a></li>
+														<li><a href="#page=3"
+															onclick="gotohistorypage('historylist.act?page=3')">3</a></li>
+														<li><a href="#page=4"
+															onclick="gotohistorypage('historylist.act?page=4')">4</a></li>
+														<li><a href="#next"
+															onclick="gotohistorypage('historylist.act?page=2')">Next</a></li>
+														<li><a href="#page=4"
+															onclick="gotohistorypage('historylist.act?page=4')">Last</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- /#panel-about -->
 							</div>
 							<!-- /.tab-content -->
 						</div>
@@ -541,7 +396,7 @@
 			<footer class="site-footer"
 				style="position: fixed; bottom: 0px; width: 100%; align: center; z-index: 0;">
 				<div class="text-center">
-					2015 Â© KHMERACADEMY<a href="#" class="go-top"> <i
+					2015 � KHMERACADEMY<a href="#" class="go-top"> <i
 						class="fa fa-angle-up"></i>
 					</a>
 				</div>
