@@ -245,7 +245,7 @@
 																		class="fa fa-clock-o"></i>
 																	</span>4:37 (70%&nbsp;completed)
 															    </div>
-															    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+															    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
 															    	<span class="text-info" style="color: #fff"><i
 																		class="fa fa-clock-o"></i>
 																	</span>1:23 (30%&nbsp;remain)
