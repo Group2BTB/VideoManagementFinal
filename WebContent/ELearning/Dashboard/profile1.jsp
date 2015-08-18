@@ -233,6 +233,7 @@
 
 									<div id="getHistory">
 										<div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=11"><img
@@ -269,6 +270,8 @@
 													</div>
 												</div>
 											</div>
+											</div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=60"><img
@@ -305,6 +308,8 @@
 													</div>
 												</div>
 											</div>
+											</div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=51"><img
@@ -340,44 +345,9 @@
 													</div>
 												</div>
 											</div>
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=577"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/9ERilPCCZ-0/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=577">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=58349&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=577"><strong
-																	class="text-black">ÃƒÂ¡Ã…Â¾Ã…Â¸ÃƒÂ¡Ã…Â¾Ã‹Å“ÃƒÂ¡Ã…Â¾Ã‚Â¸ÃƒÂ¡Ã…Â¾Ã¢â€šÂ¬ÃƒÂ¡Ã…Â¾Ã‚Â¶ÃƒÂ¡Ã…Â¾Ã…Â¡ÃƒÂ¡Ã…Â¾Ã…&nbsp;ÃƒÂ¡Ã…Â¾Ã‚ÂºÃƒÂ¡Ã…Â¾Ã¢â€šÂ¬ÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã…Â¡ÃƒÂ¡Ã…Â¸Ã‚ÂÃƒÂ¡Ã…Â¾Ã¢â‚¬ËœÃƒÂ¡Ã…Â¾Ã‚Â¸ÃƒÂ¡Ã…Â¸Ã‚Â¡
-																		- Part 1- Rodwell Institute</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs">ÃƒÂ¡Ã…Â¾Ã¢â‚¬Â¢ÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã…&nbsp;ÃƒÂ¡Ã…Â¾Ã¢â‚¬ÂºÃƒÂ¡Ã…Â¸Ã¢â‚¬Â¹ÃƒÂ¡Ã…Â¾Ã…&nbsp;ÃƒÂ¡Ã…Â¸Ã¢â‚¬Å¾ÃƒÂ¡Ã…Â¾Ã¢â€žÂ¢
-															ÃƒÂ¡Ã…Â¾Ã…â€œÃƒÂ¡Ã…Â¾Ã‚Â·ÃƒÂ¡Ã…Â¾Ã¢â‚¬ËœÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã¢â€žÂ¢ÃƒÂ¡Ã…Â¾Ã‚Â¶ÃƒÂ¡Ã…Â¾Ã…Â¸ÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã…&nbsp;ÃƒÂ¡Ã…Â¾Ã‚Â¶ÃƒÂ¡Ã…Â¾Ã¢â‚¬Å“
-															Rodwell</p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;686</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
 											</div>
+											
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=281"><img
@@ -414,6 +384,8 @@
 													</div>
 												</div>
 											</div>
+											</div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=55"><img
@@ -449,6 +421,8 @@
 													</div>
 												</div>
 											</div>
+											</div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=52"><img
@@ -485,6 +459,8 @@
 													</div>
 												</div>
 											</div>
+											</div>
+											<div class="alert alert-info">
 											<div class="the-box no-border store-list">
 												<div class="media">
 													<a class="pull-left" href="../elearning/play.act?v=56"><img
@@ -520,80 +496,8 @@
 													</div>
 												</div>
 											</div>
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=230"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/KzTz47a0nMo/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=230">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=4841&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=230"><strong
-																	class="text-black">1 - Introduction to iOS</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs">Explanation about what iOS is</p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;2216</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
 											</div>
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="../elearning/play.act?v=488"><img
-														alt="image" class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/Za5RloAb8xk/mqdefault.jpg"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=488">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=14077&amp;page=1')">Remove
-																		from History</a></li>
-															</ul>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=488"><strong
-																	class="text-black">1.
-																		ÃƒÂ¡Ã…Â¾Ã¢â‚¬â€œÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã¢â€žÂ¢ÃƒÂ¡Ã…Â¾Ã¢â‚¬Â°ÃƒÂ¡Ã…Â¸Ã¢â‚¬â„¢ÃƒÂ¡Ã…Â¾Ã¢â‚¬Â¡ÃƒÂ¡Ã…Â¾Ã¢â‚¬Å“ÃƒÂ¡Ã…Â¸Ã‹â€&nbsp;
-																		- Consonant</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
-														</ul>
-														<p class="hidden-xs">Korean Language training with
-															explanation in Khmer</p>
-														<span class="small text-muted" style="color: #AAB2BD"><i
-															class="fa fa-eye">&nbsp;&nbsp;2211</i> &nbsp;&nbsp;&nbsp;
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
+											
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="dataTables_info" id="datatable-example_info">Page
