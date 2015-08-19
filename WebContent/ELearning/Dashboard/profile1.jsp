@@ -20,6 +20,28 @@
 <!-- Custom styles for this template -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet">
+<style>
+.vcount{
+	position: absolute;
+	background-color: gray;
+	color: white;
+	padding:6px;
+	margin:auto;
+	
+
+}
+.vblock{
+		height: 180px;
+		width: 100px;
+		background-color:gray;
+		position: absolute;
+		opacity: 0.8;
+  		filter: alpha(opacity=80);
+		float:left;
+		margin:auto;
+
+}
+</style>
 
 </head>
 <body>
@@ -418,12 +440,25 @@
 																			from History</a></li>
 																</ul>
 															</div>
+															
 															<ul class="list-inline">
-																<li><a href="../elearning/play.act?v=11"><strong
-																		class="text-black">Introduction, Syntax,
-																			Selectors &amp; How to Apply</strong></a></li>
+																
+																<div class="vblock">
+																<li><a href="../elearning/play.act?v=11">
+																
+																</a>
+																<div class="vcount">
+																		<p>30 Videos</p>
+																	</div>	
+																</li>
+																
+																</div>
+																
+															
+																<li>
+																<strong class="text-black">Learn Java</strong>
 																<br>
-																<li><a><span class="small text-muted"
+																<a><span class="small text-muted"
 																		style="color: #AAB2BD"> by Admin</span></a></li>
 															</ul>
 															<p class="hidden-xs"></p>
