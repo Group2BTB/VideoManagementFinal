@@ -3,13 +3,13 @@ package model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import model.dto.UserVideo;
+import model.dto.WatchedVideo;
 import model.dto.WatchLater;
 import utilities.DBConnection;
 
 public class UserVideoDAO {
 	
-	public boolean insertWatchLater(UserVideo uv){
+	public boolean insertWatchedVideo(WatchedVideo uv){
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
