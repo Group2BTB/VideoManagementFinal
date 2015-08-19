@@ -39,13 +39,15 @@ public class GetPlayList extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		//int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
 		int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		try {
 			response.getWriter().print(new PlayListDAO().getVideoPlaylist(playlist_id));
+			//request.getRequestDispatcher("").forward(request, response);
 			System.out.println(new PlayListDAO().getVideoPlaylist(playlist_id));
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
