@@ -13,7 +13,7 @@ public class WatchedVideoDAO {
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
-				PreparedStatement stm = con.prepareStatement("insert into tb_user_video(user_id, video_id, time, percent) values(?,?,?)");){
+				PreparedStatement stm = con.prepareStatement("insert into tb_user_video(user_id, video_id, time, percent) values(?,?,?,?)");){
 					
 			/*To set data to preparedStatement from video's data*/
 			stm.setLong(1, uv.getUser_id());
