@@ -20,6 +20,10 @@ public class PlayList {
 	private String doc_url;
 	private Date create_date1;
 	
+	private long user_id;
+	private String user_name;
+	private String time;
+	private String percent;
 	
 	public PlayList(){
 		
@@ -39,6 +43,39 @@ public class PlayList {
 	}
 	
 	
+	
+
+	public long getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getPercent() {
+		return percent;
+	}
+
+	public void setPercent(String percent) {
+		this.percent = percent;
+	}
 
 	public long getVideo_id() {
 		return video_id;
