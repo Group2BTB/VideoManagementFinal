@@ -520,49 +520,49 @@
 		//function for list playlist 
 		function getVideoPlaylist() {
 			var str = "";
-			$
-					.ajax({
-						url : "getPlayList",
-						method : "POST",
-						dataType : "JSON",
-						data : {
-							playlist_id :<%=pl%>
-		},
-						success : function(data) {
-							var substring = "";
-							var count = 0;
-							for ( var i in data) {
-								for ( var j in data[i]) {
-									substring = data[i][j].video_name;
-
-									if (substring.length > 32) {
-										substring = substring.substr(0, 29)
-												+ "...";
-									}
-									str += '<div class="bg_playlist title_playlist " style ="margin-top: 10px; margin-left:-104px; "onclick="window.location= '
-											+ "'playervideo?v="
-											+ data[i][j].video_id
-											+ "'"
-											+ '"><span style="position:relative; top:16px;left:123px;  background-color: darkgrey; border-radius: 3px; color:#000000; z-index:1; " onclick="che()"><b>Watched :</b> 1:50</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="150" height="80" style=" opacity:0.9;"/><span style="padding-left:15px;">'
-											+ substring + '</span></div>';
-									count++;
-								}
-
+			<%int playlist_id=Integer.parseInt(request.getParameter("p"));%>
+			<%-- alert(<%=p%>); --%>
+			$.ajax({
+				url : "getPlayList",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					playlist_id : <%=playlist_id%>
+					},
+				success : function(data) {
+					var substring = "";
+					var count = 0;
+					for ( var i in data) {
+						for ( var j in data[i]) {
+							substring = data[i][j].video_name;
+							if (substring.length > 32) {
+								substring = substring.substr(0, 29)
+										+ "...";
 							}
-							$("#totalvideo").html(
-									"Result : " + count + " videos");
-							$("#totalvideo_small").html(
-									"Result : " + count + " videos");
-							$("#list_video").html(str);
-							$("#list_video_small").html(str);
-							
-							
+							str += '<div class="bg_playlist title_playlist " style ="margin-top: 10px; margin-left:-104px; "onclick="window.location= '
+									+ "'playervideo?p="+<%=playlist_id%>+"&v="
+									+ data[i][j].video_id
+									+ "'"
+									+ '"><span style="position:relative; top:16px;left:123px;  background-color: darkgrey; border-radius: 3px; color:#000000; z-index:1; " onclick="che()"><b>Watched :</b> 1:50</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="150" height="80" style=" opacity:0.9;"/><span style="padding-left:15px;">'
+									+ substring + '</span></div>';
+							count++;
 						}
-					});
+
+					}
+					$("#totalvideo").html(
+							"Result : " + count + " videos");
+					$("#totalvideo_small").html(
+							"Result : " + count + " videos");
+					$("#list_video").html(str);
+					$("#list_video_small").html(str);
+					
+					
+				}
+			});
 		}
 
 		//function for get videos play when 
-		function getVideoPlay(playlist_id) {
+		/* function getVideoPlay(playlist_id) {
 			$.ajax({
 				url : "playVideo",
 				method : "POST",
@@ -574,7 +574,7 @@
 					alert(data);
 				}
 			});
-		}
+		} */
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
