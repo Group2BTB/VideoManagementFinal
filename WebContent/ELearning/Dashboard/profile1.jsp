@@ -135,8 +135,11 @@
 							<li class=""><a href="#panel-history" data-toggle="tab"
 								aria-expanded="false"><i class="fa fa fa-eye"></i> History</a></li>
 							<li class=""><a href="#panel-watch-later" data-toggle="tab"
-								aria-expanded="false"><i class="fa  fa-user"></i> Watch
+								aria-expanded="false"><i class="fa  fa-clock-o"></i> Watch
 									Later</a></li>
+							<li class=""><a href="#panel-watch-later" data-toggle="tab"
+								aria-expanded="false"><i class="fa  fa-book"></i> Courses
+									</a></li>
 							<li class="pull-right">
 								<!-- <span class="btn btn-group inline-popups"> --> <a
 								class="btn btn-success btn-rounded-lg" href="video.act"
