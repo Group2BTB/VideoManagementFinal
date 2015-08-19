@@ -34,12 +34,16 @@
 	text-align: center;
 	padding-top: 40px;
 }
+.vblock:hover{
+		background-color: gray;
+	
 
+}
 .vcount {
 	color: white;
 }
 
-.me {
+.me{
 	width: 100%;
 	hieght: 50px;
 }
