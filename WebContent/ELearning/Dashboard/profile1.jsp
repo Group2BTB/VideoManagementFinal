@@ -137,7 +137,7 @@
 							<li class=""><a href="#panel-watch-later" data-toggle="tab"
 								aria-expanded="false"><i class="fa  fa-clock-o"></i> Watch
 									Later</a></li>
-							<li class=""><a href="#panel-watch-later" data-toggle="tab"
+							<li class=""><a href="#panel-courses" data-toggle="tab"
 								aria-expanded="false"><i class="fa  fa-book"></i> Courses
 									</a></li>
 							<li class="pull-right">
@@ -151,31 +151,9 @@
 					</div>
 					<div id="panel-collapse-1" class="collapse in">
 						<div class="panel-body">
-							<div class="tab-content">
-								<!-- Videos -->
-
-								<!-- <div class="tab-pane fade active in" id="panel-videos">
-									<div id="v"></div>
-									<div class="btn-toolbar top-table" role="toolbar">
-										<div class="btn-group pull-right">
-											<form role="form">
-												<input type="text" id="searchVideo" class="form-control"
-													placeholder="Search by Video title">
-											</form>
-										</div>
-										/.btn-group .pull-right
-									</div>
-
-									<div id="getUserVideos">
-										<div class="alert alert-success fade in alert-dismissable">
-											<button type="button" class="close" data-dismiss="alert"
-												aria-hidden="true">x</button>
-											<strong>No</strong> videos!
-										</div>
-									</div>
-								</div>
- -->
-								<!-- Info -->
+							<div class="tab-content">								
+								
+								<!-- history -->
 
 								<div class="tab-pane fade" id="panel-history">
 									<div class="btn-toolbar top-table" role="toolbar">
@@ -286,7 +264,9 @@
 										</div>
 									</div>
 								</div>
+								<!-- end history -->
 								
+								<!-- watch later -->
 								<div class="tab-pane fade" id="panel-watch-later">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
@@ -303,7 +283,7 @@
 											<a href="#"
 												onclick="deleteallhistory('deleteallhistory.act')"
 												class="btn btn-danger"> <i class="fa fa-ban"></i> Clear
-												All Watch Later
+												All watch later
 											</a>
 										</div>
 
@@ -312,7 +292,6 @@
 												<input type="text" class="form-control" id="tfsearchHistory"
 													placeholder="Search category">
 											</form>
-
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
@@ -383,6 +362,119 @@
 										</div>
 									</div>
 								</div>
+								<!-- end watch later -->
+								
+								<!-- courses -->								
+								<div class="tab-pane fade" id="panel-courses">
+									<div class="btn-toolbar top-table" role="toolbar">
+										<div class="btn-group">
+											<form role="form" id="frmSetNumrowHistory">
+												<select class="form-control" id="setNumrowHistory">
+													<option>10</option>
+													<option>20</option>
+													<option>30</option>
+													<option>50</option>
+												</select>
+											</form>
+										</div>
+										<div class="btn-group">
+											<a href="#"
+												onclick="deleteallhistory('deleteallhistory.act')"
+												class="btn btn-danger"> <i class="fa fa-ban"></i> Clear
+												All courses history
+											</a>
+										</div>
+
+										<div class="btn-group pull-right">
+											<form role="form">
+												<input type="text" class="form-control" id="tfsearchHistory"
+													placeholder="Search category">
+											</form>
+
+										</div>
+										<!-- /.btn-group .pull-right -->
+									</div>
+									<div id="getCourses">
+										<div>
+											<div class="alert alert-info">
+												<div class="the-box no-border store-list">
+													<div class="media">
+														<a class="pull-left" href="../elearning/play.act?v=11"><img
+															alt="image" class="store-image img-responsive"
+															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
+														<div class="clearfix visible-xs"></div>
+														<div class="media-body" style="overflow: visible">
+															<a href="#fakelink"></a>
+															<div class="btn-group pull-right">
+																<button type="button"
+																	class="btn btn-default btn-sm dropdown-toggle"
+																	data-toggle="dropdown" aria-expanded="false">
+																	<i class="fa fa-cog"></i>
+																</button>
+																<ul class="dropdown-menu" role="menu">
+																	<li><a href="../elearning/play.act?v=11">Play</a></li>
+																	<li><a href="#"
+																		onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
+																			from History</a></li>
+																</ul>
+															</div>
+															<ul class="list-inline">
+																<li><a href="../elearning/play.act?v=11"><strong
+																		class="text-black">Introduction, Syntax,
+																			Selectors &amp; How to Apply</strong></a></li>
+																<br>
+																<li><a><span class="small text-muted"
+																		style="color: #AAB2BD"> by Admin</span></a></li>
+															</ul>
+															<p class="hidden-xs"></p>
+															<span class="small text-muted" style="color: #AAB2BD"><i
+																class="fa fa-eye">&nbsp;&nbsp;2093</i> &nbsp;&nbsp;&nbsp;
+															</span><br /><br />
+															<div class="progress">
+															    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+															    	<span class="text-info" style="color: #fff"><i
+																		class="fa fa-clock-o"></i>
+																	</span>4:37 (70%&nbsp;completed)
+															    </div>
+															    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">
+															    	<span class="text-info" style="color: #fff"><i
+																		class="fa fa-clock-o"></i>
+																	</span>1:23 (30%&nbsp;remain)
+															    </div>
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="dataTables_info" id="datatable-example_info">Page
+													1 of 4 entries</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="dataTables_paginate paging_bootstrap">
+													<ul class="pagination separated">
+														<li class="active"><a href="#page=1"
+															onclick="gotohistorypage('historylist.act?page=1')">1</a></li>
+														<li><a href="#page=2"
+															onclick="gotohistorypage('historylist.act?page=2')">2</a></li>
+														<li><a href="#page=3"
+															onclick="gotohistorypage('historylist.act?page=3')">3</a></li>
+														<li><a href="#page=4"
+															onclick="gotohistorypage('historylist.act?page=4')">4</a></li>
+														<li><a href="#next"
+															onclick="gotohistorypage('historylist.act?page=2')">Next</a></li>
+														<li><a href="#page=4"
+															onclick="gotohistorypage('historylist.act?page=4')">Last</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- end courses -->
 								
 								<!-- /#panel-about -->
 							</div>
