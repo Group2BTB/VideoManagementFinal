@@ -33,11 +33,10 @@
 	color: white;
 	text-align: center;
 	padding-top: 40px;
+	cursor:pointer;
 }
 .vblock:hover{
 		background-color: gray;
-	
-
 }
 .vcount {
 	color: white;
@@ -460,7 +459,7 @@
 																			from History</a></li>
 																</ul>
 															</div>
-
+															<br>
 															<ul class="list-inline">
 																<li><strong class="text-black">Learn Java</strong>
 																	<br> <a><span class="small text-muted"
