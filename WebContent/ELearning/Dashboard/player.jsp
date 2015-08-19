@@ -22,7 +22,7 @@
 <!-- videoplayer script and style -->
 <link rel="stylesheet" href="../videoplayer/libs/video-js/video-js.css">
 <link rel="stylesheet" href="../videoplayer/src/videojs.logobrand.css">
-<script src="../videoplayer/libs/video-js/video.js"></script>
+<script src="../videoplayer/libs/video-js/video.dev.js"></script>
 <script src="../videoplayer/youtube.js"></script>
 <link href="../videoplayer/css/bootstrap.min.css" rel="stylesheet">
 <link href="../videoplayer/css/style.css" rel="stylesheet">
@@ -30,6 +30,8 @@
 <script src="../videoplayer/build/jquery.js"></script>
 <script src="../videoplayer/build/mediaelement-and-player.min.js"></script>
 
+<!-- cdn jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <style>
 .owl-demo .item {
 	margin: 3px;
@@ -45,6 +47,8 @@
 </head>
 
 <body onresize="srollhide()">
+
+
 
 	<%
 		String str;
@@ -87,11 +91,11 @@
 		<!--header start-->
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box" id="hideshow">
-				<div data-original-title="Toggle Navigation" data-placement="right"
+				<div data-placement="right"
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="#" class="logo">Khmer<span>Academy</span></a>
+			<a href="#" class="logo"><span>KHEAV</span></a>
 
 			<!--logo end-->
 
@@ -174,11 +178,19 @@
 								<div class="col-md-8" id="videos_play">
 									<div id="myplayerwrapper">
 										<video id="vid1" class="video-js vjs-default-skin" controls
-											preload="auto" width="640" height="360"></video>
+											preload="auto" autoplay width="640" height="360"
+											currentTime="60" onloadstart="myfunction()">
+										</video>
+										
+								<script type="text/javascript">
+									function myfunction(){
+									alert($(".vjs-duration-display").text());}
+								</script>
+
 									</div>
 									<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
-										<div class="row">
-											<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="row" >
+											<div class="col-md-12 col-sm-12 col-xs-12 title_video">
 												<h2><%=title%></h2>
 											</div>
 										</div>
@@ -191,9 +203,7 @@
 										<div class="row">
 											<div class="col-md-12" style="text-align: right;">
 												<p>
-													<img alt="views" src="../videoplayer/eyes.png" width="35"
-														style="margin-left: 20px;"> <b
-														style="font-size: 16px;">Veiws:</b>
+													<b style="font-size: 16px;">Veiws:</b>
 													<%=view%>
 												</p>
 											</div>
@@ -250,7 +260,6 @@
 																onclick="addComment()" />
 
 														</form>
-
 													</div>
 												</div>
 												<div id="show_comments"></div>
@@ -269,8 +278,20 @@
 
 															<div class="row">
 																<div>
-																	<button class="btn" id="btn_reply">Reply</button>
-																</div>
+																	<button class="btn-sm pull-right" id="btn_reply"
+																		style="margin: 20px; ">Reply</button>
+															<form role="form" action="" method="post" id="form_reply">
+															<div class="form-group">
+																<label></label>
+																<textarea class="form-control" rows="5" id="comment_reply"
+																	name="comment"></textarea>
+															</div>
+															<input type="button" value="Reply" id="btnComments"
+																class="pull-right btn btn-default"
+																onclick="addComment()" style="margin-right: 20px;"/>
+													</form>
+													
+													</div>
 															</div>
 														</div>
 													</div>
@@ -282,31 +303,36 @@
 									</div>
 								</div>
 								<!--====== PlayList and questions ======-->
-								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
-									id="playlist_show">
-									<div class="tabbable" id="tabs-161102">
-										<div>
-											<ul class="nav nav-tabs">
-												<li class="active"><a class="color_white">Learn
-														Java</a></li>
-												<li class="pull-right text-center"
-													style="padding-top: 10px; color: white;">Result : 50
-													Videos</li>
-											</ul>
-										</div>
-										<div class="tab-content color_white">
-											<div class="tab-pane active" id="panel-590992">
-												<div id="list_video"></div>
-											</div>
-										</div>
-									</div>
+								<div class="col-md-4"
+									style="background-color: #337AB7; height: 55px; color: white;" id="playlist_show_header">
+									<span class="pull-right text-center"
+										style="color: white; margin-top: 13px;" id="totalvideo">Result
+										: 0 Videos</span> <span class="text-center pull-left"
+										style="color: white; margin-top: 13px;">Learn Java</span>
+
 								</div>
+								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
+									id="playlist_show">									
+											 <div id="list_video" class="color_white"></div>
+								</div>
+								
 							</div>
 						</div>
 					</div>
-					<!-- Right Slidebar start -->
-					<div class="sb-slidebar sb-right sb-style-overlay">
-						<h5 class="side-title">Messages</h5>
+					
+					<!-- Right playlist -->
+										
+					<div class="sb-slidebar sb-right sb-style-overlay" style="padding:15px;">
+					
+						<div style="padding-bottom:20px;">						
+							<div class="col-md-6 col-sm-6 col-xs-12">Learn Java</div>					
+							<div class="col-md-6 col-sm-6 col-xs-12" id="totalvideo_small"></div>
+							
+						</div>
+						<hr />
+						<div id="list_video_small" class="color_white title_playlist">
+						
+						</div>
 					</div>
 					<!-- Right Slidebar end -->
 			</section>
@@ -321,7 +347,11 @@
 			<!--footer end-->
 		</section>
 	</section>
+
 	<!-- js placed at the end of the document so the pages load faster -->
+
+
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script class="include" type="text/javascript"
@@ -335,9 +365,16 @@
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
 
+
 	<script>
-	
-		$(document).ready(function() {
+		
+		//var vPlayer = document.getElementById("vid1");
+				
+		/*
+			vPlayer.loop = true;
+		*/
+		$(document).ready(function() {	
+			srollhide();
 			viewCategory();
 			$(".owl-demo").owlCarousel({
 				autoPlay : 3000, //Set AutoPlay to 3 seconds
@@ -349,8 +386,13 @@
 				itemsMobile : false
 			// itemsMobile disabled - inherit from itemsTablet option
 			});
+			$("#btn_reply").click(function(){
+				$("#form_reply").show();
+			});
 
 		});
+		
+		
 		function viewCategory() {
 			$.ajax({
 					url : "listAllCategory",
@@ -361,25 +403,31 @@
 						var ind = 0;
 						var strsup = "";
 						var str = "";
+						
+						
 						for ( var i in data) {
 							for ( var j in data[i]) {
 								ind++;
 								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
+								//alert(data[i][j].name);
 							}
-							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
+							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i + '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
 							count++;
 							ind = 0;
+							
+							
 						}
-						$("#nav-accordion").html(strsup + "</li>");
-						//$(".sub0").slideDown(1000);
+						
+						$("#nav-accordion").html(strsup + "</li>");						
 					}
 				});
 			}
 		function dopro(id) {
 			$(".sub").slideUp();
 			$(".sub" + id).slideToggle();
-		}	
+		}
+		
 		function doAddClass(obj){
 			$(".active").removeClass("active");
 			$(obj).addClass("active");
@@ -391,62 +439,52 @@
 			var w = innerWidth;
 			if (w < 990) {				
 				$("#languages").hide();
-				$("#search").hide();
-				$("#sms").hide();
+				$("#search").hide();				
 				$("#playlist_show").hide();
+				$("#playlist_show_header").hide();
+				$("#sms").show();
 
 			}else{
 				
 				$("#languages").show();
 				$("#search").show();
-				$("#sms").show();
+				$("#sms").hide();
 				$("#playlist_show").show();
+				$("#playlist_show_header").show();
 			}			
 		}
 	</script>
 	<!--====== Video script ======-->
 	<script>
 		// save a reference to the video element
-		video = document.querySelector('video'),
-		// save a reference to the video.js player for that element
+		video = document.querySelector('video');
+		
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
 			'src' : 'https://youtu.be/<%=str%>'
 		});
 
-		// initialize the plugin with some custom options:
-		player.logobrand({
-			image : "logoka.png",
-			destination : "http://www.khmeracademy.org/"
+		$(function() {
+			var vid = document.getElementById("vid1");
+			vid.defaultMuted = false;
 		});
+		
+		function che() {
+			var strcurrent = $(".vjs-current-time-display").text();
+			strcurrent = strcurrent.replace("Current Time", "");
+			//alert(strcurrent);
+			alert($(".vjs-duration-display").text());
+
+			//video.currentTime();
+		}
 	</script>
-	<script>
-		//var vmgr = document.getElementById("vplayer");
 
-		$('video').mediaelementplayer({
-			success : function(media, node, player) {
-				$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
-
-				var events = [ 'loadstart', 'play', 'pause', 'ended' ];
-
-				for (var i = 0, il = events.length; i < il; i++) {
-
-					var eventName = events[i];
-
-					media.addEventListener(events[i], function(e) {
-						$('#output').append($('<div>' + e.type + '</div>'));
-						if (e.type == 'ended') {
-							$("#playlistshow").hide();
-						}
-					});
-				}
-			}
-		});
-	</script>
 	<!--===== collapse category======-->
 	<script>
 		//hide button comment
 		$(document).ready(function() {
+			
+			$("#form_reply").hide();
 			$("#btnComments").hide();
 		});
 		//show button comment when cussor in the textarea
@@ -488,29 +526,37 @@
 						method : "POST",
 						dataType : "JSON",
 						data : {
-							playlist_id :
-	<%=pl%>
+							playlist_id :<%=pl%>
 		},
 						success : function(data) {
 							var substring = "";
+							var count = 0;
 							for ( var i in data) {
 								for ( var j in data[i]) {
 									substring = data[i][j].video_name;
-									//str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
-									if (substring.length > 45) {
-										substring = substring.substr(0, 42)
+
+									if (substring.length > 32) {
+										substring = substring.substr(0, 29)
 												+ "...";
 									}
-									str += '<div class="bg_playlist " style ="margin-top: 10px;"onclick="window.location= '
+									str += '<div class="bg_playlist title_playlist " style ="margin-top: 10px; margin-left:-104px; "onclick="window.location= '
 											+ "'playervideo?v="
 											+ data[i][j].video_id
 											+ "'"
-											+ '"><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="100" height="60"/><span style="padding-left:15px;" class="">'
+											+ '"><span style="position:relative; top:16px;left:123px;  background-color: darkgrey; border-radius: 3px; color:#000000; z-index:1; " onclick="che()"><b>Watched :</b> 1:50</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="150" height="80" style=" opacity:0.9;"/><span style="padding-left:15px;">'
 											+ substring + '</span></div>';
+									count++;
 								}
 
 							}
+							$("#totalvideo").html(
+									"Result : " + count + " videos");
+							$("#totalvideo_small").html(
+									"Result : " + count + " videos");
 							$("#list_video").html(str);
+							$("#list_video_small").html(str);
+							
+							
 						}
 					});
 		}
@@ -556,9 +602,9 @@
 				}
 			});
 		}
-
 		upVideoView();
 		getVideoPlaylist();
 	</script>
+
 </body>
 </html>
