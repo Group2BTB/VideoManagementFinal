@@ -424,6 +424,10 @@ public class WorkWithJson {
 					pl.setYoutube_url(rs.getString("youtube_url"));
 					pl.setDoc_url(rs.getString("document_url"));
 					pl.setCreate_date1(rs.getDate("create_date"));
+					pl.setUser_id(rs.getLong("user_id"));
+					pl.setUser_name(rs.getString("user_name"));
+					pl.setTime(rs.getString("time"));
+					pl.setPercent(rs.getString("percent"));
 														
 					suparr.add(pl);
 					
@@ -447,6 +451,10 @@ public class WorkWithJson {
 					pl.setYoutube_url(rs.getString("youtube_url"));
 					pl.setDoc_url(rs.getString("document_url"));
 					pl.setCreate_date1(rs.getDate("create_date"));				
+					pl.setUser_id(rs.getLong("user_id"));
+					pl.setUser_name(rs.getString("username"));
+					pl.setTime(rs.getString("time"));
+					pl.setPercent(rs.getString("percent"));
 					
 //					System.out.println(ca.getName() + " me!");
 					suparr.add(pl);					
