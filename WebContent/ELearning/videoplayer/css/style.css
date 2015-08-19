@@ -86,6 +86,7 @@
 .logo span{color:#337AB7 !important;}
 .logo:hover{font-weight: bold !important;}
 
+.watched_Video{position:relative; top:0px;left:123px; border-radius: 3px; color:#000000; z-index:1; }
 
 @media ( min-width : 1200px) {
 	
