@@ -151,7 +151,7 @@ public class WorkWithJson {
 			while(rs.next()){
 					
 				sup = rs.getString("super").trim();
-				System.out.println(sup + "|| super");
+				//System.out.println(sup + "|| super");
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
 					
@@ -173,7 +173,7 @@ public class WorkWithJson {
 					ca.setModifier_date(rs.getDate("modifier_date"));	
 					ca.setPlId(rs.getLong("plid"));
 					
-					System.out.println(ca.getName() + "|| if");
+					//System.out.println(ca.getName() + "|| if");
 					suparr.add(ca);
 					
 					if(rs.isLast())
@@ -197,7 +197,7 @@ public class WorkWithJson {
 					ca.setModifier_date(rs.getDate("modifier_date"));	
 					ca.setPlId(rs.getLong("plid"));
 					
-					System.out.println(ca.getName() + "|| else");
+					//System.out.println(ca.getName() + "|| else");
 					suparr.add(ca);					
 					
 					if(rs.isLast())
@@ -403,7 +403,7 @@ public class WorkWithJson {
 			while(rs.next()){
 					
 				sup = rs.getString("playlist_id").trim();
-				System.out.println(sup);
+				//System.out.println(sup);
 				
 				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
 					
