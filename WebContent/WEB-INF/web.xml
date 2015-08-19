@@ -315,6 +315,10 @@
     <servlet-name>playVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/playervideo</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>playVideo</servlet-name>
+    <url-pattern>/ELearning/playervideo</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>getPopVideo</servlet-name>
     <servlet-class>controller.video.getVideoPopular</servlet-class>
@@ -339,7 +343,6 @@
     <servlet-name>getViewVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/getViewVideo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>getWatchedLater</servlet-name>
     <servlet-class>controller.watchedLater.GetWatchedLater</servlet-class>
@@ -348,6 +351,16 @@
     <servlet-name>getWatchedLater</servlet-name>
     <url-pattern>/ELearning/Dashboard/getWatchedLater</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>addWatched</servlet-name>
+    <servlet-class>controller.watchedLater.AddWatchedLater</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addWatched</servlet-name>
+    <url-pattern>/ELearning/Dashboard/addWatched</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>addPlaylist</servlet-name>
     <servlet-class>controller.playlist.addPlaylist</servlet-class>
