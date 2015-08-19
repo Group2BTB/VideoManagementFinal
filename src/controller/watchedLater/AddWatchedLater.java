@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.WatchLaterDAO;
-import model.dto.WatchLater;
+import model.dao.WatchedVideoDAO;
+
+import model.dto.WatchedVideo;
 
 /**
  * Servlet implementation class AddWatchedLater
@@ -43,10 +44,16 @@ public class AddWatchedLater extends HttpServlet {
 	}
 
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		WatchLater watched = new WatchLater();
-		watched.setUser_id(Integer.parseInt(request.getParameter("user_id")));
-		watched.setVideo_id(Integer.parseInt(request.getParameter("video_id")));
-		if(new  WatchLaterDAO().insertWatchLater(watched)){
+		
+		WatchedVideoDAO wvd = new WatchedVideoDAO();
+		WatchedVideo wv = new WatchedVideo();
+		
+		wv.setUser_id(Integer.parseInt(request.getParameter("user_id")));
+		wv.setVideo_id(Integer.parseInt(request.getParameter("video_id")));
+		wv.setTime(request.getParameter("time").toString());
+		wv.setPercent("50%");
+			
+		if(wvd.insertWatchedVideo(wv)){
 			System.out.println("successfully inserted!");
 		}else{
 			System.out.println("Cannot insert!");
