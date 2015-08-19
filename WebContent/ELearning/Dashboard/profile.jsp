@@ -32,6 +32,9 @@
 	text-align: center;
 	padding-top: 40px;
 }
+.vcount{
+	color:white;
+}
 .me{
 	width:100%;
 	hieght:50px;
@@ -357,12 +360,15 @@
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img alt="image" class="store-image img-responsive" src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
 														<div class="vblock">
-															<a href="../elearning/play.act?v=11"> </a>
+															<a href="player.jsp">
 															<div class="vcount">
 																<p>
 																	30 <br>Videos
+																	<div class="fa fa-th-list" ></div>
 																</p>
 															</div>
+															 </a>
+															
 
 
 														</div>
