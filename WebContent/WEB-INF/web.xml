@@ -231,7 +231,6 @@
     <servlet-name>updateVideo</servlet-name>
     <url-pattern>/updateVideo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>videoPlayList</servlet-name>
     <servlet-class>controller.video.VideoPlaylist</servlet-class>
@@ -244,8 +243,6 @@
     <servlet-name>videoPlayList</servlet-name>
     <url-pattern>/Admin/videoPlayList</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>updateStatusVideo</servlet-name>
     <servlet-class>controller.video.statusVideo</servlet-class>
@@ -254,7 +251,6 @@
     <servlet-name>updateStatusVideo</servlet-name>
     <url-pattern>/updateStatusVideo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>updateStatusPlaylist</servlet-name>
     <servlet-class>controller.playlist.statusPlaylist</servlet-class>
@@ -263,7 +259,6 @@
     <servlet-name>updateStatusPlaylist</servlet-name>
     <url-pattern>/updateStatusPlaylist</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>listPlaylist</servlet-name>
     <servlet-class>controller.playlist.listPlaylist</servlet-class>
@@ -284,7 +279,10 @@
     <servlet-name>getPlayList</servlet-name>
     <url-pattern>/ELearning/Dashboard/getPlayList</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+    <servlet-name>getPlayList</servlet-name>
+    <url-pattern>/ELearning/getPlaylist</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>getPlayListID</servlet-name>
     <servlet-class>controller.playlist.GetPlayListID</servlet-class>
@@ -297,7 +295,10 @@
     <servlet-name>getPlayListID</servlet-name>
     <url-pattern>/ELearning/Dashboard/playlist</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+    <servlet-name>getPlayListID</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getPlaylistID</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>getRecVideo</servlet-name>
     <servlet-class>controller.video.getRecommentVideo</servlet-class>
@@ -337,6 +338,15 @@
   <servlet-mapping>
     <servlet-name>getViewVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/getViewVideo</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>getWatchedLater</servlet-name>
+    <servlet-class>controller.watchedLater.GetWatchedLater</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getWatchedLater</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getWatchedLater</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>addPlaylist</servlet-name>
