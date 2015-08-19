@@ -2,8 +2,10 @@ package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import utilities.DBConnection;
+import utilities.WorkWithJson;
 import model.dto.WatchLater;
 
 public class WatchLaterDAO {
@@ -74,5 +76,27 @@ public class WatchLaterDAO {
 			ex.printStackTrace();
 			return false;
 		}
+	}
+	
+	public String getWatchLater(long userId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from \"vWatchLater\" where user_id=? order by create_date");){
+						
+			stm.setLong(1, userId);					
+			
+			return WorkWithJson.convertWatchLaterToJson(stm.executeQuery());
+						
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		System.out.println(new WatchLaterDAO().getWatchLater(27));
 	}
 }
