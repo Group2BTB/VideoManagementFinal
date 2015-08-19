@@ -156,13 +156,13 @@
 					class="panel with-nav-tabs panel-primary panel-square panel-no-border">
 					<div class="panel-heading" style="background-color: #337ab7">
 						<ul class="nav nav-tabs">
-							<li class=""><a href="#panel-history" data-toggle="tab"
-								aria-expanded="false"><i class="fa fa fa-eye"></i> History</a></li>
-							<li class="active"><a href="#panel-watch-later"
+							<li class="active"><a href="#panel-history" data-toggle="tab"
+								aria-expanded="false"><i class="fa fa fa-eye" ></i> History</a></li>
+							<li class=""><a href="#panel-watch-later"
 								data-toggle="tab" aria-expanded="true"><i
 									class="fa  fa-clock-o"></i> Watch Later</a></li>
 							<li class=""><a href="#panel-courses" data-toggle="tab"
-								aria-expanded="false"><i class="fa  fa-book"></i> Courses </a></li>
+								aria-expanded="false"><i class="fa  fa-book "></i> Courses </a></li>
 							<li class="pull-right">
 								<!-- <span class="btn btn-group inline-popups"> --> <a
 								class="btn btn-success btn-rounded-lg" href="video.act"
@@ -178,7 +178,7 @@
 
 								<!-- history -->
 
-								<div class="tab-pane fade" id="panel-history">
+								<div class="tab-pane fade active in" id="panel-history">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
@@ -294,7 +294,7 @@
 								<!-- end history -->
 
 								<!-- watch later -->
-								<div class="tab-pane fade active in" id="panel-watch-later">
+								<div class="tab-pane fade" id="panel-watch-later">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
