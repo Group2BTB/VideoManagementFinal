@@ -169,7 +169,7 @@
 								<select ng-model="parent" name="subcat" id="subcat" class="select2 form-control" data-allow-clear="true"
 									data-placeholder="Parent...">
 										<option value="0"></option>
-										<option ng-repeat="d in list" value="{{d.category_id}}">{{d.category_name}}</option>
+										<option ng-show="!d.parent_name" ng-repeat="d in list" value="{{d.category_id}}">{{d.category_name}}</option>
 								</select>
 							</div>
 							<div class="form-group">
