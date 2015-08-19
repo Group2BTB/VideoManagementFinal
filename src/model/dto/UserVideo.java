@@ -8,6 +8,9 @@ public class UserVideo {
 	private String percent;
 	
 	
+	public UserVideo(){
+		
+	}
 	public UserVideo(long user_id, long video_id, String time, String percent) {
 		super();
 		this.user_id = user_id;
