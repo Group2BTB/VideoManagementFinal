@@ -9,6 +9,7 @@ import model.dto.Category;
 import model.dto.Comment;
 import model.dto.PlayList;
 import model.dto.Question;
+import model.dto.WatchLater;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -472,6 +473,84 @@ public class WorkWithJson {
 			return null;
 		}
 	}
+	
+	public static String convertWatchLaterToJson(ResultSet rs){
+		
+		try
+		{						
+			HashMap<String, ArrayList<WatchLater>> obj = new HashMap<String, ArrayList<WatchLater>>(); 
+			
+			
+			String sup = "";
+			String temp = "";
+			int i = 0;
+			
+			
+			ArrayList<WatchLater> suparr = new ArrayList<WatchLater>();
+						
+			while(rs.next()){
+					
+				sup = rs.getString("id").trim();
+				System.out.println(sup);
+				
+				if(!(sup.equalsIgnoreCase(temp.trim())) && i>0){					
+					
+					ArrayList<WatchLater> suptmp = new ArrayList<WatchLater>(suparr);					
+					
+					obj.put(temp, suptmp);					
+					temp = sup;
+					
+					suparr = new ArrayList<WatchLater>();
+									
+					WatchLater wl = new WatchLater();
+					
+					wl.setUser_id(rs.getLong("user_id"));
+					wl.setUser_name(rs.getString("username"));
+					wl.setVideo_id(rs.getLong("video_id"));
+					wl.setVideo_name(rs.getString("video_name"));
+					wl.setYoutube_url(rs.getString("youtube_url"));
+					wl.setView(rs.getLong("view"));
+					wl.setCreate_date(rs.getDate("create_date"));					
+														
+					suparr.add(wl);
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);													
+				}
+				
+				else{
+										
+					WatchLater wl = new WatchLater();					
+					
+					temp = sup;
+					i++;
+					
+					wl.setUser_id(rs.getLong("user_id"));
+					wl.setUser_name(rs.getString("username"));
+					wl.setVideo_id(rs.getLong("video_id"));
+					wl.setVideo_name(rs.getString("video_name"));
+					wl.setYoutube_url(rs.getString("youtube_url"));
+					wl.setView(rs.getLong("view"));
+					wl.setCreate_date(rs.getDate("create_date"));
+					
+//					System.out.println(ca.getName() + " me!");
+					suparr.add(wl);					
+					
+					if(rs.isLast())
+						obj.put(temp, suparr);							
+				}									
+			}		
+			
+			return new Gson().toJson(obj);
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		
