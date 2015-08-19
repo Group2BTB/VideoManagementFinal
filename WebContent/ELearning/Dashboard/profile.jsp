@@ -432,6 +432,8 @@
 																<p>
 																	30 <br>Videos
 																</p>
+																<div class="fa fa-th-list">
+																</div>
 															</div>
 
 
