@@ -48,7 +48,7 @@
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="index-2.html" class="logo">Khmer<span>Academy</span></a>
+			<a href="http://localhost:8080/VideoManagementFinal/ELearning/index.jsp" class="logo">Khmer<span>Academy</span></a>
 
 			<!--logo end-->
 
