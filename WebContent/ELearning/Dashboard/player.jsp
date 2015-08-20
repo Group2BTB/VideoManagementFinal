@@ -467,11 +467,11 @@
 	<!--====== Video script ======-->
 	<script>
 		// save a reference to the video element
-		video = document.querySelector('video');
+		<%-- video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
 			'src' : 'https://youtu.be/<%=str%>'
-		});
+		}); --%>
 
 		$(function() {
 			var vid = document.getElementById("vid1");
@@ -671,10 +671,10 @@
 			});			
 		}
 		 
-		$(document).ready(function(){
+		/* $(document).ready(function(){
 			$("")
 			
-		}); 
+		});  */
 		
 		//function for get videos play when 
 		function getVideoPlay(playlist_id) {
