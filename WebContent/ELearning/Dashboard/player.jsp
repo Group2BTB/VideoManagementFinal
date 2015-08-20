@@ -531,7 +531,7 @@
 				
 				if(end_time != "Duration Time 0:00"){
 					
-					addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);
+					//addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);
 					//alert("date is added");
 										
 				}				
