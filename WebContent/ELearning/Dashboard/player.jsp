@@ -592,7 +592,7 @@
 			var user_id_playlist = <%=session.getAttribute("userID")%>;
 			
 			$.ajax({
-						url : "getPlayList",
+					    url : "getPlayList",
 						method : "POST",
 						dataType : "JSON",
 						data : {
