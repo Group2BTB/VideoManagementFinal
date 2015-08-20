@@ -148,8 +148,7 @@
 			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
-					<li class="sub-menu text-center" style="color: #fff;">All
-						Category</li>
+					<li class="sub-menu text-center" style="color: #fff;">All Category</li>
 				</ul>
 				<!-- sidebar menu end-->
 			</div>
@@ -286,9 +285,9 @@
 															<input type="button" value="Reply" id="btnComments"
 																class="pull-right btn btn-default"
 																onclick="addComment()" style="margin-right: 20px;"/>
-													</form>
-													
-													</div>
+															</form>
+															
+															</div>
 															</div>
 														</div>
 													</div>
@@ -468,11 +467,11 @@
 	<!--====== Video script ======-->
 	<script>
 		// save a reference to the video element
-		<%-- video = document.querySelector('video');
+		video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
 			'src' : 'https://youtu.be/<%=str%>'
-		}); --%>
+		});
 
 		$(function() {
 			var vid = document.getElementById("vid1");
@@ -563,33 +562,28 @@
 			});
 		});
 		//add text form textarea to the div below
-		$(document)
-				.ready(
-						function() {
-							$("#btnComments")
-									.click(
-											function() {
-												var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-												var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-												var c = '<div class="col-md-12 col-xs-12">'
-														+ $("#comment").val()
-														+ '</div></div>';
-												$("#comment").val("");
-
-												$("#show_comments").prepend(a + b + c);
-											});
-						});
+		$(document).ready(function() {
+				$("#btnComments").click(function() {
+						var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+						var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+						var c = '<div class="col-md-12 col-xs-12">'
+								+ $("#comment").val()
+								+ '</div></div>';
+						$("#comment").val("");
+						$("#show_comments").prepend(a + b + c);
+				});
+			});
 		//function for list playlist 
 		function getVideoPlaylist() {
 			var str = "";
 			var user_id_playlist = <%=session.getAttribute("userID")%>;
-			
+			<%int playlist_id=Integer.parseInt(request.getParameter("p"));%>
 			$.ajax({
 					    url : "getPlayList",
 						method : "POST",
 						dataType : "JSON",
 						data : {
-							playlist_id :<%=pl%>
+							playlist_id :<%=playlist_id%>
 					},
 						success : function(data) {
 							var substring = "";
@@ -633,7 +627,7 @@
 									}
 									
 									str += '<div class="bg_playlist title_playlist playlist_display"onclick="window.location= '
-											+ "'playervideo?v="
+											+ "'playervideo?p="+<%=playlist_id%>+"&v="
 											+ data[i][j].video_id
 											+ "'"
 											+ '"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
@@ -651,7 +645,6 @@
 							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
-							$("#category_title").html();
 							
 						}
 					});
