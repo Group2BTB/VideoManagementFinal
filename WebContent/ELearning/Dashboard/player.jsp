@@ -337,7 +337,7 @@
 					<div class="sb-slidebar sb-right sb-style-overlay" style="padding:15px;">
 					
 						<div style="padding-bottom:20px;">						
-							<div class="col-md-6 col-sm-6 col-xs-12">Learn Java</div>					
+							<div class="col-md-6 col-sm-6 col-xs-12" id="category_title"></div>					
 							<div class="col-md-6 col-sm-6 col-xs-12" id="totalvideo_small"></div>
 							
 						</div>
@@ -623,7 +623,7 @@
 										}	
 										
 										video_watched = str1 + data[i][j].time ;																
-											if(data[i][j].time == "completed"){															
+										category_titleif(data[i][j].time == "completed"){															
 												video_watched = '<b style=" margin-left: 15px; margin-right: 10px;">Completed</b>';	
 											}
 										img_style ='style="opacity:0.8;"';
@@ -657,6 +657,7 @@
 							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
+							$("#category_title").html();
 							
 						}
 					});
