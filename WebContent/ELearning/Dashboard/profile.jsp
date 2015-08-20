@@ -16,32 +16,13 @@
 <!--external css-->
 <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 <link href="css/style-login.css" rel="stylesheet">
-<link rel="stylesheet" href="css/login-style.css"/>
+<link rel="stylesheet" href="css/login-style.css" />
 <!--right slidebar-->
 <link href="css/slidebars.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet">
 <style>
-    .btn-file {
-        position: relative;
-        overflow: hidden;
-    }
-    .btn-file input[type=file] {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        font-size: 100px;
-        text-align: right;
-        filter: alpha(opacity=0);
-        opacity: 0;
-        outline: none;
-        background: white;
-        cursor: inherit;
-        display: block;
-    }
 .vblock {
 	height: 180px;
 	width: 100px;
@@ -54,16 +35,18 @@
 	color: white;
 	text-align: center;
 	padding-top: 40px;
-	cursor:pointer;
+	cursor: pointer;
 }
-.vblock:hover{
-		background-color: gray;
+
+.vblock:hover {
+	background-color: gray;
 }
+
 .vcount {
 	color: white;
 }
 
-.me{
+.me {
 	width: 100%;
 	hieght: 50px;
 }
@@ -180,18 +163,20 @@
 					class="panel with-nav-tabs panel-primary panel-square panel-no-border">
 					<div class="panel-heading" style="background-color: #337ab7">
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#panel-history" data-toggle="tab"
-								aria-expanded="false"><i class="fa fa fa-eye" ></i> History</a></li>
-							<li class=""><a href="#panel-watch-later"
-								data-toggle="tab" aria-expanded="true"><i
-									class="fa  fa-clock-o"></i> Watch Later</a></li>
+							<li class="active"><a href="#panel-history"
+								data-toggle="tab" aria-expanded="false"><i
+									class="fa fa fa-eye"></i> History</a></li>
+							<li class=""><a href="#panel-watch-later" data-toggle="tab"
+								aria-expanded="true"><i class="fa  fa-clock-o"></i> Watch
+									Later</a></li>
 							<li class=""><a href="#panel-courses" data-toggle="tab"
 								aria-expanded="false"><i class="fa  fa-book "></i> Courses </a></li>
-							<li class="pull-right">
-								<a class="btn btn-success btn-rounded-lg" href="video.act" data-effect="mfp-zoom-in" data-toggle="modal" data-target="#myModal">
-									<i class="fa fa-cloud-upload"></i> Upload video
-								</a>
-							</li>
+							<li class="pull-right"><a
+								class="btn btn-success btn-rounded-lg" href="video.act"
+								data-effect="mfp-zoom-in" data-toggle="modal"
+								data-target="#myModal"> <i class="fa fa-cloud-upload"></i>
+									Upload video
+							</a></li>
 						</ul>
 					</div>
 					<div id="panel-collapse-1" class="collapse in">
@@ -345,7 +330,7 @@
 										<!-- /.btn-group .pull-right -->
 									</div>
 									<div id="getWatchlater">
-											<!-- <div class="alert alert-info">
+										<!-- <div class="alert alert-info">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
@@ -553,79 +538,91 @@
 			</footer>
 		</section>
 	</section>
-	
-	<span id="signinButton"  style="display:none;"class="pre-sign-in">
-      <!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
+
+	<span id="signinButton" style="display: none;" class="pre-sign-in">
+		<!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
            attribute in the following tag with your project's client ID. -->
-      <span
-        class="g-signin"
-        data-callback="signinCallback"
-        data-clientid="175844947983-bf98t179546qi8q8ak49f93ub17ip0aj.apps.googleusercontent.com"
-        data-cookiepolicy="single_host_origin"
-        data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
-      </span>
-    </span>
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-					<div class="modal-header text-center h2 text-primary">
-						<span class="modal-title" id="myModalLabel" data-toggle="modal" data-target="#myModal">Upload Video</span>
+		<span class="g-signin" data-callback="signinCallback"
+		data-clientid="175844947983-bf98t179546qi8q8ak49f93ub17ip0aj.apps.googleusercontent.com"
+		data-cookiepolicy="single_host_origin"
+		data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
+	</span>
+	</span>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div
+				class="modal-content col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+				<div class="modal-header text-center h2 text-primary">
+					<span class="modal-title" id="myModalLabel" data-toggle="modal"
+						data-target="#myModal">Upload Video</span>
+				</div>
+				<div class="modal-body">
+					<div style="display: none;">
+						<img id="channel-thumbnail"> <span id="channel-name"></span>
 					</div>
-					<div class="modal-body">					
-						<div style="display:none;">
-							<img id="channel-thumbnail">
-							<span id="channel-name"></span>
-						</div>
-						<div id="runing" style="display:none;" class="progress">
-						  <div id="upload-progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-							0%
-						  </div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-							<div class="col-md-2 col-sm-2 col-xs-12">	
-								<img  id="src" src="img-login/uplo.png" alt="" class="img-rounded" style="width:150px;">
-								<br/>										
-								<!-- <div class="fileUpload btn btn-success">
+					<div id="runing" style="display: none;" class="progress">
+						<div id="upload-progress" class="progress-bar" role="progressbar"
+							aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+							style="width: 0%;">0%</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<div class="col-md-2 col-sm-2 col-xs-12">
+							<img id="src" src="img-login/uplo.png" alt="" class="img-rounded"
+								style="width: 150px;"> <br />
+							<!-- <div class="fileUpload btn btn-success">
 									<span>CHOOSE VIDEO</span>
 									<input type="file" id="file"  accept="video/*" class="upload" />
 								</div> -->
-															</div>
-			 <span class="btn btn-default btn-file">
-        Browse <input type="file">
-    </span>
 						</div>
-						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 form-horizontal">
-							<div class="form-group">
-								<label for="title" class="col-sm-3 control-label">*Title:</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="title" name="title" placeholder="Title">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="description" class="col-sm-3 control-label">Description:</label>
-								<div class="col-sm-9">
-									<textarea class="form-control" id="description" placeholder="Description" rows="4"></textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="status" class="col-sm-3 control-label">Status:</label>
-								<div class="col-sm-9">
-									<select class="form-control" id="privacy-status">
-							          <option>public</option>
-							          <option>unlisted</option>
-							          <option>private</option>
-							        </select>
-								</div>
-							</div>
-							<button id="button" type="button"  class="btn btn-primary btn-act pull-right">
-								<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Upload
-							</button> <br/><br/><br/><br/><br/>
-							
+						<div class="input-group">
+							<input type="text" class="form-control"
+								placeholder="Recipient's username"
+								aria-describedby="basic-addon2"> <span
+								class="input-group-addon" id="basic-addon2">Browse File </span>
 						</div>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 form-horizontal">
+						<div class="form-group">
+							<label for="title" class="col-sm-3 control-label">*Title:</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="title" name="title"
+									placeholder="Title">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="description" class="col-sm-3 control-label">Description:</label>
+							<div class="col-sm-9">
+								<textarea class="form-control" id="description"
+									placeholder="Description" rows="4"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="status" class="col-sm-3 control-label">Status:</label>
+							<div class="col-sm-9">
+								<select class="form-control" id="privacy-status">
+									<option>public</option>
+									<option>unlisted</option>
+									<option>private</option>
+								</select>
+							</div>
+						</div>
+						<button id="button" type="button"
+							class="btn btn-primary btn-act pull-right">
+							<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+							Upload
+						</button>
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -825,92 +822,96 @@
 	</div>
 
 	<script type="text/javascript">
-	
-		
-		$(function(){
-			$(":file").filestyle({buttonName: "btn-primary"});
+		$(function() {
+			$(":file").filestyle({
+				buttonName : "btn-primary"
+			});
 			listWatchLater();
 		});
-		
+
 		function listWatchLater() {
-			$.ajax({
-				url : "getWatchedLater",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					user_id:<%=session.getAttribute("userID")%>
-				},
-				success : function(data) {
-					var str='';
-					for(var i in data){
-						for(var j in data[i]){
-							//alert(data[i][j].youtube_url);
-							//alert(data[i][j].video_name);
-							str += '<div class="alert alert-info">' +
-							'<div class="the-box no-border store-list">' +
-								'<div class="media">' +
-									'<a class="pull-left" href="player.jsp"><img ' +
+			$
+					.ajax({
+						url : "getWatchedLater",
+						method : "POST",
+						dataType : "JSON",
+						data : {
+							user_id :
+	<%=session.getAttribute("userID")%>
+		},
+						success : function(data) {
+							var str = '';
+							for ( var i in data) {
+								for ( var j in data[i]) {
+									//alert(data[i][j].youtube_url);
+									//alert(data[i][j].video_name);
+									str += '<div class="alert alert-info">'
+											+ '<div class="the-box no-border store-list">'
+											+ '<div class="media">'
+											+ '<a class="pull-left" href="player.jsp"><img ' +
 										'alt="image" class="store-image img-responsive" ' +
-										'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>' +
-									'<div class="clearfix visible-xs"></div>' +
-									'<div class="media-body" style="overflow: visible">' +
-										'<a href="#fakelink"></a>' +
-										'<div class="btn-group pull-right">' +
-											'<button type="button" ' +
+										'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
+											+ '<div class="clearfix visible-xs"></div>'
+											+ '<div class="media-body" style="overflow: visible">'
+											+ '<a href="#fakelink"></a>'
+											+ '<div class="btn-group pull-right">'
+											+ '<button type="button" ' +
 												'class="btn btn-default btn-sm dropdown-toggle" ' +
-												'data-toggle="dropdown" aria-expanded="false">' +
-												'<i class="fa fa-cog"></i>' +
-											'</button>' +
-											'<ul class="dropdown-menu" role="menu">' +
-												'<li><a href="../elearning/play.act?v=11">Play</a></li>' +
-												'<li><a href="#" ' +
-													'>Remove from watch later</a></li>' +
-											'</ul>' +
-										'</div>' +
-										'<ul class="list-inline">' +
-											'<li><a href="#"><strong ' +
-													'class="text-black">'+ data[i][j].video_name +'</strong></a></li>' +
-											'<br>' +
-											'<li><a><span class="small text-muted" ' +
-													'style="color: #AAB2BD"> by Admin</span></a></li>' +
-										'</ul>' +
-										'<p class="hidden-xs"></p>' +
-										'<span class="small text-muted" style="color: #AAB2BD"><i ' +
-											'class="fa fa-eye">&nbsp;&nbsp;'+ data[i][j].view +'</i>' +
-											'&nbsp;&nbsp;&nbsp; </span>' +
-									'</div>' +
-								'</div>' +
-							'</div></div>';
-							
+												'data-toggle="dropdown" aria-expanded="false">'
+											+ '<i class="fa fa-cog"></i>'
+											+ '</button>'
+											+ '<ul class="dropdown-menu" role="menu">'
+											+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
+											+ '<li><a href="#" ' +
+													'>Remove from watch later</a></li>'
+											+ '</ul>'
+											+ '</div>'
+											+ '<ul class="list-inline">'
+											+ '<li><a href="#"><strong ' +
+													'class="text-black">'
+											+ data[i][j].video_name
+											+ '</strong></a></li>'
+											+ '<br>'
+											+ '<li><a><span class="small text-muted" ' +
+													'style="color: #AAB2BD"> by Admin</span></a></li>'
+											+ '</ul>'
+											+ '<p class="hidden-xs"></p>'
+											+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
+											'class="fa fa-eye">&nbsp;&nbsp;'
+											+ data[i][j].view + '</i>'
+											+ '&nbsp;&nbsp;&nbsp; </span>'
+											+ '</div>' + '</div>'
+											+ '</div></div>';
+
+								}
+								$("#getWatchlater").html(str);
+							}
+
 						}
-						$("#getWatchlater").html(str);
-					}
-					
-				}
-			});
+					});
 		}
 	</script>
 	<script>
+		$(function() {
+			$("#msg_sucess").hide();
+			$("#msg_error").hide();
+
+			// choose profile
+			$('#img').change(function() {
+				img();
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
 			$(function() {
-				$("#msg_sucess").hide();
-				$("#msg_error").hide();
-				
-				// choose profile
-				$('#img').change(function(){				 
-					img();
+				$("#myModal").modal({
+					backdrop : 'static',
+					keyboard : false
 				});
 			});
-		</script>						
-		<script>
-			$(document).ready(function() {
-				$(function() {
-					$("#myModal").modal({
-						backdrop : 'static',
-						keyboard : false
-					});
-				});
-			});
-		</script>
+		});
+	</script>
 
 </body>
 </html>
