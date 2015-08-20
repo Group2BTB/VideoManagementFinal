@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.Date;
 
 import model.dto.PlayList;
+import model.dto.Video;
 import utilities.DBConnection;
 import utilities.WorkWithDate;
 import utilities.WorkWithJson;
@@ -124,8 +125,45 @@ public class PlayListDAO {
 		}
 	}
 	
+	public Video getVideoDefault(long playlistId){
+		
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from \"vPlaylist\" where playlist_id=? order by video_id");){			
+			
+			stm.setLong(1, playlistId);
+			
+			rs = stm.executeQuery();
+			
+			if(rs.next()){
+				
+				Video v = new Video();
+				
+				v.setId(rs.getLong("video_id"));
+				v.setName(rs.getString("video_name"));
+				v.setDescription(rs.getString("description1"));
+				v.setUrl(rs.getString("youtube_url"));
+				v.setDocUrl(rs.getString("document_url"));
+				v.setCreate_date(rs.getDate("create_date"));				
+				v.setUerID(rs.getLong("user_id"));
+				
+				v.setUsername(rs.getString("username"));
+				v.setTime(rs.getString("time"));
+				v.setPercent(rs.getString("percent"));				
+				v.setView(rs.getLong("view"));
+				return v;
+			}
+			return null;
+			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static void main(String[] args) {
 		
-		System.out.println(new PlayListDAO().getVideoPlaylist(5));
+		System.out.println(new PlayListDAO().getVideoDefault(1).getName());
 	}
 }
