@@ -577,6 +577,7 @@
 		});
 		//add text form textarea to the div below
 		$(document).ready(function() {
+			getVideoPlaylist();
 				$("#btnComments").click(function() {
 						var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
 						var b = '<div class="col-md-4 col-xs-6">Just now</div>';
@@ -641,11 +642,7 @@
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
 																		
-									str += '<div class="bg_playlist title_playlist playlist_display"onclick="window.location= '
-											+ "'playervideo?p="+<%=playlist_id%>+"&v="
-											+ data[i][j].video_id
-											+ "'"
-											+ '"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									str += '<div class="bg_playlist title_playlist playlist_display"onclick="getVideoPlay('+data[i][j].video_id+')"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 											+ substring + '</span></div>';
 									count++;
 								}	
@@ -665,6 +662,29 @@
 					});
 		}
 		
+		function getVideoPlay(video_id){
+			var video_title = "";
+			$.ajax({
+				url : "playVideo",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					video_id : video_id
+				},
+				success : function(data) {
+					alert(data.url);
+					video = document.querySelector('video');
+					player = videojs(video, {
+						'techOrder' : [ 'youtube' ],			
+						'src' : 'https://youtu.be/'+data.url+''
+					});
+					player.load();
+					video_title += data.name;
+					$("#video_title").html(video_title);
+				}
+			});
+		}
+		
 		function getDefaultVideo(){
 			var video_title = "";
 			$.ajax({
@@ -678,33 +698,19 @@
 					video = document.querySelector('video');
 					player = videojs(video, {
 						'techOrder' : [ 'youtube' ],			
-						'src' : 'https://youtu.be/'+data.url+''
-					});
+						'src' : 'https://youtu.be/'+data.url+'',
+						'preload': 'auto'
+					}, function(){
+						
+						});
+					}
+					player.load();
 					video_title += data.name;
 					$("#video_title").html(video_title);
 				}
 			});			
 		}
-		 
-		/* $(document).ready(function(){
-			$("")
-			
-		});  */
 		
-		//function for get videos play when 
-		function getVideoPlay(playlist_id) {
-			$.ajax({
-				url : "playVideo",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					playlist_id : playlist_id
-				},
-				success : function(data) {
-					//alert(data);
-				}
-			});
-		}
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
@@ -734,7 +740,7 @@
 		}
 		getDefaultVideo();
 		upVideoView();
-		getVideoPlaylist();
+		
 	</script>
 
 </body>
