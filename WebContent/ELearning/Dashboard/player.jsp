@@ -621,20 +621,21 @@
 										
 										if(data[i][j].time.length < 5){
 											str1 += '0';	
-										}
+										}	
 										
-										video_watched = str1 + data[i][j].time ;
-																				
-										
+										video_watched = str1 + data[i][j].time ;																
+											if(data[i][j].time == "completed"){															
+												video_watched = '<b style=" margin-left: 15px; margin-right: 10px;">Completed</b>';	
+											}
 										img_style ='style="opacity:0.8;"';
 									}
 									else{
 										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
 										img_style = 'style="opacity:1;"';
 									}
-									
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == <%=video_id%>)) {
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
+										if(data[i][j].time =="completed"){lastwatched = data[i][j].time + " watch!";}
 										
 									}
 									
@@ -645,10 +646,8 @@
 											+ '"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 											+ substring + '</span></div>';
 									count++;
-								}								
-
+								}	
 							}
-							
 							var percentwatch = Math.ceil((totalwatch*100)/count) + "%";
 							$("#totalvideo").html(
 									"Result : " + count + " videos");
