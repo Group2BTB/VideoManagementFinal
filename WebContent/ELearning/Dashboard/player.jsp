@@ -180,9 +180,6 @@
 											preload="auto" autoplay width="640" height="360"
 											currentTime="60">
 										</video>
-										
-							
-
 									</div>
 									<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
 										<div class="row" >
