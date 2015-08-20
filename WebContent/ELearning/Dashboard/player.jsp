@@ -27,11 +27,10 @@
 <link href="../videoplayer/css/bootstrap.min.css" rel="stylesheet">
 <link href="../videoplayer/css/style.css" rel="stylesheet">
 <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
-<script src="../videoplayer/build/jquery.js"></script>
 <script src="../videoplayer/build/mediaelement-and-player.min.js"></script>
-
 <!-- cdn jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <style>
 .owl-demo .item {
 	margin: 3px;
@@ -175,17 +174,14 @@
 						<div class="col-md-12">
 							<div class="row">
 								<!--====== Videos Play ======-->
-								<div class="col-md-8" id="videos_play">
+								<div class="col-md-8" id="videos_play" style="padding:0px;">
 									<div id="myplayerwrapper">
 										<video id="vid1" class="video-js vjs-default-skin" controls
 											preload="auto" autoplay width="640" height="360"
-											currentTime="60" onloadstart="myfunction()">
+											currentTime="60">
 										</video>
 										
-								<script type="text/javascript">
-									function myfunction(){
-									alert($(".vjs-duration-display").text());}
-								</script>
+							
 
 									</div>
 									<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
@@ -195,16 +191,20 @@
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-6">
 												<span><img src="../videoplayer/avatar.png" width="50"
 													height="50" /><b>Admin</b></span>
 											</div>
+											<div class="col-md-6">
+											
+												<span class=" pull-right" id="lastwatched">Last watched:</span>												 
+												
+											 </div>
 										</div>
 										<div class="row">
 											<div class="col-md-12" style="text-align: right;">
 												<p>
-													<b style="font-size: 16px;">Veiws:</b>
-													<%=view%>
+													<b style="font-size: 16px;">Veiws:</b><%=view%>
 												</p>
 											</div>
 										</div>
@@ -314,8 +314,23 @@
 								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
 									id="playlist_show">									
 											 <div id="list_video" class="color_white"></div>
-								</div>
+											 
+											 
+											 
+								</div>	
 								
+								<!-- bar proccess -->	
+								<div id="bar_proccess">
+								
+								<h1>Total watched</h1>							
+								 <div class="progress">
+									  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+ 											 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;" id="totalwatched">
+									   50%
+									  </div>
+								</div>	
+								</div>
+								<!-- End proccess bar -->				
 							</div>
 						</div>
 					</div>
@@ -364,6 +379,7 @@
 	<script src="js/slidebars.min.js"></script>
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
+	
 
 
 	<script>
@@ -374,6 +390,8 @@
 			vPlayer.loop = true;
 		*/
 		$(document).ready(function() {	
+			 
+			 
 			srollhide();
 			viewCategory();
 			$(".owl-demo").owlCarousel({
@@ -473,20 +491,74 @@
 			var strcurrent = $(".vjs-current-time-display").text();
 			strcurrent = strcurrent.replace("Current Time", "");
 			//alert(strcurrent);
-			alert($(".vjs-duration-display").text());
+			//alert($(".vjs-duration-display").text());
 
 			//video.currentTime();
 		}
 	</script>
-
+	
 	<!--===== collapse category======-->
 	<script>
+	
 		//hide button comment
-		$(document).ready(function() {
+		$(document).ready(function() {			
+			
+			$("body").click(function(){
+				
+				//location.href= "www.google.com";
+				//alert(11);
+			});
+			//$("body").mousemove(function(){
+			
+			setInterval(function(){
+				
+				var end_time = ($(".vjs-duration-display").text());
+				var current_time = ($(".vjs-current-time-display").text());
+				var cur_min = 0;
+				var cur_sec = 0;
+				var end_min = 0;
+				var end_sec = 0;
+				
+				end_time = end_time.replace("Duration Time ","");
+				current_time = current_time.replace("Current Time ","");
+				
+				if(end_time.length<5)
+					end_time = "0" + end_time;
+				if(current_time.length < 5)
+					current_time = "0" + current_time;
+				
+				//cur_min = current_time.substr(0,2);				
+				
+				if(end_time != "Duration Time 0:00"){
+					
+					addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);
+					//alert("date is added");
+										
+				}				
+			},10000); //redo for 30s 30000
 			
 			$("#form_reply").hide();
 			$("#btnComments").hide();
 		});
+		
+		
+		function addWatched(user_id, video_id, time){
+			
+			$.ajax({
+				url : "addWatched",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					user_id : user_id,
+					video_id: video_id,
+					time: time				
+				},
+				success : function(data) {
+					//alert(data);
+				}
+			});	
+			
+		}
 		//show button comment when cussor in the textarea
 		$(document).ready(function() {
 			$("#comment").focusin(function() {
@@ -520,49 +592,83 @@
 		//function for list playlist 
 		function getVideoPlaylist() {
 			var str = "";
-			<%int playlist_id=Integer.parseInt(request.getParameter("p"));%>
-			<%-- alert(<%=p%>); --%>
+			var user_id_playlist = <%=session.getAttribute("userID")%>;
+			
 			$.ajax({
-				url : "getPlayList",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					playlist_id : <%=playlist_id%>
+						url : "getPlayList",
+						method : "POST",
+						dataType : "JSON",
+						data : {
+							playlist_id :<%=pl%>
 					},
-				success : function(data) {
-					var substring = "";
-					var count = 0;
-					for ( var i in data) {
-						for ( var j in data[i]) {
-							substring = data[i][j].video_name;
-							if (substring.length > 32) {
-								substring = substring.substr(0, 29)
-										+ "...";
-							}
-							str += '<div class="bg_playlist title_playlist " style ="margin-top: 10px; margin-left:-104px; "onclick="window.location= '
-									+ "'playervideo?p="+<%=playlist_id%>+"&v="
-									+ data[i][j].video_id
-									+ "'"
-									+ '"><span style="position:relative; top:16px;left:123px;  background-color: darkgrey; border-radius: 3px; color:#000000; z-index:1; " onclick="che()"><b>Watched :</b> 1:50</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg" width="150" height="80" style=" opacity:0.9;"/><span style="padding-left:15px;">'
-									+ substring + '</span></div>';
-							count++;
-						}
+						success : function(data) {
+							var substring = "";
+							var video_watched = "";
+							var count = 0;
+							var img_style;
+							var totalwatch = 0;
+							var lastwatched = "Just watch!!!";
+							
+							for ( var i in data) {
+								for ( var j in data[i]) {
+									substring = data[i][j].video_name;
+									//alert(substring);
+									if (substring.length > 32) {
+										substring = substring.substr(0, 29)
+												+ "...";
+									}
+									if(data[i][j].user_id == user_id_playlist){
+										
+										var str1 = '<b> Watched </b>';
+										totalwatch++;
+										
+										if(data[i][j].time.length < 5){
+											str1 += '0';	
+										}
+										
+										video_watched = str1 + data[i][j].time ;
+																				
+										
+										img_style ='style="opacity:0.8;"';
+									}
+									else{
+										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
+										img_style = 'style="opacity:1;"';
+									}
+									
+									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == <%=video_id%>)) {
+										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
+										
+									}
+									
+									str += '<div class="bg_playlist title_playlist playlist_display"onclick="window.location= '
+											+ "'playervideo?v="
+											+ data[i][j].video_id
+											+ "'"
+											+ '"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+											+ substring + '</span></div>';
+									count++;
+								}								
 
-					}
-					$("#totalvideo").html(
-							"Result : " + count + " videos");
-					$("#totalvideo_small").html(
-							"Result : " + count + " videos");
-					$("#list_video").html(str);
-					$("#list_video_small").html(str);
-					
-					
-				}
-			});
+							}
+							
+							var percentwatch = Math.ceil((totalwatch*100)/count) + "%";
+							$("#totalvideo").html(
+									"Result : " + count + " videos");
+							$("#totalvideo_small").html(
+									"Result : " + count + " videos");
+							$("#list_video").html(str);
+							$("#list_video_small").html(str);							
+							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
+							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch );
+							$("#lastwatched").html(lastwatched);
+							
+						}
+					});
 		}
 
 		//function for get videos play when 
-		/* function getVideoPlay(playlist_id) {
+		function getVideoPlay(playlist_id) {
 			$.ajax({
 				url : "playVideo",
 				method : "POST",
@@ -571,10 +677,10 @@
 					playlist_id : playlist_id
 				},
 				success : function(data) {
-					alert(data);
+					//alert(data);
 				}
 			});
-		} */
+		}
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
@@ -585,7 +691,7 @@
 					video_id :<%=video_id%>
 				},
 				success : function(data) {
-					alert(data);
+					//alert(data);
 				}
 			});
 		}
