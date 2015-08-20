@@ -129,6 +129,26 @@ public class VideoDAO {
 		}
 	}
 	
+	//Time of videos will be clear after 7 days
+	public boolean clearTimeVideo(long userId){
+			
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("DELETE from tb_user_video WHERE now() >= create_date+7")){
+											
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
+	
 	public Video getVideo(long id){
 		
 		try(Connection con = new DBConnection().getConnection();
@@ -274,7 +294,7 @@ public class VideoDAO {
 //		System.out.println(vd.getAllVideo());
 //		System.exit(0);
 		
-		System.out.println(vd.getPopVideo());
+		System.out.println(vd.getAllVideo());
 		System.exit(0);
 		video = vd.getVideo(7);		
 		video.setName("video11");
