@@ -300,7 +300,7 @@
 								</div>
 								<!--====== PlayList and questions ======-->
 								<div class="col-md-4"
-									style="background-color: #337AB7; height: 55px; color: white;" id="playlist_show_header">
+									style="background-color: #1A1A1A; height: 55px; color: white;   border-bottom:1px solid #fff;"  id="playlist_show_header">
 									<span class="pull-right text-center"
 										style="color: white; margin-top: 13px;" id="totalvideo">Result
 										: 0 Videos</span> <span class="text-center pull-left"
@@ -501,37 +501,51 @@
 			});
 			//$("body").mousemove(function(){
 			
+		function set_time(){	
+				
+			var cur_min = 0;
+			var cur_sec = 0;
+			var end_min = 0;
+			var end_sec = 0;
+			var old_cur_time = "";			
+			
 			setInterval(function(){
 				
 				var end_time = ($(".vjs-duration-display").text());
 				var current_time = ($(".vjs-current-time-display").text());
-				var cur_min = 0;
-				var cur_sec = 0;
-				var end_min = 0;
-				var end_sec = 0;
-				
-				end_time = end_time.replace("Duration Time ","");
-				current_time = current_time.replace("Current Time ","");
-				
-				if(end_time.length<5)
-					end_time = "0" + end_time;
-				if(current_time.length < 5)
-					current_time = "0" + current_time;
-				
-				//cur_min = current_time.substr(0,2);				
-				
-				if(end_time != "Duration Time 0:00"){
-					
-					//addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);
-					//alert("date is added");
-										
-				}				
-			},10000); //redo for 30s 30000
 			
+				
+				if(end_time != "Duration Time 0:00"){				
+					
+					end_time = end_time.replace("Duration Time ","");
+					current_time = current_time.replace("Current Time ","");
+					
+					if(end_time.length<5)
+						end_time = "0" + end_time;
+					if(current_time.length < 5)
+						current_time = "0" + current_time;
+					
+					if(current_time == end_time){ addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,"completed"); return; 
+					
+						
+					}
+					
+					if(old_cur_time != current_time){						
+						addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
+						old_cur_time = current_time;
+					}
+					
+					
+				}
+				
+			},10000);//redo for 30s 30000
+	
+		}		
+			set_time();
 			$("#form_reply").hide();
 			$("#btnComments").hide();
 		});
-		
+	
 		
 		function addWatched(user_id, video_id, time){
 			
@@ -608,12 +622,12 @@
 										
 										if(data[i][j].time.length < 5){
 											str1 += '0';	
-										}	
-										
+										}											
 										video_watched = str1 + data[i][j].time ;																
 												if(data[i][j].time == "completed"){															
 												video_watched = '<b style=" margin-left: 15px; margin-right: 10px;">Completed</b>';	
-											}
+												}
+												
 										img_style ='style="opacity:0.8;"';
 									}
 									else{
@@ -621,11 +635,12 @@
 										img_style = 'style="opacity:1;"';
 									}
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == <%=video_id%>)) {
-										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
-										if(data[i][j].time =="completed"){lastwatched = data[i][j].time + " watch!";}
 										
+										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
+										
+										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
-									
+																		
 									str += '<div class="bg_playlist title_playlist playlist_display"onclick="window.location= '
 											+ "'playervideo?p="+<%=playlist_id%>+"&v="
 											+ data[i][j].video_id
