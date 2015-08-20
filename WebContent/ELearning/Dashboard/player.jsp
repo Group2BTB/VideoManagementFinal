@@ -657,7 +657,7 @@
 							$("#list_video").html(str);
 							$("#list_video_small").html(str);							
 							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
-							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch );
+							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							
 						}
@@ -705,6 +705,7 @@
 				}
 			});
 		}
+		
 		upVideoView();
 		getVideoPlaylist();
 	</script>
