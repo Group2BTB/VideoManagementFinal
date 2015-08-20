@@ -329,6 +329,10 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>playVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/playVideo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>playVideo</servlet-name>
     <url-pattern>/ELearning/playervideo</url-pattern>
   </servlet-mapping>
   <servlet>
