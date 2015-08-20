@@ -259,6 +259,10 @@
     <servlet-name>getDefaultVideo</servlet-name>
     <url-pattern>/ELearning/Dashboard/getDefaultVideo</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>getDefaultVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getPlayListID</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>updateStatusPlaylist</servlet-name>
     <servlet-class>controller.playlist.statusPlaylist</servlet-class>
