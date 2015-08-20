@@ -23,6 +23,25 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet">
 <style>
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
 .vblock {
 	height: 180px;
 	width: 100px;
@@ -565,12 +584,15 @@
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 							<div class="col-md-2 col-sm-2 col-xs-12">	
 								<img  id="src" src="img-login/uplo.png" alt="" class="img-rounded" style="width:150px;">
-								<br/>											
-								<div class="fileUpload btn btn-success">
+								<br/>										
+								<!-- <div class="fileUpload btn btn-success">
 									<span>CHOOSE VIDEO</span>
 									<input type="file" id="file"  accept="video/*" class="upload" />
-								</div>
-							</div>
+								</div> -->
+															</div>
+			 <span class="btn btn-default btn-file">
+        Browse <input type="file">
+    </span>
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 form-horizontal">
 							<div class="form-group">
@@ -804,10 +826,12 @@
 
 	<script type="text/javascript">
 	
+		
 		$(function(){
+			$(":file").filestyle({buttonName: "btn-primary"});
 			listWatchLater();
 		});
-	
+		
 		function listWatchLater() {
 			$.ajax({
 				url : "getWatchedLater",
@@ -866,6 +890,27 @@
 			});
 		}
 	</script>
+	<script>
+			$(function() {
+				$("#msg_sucess").hide();
+				$("#msg_error").hide();
+				
+				// choose profile
+				$('#img').change(function(){				 
+					img();
+				});
+			});
+		</script>						
+		<script>
+			$(document).ready(function() {
+				$(function() {
+					$("#myModal").modal({
+						backdrop : 'static',
+						keyboard : false
+					});
+				});
+			});
+		</script>
 
 </body>
 </html>
