@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import utilities.DBConnection;
+import utilities.WorkWithJson;
 import model.dto.History;
 
 public class HistoryDAO {
@@ -72,5 +73,27 @@ public class HistoryDAO {
 			ex.printStackTrace();
 			return false;
 		}
+	}
+	
+	public String getHistory(long userId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection();
+				PreparedStatement stm = con.prepareStatement("select * from \"vHistory\" where user_id=? order by create_date");){
+						
+			stm.setLong(1, userId);						
+			
+			return WorkWithJson.convertResultSetIntoJSON(stm.executeQuery()).toString();
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		//System.out.println(new HistoryDAO().getHistory(27));
 	}
 }
