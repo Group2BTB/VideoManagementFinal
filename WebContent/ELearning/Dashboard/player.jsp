@@ -184,7 +184,7 @@
 									<div style="margin-top: 5px;" class="col-md-12 col-sm-12">
 										<div class="row" >
 											<div class="col-md-12 col-sm-12 col-xs-12 title_video">
-												<h2><%=title%></h2>
+												<h2 id="video_title"></h2>
 											</div>
 										</div>
 										<div class="row">
@@ -472,12 +472,11 @@
 	<!--====== Video script ======-->
 	<script>
 		// save a reference to the video element
-		video = document.querySelector('video');
-		
+		<%-- video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
 			'src' : 'https://youtu.be/<%=str%>'
-		});
+		}); --%>
 
 		$(function() {
 			var vid = document.getElementById("vid1");
@@ -662,7 +661,33 @@
 						}
 					});
 		}
-
+		
+		function getDefaultVideo(){
+			var video_title = "";
+			$.ajax({
+				url : "getDefaultVideo",
+				method : "POST",
+				dataType: "JSON",
+				data:{
+					playlist_id : <%=request.getParameter("p")%>
+				},
+				success: function(data){
+					video = document.querySelector('video');
+					player = videojs(video, {
+						'techOrder' : [ 'youtube' ],			
+						'src' : 'https://youtu.be/'+data.url+''
+					});
+					video_title += data.name;
+					$("#video_title").html(video_title);
+				}
+			});			
+		}
+		 
+		$(document).ready(function(){
+			$("")
+			
+		}); 
+		
 		//function for get videos play when 
 		function getVideoPlay(playlist_id) {
 			$.ajax({
@@ -704,7 +729,7 @@
 				}
 			});
 		}
-		
+		getDefaultVideo();
 		upVideoView();
 		getVideoPlaylist();
 	</script>
