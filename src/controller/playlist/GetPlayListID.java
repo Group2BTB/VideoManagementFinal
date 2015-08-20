@@ -1,20 +1,12 @@
 package controller.playlist;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.dao.PlayListDAO;
-import model.dao.VideoDAO;
-import model.dto.PlayList;
-import model.dto.Video;
+
 
 /**
  * Servlet implementation class GetPlayListID
@@ -46,23 +38,9 @@ public class GetPlayListID extends HttpServlet {
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int playlist_id = Integer.parseInt(request.getParameter("p"));
-		
-//		HttpSession session = request.getSession();		
-//		session.setAttribute("pl", playlist_id);
-		/*
+		request.setAttribute("playlist_id", playlist_id);
 		try {
 			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+playlist_id);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		//request.setAttribute("pl", playlist_id);
-		//System.out.println("PlaylistID: "+request.getAttribute("pl"));
-		try {
-			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+playlist_id);
-			//request.getRequestDispatcher("getPlayList").forward(request, response);
-			//request.getRequestDispatcher("/ELearning/getPlaylist").forward(request, response);
-			/*rd.forward(request, response);*/
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
