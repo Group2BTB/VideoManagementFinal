@@ -9,6 +9,15 @@ public class History {
 	private long videoID;
 	private Date create_date;
 	
+	private String video_name;
+	private String description;
+	private String youtube_url;
+	private String document_url;
+	private long view;
+	private String username;
+	private String time;
+	private String percent;
+	
 	public History(){
 		
 	}
@@ -18,6 +27,57 @@ public class History {
 		this.userID = userID;
 		this.videoID = videoID;
 		this.create_date = create_date;
+	}
+	
+	
+	
+	public String getVideo_name() {
+		return video_name;
+	}
+	public void setVideo_name(String video_name) {
+		this.video_name = video_name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getYoutube_url() {
+		return youtube_url;
+	}
+	public void setYoutube_url(String youtube_url) {
+		this.youtube_url = youtube_url;
+	}
+	public String getDocument_url() {
+		return document_url;
+	}
+	public void setDocument_url(String document_url) {
+		this.document_url = document_url;
+	}
+	public long getView() {
+		return view;
+	}
+	public void setView(long view) {
+		this.view = view;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public String getPercent() {
+		return percent;
+	}
+	public void setPercent(String percent) {
+		this.percent = percent;
 	}
 	public long getId() {
 		return id;
