@@ -15,6 +15,8 @@
 <link href="css/bootstrap-reset.css" rel="stylesheet">
 <!--external css-->
 <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="css/style-login.css" rel="stylesheet">
+<link rel="stylesheet" href="css/login-style.css"/>
 <!--right slidebar-->
 <link href="css/slidebars.css" rel="stylesheet">
 <!-- Custom styles for this template -->
@@ -167,11 +169,9 @@
 							<li class=""><a href="#panel-courses" data-toggle="tab"
 								aria-expanded="false"><i class="fa  fa-book "></i> Courses </a></li>
 							<li class="pull-right">
-								<!-- <span class="btn btn-group inline-popups"> --> <a
-								class="btn btn-success btn-rounded-lg" href="video.act"
-								data-effect="mfp-zoom-in"> <i class="fa fa-cloud-upload"></i>
-									Upload video
-							</a> <!-- 										</span> -->
+								<a class="btn btn-success btn-rounded-lg" href="video.act" data-effect="mfp-zoom-in" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-cloud-upload"></i> Upload video
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -534,11 +534,80 @@
 			</footer>
 		</section>
 	</section>
+	
+	<span id="signinButton"  style="display:none;"class="pre-sign-in">
+      <!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
+           attribute in the following tag with your project's client ID. -->
+      <span
+        class="g-signin"
+        data-callback="signinCallback"
+        data-clientid="175844947983-bf98t179546qi8q8ak49f93ub17ip0aj.apps.googleusercontent.com"
+        data-cookiepolicy="single_host_origin"
+        data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
+      </span>
+    </span>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+					<div class="modal-header text-center h2 text-primary">
+						<span class="modal-title" id="myModalLabel" data-toggle="modal" data-target="#myModal">Upload Video</span>
+					</div>
+					<div class="modal-body">					
+						<div style="display:none;">
+							<img id="channel-thumbnail">
+							<span id="channel-name"></span>
+						</div>
+						<div id="runing" style="display:none;" class="progress">
+						  <div id="upload-progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							0%
+						  </div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+							<div class="col-md-2 col-sm-2 col-xs-12">	
+								<img  id="src" src="img-login/uplo.png" alt="" class="img-rounded" style="width:150px;">
+								<br/>											
+								<div class="fileUpload btn btn-success">
+									<span>CHOOSE VIDEO</span>
+									<input type="file" id="file"  accept="video/*" class="upload" />
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 form-horizontal">
+							<div class="form-group">
+								<label for="title" class="col-sm-3 control-label">*Title:</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="title" name="title" placeholder="Title">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="description" class="col-sm-3 control-label">Description:</label>
+								<div class="col-sm-9">
+									<textarea class="form-control" id="description" placeholder="Description" rows="4"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="status" class="col-sm-3 control-label">Status:</label>
+								<div class="col-sm-9">
+									<select class="form-control" id="privacy-status">
+							          <option>public</option>
+							          <option>unlisted</option>
+							          <option>private</option>
+							        </select>
+								</div>
+							</div>
+							<button id="button" type="button"  class="btn btn-primary btn-act pull-right">
+								<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> Upload
+							</button> <br/><br/><br/><br/><br/>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript"
-		src="js/jquery.dcjqaccordion.2.7.js"></script>
+	<script class="include" src="js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="js/jquery.scrollTo.min.js"></script>
 	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 	<script src="js/respond.min.js"></script>
@@ -547,6 +616,11 @@
 	<script src="js/slidebars.min.js"></script>
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
+	<!-- script for upload -->
+	<script src="//apis.google.com/js/client:plusone.js"></script>
+	<script src="js-upload/auth.js"></script>
+	<script src="js-upload/cors_upload.js"></script>
+	<script src="js-upload/upload_video.js"></script>
 	<div id="ascrail2000" class="nicescroll-rails"
 		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 686px; display: none; background: rgb(64, 64, 64);">
 		<div
@@ -731,7 +805,7 @@
 	<script type="text/javascript">
 	
 		$(function(){
-			listWatchLater()
+			listWatchLater();
 		});
 	
 		function listWatchLater() {
