@@ -306,14 +306,10 @@
 										style="color: white; margin-top: 13px;" id="totalvideo">Result
 										: 0 Videos</span> <span class="text-center pull-left"
 										style="color: white; margin-top: 13px;">Learn Java</span>
-
 								</div>
 								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
 									id="playlist_show">									
 											 <div id="list_video" class="color_white"></div>
-											 
-											 
-											 
 								</div>	
 								
 								<!-- bar proccess -->	
@@ -580,11 +576,9 @@
 														+ '</div></div>';
 												$("#comment").val("");
 
-												$("#show_comments").prepend(
-														a + b + c);
+												$("#show_comments").prepend(a + b + c);
 											});
 						});
-
 		//function for list playlist 
 		function getVideoPlaylist() {
 			var str = "";
@@ -623,7 +617,7 @@
 										}	
 										
 										video_watched = str1 + data[i][j].time ;																
-										category_titleif(data[i][j].time == "completed"){															
+												if(data[i][j].time == "completed"){															
 												video_watched = '<b style=" margin-left: 15px; margin-right: 10px;">Completed</b>';	
 											}
 										img_style ='style="opacity:0.8;"';
