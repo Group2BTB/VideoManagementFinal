@@ -198,6 +198,6 @@ public class CategoryDAO {
 
 	public static void main(String[] args) {
 		
-		System.out.println(new CategoryDAO().getSubAllCategory());
+		//System.out.println(new CategoryDAO().getSubAllCategory());
 	}
 }

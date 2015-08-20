@@ -7,24 +7,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import model.dao.PlayListDAO;
 import model.dao.VideoDAO;
 import model.dto.Video;
 
 /**
- * Servlet implementation class PlayVideo
+ * Servlet implementation class GetDefaultVideo
  */
 
-public class PlayVideo extends HttpServlet {
+public class GetDefaultVideo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlayVideo() {
+    public GetDefaultVideo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,6 +33,7 @@ public class PlayVideo extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
 
@@ -40,18 +41,25 @@ public class PlayVideo extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
-	
+	 
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		long video_id = Integer.parseInt(request.getParameter("v"));
-		int p = Integer.parseInt(request.getParameter("p"));
+		int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
+		//System.out.println();
 		
-		HttpSession session = request.getSession();
-		Video url = new VideoDAO().getVideo(video_id);
-		session.setAttribute("url", url);
+		/*get video_id from playlist in PlayListDAO*/
+		Video v = new PlayListDAO().getVideoDefault(playlist_id);
+		
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		long video_id = v.getId();
 		try {
-			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+p+"&v="+video_id);
+			Video video = new VideoDAO().getVideo(video_id);
+			String str = new Gson().toJson(video);
+			response.getWriter().write(str);
+			System.out.println("get Video Default: "+ str);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
