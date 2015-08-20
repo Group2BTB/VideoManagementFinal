@@ -58,7 +58,7 @@
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="index-2.html" class="logo"><span>KHEAV</span></a>
+			<a href="category.jsp" class="logo"><span>KHEAV</span></a>
 
 			<!--logo end-->
 
@@ -326,8 +326,7 @@
 										<!-- /.btn-group .pull-right -->
 									</div>
 									<div id="getWatchlater">
-										<div>
-											<div class="alert alert-info">
+											<!-- <div class="alert alert-info">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
@@ -364,8 +363,7 @@
 														</div>
 													</div>
 												</div>
-											</div>
-										</div>
+											</div> -->
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="dataTables_info" id="datatable-example_info">Page
@@ -730,6 +728,70 @@
 			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; left: 0px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
 	</div>
 
+	<script type="text/javascript">
+	
+		$(function(){
+			listWatchLater()
+		});
+	
+		function listWatchLater() {
+			$.ajax({
+				url : "getWatchedLater",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					user_id:<%=session.getAttribute("userID")%>
+				},
+				success : function(data) {
+					var str='';
+					for(var i in data){
+						for(var j in data[i]){
+							//alert(data[i][j].youtube_url);
+							//alert(data[i][j].video_name);
+							str += '<div class="alert alert-info">' +
+							'<div class="the-box no-border store-list">' +
+								'<div class="media">' +
+									'<a class="pull-left" href="player.jsp"><img ' +
+										'alt="image" class="store-image img-responsive" ' +
+										'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>' +
+									'<div class="clearfix visible-xs"></div>' +
+									'<div class="media-body" style="overflow: visible">' +
+										'<a href="#fakelink"></a>' +
+										'<div class="btn-group pull-right">' +
+											'<button type="button" ' +
+												'class="btn btn-default btn-sm dropdown-toggle" ' +
+												'data-toggle="dropdown" aria-expanded="false">' +
+												'<i class="fa fa-cog"></i>' +
+											'</button>' +
+											'<ul class="dropdown-menu" role="menu">' +
+												'<li><a href="../elearning/play.act?v=11">Play</a></li>' +
+												'<li><a href="#" ' +
+													'>Remove from watch later</a></li>' +
+											'</ul>' +
+										'</div>' +
+										'<ul class="list-inline">' +
+											'<li><a href="#"><strong ' +
+													'class="text-black">'+ data[i][j].video_name +'</strong></a></li>' +
+											'<br>' +
+											'<li><a><span class="small text-muted" ' +
+													'style="color: #AAB2BD"> by Admin</span></a></li>' +
+										'</ul>' +
+										'<p class="hidden-xs"></p>' +
+										'<span class="small text-muted" style="color: #AAB2BD"><i ' +
+											'class="fa fa-eye">&nbsp;&nbsp;'+ data[i][j].view +'</i>' +
+											'&nbsp;&nbsp;&nbsp; </span>' +
+									'</div>' +
+								'</div>' +
+							'</div></div>';
+							
+						}
+						$("#getWatchlater").html(str);
+					}
+					
+				}
+			});
+		}
+	</script>
 
 </body>
 </html>
