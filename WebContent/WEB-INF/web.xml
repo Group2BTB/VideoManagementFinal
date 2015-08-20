@@ -408,7 +408,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>getHistory</servlet-name>
-    <url-pattern>/ELearnig/Dashboard/getHistory</url-pattern>
+    <url-pattern>/ELearning/Dashboard/getHistory</url-pattern>
   </servlet-mapping>
   
   
