@@ -44,14 +44,20 @@ public class PlayVideo extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		long video_id = Integer.parseInt(request.getParameter("v"));
-		int p = Integer.parseInt(request.getParameter("p"));
-		
+		long video_id = Integer.parseInt(request.getParameter("video_id"));
+		//int p = Integer.parseInt(request.getParameter("p"));
 		HttpSession session = request.getSession();
 		Video url = new VideoDAO().getVideo(video_id);
 		session.setAttribute("url", url);
 		try {
-			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+p+"&v="+video_id);
+			//response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+p+"&v="+video_id);
+			response.setCharacterEncoding("utf-8");
+			response.setContentType("application/json");
+			Video video = new VideoDAO().getVideo(video_id);
+			String str = new Gson().toJson(video);
+			response.getWriter().write(str);
+			
+			System.out.println("Play video: "+str);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
