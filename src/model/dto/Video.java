@@ -17,6 +17,36 @@ public class Video {
 	private long view;	
 	private int category_id;
 	
+	private String username;
+	private String time;
+	private String percent;
+	
+	
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getPercent() {
+		return percent;
+	}
+
+	public void setPercent(String percent) {
+		this.percent = percent;
+	}
+
 	public int getCategory_id() {
 		return category_id;
 	}
@@ -27,9 +57,7 @@ public class Video {
 
 	public Video(){
 		
-	}
-
-	
+	}	
 
 	public Video(long id, String name, String description, String url,
 			String docUrl, Date create_date, Date modifier_date, long uerID,
