@@ -382,8 +382,6 @@
 			vPlayer.loop = true;
 		*/
 		$(document).ready(function() {	
-			 
-			 
 			srollhide();
 			viewCategory();
 			$(".owl-demo").owlCarousel({
@@ -402,7 +400,6 @@
 
 		});
 		
-		
 		function viewCategory() {
 			$.ajax({
 					url : "listAllCategory",
@@ -413,8 +410,6 @@
 						var ind = 0;
 						var strsup = "";
 						var str = "";
-						
-						
 						for ( var i in data) {
 							for ( var j in data[i]) {
 								ind++;
@@ -425,10 +420,7 @@
 							str = "";
 							count++;
 							ind = 0;
-							
-							
 						}
-						
 						$("#nav-accordion").html(strsup + "</li>");						
 					}
 				});
@@ -445,6 +437,59 @@
 	</script>
 	<!-- hide some header when scroll less than 768px  -->
 	<script>
+	getDefaultVideo();
+	
+	
+	function getVideoPlay(video_id){
+		player.pause();
+		//var video_title = "";
+		$.ajax({
+			url : "playVideo",
+			method : "POST",
+			dataType : "JSON",
+			data : {
+				v : video_id
+			},
+			success : function(data) {
+			//	alert(data.url);
+				$("#video_title").html(data.name);
+				player.src('https://www.youtube.com/watch?v='+data.url+'');
+				player.load();
+				player.play();
+				player.show(); 
+			}
+		});
+	}
+	
+	function myplayers(url){
+		video = document.querySelector('video');
+		player = videojs(video, {
+			'techOrder' : [ 'youtube' ],			
+			'src' : 'https://youtu.be/'+url+'',
+			//'preload': 'auto'
+		});
+		
+	}
+	
+	function getDefaultVideo(){
+		var video_title = "";
+		$.ajax({
+			url : "getDefaultVideo",
+			method : "POST",
+			dataType: "JSON",
+			data:{
+				playlist_id : <%=request.getParameter("p")%>
+			},
+			success: function(data){
+				video_title += data.name;
+				$("#video_title").html(video_title);
+				myplayers(data.url);
+			}
+		});			
+	}
+	
+	
+	
 		function srollhide() {
 			var w = innerWidth;
 			if (w < 990) {				
@@ -548,7 +593,6 @@
 	
 		
 		function addWatched(user_id, video_id, time){
-			
 			$.ajax({
 				url : "addWatched",
 				method : "POST",
@@ -662,54 +706,7 @@
 					});
 		}
 		
-		function getVideoPlay(video_id){
-			var video_title = "";
-			$.ajax({
-				url : "playVideo",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					video_id : video_id
-				},
-				success : function(data) {
-					alert(data.url);
-					video = document.querySelector('video');
-					player = videojs(video, {
-						'techOrder' : [ 'youtube' ],			
-						'src' : 'https://youtu.be/'+data.url+''
-					});
-					player.load();
-					video_title += data.name;
-					$("#video_title").html(video_title);
-				}
-			});
-		}
 		
-		function getDefaultVideo(){
-			var video_title = "";
-			$.ajax({
-				url : "getDefaultVideo",
-				method : "POST",
-				dataType: "JSON",
-				data:{
-					playlist_id : <%=request.getParameter("p")%>
-				},
-				success: function(data){
-					video = document.querySelector('video');
-					player = videojs(video, {
-						'techOrder' : [ 'youtube' ],			
-						'src' : 'https://youtu.be/'+data.url+'',
-						'preload': 'auto'
-					}, function(){
-						
-						});
-					}
-					player.load();
-					video_title += data.name;
-					$("#video_title").html(video_title);
-				}
-			});			
-		}
 		
 		//increase 1 for view once videos
 		function upVideoView() {
@@ -738,7 +735,7 @@
 				}
 			});
 		}
-		getDefaultVideo();
+	
 		upVideoView();
 		
 	</script>
