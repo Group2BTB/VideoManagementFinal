@@ -189,7 +189,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<span><img src="../videoplayer/avatar.png" width="50"
-													height="50" /><b>Admin</b></span>
+													height="50" /><b id="uploader">Admin</b></span>
 											</div>
 											<div class="col-md-6">
 											
@@ -200,7 +200,7 @@
 										<div class="row">
 											<div class="col-md-12" style="text-align: right;">
 												<p>
-													<b style="font-size: 16px;">Veiws:</b><%=view%>
+													<b id="count_views" style="font-size: 16px;">Veiws:</b> 
 												</p>
 											</div>
 										</div>
@@ -230,8 +230,9 @@
 												</div>
 											</div>
 										</div>
-
-										<div class="row">
+										
+										
+										<div class="row container-full">
 											<hr style="padding-top: 30px;">
 											<div class="col-md-12">
 
@@ -248,7 +249,7 @@
 														<form role="form" action="" method="post">
 															<div class="form-group">
 																<label for="comment">Comment:</label>
-																<textarea class="form-control" rows="5" id="comment"
+																<textarea class="form-control" rows="3" id="comment"
 																	name="comment"></textarea>
 															</div>
 															<input type="button" value="Comment" id="btnComments"
@@ -259,40 +260,46 @@
 													</div>
 												</div>
 												<div id="show_comments"></div>
-												 <div class="col-md-12 comments box_comment" id="comment_box">
-													<div class="row wells">
-														<div class="col-md-1 col-sm-1 col-xs-2 img-responsive">
+												 <div class="col-md-12 comments" id="comment_box">
+													<div class="row">
+														<div class="col-md-1 col-sm-1 col-xs-3 img-responsive">
 															<img src="../videoplayer/avatar.png" width="50">
 														</div>
-														<div class="col-md-11">
-															<div class="col-md-5 col-xs-9 col-sm-5">
+														<div class="col-md-10 col-sm-10 col-xs-9">
+															<div class="">
 																<span><b>Prem Chanthorn</b></span>
 															</div>
-															<div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div>
-															<div class="col-md-11 col-xs-9 col-sm-10">I really like this
+															<div class="">10 minutes ago</div><br />
+															<div class="">I really like this
 																website.</div>
 
 															<div class="row">
-															<div class="col-md-2 col-sm-2 col-xs-2"></div>
-															<div class="col-md-11 col-sm-11 col-xs-10">
-																	<button class="btn-sm pull-right" id="btn_reply_click"
+															<div class="col-md-2 col-sm-2"></div>
+															<div class="col-md-11 col-sm-11 col-xs-12">
+																	<button class=" btn btn-default pull-left" id="btn_reply_click"
 																		style="margin: 20px;">Reply</button>
 															<form role="form" action="" method="post" id="form_reply">
 															<div class="form-group">
 																<label></label>
-																<textarea class="form-control" rows="5" id="comment_reply"
+																<textarea class="form-control " rows="2" id="comment_reply"
 																	name="comment"></textarea>
 															</div>
 															<input type="button" value="Reply" id="btn_reply"
 																class="pull-right btn btn-default"
 																onclick="" style="margin-right: 20px;"/>
 															</form>
-															
+														
 															</div>
+																
+															</div>
+															<!-- Show reply -->
+															<div class="row" id="show_reply_com">
+																
 															</div>
 														</div>
+															
 													</div>
-
+												
 												</div>  
 											</div>
 											<!------End of Comment------>
@@ -377,6 +384,7 @@
 
 	<script>
 		
+		var new_video_id = 0;
 		//var vPlayer = document.getElementById("vid1");
 				
 		/*
@@ -438,7 +446,6 @@
 	<script>
 	getDefaultVideo();
 	
-	
 	function getVideoPlay(video_id){
 		player.pause();
 		//var video_title = "";
@@ -450,12 +457,21 @@
 				v : video_id
 			},
 			success : function(data) {
-			//	alert(data.url);
+				//alert(data.url);
 				$("#video_title").html(data.name);
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
 				player.load();
 				player.play();
 				player.show(); 
+				
+				//action click
+			
+				$("#video_title").html(data.name);
+				$("#lastwatched").html(data.time);
+				$("#count_views").html("Views: "+data.view);
+				$("#uploader").html(data.username);	
+						
+				
 			}
 		});
 	}
@@ -480,15 +496,25 @@
 				playlist_id : <%=request.getParameter("p")%>
 			},
 			success: function(data){
+				
+				new_video_id = data.id;
+				
+				alert(new_video_id);
+				
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				myplayers(data.url);
+				
+				//action defaut 
+				
+			
+				
 			}
 		});			
 	}
 	
-	
-	
+		
+		
 		function srollhide() {
 			var w = innerWidth;
 			if (w < 990) {				
@@ -511,12 +537,6 @@
 	<!--====== Video script ======-->
 	<script>
 		// save a reference to the video element
-		<%-- video = document.querySelector('video');
-		player = videojs(video, {
-			'techOrder' : [ 'youtube' ],			
-			'src' : 'https://youtu.be/<%=str%>'
-		}); --%>
-
 		$(function() {
 			var vid = document.getElementById("vid1");
 			vid.defaultMuted = false;
@@ -525,14 +545,11 @@
 		function che() {
 			var strcurrent = $(".vjs-current-time-display").text();
 			strcurrent = strcurrent.replace("Current Time", "");
-			//alert(strcurrent);
-			//alert($(".vjs-duration-display").text());
-
-			//video.currentTime();
 		}
-	</script>
+	</script>	
 	
-	<!--===== collapse category======-->
+		<!--===== collapse category ======-->
+	
 	<script>
 	
 		//hide button comment
@@ -545,8 +562,7 @@
 			});
 			//$("body").mousemove(function(){
 			
-		function set_time(){	
-				
+		function set_time(){					
 			var cur_min = 0;
 			var cur_sec = 0;
 			var end_min = 0;
@@ -569,15 +585,14 @@
 					if(current_time.length < 5)
 						current_time = "0" + current_time;
 					
-					if(current_time == end_time){ addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,"completed"); return; 
-					
+					if(current_time == end_time){ addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,"completed"); return; 					
 						
 					}
 					
 					if(old_cur_time != current_time){
 						//add minute to table	
-						//addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
-						//old_cur_time = current_time;
+						addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
+						old_cur_time = current_time;
 					}
 					
 					
@@ -609,27 +624,49 @@
 		}
 		//add text form textarea to the div below
 		$(document).ready(function() {			
+			
 			//show button comment when cussor in the textarea
-			//$("#form_reply").hide();
+			$("#form_reply").hide();
 			$("#btnComments").hide();			
 			$("#comment").focusin(function() {
-				$("#btnComments").fadeIn(1000);
+				
+				$("#btnComments").fadeIn();
 				$("#btnComments").css("margin-bottom", "10px");
 			});
 			$("#comment").focusout(function() {
-				$("#btnComments").fadeOut(500);
+				$("#btnComments").fadeOut();
 				$("#btnComments").css("margin-bottom", "10px");
 			});
 			
 			$("#btn_reply_click").click(function(){
 				$("#form_reply").slideDown(2000);
-				$("#btn_reply_click").hide();				
+				$("#btn_reply_click").hide();	
+				
+			}); 
+			$("#btn_reply").click(function(){
+				
+				var a ='<div class="col-md-12"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+				+'<b>Prem Chanthorn</b></span>'+
+				'<div class="col-xs-12">10 minutes ago</div><br /><div class="col-xs-12" id="reply_com">' +$("#comment_reply").val()+ '</div></div></div>';				
+							 
+				
+				$("#show_reply_com").prepend(a);
+				$("#show_reply_com").show();
+				$("#comment_reply").val(""); 
+
+			});
+			$("#btn_cancel").click(function(){
+			
+							
+				$("#form_reply").hide();
+				$("#btn_reply_click").show();	
+							
 			}); 
 			//reply comment
 				var reply_id = 0;				
 				$("#btnComments").click(function() {	
-						var d = '<div class="row"><div class="col-md-2 col-sm-2 col-xs-2"></div><div class="col-md-11 col-sm-11 col-xs-10"><button class="btn-sm pull-right" id="btn_reply_click'+ reply_id +'" onclick="do_reply('+ reply_id +')"  style="margin: 20px;">Reply</button><form role="form" action="" method="post" id="form_reply'+ reply_id +'"><div class="form-group"><label></label><textarea class="form-control" rows="5" id="comment_reply" name="comment"></textarea></div><input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/></form></div></div>';
-						var e ='<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
+						var d = '<div class="row"><div class="col-md-2 col-sm-2 col-xs-2"></div><div class="col-md-11 col-sm-11 col-xs-10"><button class="btn btn-default pull-right" id="btn_reply_click'+ reply_id +'" onclick="do_reply('+ reply_id +')"  style="margin: 20px;">Reply</button><form role="form" action="" method="post" id="form_reply'+ reply_id +'"><div class="form-group"><label></label><textarea class="form-control" rows="2" id="comment_reply" name="comment"></textarea></div><input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/></form></div></div>';
+						var e ='<div class="col-md-12 comments box_comment" id="comment_box"><div class="row"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
 						
 						$("#comment").val("");						
 						$("#show_comments").prepend(e + d);						
@@ -638,16 +675,20 @@
 				});
 				
 			});
-				function do_reply(id){				
-					//alert(id);
+			//function for show reply
+			function do_reply(id){				
 					$("#form_reply" + id).slideDown(2000);
 					$("#btn_reply_click" + id).hide();				
 				}
+			
+			
 		//function for list playlist 
-		function getVideoPlaylist() {
+		
+		 function getVideoPlaylist() {
 			var str = "";
 			var user_id_playlist = <%=session.getAttribute("userID")%>;
 			<%int playlist_id=Integer.parseInt(request.getParameter("p"));%>
+			
 			$.ajax({
 					    url : "getPlayList",
 						method : "POST",
@@ -656,6 +697,7 @@
 							playlist_id :<%=playlist_id%>
 						},
 						success : function(data) {
+							
 							var substring = "";
 							var video_watched = "";
 							var count = 0;
@@ -665,6 +707,7 @@
 							
 							for ( var i in data) {
 								for ( var j in data[i]) {
+									//alert(data[i][j].video_id);
 									substring = data[i][j].video_name;
 									//alert(substring);
 									if (substring.length > 32) {
@@ -690,19 +733,21 @@
 										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
 										img_style = 'style="opacity:1;"';
 									}
-									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == <%=video_id%>)) {
+									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == new_video_id)) {
 										
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
 										
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
 
-									str += '<div class="bg_playlist title_playlist playlist_display"onclick="getVideoPlay('+data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
+									
 								}	
 							}
+							
 							var percentwatch = Math.ceil((totalwatch*100)/count) + "%";
 							$("#totalvideo").html(
 									"Result : " + count + " videos");
@@ -714,10 +759,11 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							
-						}
+						} 
 					});
 		}
 		
+		 
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
