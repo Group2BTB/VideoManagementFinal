@@ -57,7 +57,7 @@ public class PlayVideo extends HttpServlet {
 			
 			
 			int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
-			response.getWriter().print(new PlayListDAO().getVideoPlaylist(playlist_id));
+			response.getWriter().write(new PlayListDAO().getVideoPlaylist(playlist_id));
 			//request.getRequestDispatcher("").forward(request, response);
 			System.out.println(new PlayListDAO().getVideoPlaylist(playlist_id));
 			
