@@ -43,7 +43,7 @@ public class PlayVideo extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		long video_id = Integer.parseInt(request.getParameter("v"));
+		long video_id = Integer.parseInt(request.getParameter("video_id"));
 		//int p = Integer.parseInt(request.getParameter("p"));
 		HttpSession session = request.getSession();
 		Video url = new VideoDAO().getVideo(video_id);
