@@ -25,6 +25,9 @@ public class PlayList {
 	private String time;
 	private String percent;
 	
+	//For WatchedPlaylistDAO	
+	private long category_name;
+	
 	public PlayList(){
 		
 	}
