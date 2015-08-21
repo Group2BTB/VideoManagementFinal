@@ -182,9 +182,8 @@
 					<div id="panel-collapse-1" class="collapse in">
 						<div class="panel-body">
 							<div class="tab-content">
-
+								
 								<!-- history -->
-
 								<div ng-app="myapp" ng-controller="hiscontroller" class="tab-pane fade active in" id="panel-history">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
@@ -266,12 +265,11 @@
 																		class="fa fa-clock-o"></i> </span>1:23 (30%&nbsp;remain)
 																</div>
 															</div>
-
 														</div>
 													</div>
 												</div>
 											</div>
-										</div> -->
+										</div> 
 										<div class="row">
 											<div class="col-sm-6">
 												
@@ -282,6 +280,8 @@
 											     </div>
 											</div>
 										</div>
+										
+										-->									
 									</div>
 								</div>
 								<!-- end history -->
@@ -383,7 +383,9 @@
 								<!-- end watch later -->
 
 								<!-- courses -->
+								
 								<div class="tab-pane fade" id="panel-courses">
+								
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
@@ -503,6 +505,8 @@
 								<!-- end courses -->
 
 								<!-- /#panel-about -->
+								
+							
 							</div>
 							<!-- /.tab-content -->
 						</div>
@@ -609,196 +613,13 @@
 		</div>
 	</div>
 	
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 686px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 686px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 686px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 726px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 654px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 726px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 726px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: block; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 557px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 837px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 799px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: block; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 531px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 890px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000" class="nicescroll-rails"
-		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 799px; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 3px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2000-hr" class="nicescroll-rails"
-		style="height: 3px; z-index: auto; position: fixed; cursor: default; display: none; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 3px; width: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001" class="nicescroll-rails"
-		style="width: 6px; z-index: 1000; cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; display: none; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; float: right; width: 6px; height: 0px; border-radius: 10px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-	<div id="ascrail2001-hr" class="nicescroll-rails"
-		style="height: 6px; z-index: 1000; position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0; background: rgb(64, 64, 64);">
-		<div
-			style="position: relative; top: 0px; height: 6px; width: 0px; border-radius: 10px; left: 0px; background-color: rgb(232, 64, 63); background-clip: padding-box;"></div>
-	</div>
-
-		
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
 	
 	<script src="js/data/angular.min.js"></script>
 	<script src="js/data/history.js"></script>
-	
-	
+		
 	<script src="js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="js/jquery.scrollTo.min.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>
@@ -807,34 +628,28 @@
 	<script src="js/slidebars.min.js"></script>
 	<script src="js/common-scripts.js"></script>
 	
-	<script src="js/client_plusone.js"></script>
+	<script src="//apis.google.com/js/client:plusone.js"></script>
 	<script src="js-upload/auth.js"></script>
 	<script src="js-upload/cors_upload.js"></script>
 	<script src="js-upload/upload_video.js"></script>
 	
-	
 	<script type="text/javascript">
+	 	
+		$(document).ready(function(){		
 		var code=<%=session.getAttribute("userID")%>
-			
-			listWatchLater();
-			
-			$(function(){
-			
-				$("#msg_sucess").hide();
-				$("#msg_error").hide();
-				// choose profile
-				$('#img').change(function() {
-					img();
-				});
-				$("#myModal").modal({
-					backdrop : 'static',
-					keyboard : false
-				});
+		listWatchLater();
+		listHistory();
+			$("#msg_sucess").hide();
+			$("#msg_error").hide();
+			// choose profile
+			$('#img').change(function() {
+				img();
 			});
-			
+
+
+		});	
 	
 		function listWatchLater() {
-			
 			$.ajax({
 				url : "getWatchedLater",
 				method : "POST",
@@ -847,7 +662,7 @@
 						for ( var j in data[i]) {
 							//alert(data[i][j].youtube_url);
 							//alert(data[i][j].video_name);
-							str += '<div class="alert alert-info">'
+							str += '<div class="alert">'
 									+ '<div class="the-box no-border store-list">'
 									+ '<div class="media">'
 									+ '<a class="pull-left" href="player.jsp"><img ' +
@@ -894,64 +709,63 @@
 		}
 		
 		function listHistory() {
-					
-					$.ajax({
-						url : "getWatchedLater",
-						method : "POST",
-						dataType : "JSON",
-						data : {
-							user_id : <%=session.getAttribute("userID")%>
-					},success : function(data) {
-							var str = '';
-							for ( var i in data) {
-								for ( var j in data[i]) {
-									//alert(data[i][j].youtube_url);
-									//alert(data[i][j].video_name);
-									str += '<div class="alert alert-info">'
-											+ '<div class="the-box no-border store-list">'
-											+ '<div class="media">'
-											+ '<a class="pull-left" href="player.jsp"><img ' +
-										'alt="image" class="store-image img-responsive" ' +
-										'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
-											+ '<div class="clearfix visible-xs"></div>'
-											+ '<div class="media-body" style="overflow: visible">'
-											+ '<a href="#fakelink"></a>'
-											+ '<div class="btn-group pull-right">'
-											+ '<button type="button" ' +
-												'class="btn btn-default btn-sm dropdown-toggle" ' +
-												'data-toggle="dropdown" aria-expanded="false">'
-											+ '<i class="fa fa-cog"></i>'
-											+ '</button>'
-											+ '<ul class="dropdown-menu" role="menu">'
-											+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
-											+ '<li><a href="#" ' +
-													'>Remove from watch later</a></li>'
-											+ '</ul>'
-											+ '</div>'
-											+ '<ul class="list-inline">'
-											+ '<li><a href="#"><strong ' +
-													'class="text-black">'
-											+ data[i][j].video_name
-											+ '</strong></a></li>'
-											+ '<br>'
-											+ '<li><a><span class="small text-muted" ' +
-													'style="color: #AAB2BD"> by Admin</span></a></li>'
-											+ '</ul>'
-											+ '<p class="hidden-xs"></p>'
-											+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
-											'class="fa fa-eye">&nbsp;&nbsp;'
-											+ data[i][j].view + '</i>'
-											+ '&nbsp;&nbsp;&nbsp; </span>'
-											+ '</div>' + '</div>'
-											+ '</div></div>';
-		
-								}
-								$("#getWatchlater").html(str);
-							}
-		
-						}
-					});
+			//alert(333);
+			$.ajax({
+				url : "getHistory",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+				user_id : <%=session.getAttribute("userID")%>
+			},success : function(data) {
+					var str = '';					
+					for ( var i in data) {
+						//alert(data[i].video_name);						
+							str += '<div class="alert">'
+									+ '<div class="the-box no-border store-list">'
+									+ '<div class="media">'
+									+ '<a class="pull-left" href="player.jsp"><img ' +
+								'alt="image" class="store-image img-responsive" ' +
+								'src="https://i.ytimg.com/vi/'+ data[i].youtube_url +'/mqdefault.jpg"></a>'
+									+ '<div class="clearfix visible-xs"></div>'
+									+ '<div class="media-body" style="overflow: visible">'
+									+ '<a href="#fakelink"></a>'
+									+ '<div class="btn-group pull-right">'
+									+ '<button type="button" ' +
+										'class="btn btn-default btn-sm dropdown-toggle" ' +
+										'data-toggle="dropdown" aria-expanded="false">'
+									+ '<i class="fa fa-cog"></i>'
+									+ '</button>'
+									+ '<ul class="dropdown-menu" role="menu">'
+									+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
+									+ '<li><a href="#" ' +
+											'>Remove from watch later</a></li>'
+									+ '</ul>'
+									+ '</div>'
+									+ '<ul class="list-inline">'
+									+ '<li><a href="#"><strong ' +
+											'class="text-black">'
+									+ data[i].video_name
+									+ '</strong></a></li>'
+									+ '<br>'
+									+ '<li><a><span class="small text-muted" ' +
+											'style="color: #AAB2BD"> by Admin</span></a></li>'
+									+ '</ul>'
+									+ '<p class="hidden-xs"></p>'
+									+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
+									'class="fa fa-eye">&nbsp;&nbsp;'
+									+ data[i].view + '</i>'
+									+ '&nbsp;&nbsp;&nbsp; </span>'
+									+ '</div>' + '</div>'
+									+ '</div></div>';
+							$("#getHistory").html(str);
+					}
+
+				},error:function (xhr, ajaxOptions, thrownError){
+		            alert(xhr.status);
+		            alert(thrownError);
 				}
+			});
+		}
 		
 	</script>
 	
