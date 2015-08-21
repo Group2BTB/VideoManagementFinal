@@ -368,11 +368,28 @@
     <url-pattern>/ELearning/Dashboard/getWatchedLater</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>deleteWatchLater</servlet-name>
+    <servlet-class>controller.watchedLater.DeleteWatchLater</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteWatchLater</servlet-name>
+    <url-pattern>/ELearning/Dashboard/deleteWatchLater</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>addWatched</servlet-name>
     <servlet-class>controller.watchedLater.AddWatchedLater</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>addWatched</servlet-name>
+    <url-pattern>/ELearning/Dashboard/addWatchedLater</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>addVideoWatched</servlet-name>
+    <servlet-class>controller.videoWatched.AddVideoWatched</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addVideoWatched</servlet-name>
     <url-pattern>/ELearning/Dashboard/addWatched</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -407,9 +424,6 @@
     <servlet-name>updatedept</servlet-name>
     <url-pattern>/updatedept</url-pattern>
   </servlet-mapping>
-  
-  <!-- Start HistoryBlock -->
-  
   <servlet>
     <servlet-name>getHistory</servlet-name>
     <servlet-class>controller.history.GetVideoHistoryByUser</servlet-class>
@@ -418,8 +432,6 @@
     <servlet-name>getHistory</servlet-name>
     <url-pattern>/ELearning/Dashboard/getHistory</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>updatestatus</servlet-name>
     <servlet-class>controller.department.status</servlet-class>
