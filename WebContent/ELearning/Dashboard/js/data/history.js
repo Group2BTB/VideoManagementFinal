@@ -42,7 +42,7 @@ app.filter('namefilter', function() {
 
 	};
 });
-alert(2);
+//alert(2);
 app.controller('hiscontroller', function($scope, $http, $timeout) {
 	alert(3);
 	$http.get('../listComment').success(function(data) {
