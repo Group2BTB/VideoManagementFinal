@@ -815,7 +815,6 @@
 	
 	<script type="text/javascript">
 		var code=<%=session.getAttribute("userID")%>
-		alert(code);
 			
 			listWatchLater();
 			

@@ -29,7 +29,9 @@ app.filter('unique', function() {
 app.controller('hiscontroller', function($scope, $http, $timeout) {
 	
 	$http.get('getHistory?user_id='+code).success(function(data) {		
-		alert(12);
+
+		alert(data);
+		
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 10; // max no of items to display in a page
