@@ -643,7 +643,7 @@
 						dataType : "JSON",
 						data : {
 							playlist_id :<%=playlist_id%>
-					},
+						},
 						success : function(data) {
 							var substring = "";
 							var video_watched = "";
