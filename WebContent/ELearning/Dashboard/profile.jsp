@@ -206,7 +206,7 @@
 
 										<div class="btn-group pull-right">
 											<form role="form">
-												<input ng-change="filter()" type="text" class="form-control" id="tfsearchHistory"
+												<input ng-change="filter()" ng-model="search" type="text" class="form-control" id="tfsearchHistory"
 													placeholder="Search category">
 											</form>
 
@@ -214,13 +214,13 @@
 										<!-- /.btn-group .pull-right -->
 									</div>
 									<div id="getHistory" >
-										<!-- <div>
+										 <div>
 											<div class="alert alert-info"  ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
 															alt="image" class="store-image img-responsive"
-															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
+															src="https://i.ytimg.com/vi/{{d.youtube_url}}/mqdefault.jpg"></a>
 														<div class="clearfix visible-xs"></div>
 														<div class="media-body" style="overflow: visible">
 															<a href="#fakelink"></a>
@@ -239,31 +239,29 @@
 															</div>
 															<ul class="list-inline">
 																<li><a href="../elearning/play.act?v=11"><strong
-																		class="text-black">Introduction, Syntax,
-																			Selectors &amp; How to Apply</strong></a></li>
+																		class="text-black">{{d.video_name}}</strong></a></li>
 																<br>
 																<li><a><span class="small text-muted"
-																		style="color: #AAB2BD"> by Admin</span></a></li>
+																		style="color: #AAB2BD"></span></a></li>
 															</ul>
 															<p class="hidden-xs"></p>
 															<span class="small text-muted" style="color: #AAB2BD"><i
-																class="fa fa-eye">&nbsp;&nbsp;2093</i>
+																class="fa fa-eye">&nbsp;&nbsp;{{d.view}}</i>
 																&nbsp;&nbsp;&nbsp; </span><br> <br>
-															<div class="progress">
-																<div
-																	class="progress-bar progress-bar-success progress-bar-striped"
-																	role="progressbar" aria-valuenow="70" aria-valuemin="0"
-																	aria-valuemax="100" style="width: 70%">
+															<div class="progress" ng-show="d.percent">
+																<div  class="progress-bar progress-bar-success progress-bar-striped"
+																	role="progressbar" aria-valuenow="{{d.percent}}" aria-valuemin="0"
+																	aria-valuemax="100" style="width: {{d.percent}}">
 																	<span class="text-info" style="color: #fff"><i
-																		class="fa fa-clock-o"></i> </span>4:37 (70%&nbsp;completed)
+																		class="fa fa-clock-o"></i> </span>{{d.time}} ({{d.percent}}&nbsp;completed)
 																</div>
-																<div
+																<!-- <div
 																	class="progress-bar progress-bar-info progress-bar-striped active"
-																	role="progressbar" aria-valuenow="30" aria-valuemin="0"
-																	aria-valuemax="100" style="width: 30%">
+																	role="progressbar" aria-valuenow="" aria-valuemin="0"
+																	aria-valuemax="100" style="width: ">
 																	<span class="text-info" style="color: #fff"><i
-																		class="fa fa-clock-o"></i> </span>1:23 (30%&nbsp;remain)
-																</div>
+																		class="fa fa-clock-o"></i> </span> ({{100-d.time}}%&nbsp;remain)
+																</div> -->
 															</div>
 														</div>
 													</div>
@@ -280,8 +278,7 @@
 											     </div>
 											</div>
 										</div>
-										
-										-->									
+																		
 									</div>
 								</div>
 								<!-- end history -->
@@ -612,7 +609,7 @@
 			</div>
 		</div>
 	</div>
-	
+	<script type="text/javascript">var code=<%=session.getAttribute("userID")%></script>
 	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -636,9 +633,8 @@
 	<script type="text/javascript">
 	 	
 		$(document).ready(function(){		
-		var code=<%=session.getAttribute("userID")%>
-		listWatchLater();
-		listHistory();
+			listWatchLater();
+			//listHistory();
 			$("#msg_sucess").hide();
 			$("#msg_error").hide();
 			// choose profile

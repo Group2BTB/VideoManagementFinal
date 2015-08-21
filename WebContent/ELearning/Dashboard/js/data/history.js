@@ -11,7 +11,6 @@ app.filter('startFrom', function() {
 		return [];
 	};
 });
-
 app.filter('unique', function() {
 	return function(input, key) {
 		var unique = {};
@@ -25,13 +24,28 @@ app.filter('unique', function() {
 		return uniqueList;
 	};
 });
+app.filter('namefilter', function() {
+	return function(items, search) {
+		if (!search) {
+			return items;
+		}
+
+		var deptname = search.carType;
+		if (!carType || '' === carType) {
+			return items;
+		}
+
+		return items.filter(function(element, index, array) {
+			return element.carType.name === search.carType;
+		});
+
+	};
+});
 
 app.controller('hiscontroller', function($scope, $http, $timeout) {
 	
-	$http.get('getHistory?user_id='+code).success(function(data) {		
-
-		alert(data);
-		
+	$http.get('getHistory?user_id='+code).success(function(data) {				
+	
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 10; // max no of items to display in a page
@@ -41,7 +55,7 @@ app.controller('hiscontroller', function($scope, $http, $timeout) {
 		$scope.error = false;
 		$scope.incomplete = false;
 		$scope.editid = 0;
-
+		
 	});
 	
 	$scope.loadData = function() {
