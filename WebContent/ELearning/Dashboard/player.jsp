@@ -26,7 +26,7 @@
 <script src="../videoplayer/youtube.js"></script>
 <link href="../videoplayer/css/bootstrap.min.css" rel="stylesheet">
 <link href="../videoplayer/css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="build/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="../videoplayer/build/mediaelementplayer.min.css" />
 <script src="../videoplayer/build/mediaelement-and-player.min.js"></script>
 <!-- cdn jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -259,32 +259,33 @@
 													</div>
 												</div>
 												<div id="show_comments"></div>
-												<div class="col-md-12 comments box_comment" id="comment_box">
+												 <div class="col-md-12 comments box_comment" id="comment_box">
 													<div class="row wells">
-														<div class="col-md-1">
+														<div class="col-md-1 col-sm-1 col-xs-2 img-responsive">
 															<img src="../videoplayer/avatar.png" width="50">
 														</div>
 														<div class="col-md-11">
-															<div class="col-md-4 col-xs-6">
+															<div class="col-md-5 col-xs-9 col-sm-5">
 																<span><b>Prem Chanthorn</b></span>
 															</div>
-															<div class="col-md-4 col-xs-6">10 minutes ago</div>
-															<div class="col-md-12 col-xs-12">I really like this
+															<div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div>
+															<div class="col-md-11 col-xs-9 col-sm-10">I really like this
 																website.</div>
 
 															<div class="row">
-																<div>
-																	<button class="btn-sm pull-right" id="btn_reply"
-																		style="margin: 20px; ">Reply</button>
+															<div class="col-md-2 col-sm-2 col-xs-2"></div>
+															<div class="col-md-11 col-sm-11 col-xs-10">
+																	<button class="btn-sm pull-right" id="btn_reply_click"
+																		style="margin: 20px;">Reply</button>
 															<form role="form" action="" method="post" id="form_reply">
 															<div class="form-group">
 																<label></label>
 																<textarea class="form-control" rows="5" id="comment_reply"
 																	name="comment"></textarea>
 															</div>
-															<input type="button" value="Reply" id="btnComments"
+															<input type="button" value="Reply" id="btn_reply"
 																class="pull-right btn btn-default"
-																onclick="addComment()" style="margin-right: 20px;"/>
+																onclick="" style="margin-right: 20px;"/>
 															</form>
 															
 															</div>
@@ -292,7 +293,7 @@
 														</div>
 													</div>
 
-												</div>
+												</div>  
 											</div>
 											<!------End of Comment------>
 										</div>
@@ -394,9 +395,7 @@
 				itemsMobile : false
 			// itemsMobile disabled - inherit from itemsTablet option
 			});
-			$("#btn_reply").click(function(){
-				$("#form_reply").show();
-			});
+			
 
 		});
 		
@@ -575,9 +574,10 @@
 						
 					}
 					
-					if(old_cur_time != current_time){						
-						addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
-						old_cur_time = current_time;
+					if(old_cur_time != current_time){
+						//add minute to table	
+						//addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
+						//old_cur_time = current_time;
 					}
 					
 					
@@ -587,8 +587,7 @@
 	
 		}		
 			set_time();
-			$("#form_reply").hide();
-			$("#btnComments").hide();
+			
 		});
 	
 		
@@ -608,8 +607,11 @@
 			});	
 			
 		}
-		//show button comment when cussor in the textarea
-		$(document).ready(function() {
+		//add text form textarea to the div below
+		$(document).ready(function() {			
+			//show button comment when cussor in the textarea
+			//$("#form_reply").hide();
+			$("#btnComments").hide();			
 			$("#comment").focusin(function() {
 				$("#btnComments").fadeIn(1000);
 				$("#btnComments").css("margin-bottom", "10px");
@@ -618,20 +620,29 @@
 				$("#btnComments").fadeOut(500);
 				$("#btnComments").css("margin-bottom", "10px");
 			});
-		});
-		//add text form textarea to the div below
-		$(document).ready(function() {
-			getVideoPlaylist();
-				$("#btnComments").click(function() {
-						var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
-						var b = '<div class="col-md-4 col-xs-6">Just now</div>';
-						var c = '<div class="col-md-12 col-xs-12">'
-								+ $("#comment").val()
-								+ '</div></div>';
-						$("#comment").val("");
-						$("#show_comments").prepend(a + b + c);
+			
+			$("#btn_reply_click").click(function(){
+				$("#form_reply").slideDown(2000);
+				$("#btn_reply_click").hide();				
+			}); 
+			//reply comment
+				var reply_id = 0;				
+				$("#btnComments").click(function() {	
+						var d = '<div class="row"><div class="col-md-2 col-sm-2 col-xs-2"></div><div class="col-md-11 col-sm-11 col-xs-10"><button class="btn-sm pull-right" id="btn_reply_click'+ reply_id +'" onclick="do_reply('+ reply_id +')"  style="margin: 20px;">Reply</button><form role="form" action="" method="post" id="form_reply'+ reply_id +'"><div class="form-group"><label></label><textarea class="form-control" rows="5" id="comment_reply" name="comment"></textarea></div><input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/></form></div></div>';
+						var e ='<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
+						
+						$("#comment").val("");						
+						$("#show_comments").prepend(e + d);						
+						$("#form_reply"+ reply_id).hide();
+						reply_id++;
 				});
+				
 			});
+				function do_reply(id){				
+					//alert(id);
+					$("#form_reply" + id).slideDown(2000);
+					$("#btn_reply_click" + id).hide();				
+				}
 		//function for list playlist 
 		function getVideoPlaylist() {
 			var str = "";
@@ -685,8 +696,9 @@
 										
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
-																		
+
 									str += '<div class="bg_playlist title_playlist playlist_display"onclick="getVideoPlay('+data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+
 											+ substring + '</span></div>';
 									count++;
 								}	
@@ -705,8 +717,6 @@
 						}
 					});
 		}
-		
-		
 		
 		//increase 1 for view once videos
 		function upVideoView() {
@@ -737,7 +747,7 @@
 		}
 	
 		upVideoView();
-		
+		getVideoPlaylist();
 	</script>
 
 </body>
