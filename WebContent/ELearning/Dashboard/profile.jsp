@@ -185,11 +185,11 @@
 
 								<!-- history -->
 
-								<div class="tab-pane fade active in" id="panel-history">
+								<div ng-app="myapp" ng-controller="hiscontroller" class="tab-pane fade active in" id="panel-history">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
-												<select class="form-control" id="setNumrowHistory">
+												<select ng-model="entryLimit" class="form-control" id="setNumrowHistory">
 													<option>10</option>
 													<option>20</option>
 													<option>30</option>
@@ -207,14 +207,14 @@
 
 										<div class="btn-group pull-right">
 											<form role="form">
-												<input type="text" class="form-control" id="tfsearchHistory"
+												<input ng-change="filter()" type="text" class="form-control" id="tfsearchHistory"
 													placeholder="Search category">
 											</form>
 
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getHistory">
+									<div id="getHistory" >
 										<div>
 											<div class="alert alert-info">
 												<div class="the-box no-border store-list">
@@ -538,8 +538,7 @@
 			</footer>
 		</section>
 	</section>
-
-	<span id="signinButton" style="display: none;" class="pre-sign-in">
+	<span id="signinButton" style="" class="pre-sign-in">
 		<!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
            attribute in the following tag with your project's client ID. -->
 		<span class="g-signin" data-callback="signinCallback"
@@ -623,23 +622,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script class="include" src="js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="js/jquery.scrollTo.min.js"></script>
-	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="js/respond.min.js"></script>
-	<script src="js/owl.carousel.js"></script>
-	<!--right slidebar-->
-	<script src="js/slidebars.min.js"></script>
-	<!--common script for all pages-->
-	<script src="js/common-scripts.js"></script>
-	<!-- script for upload -->
-	<script src="//apis.google.com/js/client:plusone.js"></script>
-	<script src="js-upload/auth.js"></script>
-	<script src="js-upload/cors_upload.js"></script>
-	<script src="js-upload/upload_video.js"></script>
+	
 	<div id="ascrail2000" class="nicescroll-rails"
 		style="width: 3px; z-index: auto; cursor: default; position: fixed; height: 686px; display: none; background: rgb(64, 64, 64);">
 		<div
@@ -822,96 +805,105 @@
 	</div>
 
 	<script type="text/javascript">
-		$(function() {
-			$(":file").filestyle({
-				buttonName : "btn-primary"
-			});
-			listWatchLater();
-		});
 
 		function listWatchLater() {
-			$
-					.ajax({
-						url : "getWatchedLater",
-						method : "POST",
-						dataType : "JSON",
-						data : {
-							user_id :
-	<%=session.getAttribute("userID")%>
-		},
-						success : function(data) {
-							var str = '';
-							for ( var i in data) {
-								for ( var j in data[i]) {
-									//alert(data[i][j].youtube_url);
-									//alert(data[i][j].video_name);
-									str += '<div class="alert alert-info">'
-											+ '<div class="the-box no-border store-list">'
-											+ '<div class="media">'
-											+ '<a class="pull-left" href="player.jsp"><img ' +
-										'alt="image" class="store-image img-responsive" ' +
-										'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
-											+ '<div class="clearfix visible-xs"></div>'
-											+ '<div class="media-body" style="overflow: visible">'
-											+ '<a href="#fakelink"></a>'
-											+ '<div class="btn-group pull-right">'
-											+ '<button type="button" ' +
-												'class="btn btn-default btn-sm dropdown-toggle" ' +
-												'data-toggle="dropdown" aria-expanded="false">'
-											+ '<i class="fa fa-cog"></i>'
-											+ '</button>'
-											+ '<ul class="dropdown-menu" role="menu">'
-											+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
-											+ '<li><a href="#" ' +
-													'>Remove from watch later</a></li>'
-											+ '</ul>'
-											+ '</div>'
-											+ '<ul class="list-inline">'
-											+ '<li><a href="#"><strong ' +
-													'class="text-black">'
-											+ data[i][j].video_name
-											+ '</strong></a></li>'
-											+ '<br>'
-											+ '<li><a><span class="small text-muted" ' +
-													'style="color: #AAB2BD"> by Admin</span></a></li>'
-											+ '</ul>'
-											+ '<p class="hidden-xs"></p>'
-											+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
-											'class="fa fa-eye">&nbsp;&nbsp;'
-											+ data[i][j].view + '</i>'
-											+ '&nbsp;&nbsp;&nbsp; </span>'
-											+ '</div>' + '</div>'
-											+ '</div></div>';
-
-								}
-								$("#getWatchlater").html(str);
-							}
+			$.ajax({
+				url : "getWatchedLater",
+				method : "POST",
+				dataType : "JSON",
+				data : {
+					user_id : <%=session.getAttribute("userID")%>
+			},success : function(data) {
+					var str = '';
+					for ( var i in data) {
+						for ( var j in data[i]) {
+							//alert(data[i][j].youtube_url);
+							//alert(data[i][j].video_name);
+							str += '<div class="alert alert-info">'
+									+ '<div class="the-box no-border store-list">'
+									+ '<div class="media">'
+									+ '<a class="pull-left" href="player.jsp"><img ' +
+								'alt="image" class="store-image img-responsive" ' +
+								'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
+									+ '<div class="clearfix visible-xs"></div>'
+									+ '<div class="media-body" style="overflow: visible">'
+									+ '<a href="#fakelink"></a>'
+									+ '<div class="btn-group pull-right">'
+									+ '<button type="button" ' +
+										'class="btn btn-default btn-sm dropdown-toggle" ' +
+										'data-toggle="dropdown" aria-expanded="false">'
+									+ '<i class="fa fa-cog"></i>'
+									+ '</button>'
+									+ '<ul class="dropdown-menu" role="menu">'
+									+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
+									+ '<li><a href="#" ' +
+											'>Remove from watch later</a></li>'
+									+ '</ul>'
+									+ '</div>'
+									+ '<ul class="list-inline">'
+									+ '<li><a href="#"><strong ' +
+											'class="text-black">'
+									+ data[i][j].video_name
+									+ '</strong></a></li>'
+									+ '<br>'
+									+ '<li><a><span class="small text-muted" ' +
+											'style="color: #AAB2BD"> by Admin</span></a></li>'
+									+ '</ul>'
+									+ '<p class="hidden-xs"></p>'
+									+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
+									'class="fa fa-eye">&nbsp;&nbsp;'
+									+ data[i][j].view + '</i>'
+									+ '&nbsp;&nbsp;&nbsp; </span>'
+									+ '</div>' + '</div>'
+									+ '</div></div>';
 
 						}
-					});
+						$("#getWatchlater").html(str);
+					}
+
+				}
+			});
 		}
 	</script>
+	
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	
+	<script src="js/data/angular.min.js"></script>
+	<script src="js/data/history.js"></script>
+	
+	
+	<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="js/jquery.scrollTo.min.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/respond.min.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/slidebars.min.js"></script>
+	<script src="js/common-scripts.js"></script>
+	
+	<script src="//apis.google.com/js/client:plusone.js"></script>
+	<script src="js-upload/auth.js"></script>
+	<script src="js-upload/cors_upload.js"></script>
+	<script src="js-upload/upload_video.js"></script>
 	<script>
-		$(function() {
+		$(document).ready(function(){		
+			/* $("input[type='file']").filestyle({
+				buttonName : "btn-primary"
+			}); */
+			listWatchLater();
+			
 			$("#msg_sucess").hide();
 			$("#msg_error").hide();
-
 			// choose profile
 			$('#img').change(function() {
 				img();
 			});
-		});
-	</script>
-	<script>
-		$(document).ready(function() {
-			$(function() {
-				$("#myModal").modal({
-					backdrop : 'static',
-					keyboard : false
-				});
+			$("#myModal").modal({
+				backdrop : 'static',
+				keyboard : false
 			});
 		});
 	</script>
-
 </body>
 </html>
