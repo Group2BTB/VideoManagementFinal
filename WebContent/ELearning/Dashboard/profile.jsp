@@ -54,7 +54,7 @@
 
 </head>
 <body>
-	<section id="container" class="sidebar-closed">
+	<section id="container" class="sidebar-closed" style='overflow:auto; width:100%;height:100%;'>
 		<!--header start-->
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box" id="hideshow">
@@ -315,7 +315,7 @@
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getWatchlater">
+									<div id="getWatchlater" >
 										<!-- <div class="alert alert-info">
 												<div class="the-box no-border store-list">
 													<div class="media">
@@ -414,14 +414,14 @@
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getCourses">
+									<div id="getCourses" >
 										<div class="me">
 											<div class="alert alert-info">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
 															alt="image" class="store-image img-responsive"
-															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
+															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg" style="width:200px; padding:20px;"></a>
 														<div class="vblock">
 															<a href="player.jsp">
 																<div class="vcount">
@@ -662,11 +662,11 @@
 						for ( var j in data[i]) {
 							//alert(data[i][j].youtube_url);
 							//alert(data[i][j].video_name);
-							str += '<div class="alert">'
+							str += '<hr><div class="alert">'
 									+ '<div class="the-box no-border store-list">'
 									+ '<div class="media">'
 									+ '<a class="pull-left" href="player.jsp"><img ' +
-								'alt="image" class="store-image img-responsive" ' +
+								'alt="image" class="store-image img-responsive" style="width:200px; margin:10px;" ' + 
 								'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
 									+ '<div class="clearfix visible-xs"></div>'
 									+ '<div class="media-body" style="overflow: visible">'
@@ -720,11 +720,11 @@
 					var str = '';					
 					for ( var i in data) {
 						//alert(data[i].video_name);						
-							str += '<div class="alert">'
+							str += '<hr><div class="alert">'
 									+ '<div class="the-box no-border store-list">'
 									+ '<div class="media">'
 									+ '<a class="pull-left" href="player.jsp"><img ' +
-								'alt="image" class="store-image img-responsive" ' +
+								'alt="image" class="store-image img-responsive" style="width:200px; margin:10px;" ' +
 								'src="https://i.ytimg.com/vi/'+ data[i].youtube_url +'/mqdefault.jpg"></a>'
 									+ '<div class="clearfix visible-xs"></div>'
 									+ '<div class="media-body" style="overflow: visible">'
