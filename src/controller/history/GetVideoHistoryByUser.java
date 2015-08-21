@@ -30,6 +30,7 @@ public class GetVideoHistoryByUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 
 	/**
@@ -37,9 +38,11 @@ public class GetVideoHistoryByUser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doProcess(request, response);
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("user"+request.getParameter("user_id"));
 		int user_id = Integer.parseInt(request.getParameter("user_id"));
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
