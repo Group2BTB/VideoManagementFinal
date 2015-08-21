@@ -686,7 +686,7 @@
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
 																		
-									str += '<div class="bg_playlist title_playlist playlist_display"onclick="getVideoPlay('+data[i][j].video_id+')"><span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									str += '<div class="bg_playlist title_playlist playlist_display"onclick="getVideoPlay('+data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 											+ substring + '</span></div>';
 									count++;
 								}	
