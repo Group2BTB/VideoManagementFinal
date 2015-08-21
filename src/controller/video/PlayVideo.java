@@ -3,7 +3,6 @@ package controller.video;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +43,7 @@ public class PlayVideo extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
-		long video_id = Integer.parseInt(request.getParameter("video_id"));
+		long video_id = Integer.parseInt(request.getParameter("v"));
 		//int p = Integer.parseInt(request.getParameter("p"));
 		HttpSession session = request.getSession();
 		Video url = new VideoDAO().getVideo(video_id);
@@ -56,9 +55,9 @@ public class PlayVideo extends HttpServlet {
 			Video video = new VideoDAO().getVideo(video_id);
 			String str = new Gson().toJson(video);
 			response.getWriter().write(str);
-			
+			//response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
 			System.out.println("Play video: "+str);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
