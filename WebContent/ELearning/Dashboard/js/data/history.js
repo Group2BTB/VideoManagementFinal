@@ -1,6 +1,6 @@
 
 
-var app = angular.module('myapp', [ 'ui.bootstrap' ]);
+var app = angular.module('myapp', []);
 
 app.filter('startFrom', function() {
 	return function(input, start) {
@@ -25,27 +25,11 @@ app.filter('unique', function() {
 		return uniqueList;
 	};
 });
-app.filter('namefilter', function() {
-	return function(items, search) {
-		if (!search) {
-			return items;
-		}
 
-		var deptname = search.carType;
-		if (!carType || '' === carType) {
-			return items;
-		}
-
-		return items.filter(function(element, index, array) {
-			return element.carType.name === search.carType;
-		});
-
-	};
-});
-//alert(2);
 app.controller('hiscontroller', function($scope, $http, $timeout) {
-	alert(3);
-	$http.get('../listComment').success(function(data) {
+	
+	$http.get('getHistory?user_id='+code).success(function(data) {		
+		alert(12);
 		$scope.list = data;
 		$scope.currentPage = 1; // current page
 		$scope.entryLimit = 10; // max no of items to display in a page
@@ -55,10 +39,11 @@ app.controller('hiscontroller', function($scope, $http, $timeout) {
 		$scope.error = false;
 		$scope.incomplete = false;
 		$scope.editid = 0;
-		countCommentNotView();
+
 	});
+	
 	$scope.loadData = function() {
-		$http.get('../listComment').success(function(data) {
+		$http.get('getHistory?user_id='+code).success(function(data) {
 			$scope.list = data;
 			$scope.currentPage = 1; // current page
 			$scope.entryLimit = 10; // max no of items to display in a page
@@ -70,8 +55,6 @@ app.controller('hiscontroller', function($scope, $http, $timeout) {
 			$scope.incomplete = false;
 			$scope.editid = 0;
 			
-			
-			countCommentNotView();
 		});
 	};
 	$scope.setPage = function(pageNo) {
@@ -88,7 +71,7 @@ app.controller('hiscontroller', function($scope, $http, $timeout) {
 		$scope.predicate = predicate;
 		$scope.reverse = !$scope.reverse;
 	};
-	
+	/*
 	$scope.succ = function(){		
 		
 	};
@@ -167,6 +150,6 @@ app.controller('hiscontroller', function($scope, $http, $timeout) {
 				
 			}
 		});
-	};
+	};*/
 	
 });

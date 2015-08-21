@@ -216,7 +216,7 @@
 									</div>
 									<div id="getHistory" >
 										<!-- <div>
-											<div class="alert alert-info">
+											<div class="alert alert-info"  ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
@@ -274,26 +274,12 @@
 										</div> -->
 										<div class="row">
 											<div class="col-sm-6">
-												<div class="dataTables_info" id="datatable-example_info">Page
-													1 of 4 entries</div>
+												
 											</div>
 											<div class="col-sm-6">
-												<div class="dataTables_paginate paging_bootstrap">
-													<ul class="pagination separated">
-														<li class="active"><a href="#page=1"
-															onclick="gotohistorypage('historylist.act?page=1')">1</a></li>
-														<li><a href="#page=2"
-															onclick="gotohistorypage('historylist.act?page=2')">2</a></li>
-														<li><a href="#page=3"
-															onclick="gotohistorypage('historylist.act?page=3')">3</a></li>
-														<li><a href="#page=4"
-															onclick="gotohistorypage('historylist.act?page=4')">4</a></li>
-														<li><a href="#next"
-															onclick="gotohistorypage('historylist.act?page=2')">Next</a></li>
-														<li><a href="#page=4"
-															onclick="gotohistorypage('historylist.act?page=4')">Last</a></li>
-													</ul>
-												</div>
+												 <div class="col-md-12" ng-show="filteredItems > 0">      
+											      	<div pagination="" page="currentPage" max-size="10" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="«" next-text="»"></div>												 
+											     </div>
 											</div>
 										</div>
 									</div>
@@ -538,20 +524,20 @@
 			</footer>
 		</section>
 	</section>
-	<span id="signinButton" style="" class="pre-sign-in">
-		<!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
-           attribute in the following tag with your project's client ID. -->
-		<span class="g-signin" data-callback="signinCallback"
-		data-clientid="175844947983-bf98t179546qi8q8ak49f93ub17ip0aj.apps.googleusercontent.com"
-		data-cookiepolicy="single_host_origin"
-		data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
-	</span>
-	</span>
+	
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
+		
 		<div class="modal-dialog">
 			<div
 				class="modal-content col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
+				<span id="signinButton" style="" class="pre-sign-in">
+				<span class="g-signin" data-callback="signinCallback"
+				data-clientid="1034451067661-h7v9fipq91k83log7c47f49l1o257rl4.apps.googleusercontent.com"
+				data-cookiepolicy="single_host_origin"
+				data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
+			</span>
+			</span>
 				<div class="modal-header text-center h2 text-primary">
 					<span class="modal-title" id="myModalLabel" data-toggle="modal"
 						data-target="#myModal">Upload Video</span>
@@ -828,6 +814,8 @@
 	
 	
 	<script type="text/javascript">
+		var code=<%=session.getAttribute("userID")%>
+		alert(code);
 			
 			listWatchLater();
 			
@@ -845,8 +833,7 @@
 				});
 			});
 			
-		
-		
+	
 		function listWatchLater() {
 			
 			$.ajax({
