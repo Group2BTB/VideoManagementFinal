@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
+import model.dao.PlayListDAO;
 import model.dao.VideoDAO;
 import model.dto.Video;
 
@@ -52,11 +53,21 @@ public class PlayVideo extends HttpServlet {
 			//response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+p+"&v="+video_id);
 			response.setCharacterEncoding("utf-8");
 			response.setContentType("application/json");
-			Video video = new VideoDAO().getVideo(video_id);
-			String str = new Gson().toJson(video);
-			response.getWriter().write(str);
-			//response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
-			System.out.println("Play video: "+str);
+			
+			
+			
+			int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
+			response.getWriter().print(new PlayListDAO().getVideoPlaylist(playlist_id));
+			//request.getRequestDispatcher("").forward(request, response);
+			System.out.println(new PlayListDAO().getVideoPlaylist(playlist_id));
+			
+			
+			
+//			Video video = new VideoDAO().getVideo(video_id);
+//			String str = new Gson().toJson(video);
+//			response.getWriter().write(str);
+//			//response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp");
+//			System.out.println("Play video: "+str);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
