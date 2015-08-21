@@ -48,6 +48,14 @@ public class PlayList {
 	
 	
 
+	public long getCategory_name() {
+		return category_name;
+	}
+
+	public void setCategory_name(long category_name) {
+		this.category_name = category_name;
+	}
+
 	public long getUser_id() {
 		return user_id;
 	}
