@@ -1,0 +1,480 @@
+.bg_black {
+
+	background-color: #1A1A1A;
+	height: 445px;
+
+}
+
+.color_white {
+	color: #fff;
+}
+
+.color_black {
+	color: #000;
+}
+
+.color_red {
+	color: red;
+}
+
+.color_green {
+	color: green;
+}
+
+.pointers {
+	cursor: pointer
+}
+
+.base_color {
+	background-color: #0C959A !important;
+	color: #fff !important;
+}
+
+.color_green {
+	color: green;
+}
+
+.color_red {
+	color: red;
+}
+
+.box_comment {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #E5E4E2;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 5px; 
+}
+
+
+.bg_playlist:hover{background-color:#2F2F2F;-webkit-border-radius: 5px;
+
+
+	-moz-border-radius: 5px;
+	border-radius: 5px; cursor: pointer;
+}
+
+/**scrollbar**/
+.scrollbar {
+	float: left;
+	margin-bottom: 25px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.vjs-default-skin .vjs-big-play-button {
+	left: 8.5em;
+	top: 3.5em;
+}
+/*
+ *  STYLE 1
+ */
+#playlist_show::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #1A1A1A;
+}
+
+#playlist_show::-webkit-scrollbar {
+	width: 12px;
+	background-color: #1A1A1A;
+}
+
+#playlist_show::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #337AB7;
+}
+
+.logo span{color:#337AB7 !important;}
+.logo:hover{font-weight: bold !important;}
+
+.watched_Video{position:relative; top:0px;left:123px; border-radius: 3px; color:#000000; z-index:1; }
+
+@media ( min-width : 1200px) {
+	
+	#myplayerwrapper {
+		height: 500px;
+		width: 100%;
+	}
+	
+	#SuppressScrollX_1 {
+		height: 500px;
+		width: 350px;
+	}
+	
+	.media-heading {
+		font-size: 14px;
+	}
+	
+	.list-inline {
+		font-size: 12px;
+	}
+	
+	.related_videos {
+		width: 350px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+		
+	}
+	
+	
+	
+}
+
+/**
+=================================
+STANDARD DESKTOP 992px <> 1200px
+=================================
+**/
+@media ( min-width : 992px) and (max-width: 1199px) {
+	#myplayerwrapper {
+		height: 350px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 350px;
+		width: 340px;
+	}
+	.media-heading {
+		font-size: 14px;
+	}
+	.list-inline {
+		font-size: 12px;
+	}
+	.related_videos {
+		width: 340px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:22px !important;
+	}
+}
+/**
+=================================
+TABLET < 1025px
+=================================
+**/
+@media ( max-width : 1025px) {
+	#myplayerwrapper {
+		height: 320px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 320px;
+		width: 305px;
+	}
+	.media-heading {
+		font-size: 13px;
+	}
+	.list-inline {
+		font-size: 11px;
+	}
+	.related_videos {
+		width: 305px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:20px !important;
+	}
+}
+
+/**
+=================================
+SMALL DESKTOP 768px <> 991px
+=================================
+**/
+@media ( min-width : 768px) and (max-width: 991px) {
+	#myplayerwrapper {
+		height: 300px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 300px;
+		width: 290px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 290px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:20px !important;
+	}
+}
+
+/**
+=================================
+TABLET < 800px
+=================================
+**/
+@media ( max-width : 800px) {
+	#myplayerwrapper {
+		height: 300px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 300px;
+		width: 270px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 270px;
+	}
+	#left_side {
+		left: -30px;
+	}
+	#right_side {
+		left: -30px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:20px !important;
+	}
+}
+
+/**
+=================================
+TABLET < 767px
+=================================
+**/
+@media ( max-width : 767px) {
+	#myplayerwrapper {
+		height: 280px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 280px;
+		width: 196px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 100%;
+	}
+	#left_side {
+		left: -8px;
+	}
+	#right_side {
+		left: -8px;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	body {
+		font-size: 12px;
+	}
+	h3,h4 {
+		font-size: 14px;
+	}
+	.title_video h2{
+	
+		font-size:20px !important;
+	}
+}
+
+/**
+=================================
+PHONE < 640px
+=================================
+**/
+@media ( max-width : 640px) {
+	#myplayerwrapper {
+		height: 270px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 270px;
+		width: 189px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 100%;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:20px !important;
+	}
+}
+
+/**
+=================================
+PHONE < 600px
+=================================
+**/
+@media ( max-width : 600px) {
+	#myplayerwrapper {
+		height: 260px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 260px;
+		width: 182px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 100%;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:16px !important;
+	}
+	.titel_playlist{
+		position:relative;
+		top:13px;
+		left:90px;
+		background-color: darkgrey; 
+		border-radius: 2px; 
+		color:#000000; 
+		z-index:1; 
+		font-size: 10px;
+		margin-left:10px;
+	}
+	.title_playlist img {
+		width: 100px;
+		height: 60px;	
+		
+	}
+	.watched_Video{position:relative; top:0px;left:93px; border-radius: 3px; color:#000000; z-index:1; }
+}
+/**
+=================================
+PHONE < 360px
+=================================
+**/
+@media ( max-width : 360px) {
+	#myplayerwrapper {
+		height: 150px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 150px;
+		width: 105px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 100%;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:12px !important;
+	}
+}
+/**
+=================================
+PHONE < 320px
+=================================
+**/
+@media ( max-width : 320px) {
+	#myplayerwrapper {
+		height: 140px;
+		width: 100%;
+	}
+	#SuppressScrollX_1 {
+		height: 140px;
+		width: 98px;
+	}
+	.media-heading {
+		font-size: 12px;
+	}
+	.list-inline {
+		font-size: 10px
+	}
+	.related_videos {
+		width: 100%;
+	}
+	#vid1 {
+		height: 100% !important;
+		width: 100% !important;
+	}
+	.title_video h2{
+	
+		font-size:10px !important;
+	}
+	
+	.titel_playlist{
+		position:relative;
+		top:13px;
+		left:90px;
+		background-color: darkgrey; 
+		border-radius: 2px; 
+		color:#000000; 
+		z-index:1; 
+		font-size: 10px;
+		margin-left:10px;
+	}
+	.title_playlist img {
+		width: 100px;
+		height: 60px;	
+		
+	}
+	.watched_Video{position:relative; top:0px;left:93px; border-radius: 3px; color:#000000; z-index:1; }
+	
+}
+
+.playlist_display{margin-top: 10px !important; margin-left:-96px !important;}
+
+
+.floatleft{float:left;}
