@@ -23,19 +23,73 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/style-responsive.css" rel="stylesheet">
 <style>
+.youmax-playlist-sidebar {
+	background-color: rgba(0, 0, 0, 0.8);
+	float: right;
+	max-width: 50%;
+	height: 100%;
+	color: white;
+	text-align: center;
+	width: 70px;
+}
+
+
+div {
+	display: block;
+}
+
+body {
+	font-family: Calibri;
+	font-size: 14px;
+	text-align: center;
+}
+
+#youmax-video-list-div {
+	width: 100%;
+	text-align: left;
+	display: inline-block;
+	background-color: rgb(230, 230, 230);
+	padding: 0px 15px;
+	box-sizing: border-box;
+}
+
+.youmax-video-tnail-box {
+	width: 46%;
+	margin: 2%;
+	float: left;
+	overflow: hidden;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 3px
+		rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	cursor: hand;
+	background-color: white;
+}
+
+#youmax {
+	width: 100%;
+	max-width: 1000px;
+	background-color: rgb(230, 230, 230);
+	margin: 0px auto;
+	font-family: Calibri;
+	font-size: 14px;
+	text-align: center;
+	overflow-x: hidden;
+}
+
 .vblock {
-	height: 180px;
-	width: 100px;
 	background-color: black;
 	position: absolute;
 	opacity: 0.8;
 	filter: alpha(opacity = 8);
-	float: left;
-	margin: auto;
+	/* float: left; */
+	margin-left: 20px;
 	color: white;
 	text-align: center;
-	padding-top: 40px;
+	padding-top: 10px;
 	cursor: pointer;
+	display: block;
+	height: auto;
+	max-width: 100%;
 }
 
 .vblock:hover {
@@ -45,16 +99,12 @@
 .vcount {
 	color: white;
 }
-
-.me {
-	width: 100%;
-	hieght: 50px;
-}
 </style>
 
 </head>
 <body>
-	<section id="container" class="sidebar-closed" style='overflow:auto; width:100%;height:100%;'>
+	<section id="container" class="sidebar-closed"
+		style='overflow: auto; width: 100%; height: 100%;'>
 		<!--header start-->
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box" id="hideshow">
@@ -182,13 +232,15 @@
 					<div id="panel-collapse-1" class="collapse in">
 						<div class="panel-body">
 							<div class="tab-content">
-								
+
 								<!-- history -->
-								<div ng-app="myapp" ng-controller="hiscontroller" class="tab-pane fade active in" id="panel-history">
+								<div ng-app="myapp" ng-controller="hiscontroller"
+									class="tab-pane fade active in" id="panel-history">
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
-												<select ng-model="entryLimit" class="form-control" id="setNumrowHistory">
+												<select ng-model="entryLimit" class="form-control"
+													id="setNumrowHistory">
 													<option>10</option>
 													<option>20</option>
 													<option>30</option>
@@ -206,16 +258,18 @@
 
 										<div class="btn-group pull-right">
 											<form role="form">
-												<input ng-change="filter()" ng-model="search" type="text" class="form-control" id="tfsearchHistory"
+												<input ng-change="filter()" ng-model="search" type="text"
+													class="form-control" id="tfsearchHistory"
 													placeholder="Search category">
 											</form>
 
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getHistory" >
-										 <div>
-											<div class="alert alert-info"  ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+									<div id="getHistory">
+										<div>
+											<div class="alert alert-info"
+												ng-repeat="d in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 												<div class="the-box no-border store-list">
 													<div class="media">
 														<a class="pull-left" href="player.jsp"><img
@@ -249,11 +303,14 @@
 																class="fa fa-eye">&nbsp;&nbsp;{{d.view}}</i>
 																&nbsp;&nbsp;&nbsp; </span><br> <br>
 															<div class="progress" ng-show="d.percent">
-																<div  class="progress-bar progress-bar-success progress-bar-striped"
-																	role="progressbar" aria-valuenow="{{d.percent}}" aria-valuemin="0"
-																	aria-valuemax="100" style="width: {{d.percent}}">
+																<div
+																	class="progress-bar progress-bar-success progress-bar-striped"
+																	role="progressbar" aria-valuenow="{{d.percent}}"
+																	aria-valuemin="0" aria-valuemax="100"
+																	style="width: {{d.percent">
 																	<span class="text-info" style="color: #fff"><i
-																		class="fa fa-clock-o"></i> </span>{{d.time}} ({{d.percent}}&nbsp;completed)
+																		class="fa fa-clock-o"></i> </span>{{d.time}}
+																	({{d.percent}}&nbsp;completed)
 																</div>
 																<!-- <div
 																	class="progress-bar progress-bar-info progress-bar-striped active"
@@ -267,18 +324,19 @@
 													</div>
 												</div>
 											</div>
-										</div> 
+										</div>
 										<div class="row">
+											<div class="col-sm-6"></div>
 											<div class="col-sm-6">
-												
-											</div>
-											<div class="col-sm-6">
-												 <div class="col-md-12" ng-show="filteredItems > 0">      
-											      	<div pagination="" page="currentPage" max-size="10" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="«" next-text="»"></div>												 
-											     </div>
+												<div class="col-md-12" ng-show="filteredItems > 0">
+													<div pagination="" page="currentPage" max-size="10"
+														on-select-page="setPage(page)" boundary-links="true"
+														total-items="filteredItems" items-per-page="entryLimit"
+														class="pagination-small" previous-text="«" next-text="»"></div>
+												</div>
 											</div>
 										</div>
-																		
+
 									</div>
 								</div>
 								<!-- end history -->
@@ -312,45 +370,46 @@
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getWatchlater" >
-										<!-- <div class="alert alert-info">
-												<div class="the-box no-border store-list">
-													<div class="media">
-														<a class="pull-left" href="player.jsp"><img
-															alt="image" class="store-image img-responsive"
-															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"></a>
-														<div class="clearfix visible-xs"></div>
-														<div class="media-body" style="overflow: visible">
-															<a href="#fakelink"></a>
-															<div class="btn-group pull-right">
-																<button type="button"
-																	class="btn btn-default btn-sm dropdown-toggle"
-																	data-toggle="dropdown" aria-expanded="false">
-																	<i class="fa fa-cog"></i>
-																</button>
-																<ul class="dropdown-menu" role="menu">
-																	<li><a href="../elearning/play.act?v=11">Play</a></li>
-																	<li><a href="#"
-																		onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
-																			from watch later</a></li>
-																</ul>
-															</div>
-															<ul class="list-inline">
-																<li><a href="../elearning/play.act?v=11"><strong
-																		class="text-black">Introduction, Syntax,
-																			Selectors &amp; How to Apply</strong></a></li>
-																<br>
-																<li><a><span class="small text-muted"
-																		style="color: #AAB2BD"> by Admin</span></a></li>
+									<div id="getWatchlater">
+										<div class="alert alert-info">
+											<div class="the-box no-border store-list">
+												<div class="media">
+													<a class="pull-left" href="player.jsp"><img alt="image"
+														class="store-image img-responsive"
+														src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"
+														style="width: 200px; padding: 20px;"></a>
+													<div class="clearfix visible-xs"></div>
+													<div class="media-body" style="overflow: visible">
+														<a href="#fakelink"></a>
+														<div class="btn-group pull-right">
+															<button type="button"
+																class="btn btn-default btn-sm dropdown-toggle"
+																data-toggle="dropdown" aria-expanded="false">
+																<i class="fa fa-cog"></i>
+															</button>
+															<ul class="dropdown-menu" role="menu">
+																<li><a href="../elearning/play.act?v=11">Play</a></li>
+																<li><a href="#"
+																	onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
+																		from watch later</a></li>
 															</ul>
-															<p class="hidden-xs"></p>
-															<span class="small text-muted" style="color: #AAB2BD"><i
-																class="fa fa-eye">&nbsp;&nbsp;2093</i>
-																&nbsp;&nbsp;&nbsp; </span>
 														</div>
+														<ul class="list-inline">
+															<li><a href="../elearning/play.act?v=11"><strong
+																	class="text-black">Introduction, Syntax,
+																		Selectors &amp; How to Apply</strong></a></li>
+															<br>
+															<li><a><span class="small text-muted"
+																	style="color: #AAB2BD"> by Admin</span></a></li>
+														</ul>
+														<p class="hidden-xs"></p>
+														<span class="small text-muted" style="color: #AAB2BD"><i
+															class="fa fa-eye">&nbsp;&nbsp;2093</i> &nbsp;&nbsp;&nbsp;
+														</span>
 													</div>
 												</div>
-											</div> -->
+											</div>
+										</div>
 										<div class="row">
 											<div class="col-sm-6">
 												<div class="dataTables_info" id="datatable-example_info">Page
@@ -380,9 +439,9 @@
 								<!-- end watch later -->
 
 								<!-- courses -->
-								
+
 								<div class="tab-pane fade" id="panel-courses">
-								
+
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
@@ -411,25 +470,26 @@
 										</div>
 										<!-- /.btn-group .pull-right -->
 									</div>
-									<div id="getCourses" >
+									<div id="getCourses">
 										<div class="me">
+
 											<div class="alert alert-info">
 												<div class="the-box no-border store-list">
 													<div class="media">
-														<a class="pull-left" href="player.jsp"><img
-															alt="image" class="store-image img-responsive"
-															src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg" style="width:200px; padding:20px;"></a>
-														<div class="vblock">
-															<a href="player.jsp">
-																<div class="vcount">
-																	<p>
-																		30 <br>Videos
-																	</p>
-																	<div class="fa fa-th-list"></div>
-																	<p></p>
+
+														
+														<div class="youmax-video-tnail-box"
+															style=" width:200px; height: 100px; background-image:url('https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg'); ">
+															<div class="youmax-video-tnail" 
+																>
+																<div class="youmax-playlist-sidebar"
+																	id="youmax-playlist-sidebar" >
+																	<span class="youmax-playlist-video-count"><b>30</b><br>VIDEOS</span>
 																</div>
-															</a>
+															</div>
+														
 														</div>
+
 														<div class="clearfix visible-xs"></div>
 														<div class="media-body" style="overflow: visible">
 															<a href="#fakelink"></a>
@@ -443,19 +503,21 @@
 																	<li><a href="../elearning/play.act?v=11">Play</a></li>
 																	<li><a href="#"
 																		onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
-																			from History</a></li>
+																			from watch later</a></li>
 																</ul>
 															</div>
-															<br>
 															<ul class="list-inline">
-																<li><strong class="text-black">Learn Java</strong>
-																	<br> <a><span class="small text-muted"
+																<li><a href="../elearning/play.act?v=11"><strong
+																		class="text-black">Introduction, Syntax,
+																			Selectors &amp; How to Apply</strong></a></li>
+																<br>
+																<li><a><span class="small text-muted"
 																		style="color: #AAB2BD"> by Admin</span></a></li>
 															</ul>
 															<p class="hidden-xs"></p>
 															<span class="small text-muted" style="color: #AAB2BD"><i
 																class="fa fa-eye">&nbsp;&nbsp;2093</i>
-																&nbsp;&nbsp;&nbsp; </span><br> <br>
+																&nbsp;&nbsp;&nbsp; </span>
 															<div class="progress">
 																<div
 																	class="progress-bar progress-bar-success progress-bar-striped"
@@ -467,78 +529,76 @@
 																</div>
 
 															</div>
-
 														</div>
 													</div>
 												</div>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6">
-												<div class="dataTables_info" id="datatable-example_info">Page
-													1 of 4 entries</div>
-											</div>
-											<div class="col-sm-6">
-												<div class="dataTables_paginate paging_bootstrap">
-													<ul class="pagination separated">
-														<li class="active"><a href="#page=1"
-															onclick="gotohistorypage('historylist.act?page=1')">1</a></li>
-														<li><a href="#page=2"
-															onclick="gotohistorypage('historylist.act?page=2')">2</a></li>
-														<li><a href="#page=3"
-															onclick="gotohistorypage('historylist.act?page=3')">3</a></li>
-														<li><a href="#page=4"
-															onclick="gotohistorypage('historylist.act?page=4')">4</a></li>
-														<li><a href="#next"
-															onclick="gotohistorypage('historylist.act?page=2')">Next</a></li>
-														<li><a href="#page=4"
-															onclick="gotohistorypage('historylist.act?page=4')">Last</a></li>
-													</ul>
+
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="dataTables_info" id="datatable-example_info">Page
+														1 of 4 entries</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="dataTables_paginate paging_bootstrap">
+														<ul class="pagination separated">
+															<li class="active"><a href="#page=1"
+																onclick="gotohistorypage('historylist.act?page=1')">1</a></li>
+															<li><a href="#page=2"
+																onclick="gotohistorypage('historylist.act?page=2')">2</a></li>
+															<li><a href="#page=3"
+																onclick="gotohistorypage('historylist.act?page=3')">3</a></li>
+															<li><a href="#page=4"
+																onclick="gotohistorypage('historylist.act?page=4')">4</a></li>
+															<li><a href="#next"
+																onclick="gotohistorypage('historylist.act?page=2')">Next</a></li>
+															<li><a href="#page=4"
+																onclick="gotohistorypage('historylist.act?page=4')">Last</a></li>
+														</ul>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+									<!-- end courses -->
+
+									<!-- /#panel-about -->
+
 								</div>
-								<!-- end courses -->
-
-								<!-- /#panel-about -->
-								
-							
+								<!-- /.tab-content -->
 							</div>
-							<!-- /.tab-content -->
+							<!-- /.panel-body -->
 						</div>
-						<!-- /.panel-body -->
+						<!-- /.collapse in -->
 					</div>
-					<!-- /.collapse in -->
-				</div>
-				<!-- /.panel .panel-success -->
+					<!-- /.panel .panel-success -->
 
-			</div>
-			<!-- cd-tabs -->
-			<footer class="site-footer"
-				style="position: fixed; bottom: 0px; width: 100%; align: center; z-index: 0;">
-				<div class="text-center">
-					2015 © KHMERACADEMY<a href="#" class="go-top"> <i
-						class="fa fa-angle-up"></i>
-					</a>
 				</div>
-			</footer>
+				<!-- cd-tabs -->
+				<footer class="site-footer"
+					style="position: fixed; bottom: 0px; width: 100%; align: center; z-index: 0;">
+					<div class="text-center">
+						2015 © KHMERACADEMY<a href="#" class="go-top"> <i
+							class="fa fa-angle-up"></i>
+						</a>
+					</div>
+				</footer>
 		</section>
 	</section>
-	
+
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		
+
 		<div class="modal-dialog">
 			<div
 				class="modal-content col-sm-12 col-xs-10 col-xs-offset-1 col-sm-offset-0">
-				<span id="signinButton" style="" class="pre-sign-in">
-				<span class="g-signin" data-callback="signinCallback"
-				data-clientid="1034451067661-h7v9fipq91k83log7c47f49l1o257rl4.apps.googleusercontent.com"
-				data-cookiepolicy="single_host_origin"
-				data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
-			</span>
-			</span>
+				<span id="signinButton" style="" class="pre-sign-in"> <span
+					class="g-signin" data-callback="signinCallback"
+					data-clientid="1034451067661-h7v9fipq91k83log7c47f49l1o257rl4.apps.googleusercontent.com"
+					data-cookiepolicy="single_host_origin"
+					data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
+				</span>
+				</span>
 				<div class="modal-header text-center h2 text-primary">
 					<span class="modal-title" id="myModalLabel" data-toggle="modal"
 						data-target="#myModal">Upload Video</span>
@@ -562,7 +622,7 @@
 								</div> -->
 						</div>
 						<div class="input-group">
-							<input type="text" class="form-control"
+							<input type="file" class="form-control"
 								placeholder="Recipient's username"
 								aria-describedby="basic-addon2"> <span
 								class="input-group-addon" id="basic-addon2">Browse File </span>
@@ -598,25 +658,23 @@
 							<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
 							Upload
 						</button>
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
+						<br /> <br /> <br /> <br /> <br />
 
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">var code=<%=session.getAttribute("userID")%></script>
-	
+	<script type="text/javascript">
+		var code =
+	<%=session.getAttribute("userID")%></script>
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
-	
+
 	<script src="js/data/angular.min.js"></script>
 	<script src="js/data/history.js"></script>
-		
+
 	<script src="js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="js/jquery.scrollTo.min.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>
@@ -624,146 +682,148 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/slidebars.min.js"></script>
 	<script src="js/common-scripts.js"></script>
-	
+
 	<script src="//apis.google.com/js/client:plusone.js"></script>
 	<script src="js-upload/auth.js"></script>
 	<script src="js-upload/cors_upload.js"></script>
 	<script src="js-upload/upload_video.js"></script>
-	
+
 	<script type="text/javascript">
-	 	
-		$(document).ready(function(){		
-			listWatchLater();
-			//listHistory();
+		$(document).ready(function() {
+			//listWatchLater();
+			listHistory();
 			$("#msg_sucess").hide();
 			$("#msg_error").hide();
 			// choose profile
 			$('#img').change(function() {
 				img();
 			});
+		});
 
-
-		});	
-	
 		function listWatchLater() {
-			$.ajax({
-				url : "getWatchedLater",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-					user_id : <%=session.getAttribute("userID")%>
-			},success : function(data) {
-					var str = '';
-					for ( var i in data) {
-						for ( var j in data[i]) {
-							//alert(data[i][j].youtube_url);
-							//alert(data[i][j].video_name);
-							str += '<hr><div class="alert">'
-									+ '<div class="the-box no-border store-list">'
-									+ '<div class="media">'
-									+ '<a class="pull-left" href="player.jsp"><img ' +
+			$
+					.ajax({
+						url : "getWatchedLater",
+						method : "POST",
+						dataType : "JSON",
+						data : {
+							user_id :
+	<%=session.getAttribute("userID")%>
+		},
+						success : function(data) {
+							var str = '';
+							for ( var i in data) {
+								for ( var j in data[i]) {
+									//alert(data[i][j].youtube_url);
+									//alert(data[i][j].video_name);
+									str += '<hr><div class="alert">'
+											+ '<div class="the-box no-border store-list">'
+											+ '<div class="media">'
+											+ '<a class="pull-left" href="player.jsp"><img ' +
 								'alt="image" class="store-image img-responsive" style="width:200px; margin:10px;" ' + 
 								'src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url +'/mqdefault.jpg"></a>'
-									+ '<div class="clearfix visible-xs"></div>'
-									+ '<div class="media-body" style="overflow: visible">'
-									+ '<a href="#fakelink"></a>'
-									+ '<div class="btn-group pull-right">'
-									+ '<button type="button" ' +
+											+ '<div class="clearfix visible-xs"></div>'
+											+ '<div class="media-body" style="overflow: visible">'
+											+ '<a href="#fakelink"></a>'
+											+ '<div class="btn-group pull-right">'
+											+ '<button type="button" ' +
 										'class="btn btn-default btn-sm dropdown-toggle" ' +
 										'data-toggle="dropdown" aria-expanded="false">'
-									+ '<i class="fa fa-cog"></i>'
-									+ '</button>'
-									+ '<ul class="dropdown-menu" role="menu">'
-									+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
-									+ '<li><a href="#" ' +
+											+ '<i class="fa fa-cog"></i>'
+											+ '</button>'
+											+ '<ul class="dropdown-menu" role="menu">'
+											+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
+											+ '<li><a href="#" ' +
 											'>Remove from watch later</a></li>'
-									+ '</ul>'
-									+ '</div>'
-									+ '<ul class="list-inline">'
-									+ '<li><a href="#"><strong ' +
+											+ '</ul>'
+											+ '</div>'
+											+ '<ul class="list-inline">'
+											+ '<li><a href="#"><strong ' +
 											'class="text-black">'
-									+ data[i][j].video_name
-									+ '</strong></a></li>'
-									+ '<br>'
-									+ '<li><a><span class="small text-muted" ' +
+											+ data[i][j].video_name
+											+ '</strong></a></li>'
+											+ '<br>'
+											+ '<li><a><span class="small text-muted" ' +
 											'style="color: #AAB2BD"> by Admin</span></a></li>'
-									+ '</ul>'
-									+ '<p class="hidden-xs"></p>'
-									+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
+											+ '</ul>'
+											+ '<p class="hidden-xs"></p>'
+											+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
 									'class="fa fa-eye">&nbsp;&nbsp;'
-									+ data[i][j].view + '</i>'
-									+ '&nbsp;&nbsp;&nbsp; </span>'
-									+ '</div>' + '</div>'
-									+ '</div></div>';
+											+ data[i][j].view + '</i>'
+											+ '&nbsp;&nbsp;&nbsp; </span>'
+											+ '</div>' + '</div>'
+											+ '</div></div>';
+
+								}
+								$("#getWatchlater").html(str);
+							}
 
 						}
-						$("#getWatchlater").html(str);
-					}
-
-				}
-			});
+					});
 		}
-		
+
 		function listHistory() {
 			//alert(333);
-			$.ajax({
-				url : "getHistory",
-				method : "POST",
-				dataType : "JSON",
-				data : {
-				user_id : <%=session.getAttribute("userID")%>
-			},success : function(data) {
-					var str = '';					
-					for ( var i in data) {
-						//alert(data[i].video_name);						
-							str += '<hr><div class="alert">'
-									+ '<div class="the-box no-border store-list">'
-									+ '<div class="media">'
-									+ '<a class="pull-left" href="player.jsp"><img ' +
+			$
+					.ajax({
+						url : "getHistory",
+						method : "POST",
+						dataType : "JSON",
+						data : {
+							user_id :
+	<%=session.getAttribute("userID")%>
+		},
+						success : function(data) {
+							var str = '';
+							for ( var i in data) {
+								//alert(data[i].video_name);						
+								str += '<hr><div class="alert">'
+										+ '<div class="the-box no-border store-list">'
+										+ '<div class="media">'
+										+ '<a class="pull-left" href="player.jsp"><img ' +
 								'alt="image" class="store-image img-responsive" style="width:200px; margin:10px;" ' +
 								'src="https://i.ytimg.com/vi/'+ data[i].youtube_url +'/mqdefault.jpg"></a>'
-									+ '<div class="clearfix visible-xs"></div>'
-									+ '<div class="media-body" style="overflow: visible">'
-									+ '<a href="#fakelink"></a>'
-									+ '<div class="btn-group pull-right">'
-									+ '<button type="button" ' +
+										+ '<div class="clearfix visible-xs"></div>'
+										+ '<div class="media-body" style="overflow: visible">'
+										+ '<a href="#fakelink"></a>'
+										+ '<div class="btn-group pull-right">'
+										+ '<button type="button" ' +
 										'class="btn btn-default btn-sm dropdown-toggle" ' +
 										'data-toggle="dropdown" aria-expanded="false">'
-									+ '<i class="fa fa-cog"></i>'
-									+ '</button>'
-									+ '<ul class="dropdown-menu" role="menu">'
-									+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
-									+ '<li><a href="#" ' +
+										+ '<i class="fa fa-cog"></i>'
+										+ '</button>'
+										+ '<ul class="dropdown-menu" role="menu">'
+										+ '<li><a href="../elearning/play.act?v=11">Play</a></li>'
+										+ '<li><a href="#" ' +
 											'>Remove from watch later</a></li>'
-									+ '</ul>'
-									+ '</div>'
-									+ '<ul class="list-inline">'
-									+ '<li><a href="#"><strong ' +
+										+ '</ul>'
+										+ '</div>'
+										+ '<ul class="list-inline">'
+										+ '<li><a href="#"><strong ' +
 											'class="text-black">'
-									+ data[i].video_name
-									+ '</strong></a></li>'
-									+ '<br>'
-									+ '<li><a><span class="small text-muted" ' +
+										+ data[i].video_name
+										+ '</strong></a></li>'
+										+ '<br>'
+										+ '<li><a><span class="small text-muted" ' +
 											'style="color: #AAB2BD"> by Admin</span></a></li>'
-									+ '</ul>'
-									+ '<p class="hidden-xs"></p>'
-									+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
+										+ '</ul>'
+										+ '<p class="hidden-xs"></p>'
+										+ '<span class="small text-muted" style="color: #AAB2BD"><i ' +
 									'class="fa fa-eye">&nbsp;&nbsp;'
-									+ data[i].view + '</i>'
-									+ '&nbsp;&nbsp;&nbsp; </span>'
-									+ '</div>' + '</div>'
-									+ '</div></div>';
-							$("#getHistory").html(str);
-					}
+										+ data[i].view + '</i>'
+										+ '&nbsp;&nbsp;&nbsp; </span>'
+										+ '</div>' + '</div>' + '</div></div>';
+								$("#getHistory").html(str);
+							}
 
-				},error:function (xhr, ajaxOptions, thrownError){
-		            alert(xhr.status);
-		            alert(thrownError);
-				}
-			});
+						},
+						error : function(xhr, ajaxOptions, thrownError) {
+							alert(xhr.status);
+							alert(thrownError);
+						}
+					});
 		}
-		
 	</script>
-	
+
 </body>
 </html>
