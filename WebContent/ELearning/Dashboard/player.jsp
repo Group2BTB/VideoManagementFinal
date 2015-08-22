@@ -634,6 +634,22 @@
 				$("#btnComments").fadeOut();
 				$("#btnComments").css("margin-bottom", "10px");
 			});
+<<<<<<< .mine
+		});
+		//add text form textarea to the div below
+		$(document).ready(function() {
+			
+			
+			getVideoPlaylist();
+				$("#btnComments").click(function() {
+						var a = '<div class="col-md-12 comments box_comment" id="comment_box"><div class="row wells"><div class="col-md-1"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-4 col-xs-6"><span><b>Prem Chanthorn</b></span></div>';
+						var b = '<div class="col-md-4 col-xs-6">Just now</div>';
+						var c = '<div class="col-md-12 col-xs-12">'
+								+ $("#comment").val()
+								+ '</div></div>';
+						$("#comment").val("");
+						$("#show_comments").prepend(a + b + c);
+=======
 			
 			$("#btn_reply_click").click(function(){
 				$("#form_reply").slideDown(2000);
@@ -669,6 +685,7 @@
 						$("#show_comments").prepend(e + d);						
 						$("#form_reply"+ reply_id).hide();
 						reply_id++;
+>>>>>>> .r541
 				});
 				
 			});
