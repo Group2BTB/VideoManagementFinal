@@ -58,6 +58,7 @@ public class AddVideoWatched extends HttpServlet {
 		
 		if (wvd.insertWatchedVideo(wv)) {
 			System.out.println("successfully inserted!");
+			System.out.println(wv.getVideo_id());
 		} else {
 			System.out.println("Cannot insert!");
 		}

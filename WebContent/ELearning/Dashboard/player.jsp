@@ -226,7 +226,6 @@
 															<i class="fa fa-thumbs-down fa-2x"
 															style="padding: 0px 10px; color: #3BAFDA;"></i><span>10398</span></a>
 													</div>
-
 												</div>
 											</div>
 										</div>
@@ -385,6 +384,9 @@
 	<script>
 		
 		var new_video_id = 0;
+		var new_playlist_id  = <%=request.getParameter("p")%>;
+		var count_views = 0;
+		
 		//var vPlayer = document.getElementById("vid1");
 				
 		/*
@@ -403,8 +405,6 @@
 				itemsMobile : false
 			// itemsMobile disabled - inherit from itemsTablet option
 			});
-			
-
 		});
 		
 		function viewCategory() {
@@ -454,24 +454,22 @@
 			method : "POST",
 			dataType : "JSON",
 			data : {
-				video_id : video_id
+			video_id : video_id
 			},
 			success : function(data) {
+				
+				new_video_id = video_id; 
+				count_views = data.view;
+				//alert(  " vdo id " + new_video_id);
+				getVideoPlaylist();
 				//alert(data.url);
+				
 				$("#video_title").html(data.name);
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
 				player.load();
 				player.play();
-				player.show(); 
-				
+				player.show(); 				
 				//action click
-			
-				$("#video_title").html(data.name);
-				$("#lastwatched").html(data.time);
-				$("#count_views").html("Views: "+data.view);
-				$("#uploader").html(data.username);	
-						
-				
 			}
 		});
 	}
@@ -493,14 +491,14 @@
 			method : "POST",
 			dataType: "JSON",
 			data:{
-				playlist_id : <%=request.getParameter("p")%>
+			playlist_id : <%=request.getParameter("p")%>
 			},
 			success: function(data){
 				
-				new_video_id = data.id;
-				
-				alert(new_video_id);
-				
+				new_video_id = data.id;	
+				count_views = data.view;
+				//alert(data.id);
+				//alert(new_video_id + "default" );				
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				myplayers(data.url);
@@ -508,7 +506,6 @@
 				//action defaut 
 				
 			
-				
 			}
 		});			
 	}
@@ -585,13 +582,13 @@
 					if(current_time.length < 5)
 						current_time = "0" + current_time;
 					
-					if(current_time == end_time){ addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,"completed"); return; 					
+					if(current_time == end_time){ addWatched(<%=session.getAttribute("userID")%>, new_video_id,"completed"); return; 					
 						
 					}
 					
 					if(old_cur_time != current_time){
 						//add minute to table	
-						addWatched(<%=session.getAttribute("userID")%>, <%=video_id%>,current_time);						
+						addWatched(<%=session.getAttribute("userID")%>, new_video_id,current_time);						
 						old_cur_time = current_time;
 					}
 					
@@ -683,9 +680,9 @@
 			
 			
 		//function for list playlist 
-		
 		 function getVideoPlaylist() {
 			var str = "";
+			
 			var user_id_playlist = <%=session.getAttribute("userID")%>;
 			<%int playlist_id=Integer.parseInt(request.getParameter("p"));%>
 			
@@ -694,10 +691,9 @@
 						method : "POST",
 						dataType : "JSON",
 						data : {
-							playlist_id :<%=playlist_id%>
+							playlist_id :new_playlist_id 
 						},
-						success : function(data) {
-							
+						success : function(data) {							
 							var substring = "";
 							var video_watched = "";
 							var count = 0;
@@ -736,18 +732,17 @@
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == new_video_id)) {
 										
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
-										
+										count_views =  data[i][j].view;
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
 
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
 									
 								}	
-							}
-							
+							}							
 							var percentwatch = Math.ceil((totalwatch*100)/count) + "%";
 							$("#totalvideo").html(
 									"Result : " + count + " videos");
@@ -758,12 +753,11 @@
 							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
-							
+							$("#count_views").html( "View : " +count_views);
+					
 						} 
 					});
 		}
-		
-		 
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
@@ -771,7 +765,7 @@
 				method : "POST",
 				dataType : "JSON",
 				data : {
-					video_id :<%=video_id%>
+					video_id : new_video_id
 				},
 				success : function(data) {
 					//alert(data);
@@ -787,7 +781,7 @@
 				data : {
 					comment : $("#comment").val(),
 					user_id : <%=session.getAttribute("userID")%>,
-					video_id :<%=video_id%>,
+					video_id :new_video_id
 				}
 			});
 		}
