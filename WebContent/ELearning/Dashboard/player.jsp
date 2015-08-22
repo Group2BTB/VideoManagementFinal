@@ -454,7 +454,7 @@
 			method : "POST",
 			dataType : "JSON",
 			data : {
-				v : video_id
+				video_id : video_id
 			},
 			success : function(data) {
 				//alert(data.url);
