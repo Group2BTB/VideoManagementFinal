@@ -45,7 +45,7 @@ public class GetWatchedLater extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		try {
-			response.getWriter().print(new WatchLaterDAO().getWatchLater(userId));
+			response.getWriter().write(new WatchLaterDAO().getWatchLater(userId));
 			System.out.println("Get WatchedLater: "+new WatchLaterDAO().getWatchLater(userId));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

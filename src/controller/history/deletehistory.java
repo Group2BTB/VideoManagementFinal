@@ -1,4 +1,4 @@
-package controller.watchedLater;
+package controller.history;
 
 import java.io.IOException;
 
@@ -8,18 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.WatchLaterDAO;
+import model.dao.DepartmentDAO;
+import model.dao.HistoryDAO;
+import model.dto.Department;
 
 /**
- * Servlet implementation class UpdateWatchLater
+ * Servlet implementation class editCategory
  */
-public class DeleteWatchLater extends HttpServlet {
+
+public class deletehistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteWatchLater() {
+    public deletehistory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +32,7 @@ public class DeleteWatchLater extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doProcess(request, response);
+		process(request, response);
 	}
 
 	/**
@@ -37,18 +40,15 @@ public class DeleteWatchLater extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doProcess(request, response);
+		process(request, response);
 	}
-	
-	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		int watch_later_id = Integer.parseInt(request.getParameter("id"));
-		if(new WatchLaterDAO().deleteWatchLater(watch_later_id)){
-			System.out.println("Delete watch later video successfully!");
-			response.getWriter().print("Success");
+	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("123");		
+		if(new HistoryDAO().deleteHistory(Long.parseLong(request.getParameter("id")))){
+			System.out.println("true");response.getWriter().print("Success");
 		}else{
-			System.out.println("Cannot Delete watch later video!");
-			response.getWriter().print("Fail");
+			System.out.println("fail");response.getWriter().write("Fail");
 		}
 	}
-
 }

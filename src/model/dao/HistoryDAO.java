@@ -75,6 +75,27 @@ public class HistoryDAO {
 		}
 	}
 	
+	public boolean deleteAllHistory(long userId){
+		
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				PreparedStatement stm = con.prepareStatement("delete from tb_history where user_id=?")){
+						
+			/*To set data to preparedStatement from video's data*/
+			stm.setLong(1, userId);
+									
+			if(stm.executeUpdate()==0) //execute the statement and compare
+				return false;
+			
+			return true;			
+			
+		}catch(Exception ex){
+			
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
 	public String getHistory(long userId){
 		
 		/*Create try with resource*/

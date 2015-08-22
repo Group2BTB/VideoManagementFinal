@@ -13,13 +13,13 @@ import model.dao.WatchLaterDAO;
 /**
  * Servlet implementation class UpdateWatchLater
  */
-public class DeleteWatchLater extends HttpServlet {
+public class deleteallWatchLater extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteWatchLater() {
+    public deleteallWatchLater() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,8 +41,8 @@ public class DeleteWatchLater extends HttpServlet {
 	}
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		int watch_later_id = Integer.parseInt(request.getParameter("id"));
-		if(new WatchLaterDAO().deleteWatchLater(watch_later_id)){
+		int user_id = Integer.parseInt(request.getParameter("id"));
+		if(new WatchLaterDAO().deleteAllWatch(user_id)){
 			System.out.println("Delete watch later video successfully!");
 			response.getWriter().print("Success");
 		}else{
