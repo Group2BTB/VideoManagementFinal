@@ -515,7 +515,7 @@
 				$("#playlist_show").hide();
 				$("#playlist_show_header").hide();
 				$("#sms").show();
-
+				$("#bar_proccess")hide();
 			}else{
 				
 				$("#languages").show();
