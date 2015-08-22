@@ -86,7 +86,7 @@ public class WatchLaterDAO {
 						
 			stm.setLong(1, userId);					
 			
-			return WorkWithJson.convertWatchLaterToJson(stm.executeQuery());
+			return WorkWithJson.convertResultSetIntoJSON(stm.executeQuery()).toString();
 						
 		}catch(Exception ex){
 			
