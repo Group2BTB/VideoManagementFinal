@@ -375,6 +375,14 @@
     <servlet-name>getWatchedLater</servlet-name>
     <url-pattern>/ELearning/Dashboard/getWatchedLater</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>deleteallWatchLater</servlet-name>
+    <servlet-class>controller.watchedLater.deleteallWatchLater</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteallWatchLater</servlet-name>
+    <url-pattern>/ELearning/Dashboard/deleteallWatchLater</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>deleteWatchLater</servlet-name>
     <servlet-class>controller.watchedLater.DeleteWatchLater</servlet-class>
@@ -430,6 +438,23 @@
   <servlet-mapping>
     <servlet-name>updatedept</servlet-name>
     <url-pattern>/updatedept</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <servlet-name>deletehistory</servlet-name>
+    <servlet-class>controller.history.deletehistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletehistory</servlet-name>
+    <url-pattern>/ELearning/Dashboard/deletehistory</url-pattern>
+  </servlet-mapping>
+ <servlet>
+    <servlet-name>deleteallhistory</servlet-name>
+    <servlet-class>controller.history.deleteallhistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteallhistory</servlet-name>
+    <url-pattern>/ELearning/Dashboard/deleteallhistory</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>getHistory</servlet-name>
