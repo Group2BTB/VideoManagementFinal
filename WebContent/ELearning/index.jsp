@@ -206,11 +206,11 @@
 						str+='<div class="item" style="margin-right: 10px;">';
 							str+='<section class="panel">';
 								str+='<div class="pro-img-box">';
-									str+='<a href="playervideo?v='+data[i].video_id+'"><img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"><i class="fa-graduation-cap"></i></a>';
+									str+='<a href="playervideo?p='+data[i].playlist_id+'&v='+data[i].video_id+'"><img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"><i class="fa-graduation-cap"></i></a>';
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
-										str+='<a href="playervideo?v='+data[i].video_id+'" class="pro-title">'+data[i].video_name+'</a>';
+										str+='<a href="playervideo?p='+data[i].playlist_id+'&v='+data[i].video_id+'" class="pro-title">'+data[i].video_name+'</a>';
 									str+='</h4>';
 								str+='</div>';
 							str+='</section>';
@@ -283,11 +283,11 @@
 						str+='<div class="item" style="margin-right: 10px;">';
 							str+='<section class="panel">';
 								str+='<div class="pro-img-box">';
-									str+='<a href="playervideo?v='+data[i].video_id+'"> <img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"><i class="fa-graduation-cap"></i></a>';
+									str+='<a href="playervideo?p='+data[i].playlist_id+'&v='+data[i].video_id+'"> <img src="https://i.ytimg.com/vi/'+data[i].youtube_url+'/mqdefault.jpg"><i class="fa-graduation-cap"></i></a>';
 								str+='</div>';
 								str+='<div class="panel-body text-center">';
 									str+='<h4>';
-										str+='<a href="playervideo?v='+data[i].video_id+'" class="pro-title">'+data[i].video_name+'</a>';
+										str+='<a href="playervideo?p='+data[i].playlist_id+'&v='+data[i].video_id+'" class="pro-title">'+data[i].video_name+'</a>';
 									str+='</h4>';
 								str+='</div>';
 							str+='</section>';
