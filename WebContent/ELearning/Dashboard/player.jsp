@@ -444,6 +444,7 @@
 	</script>
 	<!-- hide some header when scroll less than 768px  -->
 	<script>
+	
 	getDefaultVideo();
 	
 	function getVideoPlay(video_id){
@@ -494,18 +495,12 @@
 			playlist_id : <%=request.getParameter("p")%>
 			},
 			success: function(data){
-				
-				new_video_id = data.id;	
-				count_views = data.view;
-				//alert(data.id);
-				//alert(new_video_id + "default" );				
+				 count_views = data.view;				
+				new_video_id = data.id;								
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				myplayers(data.url);
-				
-				//action defaut 
-				
-			
+
 			}
 		});			
 	}
@@ -695,7 +690,6 @@
 					$("#btn_reply_click" + id).hide();				
 				}
 			
-			
 		//function for list playlist 
 		 function getVideoPlaylist() {
 			var str = "";
@@ -749,7 +743,7 @@
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == new_video_id)) {
 										
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
-										count_views =  data[i][j].view;
+										
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
 									}
 
@@ -802,9 +796,12 @@
 				}
 			});
 		}
-	
+		
 		upVideoView();
 		getVideoPlaylist();
+		
+		
+
 	</script>
 
 </body>
