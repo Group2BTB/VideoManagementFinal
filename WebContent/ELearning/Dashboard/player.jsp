@@ -108,7 +108,7 @@
 				</form>
 				<ul class="nav pull-right top-menu">
 
-					<li class="dropdown language" id="languages"><a
+					<!-- <li class="dropdown language" id="languages"><a
 						data-close-others="true" data-hover="dropdown"
 						data-toggle="dropdown" class="dropdown-toggle" href="#"> <img
 							src="img/flags/us.png" alt=""> <span class="username">US</span>
@@ -121,7 +121,7 @@
 									Khmer</a></li>
 							<li><a href="#"><img src="img/flags/kr.png" alt="">
 									Korean</a></li>
-						</ul></li>
+						</ul></li> -->
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
@@ -467,8 +467,12 @@
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
 				upVideoView();
-				
-				getCommentWithSub(video_id);				
+
+				//alert(  " vdo id " + new_video_id);
+				getVideoPlaylist();
+				//alert(data.url);
+				getCommentWithSub(video_id);
+				addVideoHistory(video_id);
 				$("#video_title").html(data.name);
 				getVideoPlaylist();
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
@@ -516,7 +520,10 @@
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
-				//myplayers(data.url, convert_time(times));
+
+				addVideoHistory(data.id);
+				myplayers(data.url);
+
 				//action defaut 
 			}
 		});			
@@ -732,6 +739,7 @@
 												}
 												
 										img_style ='style="opacity:0.8;"';
+										$("#watched-later").css("opacity:1");
 									}
 									else{
 										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
@@ -745,8 +753,10 @@
 										}	
 										
 									}
-									//alert(data[i][j].time);
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+
+
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+
 
 											+ substring + '</span></div>';
 									count++;
@@ -843,14 +853,47 @@
 				},
 				success: function(data){
 					for(var i in data){
-						for (var j in data[i] ){
+		for (var j in data[i] ){
 							alert(data[i][j].description);
 					
 							$("#content_comment").html(data[i][j].description);
 							
+
 						}
 					}
 				}
+			});
+		}
+		
+
+		function addVideoHistory(video_id){
+			var user_id = <%=session.getAttribute("userID")%>
+			$.ajax({
+				url : "addHistory",
+				method : "POST",
+				dataType : "JSON",
+				data :{
+					video_id : video_id,
+					user_id : user_id
+				},
+				success : function(){
+					alert("Inserted successfully!");
+				}
+			});
+		}
+		
+		function addVideoWatchedLater(video_id){
+			$.ajax({
+				url : "addWatchedLater",
+				method  :"POST",
+				data : {
+					video_id : video_id,
+					user_id : <%=session.getAttribute("userID")%>
+				},
+				success : function(){
+					alert("Watched Later Inserted!");
+				}
+			
 			});
 		}
 		

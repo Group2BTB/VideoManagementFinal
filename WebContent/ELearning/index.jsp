@@ -48,7 +48,7 @@
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="http://localhost:8080/VideoManagementFinal/ELearning/index.jsp" class="logo">Khmer<span>Academy</span></a>
+			<a href="http://localhost:8080/VideoManagementFinal/ELearning/index.jsp" class="logo"><span>KHEAV</span></a>
 
 			<!--logo end-->
 
@@ -63,7 +63,7 @@
 				</form>
 				<ul class="nav pull-right top-menu">
 
-					<li class="dropdown language"><a data-close-others="true"
+					<!-- <li class="dropdown language"><a data-close-others="true"
 						data-hover="dropdown" data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img src="Dashboard/img/flags/us.png"
 							alt=""> <span class="username">US</span> <b class="caret"></b>
@@ -75,7 +75,7 @@
 									Khmer</a></li>
 							<li><a href="#"><img src="Dashboard/img/flags/kr.png" alt="">
 									Korean</a></li>
-						</ul></li>
+						</ul></li> -->
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
@@ -90,8 +90,8 @@
 							<li><a href="logout"><i class="fa fa-key"></i> Log Out</a></li>
 						</ul></li>
 					<!-- user login dropdown end -->
-					<li class="sb-toggle-right"><i class="fa  fa-align-right"></i>
-					</li>
+					<!-- <li class="sb-toggle-right"><i class="fa  fa-align-right"></i>
+					</li> -->
 				</ul>
 			</div>
 		</header>
@@ -145,17 +145,18 @@
 					<h5 class="side-title">Messages</h5>
 				</div>
 				<!-- Right Slidebar end -->
-				<!--footer start-->
-				<footer class="site-footer">
-					<div class="text-center">
-						2015 &copy; KHMERACADEMY<a href="#" class="go-top"> <i
-							class="fa fa-angle-up"></i>
-						</a>
-					</div>
-				</footer>
-				<!--footer end-->
+				
 			</section>
 		</section>
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2015 &copy; KHMERACADEMY<a href="#" class="go-top"> <i
+					class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
 	</section>
 	
 	
@@ -237,15 +238,14 @@
 							for ( var j in data[i]) {
 								ind++;
 								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
+								//alert(data[i][j].name);
 							}
-							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');"><i class="fa fa-book"></i> <span>'+ i+ '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
+							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i + '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
 							count++;
 							ind = 0;
 						}
-						$("#nav-accordion").html(strsup + "</li>");
-						$(".sub0").slideDown(1000);
-						$("li .sub-menu").addClass("active");
+						$("#nav-accordion").html(strsup + "</li>");						
 					}
 				});
 			}
@@ -253,6 +253,10 @@
 		function dopro(id) {
 			$(".sub").slideUp();
 			$(".sub" + id).slideToggle();
+		}
+		function doAddClass(obj){
+			$(".active").removeClass("active");
+			$(obj).addClass("active");
 		}
 		/* $("#nav-accordion").click(function(){
 			$(".sub").slideToggle(1000);

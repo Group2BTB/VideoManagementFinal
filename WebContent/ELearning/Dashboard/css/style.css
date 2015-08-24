@@ -370,7 +370,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #FF6C60;
+    color: #337AB7;
 }
 
 
@@ -6210,4 +6210,11 @@ header.blue-bg .search:focus {
 .note-editor .note-statusbar {
     background: #fff;
     border-radius:4px;
+}
+
+.glyphicon{
+	top : 35px !important;
+	left : 150px !important;
+	color : black !important;
+	width: 20px;
 }

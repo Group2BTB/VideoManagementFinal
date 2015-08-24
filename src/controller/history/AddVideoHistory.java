@@ -1,4 +1,4 @@
-package controller.video;
+package controller.history;
 
 import java.io.IOException;
 
@@ -8,22 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
-import model.dao.PlayListDAO;
-import model.dao.VideoDAO;
-import model.dto.Video;
+import model.dao.HistoryDAO;
+import model.dto.History;
 
 /**
- * Servlet implementation class PlayRecAndPopVideo
+ * Servlet implementation class AddVideoHistory
  */
-public class PlayRecAndPopVideo extends HttpServlet {
+public class AddVideoHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlayRecAndPopVideo() {
+    public AddVideoHistory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,16 +43,15 @@ public class PlayRecAndPopVideo extends HttpServlet {
 	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int video_id = Integer.parseInt(request.getParameter("video_id"));
-		int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
-		Video video = new VideoDAO().getVideo(video_id);
-		String str  = new Gson().toJson(video);
-		try {
-			response.getWriter().write(str);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		int user_id = Integer.parseInt(request.getParameter("user_id"));
+		History history = new History();
+		history.setUserID(user_id);
+		history.setVideoID(video_id);
+		if(new HistoryDAO().insertHistory(history)){
+			System.out.println("Video history inserted successfully!");
+		}else{
+			System.out.println("Video history cannot insert");
 		}
-		System.out.println("Playlist and Video id: "+video_id+""+playlist_id);
 	}
 
 }

@@ -47,10 +47,6 @@ public class getRecAndPopVideoID extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int video_id = Integer.parseInt(request.getParameter("v"));
 		int playlist_id = Integer.parseInt(request.getParameter("p"));
-		//response.setCharacterEncoding("utf-8");
-		//response.setContentType("application/json");
-		//Video video = new VideoDAO().getVideo(video_id);
-		//String str_video = new Gson().toJson(video);
 		try {
 			//response.getWriter().write(str_video);
 			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+playlist_id+"&v="+video_id);

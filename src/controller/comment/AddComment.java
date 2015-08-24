@@ -44,7 +44,7 @@ public class AddComment extends HttpServlet {
 		cmt.setDescription(request.getParameter("comment"));
 		cmt.setUserID(Integer.parseInt(request.getParameter("user_id")));
 		cmt.setVideoID(Integer.parseInt(request.getParameter("video_id")));
-		cmt.setParent_id(0);
+		cmt.setParent_id(Integer.parseInt(request.getParameter("parent_id")));
 		
 		if(new CommentDAO().insertComment(cmt)){
 			System.out.println("success!");
