@@ -209,8 +209,7 @@ body {
 				<!-- /.the-box .transparent .profile-heading -->
 				<!-- END PROFILE HEADING -->
 
-				<div
-					class="panel with-nav-tabs panel-primary panel-square panel-no-border">
+				<div class="panel with-nav-tabs panel-primary panel-square panel-no-border">
 					<div class="panel-heading" style="background-color: #337ab7">
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#panel-history"
@@ -232,14 +231,10 @@ body {
 					<div ng-app="myapp"    id="panel-collapse-1" class="collapse in">
 						<div class="panel-body">
 							<div class="tab-content">
-
 								<!-- history -->
-<<<<<<< .mine
 								<div  ng-controller="hiscontroller" class="tab-pane fade active in" id="panel-history">
-=======
 								<div ng-app="myapp" ng-controller="hiscontroller"
 									class="tab-pane fade active in" id="panel-history">
->>>>>>> .r559
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
@@ -355,8 +350,7 @@ body {
 											</form>
 										</div>
 										<div class="btn-group">
-											<button
-												ng-click="deleteallwatch(<%=session.getAttribute("userID")%>)"
+											<button ng-click="deleteallwatch(<%=session.getAttribute("userID")%>)"
 												class="btn btn-danger"> <i class="fa fa-ban"></i> Clear
 												All watch later
 											</button>
@@ -369,8 +363,6 @@ body {
 											</form>
 										</div>
 										<!-- /.btn-group .pull-right -->
-									</div>
-<<<<<<< .mine
 									<div id="getWatchlater" >
 										<div class="alert alert-info"  ng-repeat="d in filtered = (list1 | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
 												<div class="the-box no-border store-list">
@@ -398,7 +390,6 @@ body {
 																<br>
 																<li><a><span class="small text-muted"
 																		style="color: #AAB2BD"></span></a></li>
-=======
 									<div id="getWatchlater">
 										<div class="alert alert-info">
 											<div class="the-box no-border store-list">
@@ -421,9 +412,7 @@ body {
 																<li><a href="#"
 																	onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
 																		from watch later</a></li>
->>>>>>> .r559
 															</ul>
-<<<<<<< .mine
 															<p class="hidden-xs"></p>
 															<span class="small text-muted" style="color: #AAB2BD"><i
 																class="fa fa-eye">&nbsp;&nbsp;{{d.view}}</i>
@@ -443,8 +432,6 @@ body {
 																		class="fa fa-clock-o"></i> </span> ({{100-d.time}}%&nbsp;remain)
 																</div> -->
 															</div>
-=======
->>>>>>> .r559
 														</div>
 														<ul class="list-inline">
 															<li><a href="../elearning/play.act?v=11"><strong
@@ -460,12 +447,9 @@ body {
 														</span>
 													</div>
 												</div>
-<<<<<<< .mine
 											</div>
-=======
 											</div>
 										</div>
->>>>>>> .r559
 										<div class="row">
 											<div class="col-sm-6">
 												
@@ -717,12 +701,8 @@ body {
 	<script src="js/data/angular.min.js"></script>
 	<script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
 	<script src="js/data/history.js"></script>
-<<<<<<< .mine
 	<script src="js/data/whatlater.js"></script>
 		
-=======
-
->>>>>>> .r559
 	<script src="js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="js/jquery.scrollTo.min.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>
@@ -809,17 +789,10 @@ body {
 
 						}
 					});
-		}
-
-		
-		
-		
-		
-		
+		}		
 		function listHistory() {
 			//alert(333);
-			$
-					.ajax({
+			$.ajax({
 						url : "getHistory",
 						method : "POST",
 						dataType : "JSON",
