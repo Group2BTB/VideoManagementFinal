@@ -459,6 +459,7 @@
 				
 				new_video_id = video_id; 
 				count_views = data.view;
+				$("#count_views").html( "View : " +count_views);
 				upVideoView();
 				//alert(  " vdo id " + new_video_id);
 				getVideoPlaylist();
@@ -498,6 +499,7 @@
 				
 				new_video_id = data.id;	
 				count_views = data.view;
+				$("#count_views").html( "View : " +count_views);
 				//alert(data.id);
 				//alert(new_video_id + "default" );				
 				video_title += data.name;
@@ -506,8 +508,6 @@
 				myplayers(data.url);
 				
 				//action defaut 
-				
-			
 			}
 		});			
 	}
@@ -800,13 +800,13 @@
 				success : function(){
 					getVideoPlaylist();
 					getVideoPlay(video_id);
-					alert(hello);
+					
 				}
 			});
 		}
 		var comment_parent_id = 0;
 		function getCommentWithSub(video_id){
-			alert(video_id);
+		
 			var str = "";
 			$.ajax({
 				url : "getAllCommentAndSub",
