@@ -1,48 +1,3 @@
-/*$(function(){
-	$("#btnadd").click(function(){
-		$('#frmDepartment').submit();
-	});
-	$('#frmDepartment').bootstrapValidator({
-        message: 'This value is not valid',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            name: {
-                message: 'The name is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The name is required and cannot be empty'
-                    },
-                    stringLength: {
-                        min: 1,
-                        max: 100,
-                        message: 'The name must be more than 1 and less than 100 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_\s.]+$/,
-                        message: 'The name can only consist of alphabetical, number, dot and underscore'
-                    }
-                }
-            },
-            status: {
-                message: 'The status is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'The status is required and cannot be empty'
-                    }
-                }
-            }
-        }
-    }).on('success.form.bv', function(e) { 
-        
-    	
-    });
-});
- */
-
 var app = angular.module('myApp', [ 'ui.bootstrap' ]);
 
 app.filter('startFrom', function() {
@@ -124,7 +79,6 @@ app.controller('commmentcontroller', function($scope, $http, $timeout) {
 		}, 10);
 	};
 	$scope.sort_by = function(predicate) {
-
 		$scope.predicate = predicate;
 		$scope.reverse = !$scope.reverse;
 	};
@@ -136,54 +90,6 @@ app.controller('commmentcontroller', function($scope, $http, $timeout) {
 		
 	};
 	
-	$scope.save = function(e) {
-		// $("#spinner").show();
-		var data = {
-			'id' : $scope.editid,
-			'name' : $scope.name,
-			'status' : $scope.status,
-			'description' : $scope.description
-		};
-		if (e == true) {
-			$.post("../adddept", data).success(function(data) {
-				if (data == "Success") {
-					$scope.loadData();
-					frmDepartment.reset();
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});
-		} else {
-			$.post("../updatedept", data).success(function(data, status, headers){
-				if (data == "Success") {
-					$scope.loadData();
-					frmDepartment.reset();
-					$("#closeFrmAdd").click();
-					$scope.succ();
-				}else{
-					$scope.er();
-				}
-			});
-		}
-		//$("#spinner").hide();
-	};
-	$scope.editUser = function(id) {
-		$scope.editid = id;
-		if (id == 'new') {
-			$scope.edit = true;
-		} else {
-			$scope.edit = false;
-			for (var i = 0; i < $scope.list.length; i++)
-				if ($scope.list[i].department_id == id)
-					x = i;
-			$("#btnNew").click();
-			$scope.name = $scope.list[x].department_name;
-			$scope.status = $scope.list[x].status;
-			$scope.description = $scope.list[x].description;
-
-		}
-	};
 	
 	$scope.updateView = function(e) {
 		var data = {
@@ -201,12 +107,31 @@ app.controller('commmentcontroller', function($scope, $http, $timeout) {
 			'id' : e
 		};
 		$.post("../deleteComment", data).success(function(data, status, headers) {			
-			alert(data);
 			if (data == true) {				
 				$scope.loadData();
-				
 			}
 		});
 	};
+	
+	$scope.viewComment = function(e) {
+		for (var i = 0; i < $scope.list.length; i++)
+			if ($scope.list[i].comment_id == e)
+				x = i;	
+		
+		$("#content").text($scope.list[x].description);
+		$("#cdate").text($scope.list[x].create_date);
+		$("#cuser").text($scope.list[x].username);
+		$("#cvideo").text($scope.list[x].video_name);
+		$("#cview").text($scope.list[x].view);
+		$("#clike").text($scope.list[x].like);
+		$("#cunlike").text($scope.list[x].unlike);
+		$("#viewCom").modal({                    // wire up the actual modal functionality and show the dialog
+		  "backdrop"  : "static",
+		  "keyboard"  : true,
+		  "show"      : true                     // ensure the modal is shown immediately
+		});
+					
+	};
+	
 	
 });
