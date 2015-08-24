@@ -515,16 +515,11 @@
 				new_video_id = data.id;	
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
-				//alert(data.id);
-				//alert(new_video_id + "default" );				
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
-
 				addVideoHistory(data.id);
-				myplayers(data.url);
-
-				//action defaut 
+				
 			}
 		});			
 	}
