@@ -264,15 +264,14 @@
 														<div class="col-md-1 col-sm-1 col-xs-3 img-responsive">
 															<img src="../videoplayer/avatar.png" width="50">
 														</div>
-														<div class="col-md-10 col-sm-10 col-xs-9">
-															<div class="">
+														<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment">
+															<!-- <div class="">
 																<span><b>Prem Chanthorn</b></span>
 															</div>
 															<div class="">10 minutes ago</div><br />
-															<div class="">I really like this
-																website.</div>
+															<div class=""></div>
 
-															<div class="row" >
+															<div class="row">
 															<div class="col-md-2 col-sm-2"></div>
 															<div class="col-md-11 col-sm-11 col-xs-12">
 																	<button class=" btn btn-default pull-left" id="btn_reply_click"
@@ -291,10 +290,10 @@
 															</div>
 																
 															</div>
-															<!-- Show reply -->
+															Show reply
 															<div class="row" id="show_reply_com">
 																
-															</div>
+															</div> -->
 														</div>
 															
 													</div>
@@ -463,6 +462,7 @@
 				//alert(  " vdo id " + new_video_id);
 				getVideoPlaylist();
 				//alert(data.url);
+				getCommentWithSub(video_id);
 				
 				$("#video_title").html(data.name);
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
@@ -478,7 +478,7 @@
 		video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
-			'src' : 'https://youtu.be/'+url+'',
+			'src' : 'https://youtu.be/'+url+''
 			//'preload': 'auto'
 		});
 		
@@ -501,6 +501,7 @@
 				//alert(new_video_id + "default" );				
 				video_title += data.name;
 				$("#video_title").html(video_title);
+				getCommentWithSub(data.id);
 				myplayers(data.url);
 				
 				//action defaut 
@@ -555,7 +556,6 @@
 				//alert(11);
 			});
 			//$("body").mousemove(function(){
-			
 		function set_time(){					
 			var cur_min = 0;
 			var cur_sec = 0;
@@ -628,8 +628,9 @@
 			$("#comment").focusout(function() {
 				$("#btnComments").fadeOut();
 				$("#btnComments").css("margin-bottom", "10px");
-			});
-			
+
+			});	
+
 			$("#btn_reply_click").click(function(){
 				$("#form_reply").slideDown(2000);
 				$("#btn_reply_click").hide();	
@@ -763,18 +764,82 @@
 		}
 
 		//function for add comment
-		function addComment() {
+		function addComment(){
+			
 			$.ajax({
 				url : "addComment",
 				method : "POST",
 				data : {
 					comment : $("#comment").val(),
 					user_id : <%=session.getAttribute("userID")%>,
-					video_id :new_video_id
+					video_id :new_video_id,
+					parent_id : parent_id
 				}
 			});
 		}
 	
+		function getRecAndPopVideo(){
+			var video_id = <%=request.getParameter("v")%>;
+			var playlist_id = <%=request.getParameter("p")%>;
+			$.ajax({
+				url : "playPopAndRecVideo",
+				method : "GET",
+				data : {
+					video_id : video_id,
+					playlist_id : playlist_id
+				},
+				success : function(){
+					getVideoPlaylist();
+					getVideoPlay(video_id);
+					alert(hello);
+				}
+			});
+		}
+		var comment_parent_id = 0;
+		function getCommentWithSub(video_id){
+			alert(video_id);
+			var str = "";
+			$.ajax({
+				url : "getAllCommentAndSub",
+				method : "POST",
+				dataType: "JSON",
+				data: {
+					video_id : video_id
+				},
+				success: function(data){
+					for(var i in data){
+						alert("Parent"+i);
+						for(var j in data[i]){
+							//alert("Parent"+data[i][j].description);
+							//$("#list_parent_comment").html(data[i][j].description);
+							alert("Child"+data[i][j].description1);
+							str += '<div class="">';
+								str +='<span><b>Prem Chanthorn</b></span>';
+							str +='</div>';
+							str += '<div class="">10 minutes ago</div><br />';
+							str += '<div class="">'+data[i][j].description+'</div>';
+
+							str += '<div class="row">';
+							str += '<div class="col-md-2 col-sm-2"></div>';
+						    str += '<div class="col-md-11 col-sm-11 col-xs-12">';
+						    	str +='<button class=" btn btn-default pull-left" id="btn_reply_click" style="margin: 20px;">Reply</button>';
+							str += '<form role="form" action="" method="post" id="form_reply">';
+								str += '<div class="form-group">';
+								str += '<label></label>';
+								str += '<textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea>';
+								str += '</div>';
+								str += '<input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/>';
+							str +='</form>';
+						str += '</div>';
+						str += '</div>';
+						str += '<div class="row" id="show_reply_com">'+data[i][j].description1+'</div>';
+						}
+						$("#list_parent_comment").html(str);
+					}
+				}
+			});
+		}
+		
 		upVideoView();
 		getVideoPlaylist();
 	</script>
