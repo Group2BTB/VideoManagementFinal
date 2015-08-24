@@ -8,7 +8,7 @@
 	content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 <link rel="shortcut icon" href="img/favicon.html">
 
-<title>Learnig Room</title>
+<title>User Profile</title>
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -112,7 +112,7 @@ body {
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="category.jsp" class="logo"><span>KHEAV</span></a>
+			<a href="../index.jsp" class="logo"><span>KHEAV</span></a>
 
 			<!--logo end-->
 
@@ -127,7 +127,7 @@ body {
 				</form>
 				<ul class="nav pull-right top-menu">
 
-					<li class="dropdown language"><a data-close-others="true"
+					<!-- <li class="dropdown language"><a data-close-others="true"
 						data-hover="dropdown" data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img src="img/flags/us.png"
 							alt=""> <span class="username">US</span> <b class="caret"></b>
@@ -139,11 +139,11 @@ body {
 									Khmer</a></li>
 							<li><a href="#"><img src="img/flags/kr.png" alt="">
 									Korean</a></li>
-						</ul></li>
+						</ul></li> -->
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="img/avatar1_small.jpg"> <span class="username">heng</span>
+							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user") %></span>
 							<b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">

@@ -108,7 +108,7 @@
 				</form>
 				<ul class="nav pull-right top-menu">
 
-					<li class="dropdown language" id="languages"><a
+					<!-- <li class="dropdown language" id="languages"><a
 						data-close-others="true" data-hover="dropdown"
 						data-toggle="dropdown" class="dropdown-toggle" href="#"> <img
 							src="img/flags/us.png" alt=""> <span class="username">US</span>
@@ -121,7 +121,7 @@
 									Khmer</a></li>
 							<li><a href="#"><img src="img/flags/kr.png" alt="">
 									Korean</a></li>
-						</ul></li>
+						</ul></li> -->
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
@@ -465,7 +465,7 @@
 				getVideoPlaylist();
 				//alert(data.url);
 				getCommentWithSub(video_id);
-				
+				addVideoHistory(video_id);
 				$("#video_title").html(data.name);
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
 				player.load();
@@ -505,6 +505,7 @@
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
+				addVideoHistory(data.id);
 				myplayers(data.url);
 				
 				//action defaut 
@@ -721,6 +722,7 @@
 												}
 												
 										img_style ='style="opacity:0.8;"';
+										$("#watched-later").css("opacity:1");
 									}
 									else{
 										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
@@ -734,7 +736,7 @@
 										
 									}
 
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
@@ -817,35 +819,66 @@
 				},
 				success: function(data){
 					for(var i in data){
-						alert("Parent"+i);
+						//alert("Parent"+i);
 						for(var j in data[i]){
 							//alert("Parent"+data[i][j].description);
 							//$("#list_parent_comment").html(data[i][j].description);
-							alert("Child"+data[i][j].description1);
+							//alert("Child"+data[i][j].description);
 							str += '<div class="">';
 								str +='<span><b>Prem Chanthorn</b></span>';
 							str +='</div>';
 							str += '<div class="">10 minutes ago</div><br />';
 							str += '<div class="">'+data[i][j].description+'</div>';
-
 							str += '<div class="row">';
 							str += '<div class="col-md-2 col-sm-2"></div>';
 						    str += '<div class="col-md-11 col-sm-11 col-xs-12">';
 						    	str +='<button class=" btn btn-default pull-left" id="btn_reply_click" style="margin: 20px;">Reply</button>';
-							str += '<form role="form" action="" method="post" id="form_reply">';
-								str += '<div class="form-group">';
-								str += '<label></label>';
-								str += '<textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea>';
-								str += '</div>';
-								str += '<input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/>';
-							str +='</form>';
-						str += '</div>';
+								str += '<form role="form" action="" method="post" id="form_reply">';
+									str += '<div class="form-group">';
+									str += '<label></label>';
+									str += '<textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea>';
+									str += '</div>';
+									str += '<input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/>';
+								str +='</form>';
+							str += '</div>';
 						str += '</div>';
 						str += '<div class="row" id="show_reply_com">'+data[i][j].description1+'</div>';
 						}
 						$("#list_parent_comment").html(str);
 					}
 				}
+			});
+		}
+		
+
+		function addVideoHistory(video_id){
+			var user_id = <%=session.getAttribute("userID")%>
+			$.ajax({
+				url : "addHistory",
+				method : "POST",
+				dataType : "JSON",
+				data :{
+					video_id : video_id,
+					user_id : user_id
+				},
+				success : function(){
+					alert("Inserted successfully!");
+				}
+			});
+		}
+		
+		function addVideoWatchedLater(video_id){
+			$.ajax({
+				url : "addWatchedLater",
+				method  :"POST",
+				data : {
+					video_id : video_id,
+					user_id : <%=session.getAttribute("userID")%>
+				},
+				success : function(){
+					alert("Watched Later Inserted!");
+				}
+			
 			});
 		}
 		
