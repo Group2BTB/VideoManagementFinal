@@ -44,6 +44,14 @@
     <url-pattern>/updateViewComment</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>getAllCommentAndSub</servlet-name>
+    <servlet-class>controller.comment.ListAllCommentAndSub</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getAllCommentAndSub</servlet-name>
+    <url-pattern>/ELearning/Dashboard/getAllCommentAndSub</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>listQuestion</servlet-name>
     <servlet-class>controller.question.listQuestion</servlet-class>
   </servlet>
@@ -344,6 +352,14 @@
     <url-pattern>/ELearning/Dashboard/getPopAndRecVideo</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>playPopAndRecVideo</servlet-name>
+    <servlet-class>controller.video.PlayRecAndPopVideo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>playPopAndRecVideo</servlet-name>
+    <url-pattern>/ELearning/Dashboard/playPopAndRecVideo</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>getPopVideo</servlet-name>
     <servlet-class>controller.video.getVideoPopular</servlet-class>
   </servlet>
@@ -375,7 +391,7 @@
     <servlet-name>getWatchedLater</servlet-name>
     <url-pattern>/ELearning/Dashboard/getWatchedLater</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>deleteallWatchLater</servlet-name>
     <servlet-class>controller.watchedLater.deleteallWatchLater</servlet-class>
   </servlet>
@@ -439,8 +455,7 @@
     <servlet-name>updatedept</servlet-name>
     <url-pattern>/updatedept</url-pattern>
   </servlet-mapping>
- 
- <servlet>
+  <servlet>
     <servlet-name>deletehistory</servlet-name>
     <servlet-class>controller.history.deletehistory</servlet-class>
   </servlet>
@@ -448,7 +463,7 @@
     <servlet-name>deletehistory</servlet-name>
     <url-pattern>/ELearning/Dashboard/deletehistory</url-pattern>
   </servlet-mapping>
- <servlet>
+  <servlet>
     <servlet-name>deleteallhistory</servlet-name>
     <servlet-class>controller.history.deleteallhistory</servlet-class>
   </servlet>
