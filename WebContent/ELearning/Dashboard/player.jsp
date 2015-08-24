@@ -459,6 +459,7 @@
 				
 				new_video_id = video_id; 
 				count_views = data.view;
+				upVideoView();
 				//alert(  " vdo id " + new_video_id);
 				getVideoPlaylist();
 				//alert(data.url);
@@ -637,9 +638,11 @@
 				
 			}); 
 			$("#btn_reply").click(function(){
+				
 				var a ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-				+'<b>Chann vichet</b></span>'+
+				+'<b>Chann vihcet</b></span>'+
 				'<div class="col-xs-12">10 minutes ago</div><br /><div class="col-xs-12" id="reply_com">' +$("#comment_reply").val()+ '</div></div></div>';				
+							 
 				
 				$("#show_reply_com").prepend(a);
 				$("#show_reply_com").show();
@@ -668,7 +671,9 @@
 			function do_reply(id){				
 					$("#form_reply" + id).slideDown(2000);
 					$("#btn_reply_click" + id).hide();				
-				}	
+				}
+			
+			
 		//function for list playlist 
 		 function getVideoPlaylist() {
 			var str = "";
@@ -693,6 +698,7 @@
 							
 							for ( var i in data) {
 								for ( var j in data[i]) {
+									
 									//alert(data[i][j].video_id);
 									substring = data[i][j].video_name;
 									//alert(substring);
@@ -700,6 +706,7 @@
 										substring = substring.substr(0, 29)
 												+ "...";
 									}
+									
 									if(data[i][j].user_id == user_id_playlist){
 										
 										var str1 = '<b> Watched </b>';
@@ -721,9 +728,10 @@
 									}
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == new_video_id)) {
 										
-										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;	
-										count_views =  data[i][j].view;
-										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";}										
+										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;											
+										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";
+										}	
+										
 									}
 
 									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
@@ -732,6 +740,7 @@
 									count++;
 									
 								}	
+								
 							}							
 							var percentwatch = Math.ceil((totalwatch*100)/count) + "%";
 							$("#totalvideo").html(
