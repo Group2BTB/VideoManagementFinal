@@ -175,7 +175,7 @@
 								<!--====== Videos Play ======-->
 								<div class="col-md-8" id="videos_play" style="padding:0px;">
 									<div id="myplayerwrapper">
-										<video id="vid1" class="video-js vjs-default-skin" controls
+										<video id="vid1" class="video-js vjs-default-skin vjs-big-play-centered" controls
 											preload="auto" autoplay width="640" height="360"
 											currentTime="60">
 										</video>
@@ -450,8 +450,30 @@
 	<script>
 	getDefaultVideo();
 	
+	//convert time		
+	function convert_time(str_time){	
+		//alert(str_time);
+		str_time = str_time+"";
+		var s=(str_time.split(":"));
+		var sec=(Number(s[0]*60))+Number(s[1]);
+		
+		return (sec);
+		
+	}
+	function myplayers(url, times){
+		video = document.querySelector('video');
+		player = videojs(video, {
+			'techOrder' : [ 'youtube' ],			
+			'src' : 'https://youtu.be/'+url+''
+			//'preload': 'auto'
+		},
+		function() {
+			  this.seek({ 'seek_param': times });
+			}
+		);		
+	}
 	function getVideoPlay(video_id, times){
-		player.pause();
+		//player.pause();
 		//var video_title = "";
 		
 		$.ajax({
@@ -476,6 +498,9 @@
 				$("#video_title").html(data.name);
 				getVideoPlaylist();
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
+				player.ready(function(){
+					player.currentTime(times);
+				});
 			 	player.load();
 				player.play();
 				player.show(); 	 			
@@ -487,19 +512,7 @@
 		
 	}
 	
-	function myplayers(url,times){
-		video = document.querySelector('video');
-		player = videojs(video, {
-			'techOrder' : [ 'youtube' ],			
-			'src' : 'https://youtu.be/'+url+''
-			//'preload': 'auto'
-		},
-		function() {
-			  this.seek({ 'seek_param': times });
-			}
-		);
-				
-	}
+	
 	
 	function getDefaultVideo(){
 		var video_title = "";
@@ -519,7 +532,7 @@
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
 				addVideoHistory(data.id);
-				
+				myplayers(data.url);
 			}
 		});			
 	}
@@ -749,13 +762,10 @@
 										
 									}
 
-
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
-
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
-									
 								}	
 								
 							}							
@@ -770,24 +780,12 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							$("#count_views").html( "View : " +count_views);
-							//alert(convert_time(times));							
-							myplayers(url_videos,convert_time(times));
-							
-							} 
+						} 
 						
-					});
+				});
 		}
 			
-		//convert time		
-		function convert_time(str_time){			
-			var s=(str_time.split(":"));
-			var sec=(Number(s[0]*60))+Number(s[1]);
-			
-			return (sec);
-			
 		
-		
-		}
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
@@ -849,7 +847,7 @@
 				success: function(data){
 					for(var i in data){
 		for (var j in data[i] ){
-							alert(data[i][j].description);
+							//alert(data[i][j].description);
 					
 							$("#content_comment").html(data[i][j].description);
 							
