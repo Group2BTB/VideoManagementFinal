@@ -64,11 +64,10 @@
 					</form>
 				</div>
 				<!-- End modal body-->
-
+				
 				<!-- End modal footer -->
 			</div>
 			<!-- End modal content -->
-
 		</div>
 	</div>
 

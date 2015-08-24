@@ -199,8 +199,10 @@
 										</div>
 										<div class="row">
 											<div class="col-md-12" style="text-align: right;">
-												<p>
-													<b id="count_views" style="font-size: 16px;">Veiws:</b> 
+											
+												<p>	
+											
+													<b>Comments: </b><b id="count_views" style="font-size: 16px;">Veiws:</b> 
 												</p>
 											</div>
 										</div>
@@ -258,18 +260,19 @@
 														</form>
 													</div>
 												</div>
-												<div id="show_comments"></div>
+												
 												 <div class="col-md-12 comments" id="comment_box">
-													<div class="row" style= "border:1px solid #000; border-radius:5px; padding:5px;">
+													<!-- <div class="row" style= "border:1px solid #000; border-radius:5px; padding:5px;">
 														<div class="col-md-1 col-sm-1 col-xs-3 img-responsive">
 															<img src="../videoplayer/avatar.png" width="50">
 														</div>
 														<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment">
-															<!-- <div class="">
+														
+														 <div>
 																<span><b>Prem Chanthorn</b></span>
 															</div>
-															<div class="">10 minutes ago</div><br />
-															<div class=""></div>
+															<div id="time_comment">10 minutes ago</div><br />
+															<div id="content_comment">I like it</div>
 
 															<div class="row">
 															<div class="col-md-2 col-sm-2"></div>
@@ -290,15 +293,15 @@
 															</div>
 																
 															</div>
-															Show reply
+															Show reply 
 															<div class="row" id="show_reply_com">
 																
-															</div> -->
+															</div> 
 														</div>
 															
-													</div>
+													</div> -->
 												
-												</div>  
+												</div> 
 											</div>
 											<!------End of Comment------>
 										</div>
@@ -377,7 +380,8 @@
 	<script src="js/slidebars.min.js"></script>
 	<!--common script for all pages-->
 	<script src="js/common-scripts.js"></script>
-	
+<script src="../js/videojs-seek.js"></script>
+<script src="../js/Gruntfile.js"></script>
 
 
 	<script>
@@ -389,6 +393,7 @@
 		//var vPlayer = document.getElementById("vid1");
 				
 		/*
+		
 			vPlayer.loop = true;
 		*/
 		$(document).ready(function() {	
@@ -445,9 +450,10 @@
 	<script>
 	getDefaultVideo();
 	
-	function getVideoPlay(video_id){
+	function getVideoPlay(video_id, times){
 		player.pause();
 		//var video_title = "";
+		
 		$.ajax({
 			url : "playVideo",
 			method : "POST",
@@ -461,29 +467,34 @@
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
 				upVideoView();
-				//alert(  " vdo id " + new_video_id);
-				getVideoPlaylist();
-				//alert(data.url);
-				getCommentWithSub(video_id);
 				
+				getCommentWithSub(video_id);				
 				$("#video_title").html(data.name);
+				getVideoPlaylist();
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
-				player.load();
+			 	player.load();
 				player.play();
-				player.show(); 				
+				player.show(); 	 			
 				//action click
+				//alert(times);
+
 			}
 		});
+		
 	}
 	
-	function myplayers(url){
+	function myplayers(url,times){
 		video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
 			'src' : 'https://youtu.be/'+url+''
 			//'preload': 'auto'
-		});
-		
+		},
+		function() {
+			  this.seek({ 'seek_param': times });
+			}
+		);
+				
 	}
 	
 	function getDefaultVideo(){
@@ -505,8 +516,7 @@
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
-				myplayers(data.url);
-				
+				//myplayers(data.url, convert_time(times));
 				//action defaut 
 			}
 		});			
@@ -529,6 +539,7 @@
 				$("#playlist_show_header").show();
 			}			
 		}
+		
 	</script>
 	<!--====== Video script ======-->
 	<script>
@@ -616,8 +627,7 @@
 			
 		}
 		//add text form textarea to the div below
-		$(document).ready(function() {			
-			
+		$(document).ready(function() {		
 			//show button comment when cussor in the textarea
 			$("#form_reply").hide();
 			$("#btnComments").hide();			
@@ -631,47 +641,46 @@
 				$("#btnComments").css("margin-bottom", "10px");
 
 			});	
-
-			$("#btn_reply_click").click(function(){
-				$("#form_reply").slideDown(2000);
-				$("#btn_reply_click").hide();	
-				
-			}); 
-			$("#btn_reply").click(function(){
-				
-				var a ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-				+'<b>Chann vihcet</b></span>'+
-				'<div class="col-xs-12">10 minutes ago</div><br /><div class="col-xs-12" id="reply_com">' +$("#comment_reply").val()+ '</div></div></div>';				
-							 
-				
-				$("#show_reply_com").prepend(a);
-				$("#show_reply_com").show();
-				$("#comment_reply").val(""); 
-
-			});
+ 
+			
 			$("#btn_cancel").click(function(){							
 				$("#form_reply").hide();
 				$("#btn_reply_click").show();	
 							
 			}); 
+			
 			//reply comment
-				var reply_id = 0;				
-				$("#btnComments").click(function() {	
-						var d = '<div class="row"><div class="col-md-2 col-sm-2 col-xs-2"></div><div class="col-md-11 col-sm-11 col-xs-10"><button class="btn btn-default pull-right" id="btn_reply_click'+ reply_id +'" onclick="do_reply('+ reply_id +')"  style="margin: 20px;">Reply</button><form role="form" action="" method="post" id="form_reply'+ reply_id +'"><div class="form-group"><label></label><textarea class="form-control" rows="2" id="comment_reply" name="comment"></textarea></div><input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/></form></div></div>';
-						var e ='<div class="col-md-12 comments " id="comment_box"><div class="row" style= "border:1px solid #000; border-radius:5px; padding:5px; margin-bottom:10px;"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
-						
+			
+			
+				$("#btnComments").click(function() {
+					var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
+								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
+								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment">'+$("#comment").val()+'</div>';
+								
+					var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
+								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea></div>'+
+								'<input type="button" value="Reply" id="btn_replys" class="pull-right btn btn-default"/></form></div></div>'+
+							 	'<div class="row" id="show_reply_com"></div></div>';
+									 	
 						$("#comment").val("");						
-						$("#show_comments").prepend(e + d);						
-						$("#form_reply"+ reply_id).hide();
-						reply_id++;
-				});
-				
+						$("#comment_box").prepend(a+b);						
+						
+							$("#btn_replys").click(function(){							
+							var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+									+'<b>Chann vihcet</b></span>'+
+									'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com">' +$("#comment_reply").val()+ '</div></div></div>';				
+												 
+							
+							$("#show_reply_com").prepend(c);
+							$("#show_reply_com").show();
+							$("#comment_reply").val(""); 
+
+						});
+				}); 				
 			});
+		
 			//function for show reply
-			function do_reply(id){				
-					$("#form_reply" + id).slideDown(2000);
-					$("#btn_reply_click" + id).hide();				
-				}
+			
 			
 			
 		//function for list playlist 
@@ -695,6 +704,8 @@
 							var img_style;
 							var totalwatch = 0;
 							var lastwatched = "Just watch!!!";
+							var times = 0;
+							var url_videos = "";
 							
 							for ( var i in data) {
 								for ( var j in data[i]) {
@@ -727,14 +738,15 @@
 										img_style = 'style="opacity:1;"';
 									}
 									if((data[i][j].user_id == <%=session.getAttribute("userID")%>) && (data[i][j].video_id == new_video_id)) {
-										
+										times = data[i][j].time;
+										url_videos = data[i][j].youtube_url;
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;											
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";
 										}	
 										
 									}
-
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+									//alert(data[i][j].time);
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
@@ -753,9 +765,23 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							$("#count_views").html( "View : " +count_views);
-					
-						} 
+							//alert(convert_time(times));							
+							myplayers(url_videos,convert_time(times));
+							
+							} 
+						
 					});
+		}
+			
+		//convert time		
+		function convert_time(str_time){			
+			var s=(str_time.split(":"));
+			var sec=(Number(s[0]*60))+Number(s[1]);
+			
+			return (sec);
+			
+		
+		
 		}
 		//increase 1 for view once videos
 		function upVideoView() {
@@ -804,9 +830,9 @@
 				}
 			});
 		}
-		var comment_parent_id = 0;
-		function getCommentWithSub(video_id){
 		
+		var comment_parent_id = 0;	
+		function getCommentWithSub(video_id){		
 			var str = "";
 			$.ajax({
 				url : "getAllCommentAndSub",
@@ -817,33 +843,12 @@
 				},
 				success: function(data){
 					for(var i in data){
-						alert("Parent"+i);
-						for(var j in data[i]){
-							//alert("Parent"+data[i][j].description);
-							//$("#list_parent_comment").html(data[i][j].description);
-							alert("Child"+data[i][j].description1);
-							str += '<div class="">';
-								str +='<span><b>Prem Chanthorn</b></span>';
-							str +='</div>';
-							str += '<div class="">10 minutes ago</div><br />';
-							str += '<div class="">'+data[i][j].description+'</div>';
-
-							str += '<div class="row">';
-							str += '<div class="col-md-2 col-sm-2"></div>';
-						    str += '<div class="col-md-11 col-sm-11 col-xs-12">';
-						    	str +='<button class=" btn btn-default pull-left" id="btn_reply_click" style="margin: 20px;">Reply</button>';
-							str += '<form role="form" action="" method="post" id="form_reply">';
-								str += '<div class="form-group">';
-								str += '<label></label>';
-								str += '<textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea>';
-								str += '</div>';
-								str += '<input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/>';
-							str +='</form>';
-						str += '</div>';
-						str += '</div>';
-						str += '<div class="row" id="show_reply_com">'+data[i][j].description1+'</div>';
+						for (var j in data[i] ){
+							alert(data[i][j].description);
+					
+							$("#content_comment").html(data[i][j].description);
+							
 						}
-						$("#list_parent_comment").html(str);
 					}
 				}
 			});
