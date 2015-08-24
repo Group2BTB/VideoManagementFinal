@@ -504,9 +504,6 @@
 			}
 		});			
 	}
-	
-		
-		
 		function srollhide() {
 			var w = innerWidth;
 			if (w < 990) {				
@@ -645,9 +642,7 @@
 				$("#comment_reply").val(""); 
 
 			});
-			$("#btn_cancel").click(function(){
-			
-							
+			$("#btn_cancel").click(function(){							
 				$("#form_reply").hide();
 				$("#btn_reply_click").show();	
 							
