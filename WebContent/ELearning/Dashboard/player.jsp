@@ -260,7 +260,7 @@
 												</div>
 												<div id="show_comments"></div>
 												 <div class="col-md-12 comments" id="comment_box">
-													<div class="row">
+													<div class="row" style= "border:1px solid #000; border-radius:5px; padding:5px;">
 														<div class="col-md-1 col-sm-1 col-xs-3 img-responsive">
 															<img src="../videoplayer/avatar.png" width="50">
 														</div>
@@ -272,7 +272,7 @@
 															<div class="">I really like this
 																website.</div>
 
-															<div class="row">
+															<div class="row" >
 															<div class="col-md-2 col-sm-2"></div>
 															<div class="col-md-11 col-sm-11 col-xs-12">
 																	<button class=" btn btn-default pull-left" id="btn_reply_click"
@@ -636,11 +636,9 @@
 				
 			}); 
 			$("#btn_reply").click(function(){
-				
-				var a ='<div class="col-md-12"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-				+'<b>Prem Chanthorn</b></span>'+
+				var a ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+				+'<b>Chann vichet</b></span>'+
 				'<div class="col-xs-12">10 minutes ago</div><br /><div class="col-xs-12" id="reply_com">' +$("#comment_reply").val()+ '</div></div></div>';				
-							 
 				
 				$("#show_reply_com").prepend(a);
 				$("#show_reply_com").show();
@@ -656,7 +654,7 @@
 				var reply_id = 0;				
 				$("#btnComments").click(function() {	
 						var d = '<div class="row"><div class="col-md-2 col-sm-2 col-xs-2"></div><div class="col-md-11 col-sm-11 col-xs-10"><button class="btn btn-default pull-right" id="btn_reply_click'+ reply_id +'" onclick="do_reply('+ reply_id +')"  style="margin: 20px;">Reply</button><form role="form" action="" method="post" id="form_reply'+ reply_id +'"><div class="form-group"><label></label><textarea class="form-control" rows="2" id="comment_reply" name="comment"></textarea></div><input type="button" value="Reply" id="btn_reply" class="pull-right btn btn-default" onclick="" style="margin-right: 20px;"/></form></div></div>';
-						var e ='<div class="col-md-12 comments box_comment" id="comment_box"><div class="row"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
+						var e ='<div class="col-md-12 comments " id="comment_box"><div class="row" style= "border:1px solid #000; border-radius:5px; padding:5px; margin-bottom:10px;"><div class="col-md-1 col-sm-1 col-xs-2 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-11"><div class="col-md-5 col-xs-9 col-sm-5"><span><b>Prem Chanthorn</b></span></div><div class="col-md-5 col-xs-9 col-sm-5">10 minutes ago</div><div class="col-md-11 col-xs-9 col-sm-10"><span>' + $("#comment").val() + '</span></div>';
 						
 						$("#comment").val("");						
 						$("#show_comments").prepend(e + d);						
@@ -669,9 +667,7 @@
 			function do_reply(id){				
 					$("#form_reply" + id).slideDown(2000);
 					$("#btn_reply_click" + id).hide();				
-				}
-			
-			
+				}	
 		//function for list playlist 
 		 function getVideoPlaylist() {
 			var str = "";
