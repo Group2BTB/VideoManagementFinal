@@ -218,14 +218,14 @@ body {
 							<li class=""><a href="#panel-watch-later" data-toggle="tab"
 								aria-expanded="true"><i class="fa  fa-clock-o"></i> Watch
 									Later</a></li>
-							<li class=""><a href="#panel-courses" data-toggle="tab"
-								aria-expanded="false"><i class="fa  fa-book "></i> Courses </a></li>
-							<li class="pull-right"><a
+						<!-- 	<li class=""><a href="#panel-courses" data-toggle="tab"
+								aria-expanded="false"><i class="fa  fa-book "></i> Courses </a></li> -->
+							<!-- <li class="pull-right"><a
 								class="btn btn-success btn-rounded-lg" href="video.act"
 								data-effect="mfp-zoom-in" data-toggle="modal"
 								data-target="#myModal"> <i class="fa fa-cloud-upload"></i>
 									Upload video
-							</a></li>
+							</a></li> -->
 						</ul>
 					</div>
 					<div ng-app="myapp"    id="panel-collapse-1" class="collapse in">
@@ -361,6 +361,7 @@ body {
 													placeholder="Search category">
 											</form>
 										</div>
+									</div>
 										<!-- /.btn-group .pull-right -->
 									<div id="getWatchlater" >
 										<div class="alert alert-info"  ng-repeat="d in filtered = (list1 | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
@@ -389,56 +390,7 @@ body {
 																<br>
 																<li><a><span class="small text-muted"
 																		style="color: #AAB2BD"></span></a></li>
-									<div id="getWatchlater">
-										<div class="alert alert-info">
-											<div class="the-box no-border store-list">
-												<div class="media">
-													<a class="pull-left" href="player.jsp"><img alt="image"
-														class="store-image img-responsive"
-														src="https://i.ytimg.com/vi/g1dNbTBvEHc/mqdefault.jpg"
-														style="width: 200px; padding: 20px;"></a>
-													<div class="clearfix visible-xs"></div>
-													<div class="media-body" style="overflow: visible">
-														<a href="#fakelink"></a>
-														<div class="btn-group pull-right">
-															<button type="button"
-																class="btn btn-default btn-sm dropdown-toggle"
-																data-toggle="dropdown" aria-expanded="false">
-																<i class="fa fa-cog"></i>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li><a href="../elearning/play.act?v=11">Play</a></li>
-																<li><a href="#"
-																	onclick="deletehistory('deletehistory.act?historyid=3788&amp;page=1')">Remove
-																		from watch later</a></li>
-															</ul>
-															<p class="hidden-xs"></p>
-															<span class="small text-muted" style="color: #AAB2BD"><i
-																class="fa fa-eye">&nbsp;&nbsp;{{d.view}}</i>
-																&nbsp;&nbsp;&nbsp; </span><br> <br>
-															<div class="progress" ng-show="d.percent">
-																<!-- <div  class="progress-bar progress-bar-success progress-bar-striped"
-																	role="progressbar" aria-valuenow="{{d.percent}}" aria-valuemin="0"
-																	aria-valuemax="100" style="width: {{d.percent}}">
-																	<span class="text-info" style="color: #fff"><i
-																		class="fa fa-clock-o"></i> </span>{{d.time}} ({{d.percent}}&nbsp;completed)
-																</div> -->
-																<!-- <div
-																	class="progress-bar progress-bar-info progress-bar-striped active"
-																	role="progressbar" aria-valuenow="" aria-valuemin="0"
-																	aria-valuemax="100" style="width: ">
-																	<span class="text-info" style="color: #fff"><i
-																		class="fa fa-clock-o"></i> </span> ({{100-d.time}}%&nbsp;remain)
-																</div> -->
-															</div>
-														</div>
-														<ul class="list-inline">
-															<li><a href="../elearning/play.act?v=11"><strong
-																	class="text-black">Introduction, Syntax,
-																		Selectors &amp; How to Apply</strong></a></li>
-															<br>
-															<li><a><span class="small text-muted"
-																	style="color: #AAB2BD"> by Admin</span></a></li>
+																								
 														</ul>
 														<p class="hidden-xs"></p>
 														<span class="small text-muted" style="color: #AAB2BD"><i
