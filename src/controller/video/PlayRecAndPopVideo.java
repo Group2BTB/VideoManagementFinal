@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import model.dao.PlayListDAO;
+import model.dao.VideoDAO;
+import model.dto.Video;
 
 /**
  * Servlet implementation class PlayRecAndPopVideo
@@ -43,8 +47,15 @@ public class PlayRecAndPopVideo extends HttpServlet {
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		int video_id = Integer.parseInt(request.getParameter("video_id"));
 		int playlist_id = Integer.parseInt(request.getParameter("playlist_id"));
-		
-		String str = new PlayListDAO().getVideoPlaylist(playlist_id);
+		Video video = new VideoDAO().getVideo(video_id);
+		String str  = new Gson().toJson(video);
+		try {
+			response.getWriter().write(str);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Playlist and Video id: "+video_id+""+playlist_id);
 	}
 
 }
