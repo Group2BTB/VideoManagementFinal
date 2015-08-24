@@ -233,8 +233,7 @@ body {
 							<div class="tab-content">
 								<!-- history -->
 								<div  ng-controller="hiscontroller" class="tab-pane fade active in" id="panel-history">
-								<div ng-app="myapp" ng-controller="hiscontroller"
-									class="tab-pane fade active in" id="panel-history">
+								
 									<div class="btn-toolbar top-table" role="toolbar">
 										<div class="btn-group">
 											<form role="form" id="frmSetNumrowHistory">
