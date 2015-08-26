@@ -202,7 +202,7 @@
 											
 												<p>	
 											
-													<b>Comments: </b><b id="count_views" style="font-size: 16px;">Veiws:</b> 
+													<b id="count_comment" style="font-size: 16px; border-right:1px solid #000;">Comments: </b><b id="count_views" style="font-size: 16px;">Veiws:</b> 
 												</p>
 											</div>
 										</div>
@@ -493,7 +493,7 @@
 				//alert(  " vdo id " + new_video_id);
 				getVideoPlaylist();
 				//alert(data.url);
-				getCommentWithSub(video_id);
+				//getCommentWithSub(video_id);
 				addVideoHistory(video_id);
 				$("#video_title").html(data.name);
 				getVideoPlaylist();
@@ -506,7 +506,8 @@
 				player.show(); 	 			
 				//action click
 				//alert(times);
-
+				getCommentWithSub(video_id);
+				
 			}
 		});
 		
@@ -723,10 +724,12 @@
 							var times = 0;
 							var url_videos = "";
 							
+							
+							
 							for ( var i in data) {
 								for ( var j in data[i]) {
 									
-									//alert(data[i][j].video_id);
+									
 									substring = data[i][j].video_name;
 									//alert(substring);
 									if (substring.length > 32) {
@@ -735,7 +738,7 @@
 									}
 									
 									if(data[i][j].user_id == user_id_playlist){
-										
+									
 										var str1 = '<b> Watched </b>';
 										totalwatch++;
 										
@@ -781,7 +784,9 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							$("#count_views").html( "View : " +count_views);
-						} 
+							
+							
+							} 
 						
 				});
 		}
@@ -837,7 +842,8 @@
 		
 		var comment_parent_id = 0;	
 		
-		function getCommentWithSub(video_id){		
+		function getCommentWithSub(video_id){	
+			$("#comment_box").html("");
 			var str = "";
 			$.ajax({
 				url : "getAllCommentAndSub",
@@ -851,14 +857,17 @@
 					var parent_id = 0;
 					var child_id = 0;
 					var reply_com_id = 0;
+					var count_comments = 0 ;	
 					for(var i in data){
-						for (var j in data[i] ){
-							
-							if(data[i][j].description1 != null && k == 0){								
 						
+						
+						for (var j in data[i] ){						
+							
+							if(data[i][j].description1 != null && k == 0){			
+								count_comments += 2;
 							var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 							'<div class="col-md-10 col-sm-10 col-xs-9"><div>'+
-							'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+							'<span><b>'+ data[i][j].userName +'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 							
 							var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 							'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+ reply_com_id +'" name="comment"></textarea></div>'+
@@ -867,10 +876,10 @@
 							
 							$("#comment").val("");						
 							$("#comment_box").prepend(a+b);		
-									
+								
 								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-								+'<b>Chann vihcet</b></span>'+
-								'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
+								+'<b>'+ data[i][j].userName1 +'</b></span>'+
+								'<div class="col-xs-12">'+ data[i][j].create_date1 +'</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
 								$("#show_reply_com").prepend(c);
 								$("#show_reply_com").show();
 								
@@ -880,18 +889,23 @@
 								reply_com_id++;
 								
 							} else if(data[i][j].description1 != null && k > 0){
+								
+								count_comments++;
+								
 								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-									+'<b>Chann vihcet</b></span>'+
-									'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
+									+'<b>'+ data[i][j].userName1 +'</b></span>'+
+									'<div class="col-xs-12">'+ data[i][j].create_date1 +'</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
 									$("#show_reply_com").prepend(c);
 									$("#show_reply_com").show();
 									
 									child_id++;
 								
 							}else {
+								count_comments ++;
+								
 								var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
-								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+								'<span><b>'+ data[i][j].userName +'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 								
 								var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply '+reply_com_id +'" name="comment"></textarea></div>'+
@@ -905,6 +919,8 @@
 							}
 						}
 					}
+					
+					$("#count_comment").html("Comments : " + count_comments + "  ");
 				}
 			});
 		}
