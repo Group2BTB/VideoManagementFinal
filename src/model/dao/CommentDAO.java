@@ -38,8 +38,7 @@ public class CommentDAO {
 		
 		if(cm.getParent_id() != 0)			
 			str = "insert into tb_comment(description, user_id, video_id, parent_id) values(?,?,?,?)";
-		
-		
+				
 		try(Connection con = new DBConnection().getConnection(); //get connection to database
 				PreparedStatement stm = con.prepareStatement(str);){
 					
@@ -204,7 +203,7 @@ public class CommentDAO {
 	public static void main(String[] args) {
 		
 		
-		System.out.println(new CommentDAO().getCommentWithSub(17));
+		System.out.println(new CommentDAO().getCommentWithSub(29));
 	}
 
 }
