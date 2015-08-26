@@ -711,7 +711,7 @@
 						dataType : "JSON",
 						data : {
 							playlist_id :new_playlist_id,
-							user_id : user_id_playlist 
+							user_id : user_id_playlist
 						},
 						success : function(data) {							
 							var substring = "";
@@ -836,6 +836,7 @@
 		}
 		
 		var comment_parent_id = 0;	
+		
 		function getCommentWithSub(video_id){		
 			var str = "";
 			$.ajax({
@@ -846,20 +847,68 @@
 					video_id : video_id
 				},
 				success: function(data){
+					var k = 0;	
+					var parent_id = 0;
+					var child_id = 0;
+					var reply_com_id = 0;
 					for(var i in data){
-		for (var j in data[i] ){
-							//alert(data[i][j].description);
-					
-							$("#content_comment").html(data[i][j].description);
+						for (var j in data[i] ){
 							
-
+							if(data[i][j].description1 != null && k == 0){								
+						
+							var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
+							'<div class="col-md-10 col-sm-10 col-xs-9"><div>'+
+							'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+							
+							var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
+							'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+ reply_com_id +'" name="comment"></textarea></div>'+
+							'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
+						 	'<div class="row" id="show_reply_com"></div></div></div>';
+							
+							$("#comment").val("");						
+							$("#comment_box").prepend(a+b);		
+									
+								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+								+'<b>Chann vihcet</b></span>'+
+								'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
+								$("#show_reply_com").prepend(c);
+								$("#show_reply_com").show();
+								
+								child_id++;
+								parent_id++;
+								k++;
+								reply_com_id++;
+								
+							} else if(data[i][j].description1 != null && k > 0){
+								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+									+'<b>Chann vihcet</b></span>'+
+									'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
+									$("#show_reply_com").prepend(c);
+									$("#show_reply_com").show();
+									
+									child_id++;
+								
+							}else {
+								var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
+								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
+								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+								
+								var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
+								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply '+reply_com_id +'" name="comment"></textarea></div>'+
+								'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
+							 	'<div class="row" id="show_reply_com"></div></div></div>';
+								
+								$("#comment").val("");						
+								$("#comment_box").prepend(a+b);
+								parent_id++;
+								reply_com_id++;
+							}
 						}
 					}
 				}
 			});
 		}
 		
-
 		function addVideoHistory(video_id){
 			var user_id = <%=session.getAttribute("userID")%>
 			$.ajax({
@@ -890,7 +939,6 @@
 			
 			});
 		}
-		
 		upVideoView();
 		getVideoPlaylist();
 	</script>
