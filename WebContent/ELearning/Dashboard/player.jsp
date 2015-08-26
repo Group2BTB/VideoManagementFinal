@@ -47,6 +47,8 @@
 
 <body onresize="srollhide()">
 
+
+
 	<%
 		String str;
 		String title = "1.1. Jquery tutorials for beginner students";
@@ -290,8 +292,7 @@
  											 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;" id="totalwatched">
 									   50%
 									  </div>
-								</div>
-								<p style="color:#00000;">Your Name: <%=session.getAttribute("user")%></p>	
+								</div>	
 								</div>
 								<!-- End proccess bar -->				
 							</div>
@@ -632,7 +633,7 @@
 				$("#btnComments").click(function() {
 					var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
-								'<span><b>'+'<%=session.getAttribute("user")%>'+'</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment">'+$("#comment").val()+'</div>';
+								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment">'+$("#comment").val()+'</div>';
 								
 					var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 								'<form role="form" action="" method="post" id="form_reply"><div class="row" id="show_reply_com"></div><div class="form-group"><textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea></div>'+
@@ -828,11 +829,12 @@
 							var reply_com_id = 0;
 							for(var i in data){
 								for (var j in data[i] ){
+									//alert(data[i][j].create_date);
 									if(data[i][j].description1 != null && k == 0){								
 								
 									var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 									'<div class="col-md-10 col-sm-10 col-xs-9"><div>'+
-									'<span><b>'+'<%=session.getAttribute("user")%>'+'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+									'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 									
 									var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 									'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+ reply_com_id +'" name="comment"></textarea></div>'+
@@ -865,7 +867,7 @@
 									}else {
 										var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 										'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
-										'<span><b>'+'<%=session.getAttribute("user")%>'+'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
+										'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 										
 										var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 										'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply '+reply_com_id +'" name="comment"></textarea></div>'+
@@ -918,6 +920,6 @@
 		upVideoView();
 		getVideoPlaylist();
 	</script>
-	
+
 </body>
 </html>
