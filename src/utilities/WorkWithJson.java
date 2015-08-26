@@ -328,6 +328,7 @@ public class WorkWithJson {
 					cm.setUserID(rs.getLong("user_id"));
 					cm.setVideoID(rs.getLong("video_id"));
 					cm.setView(rs.getInt("view"));
+					cm.setUserName(rs.getString("username"));
 					
 					cm.setId1(rs.getLong("id1"));
 					cm.setDescription1(rs.getString("child"));
@@ -337,6 +338,8 @@ public class WorkWithJson {
 					cm.setUserID1(rs.getLong("user_id1"));
 					cm.setVideoID1(rs.getLong("video_id1"));
 					cm.setView1(rs.getInt("view1"));
+					cm.setUserName1(rs.getString("username1"));
+					
 										
 					suparr.add(cm);
 					
@@ -359,6 +362,7 @@ public class WorkWithJson {
 					cm.setUserID(rs.getLong("user_id"));
 					cm.setVideoID(rs.getLong("video_id"));
 					cm.setView(rs.getInt("view"));
+					cm.setUserName(rs.getString("username"));
 					
 					cm.setId1(rs.getLong("id1"));
 					cm.setDescription1(rs.getString("child"));
@@ -367,7 +371,8 @@ public class WorkWithJson {
 					cm.setUnlike1(rs.getLong("unlike1"));
 					cm.setUserID1(rs.getLong("user_id1"));
 					cm.setVideoID1(rs.getLong("video_id1"));
-					cm.setView1(rs.getInt("view1"));				
+					cm.setView1(rs.getInt("view1"));			
+					cm.setUserName1(rs.getString("username1"));
 					
 //					System.out.println(ca.getName() + " me!");
 					suparr.add(cm);					
