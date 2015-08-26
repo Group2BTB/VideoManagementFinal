@@ -415,7 +415,6 @@
     <servlet-name>addWatchedLater</servlet-name>
     <url-pattern>/ELearning/Dashboard/addWatchedLater</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>addVideoWatched</servlet-name>
     <servlet-class>controller.videoWatched.AddVideoWatched</servlet-class>
@@ -511,6 +510,14 @@
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/ELearning/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>controller.userLogin.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/adminLogin</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>userRegister</servlet-name>
