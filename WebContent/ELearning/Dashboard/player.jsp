@@ -710,7 +710,8 @@
 						method : "POST",
 						dataType : "JSON",
 						data : {
-							playlist_id :new_playlist_id
+							playlist_id :new_playlist_id,
+							user_id : user_id_playlist 
 						},
 						success : function(data) {							
 							var substring = "";
