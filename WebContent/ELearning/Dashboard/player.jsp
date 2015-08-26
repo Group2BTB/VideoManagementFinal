@@ -108,7 +108,7 @@
 				</form>
 				<ul class="nav pull-right top-menu">
 
-					<li class="dropdown language" id="languages"><a
+					<!-- <li class="dropdown language" id="languages"><a
 						data-close-others="true" data-hover="dropdown"
 						data-toggle="dropdown" class="dropdown-toggle" href="#"> <img
 							src="img/flags/us.png" alt=""> <span class="username">US</span>
@@ -121,7 +121,7 @@
 									Khmer</a></li>
 							<li><a href="#"><img src="img/flags/kr.png" alt="">
 									Korean</a></li>
-						</ul></li>
+						</ul></li> -->
 					<!-- user login dropdown start-->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
@@ -175,7 +175,7 @@
 								<!--====== Videos Play ======-->
 								<div class="col-md-8" id="videos_play" style="padding:0px;">
 									<div id="myplayerwrapper">
-										<video id="vid1" class="video-js vjs-default-skin" controls
+										<video id="vid1" class="video-js vjs-default-skin vjs-big-play-centered" controls
 											preload="auto" autoplay width="640" height="360"
 											currentTime="60">
 										</video>
@@ -231,6 +231,8 @@
 												</div>
 											</div>
 										</div>
+										
+										
 										<div class="row container-full">
 											<hr style="padding-top: 30px;">
 											<div class="col-md-12">
@@ -311,7 +313,7 @@
 									<span class="pull-right text-center"
 										style="color: white; margin-top: 13px;" id="totalvideo">Result
 										: 0 Videos</span> <span class="text-center pull-left"
-										style="color: white; margin-top: 13px;">Learn Java</span>
+										style="color: white; margin-top: 13px;">Video Playlist</span>
 								</div>
 								<div class="col-md-4 scrollbar col-sm-12 col-xs-12 bg_black"
 									id="playlist_show">									
@@ -448,8 +450,30 @@
 	<script>
 	getDefaultVideo();
 	
+	//convert time		
+	function convert_time(str_time){	
+		//alert(str_time);
+		str_time = str_time+"";
+		var s=(str_time.split(":"));
+		var sec=(Number(s[0]*60))+Number(s[1]);
+		
+		return (sec);
+		
+	}
+	function myplayers(url, times){
+		video = document.querySelector('video');
+		player = videojs(video, {
+			'techOrder' : [ 'youtube' ],			
+			'src' : 'https://youtu.be/'+url+''
+			//'preload': 'auto'
+		},
+		function() {
+			  this.seek({ 'seek_param': times });
+			}
+		);		
+	}
 	function getVideoPlay(video_id, times){
-		player.pause();
+		//player.pause();
 		//var video_title = "";
 		
 		$.ajax({
@@ -465,11 +489,18 @@
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
 				upVideoView();
-				
-				getCommentWithSub(video_id);				
+
+				//alert(  " vdo id " + new_video_id);
+				getVideoPlaylist();
+				//alert(data.url);
+				getCommentWithSub(video_id);
+				addVideoHistory(video_id);
 				$("#video_title").html(data.name);
 				getVideoPlaylist();
 				player.src('https://www.youtube.com/watch?v='+data.url+'');
+				player.ready(function(){
+					player.currentTime(times);
+				});
 			 	player.load();
 				player.play();
 				player.show(); 	 			
@@ -481,19 +512,7 @@
 		
 	}
 	
-	function myplayers(url,times){
-		video = document.querySelector('video');
-		player = videojs(video, {
-			'techOrder' : [ 'youtube' ],			
-			'src' : 'https://youtu.be/'+url+''
-			//'preload': 'auto'
-		},
-		function() {
-			  this.seek({ 'seek_param': times });
-			}
-		);
-				
-	}
+	
 	
 	function getDefaultVideo(){
 		var video_title = "";
@@ -509,13 +528,11 @@
 				new_video_id = data.id;	
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
-				//alert(data.id);
-				//alert(new_video_id + "default" );				
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
-				//myplayers(data.url, convert_time(times));
-				//action defaut 
+				addVideoHistory(data.id);
+				myplayers(data.url);
 			}
 		});			
 	}
@@ -551,8 +568,10 @@
 			var strcurrent = $(".vjs-current-time-display").text();
 			strcurrent = strcurrent.replace("Current Time", "");
 		}
-	</script>		
-		<!--===== collapse category ======-->	
+	</script>	
+	
+		<!--===== collapse category ======-->
+	
 	<script>
 	
 		//hide button comment
@@ -656,7 +675,7 @@
 					var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea></div>'+
 								'<input type="button" value="Reply" id="btn_replys" class="pull-right btn btn-default"/></form></div></div>'+
-							 	'<div class="row" id="show_reply_com"></div></div></div>';
+							 	'<div class="row" id="show_reply_com"></div></div>';
 									 	
 						$("#comment").val("");						
 						$("#comment_box").prepend(a+b);						
@@ -676,17 +695,7 @@
 			});
 		
 			//function for show reply
-			function addChildComment(comments_id,replys_id){
-										
-					var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-							+'<b>Chann vihcet</b></span>'+
-							'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com">' + $("#"+ replys_id).val() +'</div></div></div>';				
-					
-					$("#"+comments_id).prepend(c);
-					$("#"+comments_id).show();
-					$("#"+ replys_id).val(""); 
 			
-			}
 			
 			
 		//function for list playlist 
@@ -701,7 +710,7 @@
 						method : "POST",
 						dataType : "JSON",
 						data : {
-							playlist_id :new_playlist_id 
+							playlist_id :new_playlist_id
 						},
 						success : function(data) {							
 							var substring = "";
@@ -738,6 +747,7 @@
 												}
 												
 										img_style ='style="opacity:0.8;"';
+										$("#watched-later").css("opacity:1");
 									}
 									else{
 										video_watched='<span style="visibility:hidden;"><b> Watched </b>09:00</span>';
@@ -751,12 +761,11 @@
 										}	
 										
 									}
-									//alert(data[i][j].time);
-									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
+
+									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
 
 											+ substring + '</span></div>';
 									count++;
-									
 								}	
 								
 							}							
@@ -771,24 +780,12 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							$("#count_views").html( "View : " +count_views);
-							//alert(convert_time(times));							
-							myplayers(url_videos,convert_time(times));
-							
-							} 
+						} 
 						
-					});
+				});
 		}
 			
-		//convert time		
-		function convert_time(str_time){			
-			var s=(str_time.split(":"));
-			var sec=(Number(s[0]*60))+Number(s[1]);
-			
-			return (sec);
-			
 		
-		
-		}
 		//increase 1 for view once videos
 		function upVideoView() {
 			$.ajax({
@@ -838,7 +835,6 @@
 		}
 		
 		var comment_parent_id = 0;	
-	
 		function getCommentWithSub(video_id){		
 			var str = "";
 			$.ajax({
@@ -849,65 +845,48 @@
 					video_id : video_id
 				},
 				success: function(data){
-					var k = 0;	
-					var parent_id = 0;
-					var child_id = 0;
-					var reply_com_id = 0;
 					for(var i in data){
-						for (var j in data[i] ){
+		for (var j in data[i] ){
+							//alert(data[i][j].description);
+					
+							$("#content_comment").html(data[i][j].description);
 							
-							if(data[i][j].description1 != null && k == 0){								
-						
-							var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
-							'<div class="col-md-10 col-sm-10 col-xs-9"><div>'+
-							'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
-							
-							var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
-							'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+ reply_com_id +'" name="comment"></textarea></div>'+
-							'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
-						 	'<div class="row" id="show_reply_com"></div></div></div>';
-							
-							$("#comment").val("");						
-							$("#comment_box").prepend(a+b);		
-									
-								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-								+'<b>Chann vihcet</b></span>'+
-								'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
-								$("#show_reply_com").prepend(c);
-								$("#show_reply_com").show();
-								
-								child_id++;
-								parent_id++;
-								k++;
-								reply_com_id++;
-								
-							} else if(data[i][j].description1 != null && k > 0){
-								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
-									+'<b>Chann vihcet</b></span>'+
-									'<div class="col-xs-12">10 minutes agos</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
-									$("#show_reply_com").prepend(c);
-									$("#show_reply_com").show();
-									
-									child_id++;
-								
-							}else {
-								var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
-								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
-								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
-								
-								var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
-								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply '+reply_com_id +'" name="comment"></textarea></div>'+
-								'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
-							 	'<div class="row" id="show_reply_com"></div></div></div>';
-								
-								$("#comment").val("");						
-								$("#comment_box").prepend(a+b);
-								parent_id++;
-								reply_com_id++;
-							}
+
 						}
 					}
 				}
+			});
+		}
+		
+
+		function addVideoHistory(video_id){
+			var user_id = <%=session.getAttribute("userID")%>
+			$.ajax({
+				url : "addHistory",
+				method : "POST",
+				dataType : "JSON",
+				data :{
+					video_id : video_id,
+					user_id : user_id
+				},
+				success : function(){
+					alert("Inserted successfully!");
+				}
+			});
+		}
+		
+		function addVideoWatchedLater(video_id){
+			$.ajax({
+				url : "addWatchedLater",
+				method  :"POST",
+				data : {
+					video_id : video_id,
+					user_id : <%=session.getAttribute("userID")%>
+				},
+				success : function(){
+					alert("Watched Later Inserted!");
+				}
+			
 			});
 		}
 		
