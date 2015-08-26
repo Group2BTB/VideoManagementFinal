@@ -11,6 +11,7 @@ public class Comment {
 	private long unlike;
 	private long parent_id;
 	private long userID;
+	private String userName;
 	private long videoID;	
 	private int view;
 
@@ -20,6 +21,7 @@ public class Comment {
 	private long like1;
 	private long unlike1;
 	private long userID1;
+	private String userName1;
 	private long videoID1;
 	private int view1;
 	
@@ -44,6 +46,26 @@ public class Comment {
 
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+	public String getUserName1() {
+		return userName1;
+	}
+
+
+	public void setUserName1(String userName1) {
+		this.userName1 = userName1;
+	}
+
+
 	public long getId1() {
 		return id1;
 	}
