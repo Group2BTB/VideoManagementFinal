@@ -23,7 +23,7 @@
 
 				<!-- Start modal body -->
 				<div class="modal-body">
-					<form action="login" method="post" class="form-horizontal"
+					<form action="adminLogin" method="post" class="form-horizontal"
 						role="form" onsubmit="return validateLogin();">
 
 						<div class="form-group" id="username_field">
@@ -36,7 +36,6 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="form-group" id="password_field">
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
 								<div class="input-group">
