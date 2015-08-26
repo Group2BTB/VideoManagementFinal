@@ -105,13 +105,19 @@ public class PlayListDAO {
 		}
 	}
 	
-	public String getVideoPlaylist(long playlistId){
+	public String getVideoPlaylist(long playlistId, long userId){
 		
 		/*Create try with resource*/
 		try(Connection con = new DBConnection().getConnection();
-				PreparedStatement stm = con.prepareStatement("select * from \"vPlaylist\" where playlist_id=?");){
+				PreparedStatement stm = con.prepareStatement("select * from \"vPlaylist\" " +
+							" WHERE playlist_id = ? and (user_id = ? or video_id not in (SELECT v.video_id from tb_user_video uv " 
+						+ " INNER JOIN tb_users u on uv.user_id = u.user_id INNER JOIN tb_videos v on uv.video_id = v.video_id where u.user_id = ?))"
+						+ "order by video_id");){
 						
 			stm.setLong(1, playlistId);
+			stm.setLong(2, userId);
+			stm.setLong(3, userId);
+			
 			
 			rs = stm.executeQuery();			
 			
@@ -123,7 +129,7 @@ public class PlayListDAO {
 			ex.printStackTrace();
 			return null;
 		}
-	}
+	}	
 	
 	public Video getVideoDefault(long playlistId){
 		
@@ -164,6 +170,6 @@ public class PlayListDAO {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(new PlayListDAO().getVideoDefault(1).getName());
+		System.out.println(new PlayListDAO().getVideoPlaylist(1,27));
 	}
 }
