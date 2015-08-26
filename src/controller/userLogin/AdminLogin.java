@@ -13,17 +13,15 @@ import model.dao.UserDAO;
 import model.dto.User;
 
 /**
- * Servlet implementation class UserLogin
+ * Servlet implementation class AdminLogin
  */
-
-//@WebServlet("/Elearning/login")
-public class UserLogin extends HttpServlet {
+public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserLogin() {
+    public AdminLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,6 +30,7 @@ public class UserLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
 
@@ -39,9 +38,10 @@ public class UserLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
-
+	
 	public void doProcess(HttpServletRequest request, HttpServletResponse response){
 		String username = request.getParameter("username");//get username from view
 		String password = request.getParameter("password");//get password from view
@@ -50,9 +50,14 @@ public class UserLogin extends HttpServlet {
 			session.setAttribute("user", username);// set session for user
 			User user = new UserDAO().getUser(username, password);
 			session.setAttribute("role", user.getRole());
-			session.setAttribute("userID", user.getId());
 			try {
-				response.sendRedirect("../ELearning/index.jsp");
+				if(user.getRole().equalsIgnoreCase("admin")){
+					session.setAttribute("userID", user.getId());
+					System.out.println(user.getName());
+					response.sendRedirect("Admin/index.jsp");
+				}else{
+					response.sendRedirect("login.jsp");
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -60,11 +65,13 @@ public class UserLogin extends HttpServlet {
 		}else {
 			try {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
-			} catch (ServletException | IOException e) {
+			} catch (ServletException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			
-			}	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 }

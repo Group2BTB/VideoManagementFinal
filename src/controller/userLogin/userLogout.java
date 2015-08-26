@@ -46,7 +46,7 @@ public class userLogout extends HttpServlet {
 		try {
 			//System.out.println("Logout!");
 			response.getWriter().print("Logout successfully!");
-			response.sendRedirect("/VideoManagementFinal/ELearning/index.jsp");
+			response.sendRedirect("ELearning/index.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -45,7 +45,7 @@ public class AdminLogout extends HttpServlet {
 		try {
 			//System.out.println("Logout!");
 			response.getWriter().print("Logout successfully!");
-			response.sendRedirect("/VideoManagementFinal/login.jsp");
+			response.sendRedirect("login.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

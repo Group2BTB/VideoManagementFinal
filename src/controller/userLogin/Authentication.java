@@ -39,12 +39,12 @@ public class Authentication implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpSession session = ((HttpServletRequest)request).getSession();
 		if(session.getAttribute("user")== null){
-			((HttpServletResponse)response).sendRedirect("/VideoManagementFinal/login.jsp");
+			((HttpServletResponse)response).sendRedirect("../login.jsp");
 		}else{
 			if(session.getAttribute("role").equals("admin")){
 				chain.doFilter(request, response);
 			}else{
-				((HttpServletResponse)response).sendRedirect("/VideoManagementFinal/login.jsp");
+				((HttpServletResponse)response).sendRedirect("../Admin/login.jsp");
 			}
 			
 		}
