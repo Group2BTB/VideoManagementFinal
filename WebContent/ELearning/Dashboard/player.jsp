@@ -822,9 +822,7 @@
 					playlist_id : playlist_id
 				},
 				success : function(){
-					getVideoPlaylist();
 					getVideoPlay(video_id);
-					
 				}
 			});
 		}
@@ -947,6 +945,7 @@
 		upVideoView();
 		getVideoPlaylist();
 		getDefaultVideo();
+		getRecAndPopVideo();
 	</script>
 
 </body>
