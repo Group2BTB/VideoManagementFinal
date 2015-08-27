@@ -238,7 +238,7 @@
 							for ( var j in data[i]) {
 								ind++;
 								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
-								//alert(data[i][j].name);
+								//alert(data[i][j].video_name);
 							}
 							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i + '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
 							str = "";
