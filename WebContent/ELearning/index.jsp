@@ -10,7 +10,7 @@
 	content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 <link rel="shortcut icon" href="img/favicon.html">
 
-<title>Learning Room</title>
+<title>KHEAV|Index Page</title>
 
 <!-- Bootstrap core CSS -->
 <link href="Dashboard/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
 					class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
-			<a href="http://localhost:8080/VideoManagementFinal/ELearning/index.jsp" class="logo"><span>KHEAV</span></a>
+			<a href="ELearning/index.jsp" class="logo"><span>KHEAV</span></a>
 
 			<!--logo end-->
 
