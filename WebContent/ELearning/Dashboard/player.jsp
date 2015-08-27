@@ -385,7 +385,7 @@
 
 
 	<script>
-		
+	    var times = 0;
 		var new_video_id = 0;
 		var new_playlist_id  = <%=request.getParameter("p")%>;
 		var count_views = 0;
@@ -424,7 +424,7 @@
 						for ( var i in data) {
 							for ( var j in data[i]) {
 								ind++;
-								str += "<ul class='sub" +count +" sub'><li><a href='playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
+								str += "<ul class='sub" +count +" sub'><li><a href='../playlist?p="+ data[i][j].plId +"'>"+ data[i][j].name+ "</a></li></ul>";
 								//alert(data[i][j].name);
 							}
 							strsup += '<li class="sub-menu"><a href="javascript:dopro('+ count+ ');" onclick="doAddClass(this)"><i class="fa fa-book"></i> <span>'+ i + '</span><span class="badge pull-right">'+ ind + '</span></a>' + str;
@@ -448,7 +448,6 @@
 	</script>
 	<!-- hide some header when scroll less than 768px  -->
 	<script>
-	getDefaultVideo();
 	
 	//convert time		
 	function convert_time(str_time){	
@@ -460,7 +459,7 @@
 		return (sec);
 		
 	}
-	function myplayers(url, times){
+	function myplayers(url, time){
 		video = document.querySelector('video');
 		player = videojs(video, {
 			'techOrder' : [ 'youtube' ],			
@@ -468,7 +467,7 @@
 			//'preload': 'auto'
 		},
 		function() {
-			  this.seek({ 'seek_param': times });
+			  this.seek({ 'seek_param': time });
 			}
 		);		
 	}
@@ -505,7 +504,6 @@
 				player.play();
 				player.show(); 	 			
 				//action click
-				//alert(times);
 				getCommentWithSub(video_id);
 				
 			}
@@ -525,7 +523,6 @@
 			playlist_id : <%=request.getParameter("p")%>
 			},
 			success: function(data){
-				
 				new_video_id = data.id;	
 				count_views = data.view;
 				$("#count_views").html( "View : " +count_views);
@@ -533,7 +530,7 @@
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
 				addVideoHistory(data.id);
-				myplayers(data.url);
+				myplayers(data.url,convert_time(data.time));
 			}
 		});			
 	}
@@ -721,15 +718,10 @@
 							var img_style;
 							var totalwatch = 0;
 							var lastwatched = "Just watch!!!";
-							var times = 0;
 							var url_videos = "";
-							
-							
 							
 							for ( var i in data) {
 								for ( var j in data[i]) {
-									
-									
 									substring = data[i][j].video_name;
 									//alert(substring);
 									if (substring.length > 32) {
@@ -763,7 +755,6 @@
 										lastwatched = "Last watched : " + data[i][j].time + " minute(s)" ;											
 										if(data[i][j].time =="completed"){ lastwatched = data[i][j].time + " watch!";
 										}	
-										
 									}
 
 									str += '<div class="bg_playlist title_playlist playlist_display" onclick="getVideoPlay('+ data[i][j].video_id+','+convert_time(data[i][j].time)+')"> <span class ="watched_Video" onclick="che()">'+ video_watched +'</span><span class="glyphicon glyphicon-time" id="watched-later" onclick="addVideoWatchedLater('+ data[i][j].video_id+')"></span><img src="https://i.ytimg.com/vi/'+ data[i][j].youtube_url+'/mqdefault.jpg" width="150" height="80"'+ img_style +'/><span style="padding-left:15px;">'
@@ -784,8 +775,6 @@
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
 							$("#count_views").html( "View : " +count_views);
-							
-							
 							} 
 						
 				});
@@ -957,6 +946,7 @@
 		}
 		upVideoView();
 		getVideoPlaylist();
+		getDefaultVideo();
 	</script>
 
 </body>
