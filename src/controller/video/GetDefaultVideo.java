@@ -55,8 +55,10 @@ public class GetDefaultVideo extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		long video_id = v.getId();
+		String time = v.getTime();
 		try {
 			Video video = new VideoDAO().getVideo(video_id);
+			video.setTime(time);
 			String str = new Gson().toJson(video);
 			response.getWriter().write(str);
 			System.out.println("get Video Default: "+ str);
