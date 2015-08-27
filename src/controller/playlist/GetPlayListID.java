@@ -40,7 +40,7 @@ public class GetPlayListID extends HttpServlet {
 		int playlist_id = Integer.parseInt(request.getParameter("p"));
 		request.setAttribute("playlist_id", playlist_id);
 		try {
-			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+playlist_id);
+			response.sendRedirect("Dashboard/player.jsp?p="+playlist_id);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
