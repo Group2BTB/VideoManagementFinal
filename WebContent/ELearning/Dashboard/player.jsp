@@ -255,7 +255,7 @@
 															</div>
 															<input type="button" value="Comment" id="btnComments"
 																class="pull-right btn btn-default"
-																onclick="addComment()" />
+																/>
 
 														</form>
 													</div>
@@ -486,7 +486,7 @@
 				
 				new_video_id = video_id; 
 				count_views = data.view;
-				$("#count_views").html( "View : " +count_views);
+				$("#count_views").html( "  View : " +count_views);
 				upVideoView();
 
 				//alert(  " vdo id " + new_video_id);
@@ -525,7 +525,7 @@
 			success: function(data){
 				new_video_id = data.id;	
 				count_views = data.view;
-				$("#count_views").html( "View : " +count_views);
+				$("#count_views").html( "  View : " +count_views);
 				video_title += data.name;
 				$("#video_title").html(video_title);
 				getCommentWithSub(data.id);
@@ -663,18 +663,18 @@
 			}); 
 			
 			//reply comment
-			
-			
 				$("#btnComments").click(function() {
+					
 					var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 								'<div class="col-md-10 col-sm-10 col-xs-9" id="list_parent_comment"><div>'+
-								'<span><b>Prem Chanthorn</b></span></div><div id="time_comment">10 minutes ago</div><br /><div id="content_comment">'+$("#comment").val()+'</div>';
+								'<span><b><%=session.getAttribute("user")%></b></span></div><div id="time_comment">Just now</div><br /><div id="content_comment">'+$("#comment").val()+'</div>';
 								
 					var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
 								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply" name="comment"></textarea></div>'+
 								'<input type="button" value="Reply" id="btn_replys" class="pull-right btn btn-default"/></form></div></div>'+
 							 	'<div class="row" id="show_reply_com"></div></div>';
-									 	
+							 	
+						addComment();			 	
 						$("#comment").val("");						
 						$("#comment_box").prepend(a+b);						
 						
@@ -687,8 +687,10 @@
 							$("#show_reply_com").prepend(c);
 							$("#show_reply_com").show();
 							$("#comment_reply").val(""); 
-
+							
 						});
+							
+							
 				}); 				
 			});
 		
@@ -774,7 +776,7 @@
 							$("#totalwatched").html( totalwatch+ " video(s) " + " (" +percentwatch +")");
 							$("#totalwatched").attr("style", " color:#000000; width: " + percentwatch);
 							$("#lastwatched").html(lastwatched);
-							$("#count_views").html( "View : " +count_views);
+							$("#count_views").html( "  View : " +count_views );
 							} 
 						
 				});
@@ -791,14 +793,14 @@
 					video_id : new_video_id
 				},
 				success : function(data) {
-					//alert(data);
+					
 				}
 			});
 		}
 
 		//function for add comment
-		function addComment(){
-			
+		
+		function addComment(){			
 			$.ajax({
 				url : "addComment",
 				method : "POST",
@@ -806,10 +808,31 @@
 					comment : $("#comment").val(),
 					user_id : <%=session.getAttribute("userID")%>,
 					video_id :new_video_id,
-					parent_id : parent_id
+					parent_id : 0
+					
 				}
 			});
+			
 		}
+		
+		
+		
+		function addSubComment(parent_id, reply_text){			
+			$.ajax({
+				url : "addComment",
+				method : "POST",
+				data : {
+					comment : reply_text,
+					user_id : <%=session.getAttribute("userID")%>,
+					video_id :new_video_id,
+					parent_id : parent_id
+					
+				}
+			});
+			
+		}
+		
+		
 	
 		function getRecAndPopVideo(){
 			var video_id = <%=request.getParameter("v")%>;
@@ -827,11 +850,12 @@
 			});
 		}
 		
-		var comment_parent_id = 0;	
+		
+		
 		
 		function getCommentWithSub(video_id){	
 			$("#comment_box").html("");
-			var str = "";
+			
 			$.ajax({
 				url : "getAllCommentAndSub",
 				method : "POST",
@@ -843,51 +867,56 @@
 					var k = 0;	
 					var parent_id = 0;
 					var child_id = 0;
-					var reply_com_id = 0;
+					var reply_com_id =0;
 					var count_comments = 0 ;	
+					
 					for(var i in data){
-						
+						k=0;
 						
 						for (var j in data[i] ){						
 							
-							if(data[i][j].description1 != null && k == 0){			
+							
+							if(data[i][j].description1 != null && k == 0 ){			
 								count_comments += 2;
 							var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
 							'<div class="col-md-10 col-sm-10 col-xs-9"><div>'+
 							'<span><b>'+ data[i][j].userName +'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 							
 							var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
-							'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+ reply_com_id +'" name="comment"></textarea></div>'+
-							'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
-						 	'<div class="row" id="show_reply_com"></div></div></div>';
-							
+							'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control " rows="2" id="comment_reply'+reply_com_id +'" name="comment"></textarea></div>'+
+							'<input type="button" value="Reply" id="btn_replys" onclick=\"addChildComment(\'show_reply_com' + parent_id + '\',\'comment_reply'+reply_com_id+'\','+ i +')"  class="pull-right btn btn-default"/></form></div></div>'+
+						 	'<div class="row" id="show_reply_com'+parent_id+'"></div></div></div>';
+						
 							$("#comment").val("");						
 							$("#comment_box").prepend(a+b);		
 								
-								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+								var c ='<div class="col-md-12 col-sm-12 col-xs-12 " style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
 								+'<b>'+ data[i][j].userName1 +'</b></span>'+
 								'<div class="col-xs-12">'+ data[i][j].create_date1 +'</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
-								$("#show_reply_com").prepend(c);
-								$("#show_reply_com").show();
+								$("#show_reply_com" + parent_id).prepend(c);
+								$("#show_reply_com" + parent_id).show();
+								
 								
 								child_id++;
 								parent_id++;
 								k++;
 								reply_com_id++;
+						
 								
-							} else if(data[i][j].description1 != null && k > 0){
+							} else if(data[i][j].description1 != null && k > 0 ){
 								
 								count_comments++;
-								
-								var c ='<div class="col-md-12" style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+							
+								var c ='<div class="col-md-12 col-sm-12 col-xs-12 " style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
 									+'<b>'+ data[i][j].userName1 +'</b></span>'+
 									'<div class="col-xs-12">'+ data[i][j].create_date1 +'</div><br /><div class="col-xs-12" id="reply_com '+child_id+'">' + data[i][j].description1 + '</div></div></div>';				
-									$("#show_reply_com").prepend(c);
-									$("#show_reply_com").show();
+									$("#show_reply_com" + (parent_id-1)).prepend(c);
+									$("#show_reply_com" + (parent_id-1)).show();									
 									
 									child_id++;
-								
+									
 							}else {
+								
 								count_comments ++;
 								
 								var a =	'<div class="row" style= "border:1px solid rgb(206, 188, 188); border-radius:5px; padding:5px; margin-top:5px;"><div class="col-md-1 col-sm-1 col-xs-3 img-responsive"><img src="../videoplayer/avatar.png" width="50"></div>'+
@@ -895,14 +924,17 @@
 								'<span><b>'+ data[i][j].userName +'</b></span></div><div id="time_comment">'+ data[i][j].create_date +'</div><br /><div id="content_comment'+ parent_id +'">'+data[i][j].description+'</div>';
 								
 								var b ='<div class="row"><div class="col-md-2 col-sm-2"></div><div class="col-md-11 col-sm-11 col-xs-12">'+
-								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply '+reply_com_id +'" name="comment"></textarea></div>'+
-								'<input type="button" value="Reply" id="btn_replys" onclick="addChildComment('+"show_reply_com"+ parent_id + ', comment_reply' + reply_com_id +')" class="pull-right btn btn-default"/></form></div></div>'+
-							 	'<div class="row" id="show_reply_com"></div></div></div>';
+								'<form role="form" action="" method="post" id="form_reply"><div class="form-group"><label></label><textarea class="form-control "rows="2" id="comment_reply'+reply_com_id +'" name="comment"></textarea></div>'+
+								'<input type="button" value="Reply" id="btn_replys" onclick=\"addChildComment(\'show_reply_com' + parent_id + '\',\'comment_reply'+reply_com_id+'\','+ i +')" class="pull-right btn btn-default"/></form></div></div>'+
+							 	'<div class="row" id="show_reply_com'+ parent_id +'"></div></div></div>';
+							 
 								
-								$("#comment").val("");						
+								
+													
 								$("#comment_box").prepend(a+b);
 								parent_id++;
 								reply_com_id++;
+								$("#comment").val("");
 							}
 						}
 					}
@@ -911,6 +943,27 @@
 				}
 			});
 		}
+		
+		
+		//function for show reply
+		function addChildComment(comments_id,replys_id, parents_id){
+				var date = new Date();
+				var str = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear()  ;
+				
+				comments_id = "#" +comments_id;
+				replys_id ="#" + replys_id;
+				var c ='<div class="col-md-12 col-sm-12 col-xs-12 " style="padding: 5px; border-top: 1px solid rgb(201, 165, 165); border-radius: 0px; margin-top: 10px; width: 90%;"><div class="col-md-1 col-sm-1 col-xs-2"><img src="../videoplayer/avatar.png" width="50"></div><div class="col-md-10 col-sm-10 col-xs-10" ><span class="col-xs-12">'
+				+'<b>Chanthorn</b></span>'+
+				'<div class="col-xs-12">Just now</div><br /><div class="col-xs-12">' + $(replys_id).val() + '</div></div></div>';	
+			
+				$(comments_id).prepend(c);
+				$(comments_id).show();
+				//alert(replys_id);
+				addSubComment(parents_id, $(replys_id).val());
+				$(replys_id).val("");
+		}
+
+
 		
 		function addVideoHistory(video_id){
 			var user_id = <%=session.getAttribute("userID")%>
