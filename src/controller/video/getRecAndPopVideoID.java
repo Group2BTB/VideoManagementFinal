@@ -49,7 +49,7 @@ public class getRecAndPopVideoID extends HttpServlet {
 		int playlist_id = Integer.parseInt(request.getParameter("p"));
 		try {
 			//response.getWriter().write(str_video);
-			response.sendRedirect("/VideoManagementFinal/ELearning/Dashboard/player.jsp?p="+playlist_id+"&v="+video_id);
+			response.sendRedirect("../ELearning/Dashboard/player.jsp?p="+playlist_id+"&v="+video_id);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
