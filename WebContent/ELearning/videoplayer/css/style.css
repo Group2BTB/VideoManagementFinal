@@ -1,9 +1,4 @@
-.bg_black {
 
-	background-color: #1A1A1A;
-	height: 445px;
-
-}
 
 .color_white {
 	color: #fff;
@@ -121,6 +116,12 @@
 		width: 100% !important;
 		
 	}
+	.bg_black {
+
+	background-color: #1A1A1A;
+	height: 445px;
+
+}
 	
 	
 	
@@ -157,6 +158,12 @@ STANDARD DESKTOP 992px <> 1200px
 	
 		font-size:22px !important;
 	}
+	.bg_black {
+
+	background-color: #1A1A1A;
+	height: 295px;
+	font-size:11px;
+}
 }
 /**
 =================================
@@ -189,6 +196,13 @@ TABLET < 1025px
 	
 		font-size:20px !important;
 	}
+	.bg_black {
+
+	background-color: #1A1A1A;
+	height: 265px;
+	font-size:11px;
+
+}
 }
 
 /**
@@ -474,7 +488,7 @@ PHONE < 320px
 	
 }
 
-.playlist_display{margin-top: 10px !important; margin-left:-96px !important;}
+.playlist_display{margin-top: 10px !important; margin-left:-132px !important;}
 
 
 .floatleft{float:left;}
