@@ -91,6 +91,35 @@ public class UserDAO {
 		}		
 	}
 	
+	public boolean insertFBUser(User usr){
+				
+		/*Create try with resource*/
+		try(Connection con = new DBConnection().getConnection(); //get connection to database
+				//field DOB need double quotes on processing(manipulation)
+						PreparedStatement stmInsert = con.prepareStatement("insert into tb_users(username"
+								+ ",passwd,email,fullname,gender,role) "
+								+ " values(?,?,?,?,?,?);")){
+			
+			/*To set data to preparedStatement from user's data*/
+			stmInsert.setString(1, usr.getName().trim());
+			stmInsert.setString(2, usr.getPasswd());
+			stmInsert.setString(3, usr.getEmail().trim());
+			stmInsert.setString(4, usr.getFullName());
+			stmInsert.setString(5, usr.getGender());			
+			stmInsert.setString(6, "FBuser");			
+			
+			if(stmInsert.executeUpdate()==0) //execute the statement
+				return false;
+			
+			return true;
+			
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return false;
+		}	
+	}
+	
 	
 	/**
 	 * Method is to get all users from database
@@ -282,18 +311,18 @@ public class UserDAO {
 		
 //		System.exit(0);
 		
-		User uu = ud.getUser("sss", "11");
-		uu.setFullName("Leang Heng");
-		uu.setProfile("LyLy");
-		
-		System.out.println(ud.updateUser(uu));
-			
-		System.exit(0);
+//		User uu = ud.getUser("sss", "11");
+//		uu.setFullName("Leang Heng");
+//		uu.setProfile("LyLy");
+//		
+//		System.out.println(ud.updateUser(uu));
+//			
+//		System.exit(0);
 		
 		User user = new User();
 		user.setName("heng66");
 		user.setPasswd("11");
-		user.setEmail("qq4");
+		user.setEmail("myemail");
 		user.setFullName("ful2");
 		user.setGender("1");
 		user.setStatus(0);
@@ -307,6 +336,6 @@ public class UserDAO {
 		
 		user.setDOB(c.getTime());
 		
-		System.out.println(new UserDAO().insertUser(user));
+		System.out.println(new UserDAO().insertFBUser(user));
 	}
 }
