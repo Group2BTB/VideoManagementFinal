@@ -107,10 +107,16 @@
 					</div>
 					<button type="submit" class="btn btn-primary btn-sm">Search</button>
 				</form>
+				<%
+						String defaultImg = "Dashboard/img/avatar1_small.jpg";
+						String strImg = (String)session.getAttribute("img");
+						if(strImg == null)
+							strImg = defaultImg;						
+					%>
 				<ul class="nav pull-right top-menu">
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span>
+							src="<%=strImg%>"> <span class="username"><%=session.getAttribute("user")%></span>
 							<b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">

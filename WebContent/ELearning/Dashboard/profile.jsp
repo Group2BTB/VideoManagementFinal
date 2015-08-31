@@ -281,12 +281,12 @@ body {
 																	<i class="fa fa-cog"></i>
 																</button>
 																<ul class="dropdown-menu" role="menu">
-																	<li><a href="../elearning/play.act?v=11">Play</a></li>
+																	<li><a href="../Dashboard/player.jsp?v={{d.history_id}}">Play</a></li>
 																	<li><a href="" ng-click="deletehistory(d.history_id)">Remove from History</a></li>
 																</ul>
 															</div>
 															<ul class="list-inline">
-																<li><a href="../elearning/play.act?v=11"><strong
+																<li><a href="../Dashboard/player.jsp?v={{d.history_id}}"><strong
 																		class="text-black">{{d.video_name}}</strong></a></li>
 																<br>
 																<li><a><span class="small text-muted"
@@ -380,8 +380,8 @@ body {
 																	<i class="fa fa-cog"></i>
 																</button>
 																<ul class="dropdown-menu" role="menu">
-																	<li><a href="../elearning/play.act?v=11">Play</a></li>
-																	<li><a href="" ng-click="deletewatch(d.id)">Remove from History</a></li>
+																	<li><a href="../elearning/player.jsp?v='+d.id+'">Play</a></li>
+																	<li><a href="" ng-click="deletewatch(d.id)">Remove from watchlater</a></li>
 																</ul>
 															</div>
 															<ul class="list-inline">

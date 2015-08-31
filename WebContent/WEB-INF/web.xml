@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>     
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
@@ -520,9 +520,13 @@
     <url-pattern>/adminLogin</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>userRegister</servlet-name>
-    <servlet-class>controller.user.AddUser</servlet-class>
+    <servlet-name>addFBUser</servlet-name>
+    <servlet-class>controller.user.AddFBUser</servlet-class>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>addFBUser</servlet-name>
+    <url-pattern>/ELearning/addFBUser</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>userLogout</servlet-name>
     <servlet-class>controller.userLogin.userLogout</servlet-class>
@@ -539,10 +543,6 @@
     <servlet-name>adminLogout</servlet-name>
     <url-pattern>/Admin/logout</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>userRegister</servlet-name>
-    <servlet-class>controller.user.AddUser</servlet-class>
-  </servlet>
   <servlet>
     <servlet-name>userRegister</servlet-name>
     <servlet-class>controller.user.AddUser</servlet-class>

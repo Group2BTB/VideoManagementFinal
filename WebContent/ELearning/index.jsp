@@ -77,9 +77,15 @@
 									Korean</a></li>
 						</ul></li> -->
 					<!-- user login dropdown start-->
+					<%
+						String defaultImg = "Dashboard/img/avatar1_small.jpg";
+						String strImg = (String)session.getAttribute("img");
+						if(strImg == null)
+							strImg = defaultImg;						
+					%>
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <img alt=""
-							src="Dashboard/img/avatar1_small.jpg"> <span class="username"><%=session.getAttribute("user")%></span> <b class="caret"></b>
+							src="<%=strImg%>"> <span class="username"><%=session.getAttribute("user")%></span> <b class="caret"></b>
 					</a>
 						<ul class="dropdown-menu extended logout">
 							<div class="log-arrow-up"></div>
