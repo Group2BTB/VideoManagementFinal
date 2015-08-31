@@ -809,7 +809,7 @@
 					playlist_id : playlist_id
 				},
 				success : function(){
-					getVideoPlay(video_id);
+					getVideoPlay(video_id); 
 				}
 			});
 		}
