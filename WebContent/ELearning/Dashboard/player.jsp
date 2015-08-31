@@ -893,7 +893,7 @@
 						}
 					}
 					
-					$("#count_comment").html("Comments : " + count_comments + "  ");
+					$("#count_comment").html("Comments : " + count_comments + "  " );
 				}
 			});
 		}
