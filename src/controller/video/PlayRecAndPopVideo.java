@@ -55,7 +55,7 @@ public class PlayRecAndPopVideo extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Playlist and Video id: "+video_id+""+playlist_id);
+		//System.out.println("Playlist and Video id: "+video_id+""+playlist_id);
 	}
 
 }
