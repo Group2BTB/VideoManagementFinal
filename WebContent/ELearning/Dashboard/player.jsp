@@ -193,13 +193,7 @@
 										</div>
 										<button class="btn" id="show_study_process">Show study process</button>
 										<div id="study_process">
-											<h3>Total watched</h3>							
-											 <div class="progress">
-											  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-		 											 aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;" id="totalwatched">
-											   50%
-									  </div>
-								</div>	
+												
 										</div>
 										<hr style="border-color: #545D61; height: 1px; margin-top: 0px;" />
 										<div class="row">
@@ -501,7 +495,8 @@
 				$("#sms").show();
 				$("#bar_proccess").hide();
 				$("#show_study_process").show();
-				
+				$("#study_process").html("");
+				$("#study_process").append($("#bar_proccess").html());				
 
 			}else{
 				
@@ -513,8 +508,10 @@
 				$("#show_study_process").hide();
 				$("#bar_proccess").show();
 				$("#study_process").hide();
+				
 			}			
 		}
+		
 		$("#show_study_process").click(function(){
 			$("#study_process").toggle();
 			
