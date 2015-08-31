@@ -461,9 +461,6 @@
 		});
 		
 	}
-	
-	
-	
 	function getDefaultVideo(){
 		var video_title = "";
 		$.ajax({
@@ -487,7 +484,8 @@
 	}
 		function srollhide() {
 			var w = innerWidth;
-			if (w < 990) {				
+			if (w < 990) {
+				
 				$("#languages").hide();
 				$("#search").hide();				
 				$("#playlist_show").hide();
